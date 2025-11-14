@@ -41,7 +41,7 @@
       <ul class="nav-list">
         <li><a href="/services.html"${isActive('/services') ? ' aria-current="page"' : ''}>Services</a></li>
         <li><a href="/#proof"${isActive('/') ? ' aria-current="page"' : ''}>Proof</a></li>
-        <li><a href="/#pricing"${isActive('/') ? ' aria-current="page"' : ''}>Pricing</a></li>
+        <li><a href="/pricing.html"${isActive('/pricing') ? ' aria-current="page"' : ''}>Pricing</a></li>
         <li><a href="/#how-it-works"${isActive('/') ? ' aria-current="page"' : ''}>How it works</a></li>
       </ul>
       <div class="nav-ctas">
@@ -63,7 +63,7 @@
   <nav id="mobileMenu" class="mobile-drawer" hidden aria-label="Mobile">
     <a href="/services.html">Services</a>
     <a href="/#proof">Proof</a>
-    <a href="/#pricing">Pricing</a>
+    <a href="/pricing.html">Pricing</a>
     <a href="/#how-it-works">How it works</a>
     <a class="btn btn-primary w-full" href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''} onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'mobile-nav'})">Request a Quote</a>
     <a class="btn btn-ghost w-full"
