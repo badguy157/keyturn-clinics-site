@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pricing — Keyturn Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Transparent pricing for clinic website makeovers. Patient-flow focused redesigns from $7,500. Optional ongoing care & growth support.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/public/logo-mark.svg?v=2">
+  <link rel="icon" sizes="32x32" href="/public/favicon-32.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png?v=2">
+  <link rel="stylesheet" href="styles.css">
+  <script src="/public/site.js" defer></script>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Keyturn Studio",
+    "url": "https://www.keyturn.studio",
+    "logo": "https://www.keyturn.studio/public/logo.svg",
+    "description": "Conversion-focused website makeovers for clinics, medspas, and high-value service businesses",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- Product/Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Core Patient-Flow Makeover",
+    "description": "Website rebuild for clinics, medspas, and service businesses with clear booking CTAs and conversion-focused design",
+    "offers": {
+      "@type": "Offer",
+      "price": "7500",
+      "priceCurrency": "USD",
+      "url": "https://www.keyturn.studio/pricing.html"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<main id="main">
+  <!-- ===== Hero / Intro Section ===== -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Pricing</h1>
+      <p class="hero-lede">Built for clinics, medspas, and other high-value service businesses</p>
+      <p style="color:var(--muted);font-size:1rem;margin-top:16px">
+        A handful of extra high-value treatments per month—implants, cosmetic procedures, medspa packages—often covers the project cost in under a year. You get a patient-flow makeover that turns more visitors into booked consultations and scheduled treatments.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Payment Toggle ===== -->
+  <section class="container section">
+    <div class="pay-toggle" role="group" aria-label="Payment options">
+      <label class="switch">
+        <input type="checkbox" id="payToggle" role="switch" aria-checked="false" aria-label="Pay monthly (0% 4-pay)">
+        <span class="slider" aria-hidden="true"></span>
+        <span id="switchLabel" class="switch-label">Pay monthly (0% 4-pay)</span>
+      </label>
+    </div>
+    
+    <p style="text-align:center;margin-top:24px;margin-bottom:32px;color:var(--muted)">
+      Every project includes a full redesign of your key pages and clear "book consult" and call paths. The difference between packages is depth of content, ongoing support, and whether you want regular testing and optimization.
+    </p>
+  </section>
+
+  <!-- ===== Pricing Cards (Core / Pro / Premier) ===== -->
+  <section class="container section">
+    <div class="pricing-grid">
+      <article class="card">
+        <h3 class="card-title">Core Patient-Flow Makeover</h3>
+        <div class="price" data-upfront="$7,500" data-monthly="$1,875/mo × 4">$7,500</div>
+        <p class="who small"><strong>Who this fits:</strong> Smaller single-provider clinics or local practices ready to upgrade from a basic brochure site.</p>
+        <ul class="features">
+          <li>New home page and key treatment pages (3–5 services) that guide visitors toward booking.</li>
+          <li>Clear "Book consultation" and "Call now" buttons throughout, including mobile.</li>
+          <li>Smooth integration with your existing booking or scheduling system.</li>
+          <li>Basic tracking setup: see how many visitors submit forms, click to call, or book online.</li>
+          <li>Fast, mobile-friendly design that loads quickly on any device.</li>
+          <li>Handover pack with all copy, layouts, and settings documented.</li>
+        </ul>
+        <a class="btn btn-primary" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-core'})">Request a Quote</a>
+      </article>
+      
+      <article class="card highlight-card">
+        <div class="card-badge">Most booked</div>
+        <h3 class="card-title">Pro Patient-Flow Makeover</h3>
+        <div class="price" data-upfront="$12,000" data-monthly="$3,000/mo × 4">$12,000</div>
+        <p class="who small"><strong>Who this fits:</strong> Busier practices with multiple chairs or providers where conversion lifts have real impact.</p>
+        <ul class="features">
+          <li>Everything in Core, plus deeper treatment content and more landing pages.</li>
+          <li>Stronger persuasive copy for high-value services (implants, cosmetic, medspa packages, etc.).</li>
+          <li>Extra sections for FAQs, financing options, results/before-and-after, and service bundles.</li>
+          <li>Trust-building elements: reviews, accreditations, and credibility markers that reduce hesitation.</li>
+          <li>More robust tracking and basic reporting so you can see what's working.</li>
+          <li>Layout and image guidance to make your existing assets work harder.</li>
+        </ul>
+        <a class="btn btn-primary" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-pro'})">Request a Quote</a>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Premier Website &amp; Growth Program</h3>
+        <div class="price" data-upfront="$18,000–$25,000" data-monthly="$4,500–$6,250/mo × 4">$18,000–$25,000</div>
+        <p class="who small"><strong>Who this fits:</strong> High-ticket or multi-location teams who want continuous optimization, not just a one-time redesign.</p>
+        <ul class="features">
+          <li>Everything in Pro, plus more audience-specific sections (e.g., implants, cosmetic, membership programs).</li>
+          <li>Additional landing pages for priority treatments, campaigns, or multiple locations.</li>
+          <li>Simple testing plan: we experiment with what works best and adjust based on actual results.</li>
+          <li>Quarterly check-ins to review performance and refine offers, copy, and layout.</li>
+          <li>Optional reporting dashboards for key metrics at a glance.</li>
+        </ul>
+        <a class="btn btn-primary" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-premier'})">Request a Quote</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Ongoing Care & Growth ===== -->
+  <section class="container section">
+    <article class="card pricing-ongoing">
+      <h3 class="card-title">Ongoing Care &amp; Growth (optional month-to-month)</h3>
+      <div class="price">$300–$900/mo</div>
+      <p class="who small">Optional add-ons, not required contracts. Cancel anytime.</p>
+      <ul class="features">
+        <li><strong>Care – $300/mo:</strong> Safe hosting, backups, minor text/photo updates. Monitoring of key forms and call links to catch any issues. Small tweaks as your clinic evolves.</li>
+        <li><strong>Growth – $900/mo:</strong> Everything in Care, plus one meaningful improvement per month (new block/section/landing page). Basic A/B tests where possible. Simple monthly email summary of what changed and key metrics.</li>
+      </ul>
+      <p class="tiny perk">Pilot perk: <strong>first 2 months of Care free</strong>, then $300/mo.</p>
+      <a class="btn btn-primary" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-ongoing'})">Request a Quote</a>
+      <p class="tiny">Alt: $4,500 + $499/mo × 12</p>
+    </article>
+  </section>
+
+  <!-- ===== Who Each Tier Fits ===== -->
+  <section class="container section">
+    <div class="card footnote">
+      <p><strong>Who each tier fits</strong></p>
+      <ul>
+        <li><strong>Core ($7.5k):</strong> Small single-provider clinics ready to upgrade from a basic site to a real patient-booking funnel.</li>
+        <li><strong>Pro ($12k):</strong> Multi-chair practices where better conversion directly impacts revenue—busier clinics with steady patient flow.</li>
+        <li><strong>Premier ($18k–$25k):</strong> Multi-location or heavily cosmetic/implant-focused teams who want continuous testing and quarterly reviews.</li>
+        <li>We also work with boutique hotels and inns (8–30 rooms) where direct bookings matter as much as clinic consultations.</li>
+        <li><strong>Probably not a fit if</strong> your site gets very little traffic, or you're already converting most visitors into patients.</li>
+      </ul>
+      <p style="margin-top:16px;margin-bottom:12px"><strong>ROI / Payback Estimator:</strong> Want to see rough payback time? Use our <a href="/tools/roi.html" style="color:var(--accent);text-decoration:underline">ROI calculator</a> to plug in your approximate values per patient and see how quickly the project could pay for itself.</p>
+      <p class="tiny">0% 4-pay spreads your setup across 4 equal monthly payments; work begins after first payment. Care/Growth are separate, optional month-to-month add-ons.</p>
+    </div>
+  </section>
+
+  <!-- ===== CTA Section ===== -->
+  <section class="container section" id="pricing-cta" style="padding-left:16px;padding-right:16px;padding-top:32px;padding-bottom:32px">
+    <div class="card" style="max-width:56rem;margin:0 auto;padding:24px;border-radius:16px;background:rgba(15,23,42,0.7)">
+      <div style="text-align:center">
+        <h2 style="margin:0 0 8px 0;font-size:1.5rem;font-weight:600">Not sure which package fits?</h2>
+        <p style="margin:0 0 20px 0;font-size:0.95rem;color:var(--muted-2)">Tell us about your clinic and we'll recommend the right tier for your needs and goals.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px">
+        <a class="btn btn-primary" href="/quote.html" style="width:100%;text-align:center" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-cta'})">Request a Quote</a>
+        <a class="btn btn-ghost" href="https://calendly.com/vinnie-keyturn/intro?utm_source=pricing" target="_blank" rel="noopener" style="width:100%;text-align:center">Book 15-min Q&A</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @media (min-width: 768px) {
+      #pricing-cta .card {
+        padding: 32px;
+      }
+      #pricing-cta > .card > div:first-child {
+        text-align: left;
+      }
+      #pricing-cta > .card > div:last-child {
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: 0;
+      }
+      #pricing-cta > .card > div:last-child a {
+        width: auto;
+        min-width: 160px;
+      }
+      #pricing-cta .card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      #pricing-cta .card > div:first-child {
+        flex: 1;
+      }
+      #pricing-cta .card > div:last-child {
+        flex-shrink: 0;
+      }
+    }
+  </style>
+
+  <!-- ===== FAQ Section ===== -->
+  <section class="container section">
+    <h2 style="text-align:center;margin-bottom:28px">Quick Answers</h2>
+    <div class="faq-accordion" style="max-width:800px;margin:0 auto">
+      <details>
+        <summary>How Long Does A Makeover Take?</summary>
+        <div class="faq-answer">
+          <p>Approximately 3 weeks from kickoff.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What Do You Need From Us To Start?</summary>
+        <div class="faq-answer">
+          <p>DNS access, booking link, analytics (or we'll set up GA4), and brand assets.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can You Work With Our Current Booking or Scheduling System?</summary>
+        <div class="faq-answer">
+          <p>Yes—we work with most booking tools, scheduling software, and booking engines. We set up direct-link CTAs with tracking for your system.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What Happens After I Request A Quote?</summary>
+        <div class="faq-answer">
+          <p>You'll get a 1-page quote in 1 business day. If you'd like to discuss it, you can <a href="/quote.html">request a quote</a> or <a href="https://calendly.com/vinnie-keyturn/intro" target="_blank" rel="noopener">book a 15-min intro</a>.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+      <img src="/public/logo.svg" alt="Keyturn Studio" class="footer-logo">
+      <p class="footer-tagline">Conversion-focused websites for clinics &amp; high-value service businesses</p>
+    </div>
+    
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/tools/roi.html">ROI Estimate</a></li>
+          <li><a href="/quote.html">Request Quote</a></li>
+          <li><a href="/onboarding.html">Onboarding</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="https://calendly.com/vinnie-keyturn/intro?utm_source=site" target="_blank" rel="noopener">Book 15-min Q&A <span aria-label="Opens in new tab">↗</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <div class="container footer-bottom">
+    <p class="footer-copyright">© <span id="y"></span> Keyturn Studio. All rights reserved.</p>
+    <p class="footer-meta">Operated by Ridgeway Labs LLC</p>
+  </div>
+</footer>
+
+</body>
+</html>
