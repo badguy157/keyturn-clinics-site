@@ -39,17 +39,7 @@
     <!-- Desktop nav -->
     <nav class="nav-desktop" aria-label="Primary">
       <ul class="nav-list">
-        <li class="nav-dropdown">
-          <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-            Services <span aria-hidden="true">▾</span>
-          </button>
-          <ul class="nav-dropdown-menu" hidden>
-            <li><a href="/services/inn-website-design.html">Inn Website Design</a></li>
-            <li><a href="/services/small-hotel-website-design.html">Small Hotel Design</a></li>
-            <li><a href="/services/bb-website-design.html">B&B Website Design</a></li>
-            <li><a href="/services/hotel-website-redesign.html">Hotel Redesign</a></li>
-          </ul>
-        </li>
+        <li><a href="/services.html"${isActive('/services') ? ' aria-current="page"' : ''}>Services</a></li>
         <li><a href="/#proof"${isActive('/') ? ' aria-current="page"' : ''}>Proof</a></li>
         <li><a href="/#pricing"${isActive('/') ? ' aria-current="page"' : ''}>Pricing</a></li>
         <li><a href="/#how-it-works"${isActive('/') ? ' aria-current="page"' : ''}>How it works</a></li>
@@ -71,13 +61,7 @@
 
   <!-- Mobile drawer -->
   <nav id="mobileMenu" class="mobile-drawer" hidden aria-label="Mobile">
-    <div class="mobile-submenu">
-      <strong class="mobile-submenu-label">Services</strong>
-      <a href="/services/inn-website-design.html">Inn Website Design</a>
-      <a href="/services/small-hotel-website-design.html">Small Hotel Design</a>
-      <a href="/services/bb-website-design.html">B&B Website Design</a>
-      <a href="/services/hotel-website-redesign.html">Hotel Redesign</a>
-    </div>
+    <a href="/services.html">Services</a>
     <a href="/#proof">Proof</a>
     <a href="/#pricing">Pricing</a>
     <a href="/#how-it-works">How it works</a>
