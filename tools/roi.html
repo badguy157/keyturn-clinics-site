@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ROI Estimate Calculator | Keyturn Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculate your potential commission savings from shifting OTA bookings to direct. Simple, fast ROI estimator.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/public/logo-mark.svg?v=2">
+  <link rel="icon" sizes="32x32" href="/public/favicon-32.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png?v=2">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/public/site.js" defer></script>
+</head>
+<body>
+
+<!-- ===== Compact hero (same style) ===== -->
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title">See how quickly a new website could pay for itself</h1>
+    <p class="hero-lede">Use this simple calculator to get a rough idea of how much commission you could keep each year by moving more bookings away from OTAs and onto your own website.</p>
+  </div>
+</section>
+
+<main id="main">
+  <section class="container section">
+    <div class="card">
+      <h2>ROI Estimator</h2>
+      <p class="small">Calculate the payback period for moving OTA bookings to your direct booking engine.</p>
+
+      
+      <div style="background:rgba(90,162,255,.06);border:1px solid rgba(90,162,255,.2);border-radius:12px;padding:24px;margin-bottom:24px">
+        <h3 style="margin-top:0">How it works</h3>
+        <p><strong>Enter a few numbers about your hotel:</strong></p>
+        <ul style="line-height:1.8;margin-top:12px">
+          <li>How many rooms you have</li>
+          <li>Your typical nightly rate</li>
+          <li>How busy you are across the year</li>
+          <li>Roughly how many bookings currently come from OTAs vs direct</li>
+        </ul>
+        <p style="margin-top:16px"><strong>We'll then estimate:</strong></p>
+        <ul style="line-height:1.8;margin-top:12px">
+          <li>How much you're paying in OTA commission today</li>
+          <li>How much you could save each year</li>
+          <li>How many months it might take for a website project to pay for itself</li>
+        </ul>
+        <p style="margin-top:16px;margin-bottom:0;color:var(--muted)">It's not exact, but it's a good starting point for a decision.</p>
+      </div>
+
+      <form id="roiForm" class="audit-form" style="margin-top: 20px;">
+        <div class="form-row two">
+          <div>
+            <label for="rooms">Number of rooms</label>
+            <input id="rooms" type="number" min="1" value="10" required inputmode="numeric">
+          </div>
+          <div>
+            <label for="adr">ADR (average daily rate)</label>
+            <input id="adr" type="number" min="0" step="1" value="110" required inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="form-row two">
+          <div>
+            <label for="occ">Occupancy %</label>
+            <input id="occ" type="number" min="0" max="100" step="1" value="60" required inputmode="decimal">
+          </div>
+          <div>
+            <label for="nights">Nights per month</label>
+            <input id="nights" type="number" min="1" max="31" step="1" value="30" required inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="form-row two">
+          <div>
+            <label for="commission">OTA commission %</label>
+            <input id="commission" type="number" min="0" max="100" step="0.5" value="18" required inputmode="decimal">
+          </div>
+          <div>
+            <label for="directNow">Direct share (now) %</label>
+            <input id="directNow" type="number" min="0" max="100" step="1" value="30" required inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="form-row two">
+          <div>
+            <label for="directTarget">Direct share (target) %</label>
+            <input id="directTarget" type="number" min="0" max="100" step="1" value="50" required inputmode="decimal">
+          </div>
+          <div>
+            <label for="projectCost">Project cost (optional)</label>
+            <input id="projectCost" type="number" min="0" step="100" value="6000" inputmode="numeric">
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="button" id="calc">Calculate</button>
+      </form>
+
+      <div id="out" class="roi-box" style="display:none; margin-top: 24px;">
+        <h3 style="margin: 0 0 12px;">Results</h3>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+          <div class="metric-card">
+            <h5>Monthly OTA spend today</h5>
+            <p><strong id="otaNow">—</strong></p>
+          </div>
+          <div class="metric-card">
+            <h5>Monthly OTA spend after improvement</h5>
+            <p><strong id="otaAfter">—</strong></p>
+          </div>
+          <div class="metric-card">
+            <h5>Monthly commission saved</h5>
+            <p><strong id="saved">—</strong></p>
+          </div>
+          <div class="metric-card">
+            <h5>Payback period (months)</h5>
+            <p><strong id="payback">—</strong></p>
+          </div>
+        </div>
+        <p class="tiny" style="margin-top: 16px;">
+          Formula: OTA spend = ADR × Rooms × Nights × (Occupancy% ÷ 100) × (OTA share ÷ 100) × (Commission% ÷ 100). Savings = OTA spend (now − after).
+        </p>
+      </div>
+    
+      <div style="margin-top:24px;padding:20px;background:var(--bg-muted);border-radius:8px">
+        <h3 style="margin-top:0">How to read these numbers</h3>
+        <p>Treat this as a guide, not a promise. Real-world results depend on many things: your photos, your reviews, your pricing, and how strongly we push direct bookings on your site.</p>
+        <p style="margin-top:12px"><strong>As a simple rule of thumb:</strong></p>
+        <ul style="line-height:1.8">
+          <li>If the payback period is under 18 months, most owners feel comfortable going ahead.</li>
+          <li>If it's longer, it may still be worth doing if your site is very out of date or you have other reasons to refresh it.</li>
+        </ul>
+      </div>
+
+
+    <div style="margin-top:24px;text-align:center">
+      <p style="font-size:1.1rem;margin-bottom:16px"><strong>Want a clearer picture?</strong></p>
+      <p style="color:var(--muted);margin-bottom:20px">If you\'d like us to double-check your numbers and suggest a package, send your details and we\'ll prepare a simple quote.</p>
+    </div>
+    </div>
+
+    <div class="buttons" style="margin-top: 24px;">
+      <a class="btn btn-primary" href="/quote.html">Request a Quote</a>
+      <a class="btn btn-ghost" href="/onboarding.html">See how onboarding works</a>
+    </div>
+  </section>
+</main>
+
+  <section class="container section">
+    <h2 style="margin-bottom:24px">Common questions</h2>
+    
+    <article class="card" style="margin-bottom:16px">
+      <h4 style="margin-top:0">What if I don't know my exact occupancy?</h4>
+      <p style="margin-bottom:0">Use your best guess, or just pick a rough figure. You can always share your real numbers later when you request a quote.</p>
+    </article>
+
+    <article class="card" style="margin-bottom:16px">
+      <h4 style="margin-top:0">Does this include extra bookings from a nicer website?</h4>
+      <p style="margin-bottom:0">No, this calculator only looks at commission savings from moving bookings from OTAs to direct. A better site can also increase overall bookings, but we'd rather keep this tool conservative.</p>
+    </article>
+
+    <article class="card">
+      <h4 style="margin-top:0">Can you help me work out the numbers properly?</h4>
+      <p style="margin-bottom:0">Yes. Send us your details through the quote form and we'll walk through it with you.</p>
+    </article>
+  </section>
+
+
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+      <img src="/public/logo.svg" alt="Keyturn Studio" class="footer-logo">
+      <p class="footer-tagline">Marketing websites for hospitality</p>
+    </div>
+    
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/tools/roi.html">ROI Estimate</a></li>
+          <li><a href="/quote.html">Request Quote</a></li>
+          <li><a href="/onboarding.html">Onboarding</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="https://calendly.com/vinnie-keyturn/intro" target="_blank" rel="noopener">Book 15 min Intro <span aria-label="Opens in new tab">↗</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <div class="container footer-bottom">
+    <p class="footer-copyright">© <span id="y"></span> Keyturn Studio. All rights reserved.</p>
+    <p class="footer-meta">Operated by Ridgeway Labs LLC</p>
+  </div>
+</footer>
+
+<!-- Sticky mobile CTA -->
+<a href="/quote.html" class="sticky-cta" aria-label="Request a Quote">Request audit</a>
+
+<script>
+  // Mobile menu and year are handled by site.js
+
+  // ROI Calculator
+  function money(x){ 
+    return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(x||0); 
+  }
+  function months(x){ 
+    return (x && isFinite(x)) ? (Math.ceil(x*10)/10).toFixed(1) : '—'; 
+  }
+
+  function calc(){
+    const rooms = +document.getElementById('rooms').value || 0;
+    const adr = +document.getElementById('adr').value || 0;
+    const occ = (+document.getElementById('occ').value || 0)/100;
+    const nights = +document.getElementById('nights').value || 30;
+    const commission = (+document.getElementById('commission').value || 0)/100;
+    const directNow = (+document.getElementById('directNow').value || 0)/100;
+    const directTarget = (+document.getElementById('directTarget').value || 0)/100;
+    const projectCost = +document.getElementById('projectCost').value || 0;
+
+    const otaShareNow = 1 - directNow;
+    const otaShareAfter = 1 - Math.min(directTarget,1);
+
+    const otaNow = adr * rooms * nights * occ * otaShareNow * commission;
+    const otaAfter = adr * rooms * nights * occ * otaShareAfter * commission;
+    const saved = Math.max(otaNow - otaAfter, 0);
+    const payback = saved > 0 ? projectCost / saved : Infinity;
+
+    document.getElementById('otaNow').textContent = money(otaNow);
+    document.getElementById('otaAfter').textContent = money(otaAfter);
+    document.getElementById('saved').textContent = money(saved);
+    document.getElementById('payback').textContent = (payback===Infinity ? '—' : months(payback));
+
+    document.getElementById('out').style.display = 'block';
+  }
+  
+  document.getElementById('calc').addEventListener('click', calc);
+</script>
+</body>
+</html>

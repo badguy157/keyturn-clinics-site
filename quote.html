@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Request a Quote | Keyturn Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tell us about your property—we'll send a 1-page quote within 1 business day.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/public/logo-mark.svg?v=2">
+  <link rel="icon" sizes="32x32" href="/public/favicon-32.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png?v=2">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/public/site.js" defer></script>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Keyturn Studio",
+    "url": "https://www.keyturn.studio",
+    "logo": "https://www.keyturn.studio/public/logo.svg",
+    "description": "Marketing website makeovers for hospitality",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "When Do I Pay Anything?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only after you approve the proposal—deposit due on signature."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can You Help Me Choose A Package?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes—book a 15-min intro and we'll walk through what makes sense for your property."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do You Migrate My Existing Content?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we rebuild core pages and preserve what works."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who Owns The Website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You do. We provide full access on launch."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do You Offer Ongoing Support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Optional Care plan for CRO nudges and reporting is available."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- ===== Page hero ===== -->
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title">Get a clear, no-pressure quote</h1>
+    <p class="hero-lede">Tell us a bit about your hotel and your current website. We'll send you a simple, one-page quote that explains the recommended package, price, and rough payback time.</p>
+  </div>
+</section>
+
+<main id="main" class="container section">
+  <section class="card premium-form-card" id="quote-form" style="max-width:720px;margin-left:auto;margin-right:auto;padding:40px 32px">
+    <div style="text-align:center;margin-bottom:32px">
+      <div style="display:inline-block;padding:6px 14px;background:rgba(90,162,255,.12);border:1px solid rgba(90,162,255,.3);border-radius:20px;margin-bottom:16px">
+        <span style="font-size:0.8rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.5px">Quick Quote Request</span>
+      </div>
+      <h2 style="margin:0 0 12px;font-size:1.75rem">Tell Us About Your Property</h2>
+      <p class="small" style="color:var(--muted);margin:0">This 2-minute form lets us prepare your quote. You'll get a confirmation email right after.</p>
+    </div>
+
+    
+    <div style="background:rgba(90,162,255,.06);border:1px solid rgba(90,162,255,.2);border-radius:12px;padding:24px;margin-bottom:32px">
+      <h3 style="margin-top:0;font-size:1.25rem">What you'll receive</h3>
+      <p>Within one business day, you'll get:</p>
+      <ul style="line-height:1.8;margin-top:12px">
+        <li>A recommended website package (Core, Pro, or Premier)</li>
+        <li>A clear price with no hidden extras</li>
+        <li>A rough estimate of how quickly it could pay for itself from commission savings</li>
+        <li>A short note on what we'd improve first</li>
+      </ul>
+      <p style="margin-top:16px;margin-bottom:0;color:var(--muted)">No hard sell. If it doesn't feel right, you can simply say no.</p>
+    </div>
+
+    <div style="margin-top:28px">
+      <form id="quickstartForm" class="premium-form" novalidate>
+        <!-- Honeypot (anti-spam) -->
+        <input type="text" name="company" id="company" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px">
+
+        <div style="display:grid;gap:20px">
+          <div class="grid two" style="gap:16px">
+            <div class="form-field">
+              <label for="propertyName" class="form-label">Property name <span style="color:#ff6b6b">*</span></label>
+              <input id="propertyName" name="propertyName" class="form-input" required>
+            </div>
+            <div class="form-field">
+              <label for="websiteUrl" class="form-label">Website URL <span style="color:#ff6b6b">*</span></label>
+              <input id="websiteUrl" name="websiteUrl" type="url" class="form-input" placeholder="https://…" required>
+            </div>
+          </div>
+
+          <div class="grid two" style="gap:16px">
+            <div class="form-field">
+              <label for="contactName" class="form-label">Contact name <span style="color:#ff6b6b">*</span></label>
+              <input id="contactName" name="contactName" class="form-input" required>
+            </div>
+            <div class="form-field">
+              <label for="email" class="form-label">Email <span style="color:#ff6b6b">*</span></label>
+              <input id="email" name="email" type="email" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="grid two" style="gap:16px">
+            <div class="form-field">
+              <label for="phone" class="form-label">Phone <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+              <input id="phone" name="phone" type="tel" class="form-input" inputmode="tel">
+            </div>
+            <div class="form-field">
+              <label for="bookingSystem" class="form-label">Booking system <span style="color:#ff6b6b">*</span></label>
+              <select id="bookingSystem" name="bookingSystem" class="form-input" required>
+                <option value="" selected disabled>Select your system…</option>
+                <option>eviivo</option>
+                <option>Little Hotelier</option>
+                <option>SiteMinder</option>
+                <option>Cloudbeds</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid two" style="gap:16px">
+            <div class="form-field">
+              <label for="goal" class="form-label">Primary goal <span style="color:#ff6b6b">*</span></label>
+              <select id="goal" name="goal" class="form-input" required>
+                <option value="" selected disabled>What's most important?</option>
+                <option>More direct bookings</option>
+                <option>Reduce OTA fees</option>
+                <option>Refresh the look</option>
+                <option>Speed up the site</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="launchTiming" class="form-label">Ideal launch timing <span style="color:#ff6b6b">*</span></label>
+              <select id="launchTiming" name="launchTiming" class="form-input" required>
+                <option value="" selected disabled>When would you like to launch?</option>
+                <option>ASAP</option>
+                <option>2–4 weeks</option>
+                <option>1–2 months</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="assetsLink" class="form-label">Shared folder link <span style="color:var(--muted);font-weight:400">(optional — photos/menus)</span></label>
+            <input id="assetsLink" name="assetsLink" type="url" class="form-input" placeholder="Dropbox / Google Drive / OneDrive link">
+          </div>
+
+          <div class="form-field">
+            <label for="notes" class="form-label">Additional details <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+            <textarea id="notes" name="notes" rows="4" class="form-input" placeholder="Anything else we should know about your property or goals?"></textarea>
+          </div>
+        </div>
+
+        <!-- meta captured client-side -->
+        <input type="hidden" name="pagePath" value="">
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="timezone" value="">
+
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--line)">
+          <button class="btn btn-primary" id="qsSubmit" type="submit" style="width:100%;padding:16px;font-size:1rem;font-weight:700">
+            <span>Get My Quote →</span>
+          </button>
+          <p class="small" style="text-align:center;margin-top:14px;color:var(--muted-2)">
+            We only use this information to prepare your quote and follow up about it. No mailing lists unless you ask for them.
+          </p>
+          <p id="qsMsg" class="small" aria-live="polite" style="margin-top:12px;text-align:center;min-height:20px"></p>
+        </div>
+      </form>
+    </div>
+
+    <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--line);text-align:center">
+      <p class="small" style="color:var(--muted);margin:0">
+        Prefer to talk first? <a target="_blank" rel="noopener" href="https://calendly.com/vinnie-keyturn/intro?utm_source=quote" style="color:var(--accent);font-weight:600;text-decoration:underline">Book a 15-min Q&A</a>
+      </p>
+    </div>
+  </section>
+
+    <div style="margin-top:40px;padding:24px;background:var(--bg-muted);border-radius:12px;max-width:720px;margin-left:auto;margin-right:auto">
+      <h3 style="margin-top:0;font-size:1.2rem">What happens after you submit</h3>
+      <ol style="line-height:1.8;padding-left:20px">
+        <li>We review your website and booking setup.</li>
+        <li>We prepare a one-page quote tailored to your hotel.</li>
+        <li>You can then:
+          <ul style="margin-top:8px">
+            <li>Ask questions by email</li>
+            <li>Book a short call</li>
+            <li>Or leave it there if it's not the right time</li>
+          </ul>
+        </li>
+      </ol>
+      
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
+        <p style="margin:0"><strong>Prefer to talk first?</strong></p>
+        <p style="margin:8px 0 0 0"><a href="https://calendly.com/vinnie-keyturn/intro?utm_source=quote" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline">Book a 15-minute call</a> and we'll walk through it with you.</p>
+      </div>
+    </div>
+
+  <!-- FAQ Section (beneath form) -->
+  <section class="container section" style="padding-top:40px">
+    <h2 style="text-align:center;margin-bottom:28px">Common Questions</h2>
+    <div class="faq-accordion" style="max-width:720px;margin:0 auto">
+      <details>
+        <summary>When Do I Pay Anything?</summary>
+        <div class="faq-answer">
+          <p>Only after you approve the proposal—deposit due on signature.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can You Help Me Choose A Package?</summary>
+        <div class="faq-answer">
+          <p>Yes—<a href="https://calendly.com/vinnie-keyturn/intro" target="_blank" rel="noopener">book a 15-min intro</a> and we'll walk through what makes sense for your property.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Do You Migrate My Existing Content?</summary>
+        <div class="faq-answer">
+          <p>Yes, we rebuild core pages and preserve what works.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Who Owns The Website?</summary>
+        <div class="faq-answer">
+          <p>You do. We provide full access on launch.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Do You Offer Ongoing Support?</summary>
+        <div class="faq-answer">
+          <p>Optional Care plan for CRO nudges and reporting is available.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+      <img src="/public/logo.svg" alt="Keyturn Studio" class="footer-logo">
+      <p class="footer-tagline">Marketing websites for hospitality</p>
+    </div>
+    
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/tools/roi.html">ROI Estimate</a></li>
+          <li><a href="/quote.html">Request Quote</a></li>
+          <li><a href="/onboarding.html">Onboarding</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a href="https://calendly.com/vinnie-keyturn/intro?utm_source=site" target="_blank" rel="noopener">Book 15-min Book 15 min Q&A <span aria-label="Opens in new tab">↗</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <div class="container footer-bottom">
+    <p class="footer-copyright">© <span id="y"></span> Keyturn Studio. All rights reserved.</p>
+    <p class="footer-meta">Operated by Ridgeway Labs LLC</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    'use strict';
+  
+    window.safeEvent = window.safeEvent || function(name, params){
+      try { window.gtag && window.gtag('event', name, params); } catch(_){}
+    };
+  
+    // Prefill meta + hard-clear honeypot
+    (function prefillMeta(){
+      const qsForm = document.getElementById('quickstartForm');
+      if (!qsForm) return;
+      const params = new URLSearchParams(location.search);
+      qsForm.querySelector('input[name="pagePath"]').value = location.pathname;
+      qsForm.querySelector('input[name="utm_source"]').value = params.get('utm_source') || '';
+      qsForm.querySelector('input[name="utm_medium"]').value = params.get('utm_medium') || '';
+      qsForm.querySelector('input[name="utm_campaign"]').value = params.get('utm_campaign') || '';
+      qsForm.querySelector('input[name="timezone"]').value = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      const hp = document.getElementById('company');
+      if (hp){ hp.value = ''; hp.setAttribute('autocomplete','new-password'); }
+    })();
+  
+    const qsForm = document.getElementById('quickstartForm');
+    if (!qsForm) return;
+  
+    const btn = document.getElementById('qsSubmit');
+    const msg = document.getElementById('qsMsg');
+  
+    // If user types, hide red borders until submit again
+    qsForm.addEventListener('input', () => {
+      qsForm.classList.remove('show-errors');
+      msg.textContent = '';
+    });
+  
+    qsForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      if (!qsForm.checkValidity()) {
+        qsForm.classList.add('show-errors');
+        const firstInvalid = qsForm.querySelector(':invalid');
+        if (firstInvalid) firstInvalid.focus();
+        msg.textContent = 'Please fill in all required fields.';
+        msg.style.color = '#e66';
+        return;
+      }
+  
+      msg.textContent = '';
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+  
+      const formData = new FormData(qsForm);
+      const payload = Object.fromEntries(formData.entries());
+  
+      // Do NOT stop on honeypot here; backend will silently ignore bots
+      payload.userAgent = navigator.userAgent || '';
+      payload.referrer = document.referrer || '';
+  
+      try {
+        const res = await fetch('/api/quickstart', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(() => ({}));
+  
+        if (!res.ok || !data.ok) {
+          throw new Error(data.error || `Server error: ${res.status}`);
+        }
+  
+        window.safeEvent('quote_request_submit', { page_path: location.pathname });
+  
+        qsForm.innerHTML = `
+          <h3>Thanks — we’ve got your request.</h3>
+          <p>We’ll email your 1-page quote within 1 business day.</p>
+          <div class="hero-ctas" style="margin-top:20px">
+            <a class="btn btn-primary" href="/">Back to home</a>
+            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://calendly.com/vinnie-keyturn/intro?utm_source=quote_success">Book a 15-min Q&A</a>
+          </div>
+        `;
+      } catch (err) {
+        console.error('Form submission error:', err);
+        const mailto = `mailto:hello@keyturn.studio?subject=${encodeURIComponent('Quote Request (fallback)')}`;
+        msg.innerHTML = `Could not send automatically. Please <a href="${mailto}" style="color:var(--accent);text-decoration:underline">email us directly</a> or try again.`;
+        msg.style.color = '#e66';
+        btn.disabled = false;
+        btn.textContent = 'Get My Quote →';
+      }
+    });
+  })();
+  </script>
+  
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Request a Quick Audit | Keyturn Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Get a 10-minute Loom audit with 3 fixes and an ROI estimate for your inn or small hotel.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/public/logo-mark.svg?v=2">
+  <link rel="icon" sizes="32x32" href="/public/favicon-32.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png?v=2">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/public/site.js" defer></script>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Keyturn Studio",
+    "url": "https://www.keyturn.studio",
+    "logo": "https://www.keyturn.studio/public/logo.svg",
+    "description": "Marketing website makeovers for hospitality",
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+
+
+<!-- ===== Page hero ===== -->
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title">Get a <span class="accent">10-min audit</span></h1>
+    <p class="hero-lede">We'll send a <strong>2–3 minute Loom</strong> with <strong>3 fixes</strong> and an <strong>ROI estimate</strong> for moving bookings to website-direct.</p>
+  </div>
+</section>
+
+<main id="main" class="container section">
+  <section class="card" id="audit">
+    <h2>Audit form</h2>
+    <p class="small">We only use this to send your Loom. No spam — ever.</p>
+
+    <form id="auditForm"
+          class="audit-form"
+          action="https://formspree.io/f/mvgdpyay"
+          method="POST">
+      <div class="form-row"><label for="property">Property name</label><input id="property" type="text" name="property" required></div>
+      <div class="form-row"><label for="website">Website URL</label><input id="website" type="url" name="website" placeholder="https://example.com" required></div>
+
+      <div class="form-row two">
+        <div>
+          <label for="rooms">Rooms</label>
+          <input id="rooms" type="number" name="rooms" min="1" max="100" required>
+        </div>
+        <div>
+          <label for="adr">
+            <abbr title="Average Daily Rate — typical nightly room price before taxes/fees">ADR</abbr> (approx.)
+          </label>
+          <input id="adr" type="number" name="adr" min="40" step="1" inputmode="decimal"
+                 placeholder="e.g., 100" aria-describedby="adrHelp" required>
+          <p id="adrHelp" class="tiny">Use your average nightly room price before taxes/fees.</p>
+        </div>
+      </div>
+
+      <div class="form-row"><label for="booking">Booking engine link</label><input id="booking" type="url" name="booking" placeholder="Direct booking URL"></div>
+      <div class="form-row"><label for="email">Your email</label><input id="email" type="email" name="email" required></div>
+      
+      <!-- Biggest headache -->
+      <div class="form-row">
+        <label>What's your biggest headache right now?</label>
+        <div style="display:grid;gap:8px;margin-top:8px">
+          <label class="radio-label"><input type="radio" name="headache" value="Low direct bookings"> Low direct bookings</label>
+          <label class="radio-label"><input type="radio" name="headache" value="Slow website"> Slow website</label>
+          <label class="radio-label"><input type="radio" name="headache" value="Hard to update"> Hard to update content</label>
+          <label class="radio-label"><input type="radio" name="headache" value="No tracking"> No tracking / analytics</label>
+          <label class="radio-label"><input type="radio" name="headache" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <!-- Optional file upload -->
+      <div class="form-row">
+        <label for="screenshot">Screenshots or docs (optional)</label>
+        <input id="screenshot" type="file" name="screenshot" accept="image/*,.pdf" multiple>
+        <p class="tiny">Share current site screenshots, analytics snapshots, or any relevant files</p>
+      </div>
+
+      <div class="form-row"><label for="notes">Notes (optional)</label><textarea id="notes" name="notes" rows="4" placeholder="Anything we should know?"></textarea></div>
+
+      <!-- Helpful metadata for Formspree -->
+      <input type="hidden" name="_subject" id="fsSubject" value="">
+      <input type="hidden" name="_replyto"  id="fsReply"   value="">
+      <input type="hidden" name="source" value="audit-page">
+      <input type="text"   name="_gotcha" style="display:none">
+
+      <button class="btn primary" type="submit" id="auditSubmit">Request audit</button>
+      <p class="tiny">Prefer email? <a href="mailto:hello@keyturn.studio">hello@keyturn.studio</a></p>
+      <p id="auditMsg" class="tiny" role="status" aria-live="polite" style="margin-top:6px"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+      <img src="/public/logo.svg" alt="Keyturn Studio" class="footer-logo">
+      <p class="footer-tagline">Marketing websites for hospitality</p>
+    </div>
+    
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/tools/roi.html">ROI Estimate</a></li>
+          <li><a href="/quote.html">Request Quote</a></li>
+          <li><a href="/onboarding.html">Onboarding</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+          <li><a class="book-intro" href="https://calendly.com/vinnie-keyturn/intro" target="_blank" rel="noopener">Book 15-min Book 15 min Intro <span aria-label="Opens in new tab">↗</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <div class="container footer-bottom">
+    <p class="footer-copyright">© <span id="y"></span> Keyturn Studio. All rights reserved.</p>
+    <p class="footer-meta">Operated by Ridgeway Labs LLC</p>
+  </div>
+</footer>
+
+<script>
+// Mobile menu and year are handled by site.js
+
+const form = document.getElementById('auditForm');
+const msg  = document.getElementById('auditMsg');
+const btn  = document.getElementById('auditSubmit');
+const fsSubject = document.getElementById('fsSubject');
+const fsReply   = document.getElementById('fsReply');
+const emailInput = document.getElementById('email');
+const propertyInput = document.getElementById('property');
+
+function setHiddenFields(){
+  fsSubject.value = `Audit request: ${propertyInput.value || 'Property'}`;
+  fsReply.value = emailInput.value || '';
+}
+emailInput.addEventListener('input', setHiddenFields);
+propertyInput.addEventListener('input', setHiddenFields);
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  setHiddenFields();
+
+  msg.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try{
+    const res = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+
+    if (res.ok){
+      // Optional GA4
+      window.gtag && window.gtag('event','audit_submit_success', { form: 'audit-page' });
+
+      form.innerHTML = `
+        <h3>Thanks! 🎉</h3>
+        <p>We’ve got your details. We’ll send a <strong>2–3 minute Loom</strong> with 3 fixes and an ROI estimate.</p>
+        <p class="small">If you need to add anything, reply to the confirmation email we just sent.</p>
+        <div class="buttons" style="margin-top:10px">
+          <a class="btn" href="/">Back to home</a>
+          <a class="btn" href="/onboarding.html">See how onboarding works</a>
+        </div>`;
+    } else {
+      msg.textContent = 'Something went wrong. Please try again or email hello@keyturn.studio.';
+      btn.disabled = false;
+    }
+  } catch(err){
+    msg.textContent = 'Network error. Please try again or email hello@keyturn.studio.';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
