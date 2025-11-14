@@ -42,7 +42,7 @@
         <li><a href="/services.html"${isActive('/services') ? ' aria-current="page"' : ''}>Services</a></li>
         <li><a href="/#proof"${isActive('/') ? ' aria-current="page"' : ''}>Proof</a></li>
         <li><a href="/pricing.html"${isActive('/pricing') ? ' aria-current="page"' : ''}>Pricing</a></li>
-        <li><a href="/#how-it-works"${isActive('/') ? ' aria-current="page"' : ''}>How it works</a></li>
+        <li><a href="/how-it-works.html"${isActive('/how-it-works') ? ' aria-current="page"' : ''}>How it works</a></li>
       </ul>
       <div class="nav-ctas">
         <a class="btn btn-primary" href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''} onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'nav'})">Request a Quote</a>
@@ -64,7 +64,7 @@
     <a href="/services.html">Services</a>
     <a href="/#proof">Proof</a>
     <a href="/pricing.html">Pricing</a>
-    <a href="/#how-it-works">How it works</a>
+    <a href="/how-it-works.html">How it works</a>
     <a class="btn btn-primary w-full" href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''} onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'mobile-nav'})">Request a Quote</a>
     <a class="btn btn-ghost w-full"
    href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
