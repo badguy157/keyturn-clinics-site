@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>ROI Estimate Calculator | Keyturn Studio</title>
+  <title>Payback Estimator | Keyturn Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Calculate your potential commission savings from shifting OTA bookings to direct. Simple, fast ROI estimator.">
+  <meta name="description" content="Estimate how quickly your website could pay for itself. Simple payback calculator for clinics and boutique inns.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/public/logo-mark.svg?v=2">
   <link rel="icon" sizes="32x32" href="/public/favicon-32.png?v=2">
@@ -17,151 +17,100 @@
 <!-- ===== Compact hero (same style) ===== -->
 <section class="hero">
   <div class="container">
-    <h1 class="hero-title">See how quickly a new website could pay for itself</h1>
-    <p class="hero-lede">Use this simple calculator to get a rough idea of how much commission you could keep each year by moving more bookings away from OTAs and onto your own website.</p>
+    <h1 class="hero-title">Estimate how quickly your website could pay for itself</h1>
+    <p class="hero-lede">Works for clinics and boutique inns by modeling extra patients or guests per month and their average value.</p>
   </div>
 </section>
 
 <main id="main">
   <section class="container section">
     <div class="card">
-      <h2>ROI Estimator</h2>
-      <p class="small">Calculate the payback period for moving OTA bookings to your direct booking engine.</p>
-
-      
-      <div style="background:rgba(90,162,255,.06);border:1px solid rgba(90,162,255,.2);border-radius:12px;padding:24px;margin-bottom:24px">
-        <h3 style="margin-top:0">How it works</h3>
-        <p><strong>Enter a few numbers about your hotel:</strong></p>
-        <ul style="line-height:1.8;margin-top:12px">
-          <li>How many rooms you have</li>
-          <li>Your typical nightly rate</li>
-          <li>How busy you are across the year</li>
-          <li>Roughly how many bookings currently come from OTAs vs direct</li>
-        </ul>
-        <p style="margin-top:16px"><strong>We'll then estimate:</strong></p>
-        <ul style="line-height:1.8;margin-top:12px">
-          <li>How much you're paying in OTA commission today</li>
-          <li>How much you could save each year</li>
-          <li>How many months it might take for a website project to pay for itself</li>
-        </ul>
-        <p style="margin-top:16px;margin-bottom:0;color:var(--muted)">It's not exact, but it's a good starting point for a decision.</p>
-      </div>
+      <h2>Payback Calculator</h2>
+      <p class="small">Estimate how many months it might take for a new website to pay for itself through extra patients or bookings.</p>
 
       <form id="roiForm" class="audit-form" style="margin-top: 20px;">
+        <div class="form-row">
+          <label for="businessType">Business type</label>
+          <select id="businessType" class="audit-form-select" required>
+            <option value="">Select your business type</option>
+            <option value="Dental / Implant clinic">Dental / Implant clinic</option>
+            <option value="Cosmetic / Medspa / Spa">Cosmetic / Medspa / Spa</option>
+            <option value="Physio / Chiropractic">Physio / Chiropractic</option>
+            <option value="Boutique hotel / inn">Boutique hotel / inn</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
         <div class="form-row two">
           <div>
-            <label for="rooms">Number of rooms</label>
-            <input id="rooms" type="number" min="1" value="10" required inputmode="numeric">
+            <label for="avgValue">Average value per new patient or booking (USD)</label>
+            <input id="avgValue" type="number" min="0" step="1" placeholder="e.g., 500" required inputmode="decimal">
           </div>
           <div>
-            <label for="adr">ADR (average daily rate)</label>
-            <input id="adr" type="number" min="0" step="1" value="110" required inputmode="decimal">
+            <label for="currentPerMonth">Current new patients or bookings per month</label>
+            <input id="currentPerMonth" type="number" min="0" step="1" placeholder="e.g., 20" required inputmode="numeric">
           </div>
         </div>
 
         <div class="form-row two">
           <div>
-            <label for="occ">Occupancy %</label>
-            <input id="occ" type="number" min="0" max="100" step="1" value="60" required inputmode="decimal">
+            <label for="extraPerMonth">Conservative extra patients or bookings per month</label>
+            <input id="extraPerMonth" type="number" min="0" step="0.5" placeholder="2 or 3" required inputmode="decimal">
           </div>
           <div>
-            <label for="nights">Nights per month</label>
-            <input id="nights" type="number" min="1" max="31" step="1" value="30" required inputmode="numeric">
+            <label for="projectPackage">Project package</label>
+            <select id="projectPackage" class="audit-form-select" required>
+              <option value="">Select a package</option>
+              <option value="Core" data-cost="7500">Core – $7,500</option>
+              <option value="Pro" data-cost="12000">Pro – $12,000</option>
+              <option value="Premier" data-cost="18000">Premier – $18,000</option>
+            </select>
           </div>
         </div>
 
-        <div class="form-row two">
-          <div>
-            <label for="commission">OTA commission %</label>
-            <input id="commission" type="number" min="0" max="100" step="0.5" value="18" required inputmode="decimal">
-          </div>
-          <div>
-            <label for="directNow">Direct share (now) %</label>
-            <input id="directNow" type="number" min="0" max="100" step="1" value="30" required inputmode="decimal">
-          </div>
-        </div>
+        <div id="validationMessage" class="tiny" style="color:#e66;margin-top:8px;display:none"></div>
 
-        <div class="form-row two">
-          <div>
-            <label for="directTarget">Direct share (target) %</label>
-            <input id="directTarget" type="number" min="0" max="100" step="1" value="50" required inputmode="decimal">
-          </div>
-          <div>
-            <label for="projectCost">Project cost (optional)</label>
-            <input id="projectCost" type="number" min="0" step="100" value="6000" inputmode="numeric">
-          </div>
-        </div>
-
-        <button class="btn btn-primary" type="button" id="calc">Calculate</button>
+        <button class="btn btn-primary" type="button" id="calc" style="margin-top:16px">Calculate payback</button>
       </form>
 
       <div id="out" class="roi-box" style="display:none; margin-top: 24px;">
-        <h3 style="margin: 0 0 12px;">Results</h3>
+        <h3 style="margin: 0 0 16px;">Results</h3>
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
           <div class="metric-card">
-            <h5>Monthly OTA spend today</h5>
-            <p><strong id="otaNow">—</strong></p>
+            <h5>Extra monthly revenue</h5>
+            <p><strong id="monthlyRev">—</strong></p>
           </div>
           <div class="metric-card">
-            <h5>Monthly OTA spend after improvement</h5>
-            <p><strong id="otaAfter">—</strong></p>
+            <h5>Extra annual revenue</h5>
+            <p><strong id="annualRev">—</strong></p>
           </div>
           <div class="metric-card">
-            <h5>Monthly commission saved</h5>
-            <p><strong id="saved">—</strong></p>
-          </div>
-          <div class="metric-card">
-            <h5>Payback period (months)</h5>
+            <h5>Estimated months to break even</h5>
             <p><strong id="payback">—</strong></p>
           </div>
         </div>
-        <p class="tiny" style="margin-top: 16px;">
-          Formula: OTA spend = ADR × Rooms × Nights × (Occupancy% ÷ 100) × (OTA share ÷ 100) × (Commission% ÷ 100). Savings = OTA spend (now − after).
-        </p>
+        <p id="explanation" class="small" style="margin-top: 16px; padding: 16px; background: rgba(90,162,255,.06); border: 1px solid rgba(90,162,255,.2); border-radius: 8px;"></p>
       </div>
     
-      <div style="margin-top:24px;padding:20px;background:var(--bg-muted);border-radius:8px">
-        <h3 style="margin-top:0">How to read these numbers</h3>
-        <p>Treat this as a guide, not a promise. Real-world results depend on many things: your photos, your reviews, your pricing, and how strongly we push direct bookings on your site.</p>
-        <p style="margin-top:12px"><strong>As a simple rule of thumb:</strong></p>
-        <ul style="line-height:1.8">
-          <li>If the payback period is under 18 months, most owners feel comfortable going ahead.</li>
-          <li>If it's longer, it may still be worth doing if your site is very out of date or you have other reasons to refresh it.</li>
-        </ul>
+      <div style="margin-top:24px;padding:20px;background:rgba(255,255,255,.04);border-radius:8px">
+        <h3 style="margin-top:0">Context & reassurance</h3>
+        <p>This is a back-of-the-envelope model, not a guarantee. It's intentionally conservative—many clinics and inns will see more upside over time as the site keeps working in the background.</p>
+        <p style="margin-top:12px">The point is to compare a one-time project cost with the value of a small, steady increase in high-value patients or direct bookings.</p>
+        <p style="margin-top:12px;margin-bottom:0;color:var(--muted)"><strong>Note:</strong> Some Premier projects can go up to $25k depending on scope, but we use $18k as the default for this calculator.</p>
       </div>
 
 
-    <div style="margin-top:24px;text-align:center">
-      <p style="font-size:1.1rem;margin-bottom:16px"><strong>Want a clearer picture?</strong></p>
-      <p style="color:var(--muted);margin-bottom:20px">If you\'d like us to double-check your numbers and suggest a package, send your details and we\'ll prepare a simple quote.</p>
+    <div style="margin-top:32px;text-align:center;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)">
+      <p style="font-size:1.15rem;margin-bottom:12px;color:var(--fg)"><strong>Want to see a more tailored estimate for your clinic?</strong></p>
+      <p style="color:var(--muted);margin-bottom:20px">Request a quote or book a quick Q&A call to discuss what makes sense for your business.</p>
+      <div class="buttons" style="justify-items:center">
+        <a class="btn btn-primary" href="/quote.html">Request a Quote</a>
+        <a class="btn btn-ghost" href="https://calendly.com/vinnie-keyturn/intro" target="_blank" rel="noopener">Book 15-min Q&A</a>
+      </div>
     </div>
-    </div>
-
-    <div class="buttons" style="margin-top: 24px;">
-      <a class="btn btn-primary" href="/quote.html">Request a Quote</a>
-      <a class="btn btn-ghost" href="/onboarding.html">See how onboarding works</a>
     </div>
   </section>
 </main>
-
-  <section class="container section">
-    <h2 style="margin-bottom:24px">Common questions</h2>
-    
-    <article class="card" style="margin-bottom:16px">
-      <h4 style="margin-top:0">What if I don't know my exact occupancy?</h4>
-      <p style="margin-bottom:0">Use your best guess, or just pick a rough figure. You can always share your real numbers later when you request a quote.</p>
-    </article>
-
-    <article class="card" style="margin-bottom:16px">
-      <h4 style="margin-top:0">Does this include extra bookings from a nicer website?</h4>
-      <p style="margin-bottom:0">No, this calculator only looks at commission savings from moving bookings from OTAs to direct. A better site can also increase overall bookings, but we'd rather keep this tool conservative.</p>
-    </article>
-
-    <article class="card">
-      <h4 style="margin-top:0">Can you help me work out the numbers properly?</h4>
-      <p style="margin-bottom:0">Yes. Send us your details through the quote form and we'll walk through it with you.</p>
-    </article>
-  </section>
 
 
 
@@ -205,37 +154,68 @@
 <script>
   // Mobile menu and year are handled by site.js
 
-  // ROI Calculator
+  // Payback Calculator
   function money(x){ 
-    return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(x||0); 
+    return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(x||0); 
   }
-  function months(x){ 
-    return (x && isFinite(x)) ? (Math.ceil(x*10)/10).toFixed(1) : '—'; 
+  function formatMonths(x){ 
+    if (!x || !isFinite(x)) return '—';
+    if (x > 60) return 'more than 5 years';
+    return x.toFixed(1) + ' months';
   }
 
   function calc(){
-    const rooms = +document.getElementById('rooms').value || 0;
-    const adr = +document.getElementById('adr').value || 0;
-    const occ = (+document.getElementById('occ').value || 0)/100;
-    const nights = +document.getElementById('nights').value || 30;
-    const commission = (+document.getElementById('commission').value || 0)/100;
-    const directNow = (+document.getElementById('directNow').value || 0)/100;
-    const directTarget = (+document.getElementById('directTarget').value || 0)/100;
-    const projectCost = +document.getElementById('projectCost').value || 0;
+    // Clear previous validation message
+    const validationEl = document.getElementById('validationMessage');
+    validationEl.style.display = 'none';
+    validationEl.textContent = '';
 
-    const otaShareNow = 1 - directNow;
-    const otaShareAfter = 1 - Math.min(directTarget,1);
+    // Get form values
+    const businessType = document.getElementById('businessType').value;
+    const avgValue = +document.getElementById('avgValue').value || 0;
+    const extraPerMonth = +document.getElementById('extraPerMonth').value || 0;
+    const packageSelect = document.getElementById('projectPackage');
+    const packageName = packageSelect.value;
+    const projectCost = +(packageSelect.selectedOptions[0]?.dataset.cost || 0);
 
-    const otaNow = adr * rooms * nights * occ * otaShareNow * commission;
-    const otaAfter = adr * rooms * nights * occ * otaShareAfter * commission;
-    const saved = Math.max(otaNow - otaAfter, 0);
-    const payback = saved > 0 ? projectCost / saved : Infinity;
+    // Validate inputs
+    if (!businessType) {
+      validationEl.textContent = 'Please select a business type.';
+      validationEl.style.display = 'block';
+      return;
+    }
+    if (avgValue <= 0) {
+      validationEl.textContent = 'Please enter an average value greater than 0.';
+      validationEl.style.display = 'block';
+      return;
+    }
+    if (extraPerMonth <= 0) {
+      validationEl.textContent = 'Please enter a number of extra patients/bookings greater than 0.';
+      validationEl.style.display = 'block';
+      return;
+    }
+    if (!packageName || projectCost <= 0) {
+      validationEl.textContent = 'Please select a project package.';
+      validationEl.style.display = 'block';
+      return;
+    }
 
-    document.getElementById('otaNow').textContent = money(otaNow);
-    document.getElementById('otaAfter').textContent = money(otaAfter);
-    document.getElementById('saved').textContent = money(saved);
-    document.getElementById('payback').textContent = (payback===Infinity ? '—' : months(payback));
+    // Calculate
+    const extraMonthlyRevenue = extraPerMonth * avgValue;
+    const extraAnnualRevenue = extraMonthlyRevenue * 12;
+    const paybackMonths = extraMonthlyRevenue > 0 ? projectCost / extraMonthlyRevenue : Infinity;
 
+    // Update results
+    document.getElementById('monthlyRev').textContent = money(extraMonthlyRevenue);
+    document.getElementById('annualRev').textContent = money(extraAnnualRevenue);
+    document.getElementById('payback').textContent = formatMonths(paybackMonths);
+
+    // Create explanation sentence
+    const extraText = extraPerMonth === 1 ? '1 extra patient/booking' : extraPerMonth + ' extra patients/bookings';
+    const explanation = `For a <strong>${businessType}</strong>, at ${extraText} per month, a <strong>${packageName}</strong> project at ${money(projectCost)} would roughly pay for itself in <strong>${formatMonths(paybackMonths)}</strong>.`;
+    document.getElementById('explanation').innerHTML = explanation;
+
+    // Show results
     document.getElementById('out').style.display = 'block';
   }
   
