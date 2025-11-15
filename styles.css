@@ -292,6 +292,38 @@ p{margin:.4rem 0 1rem;color:var(--muted-2);font-size:1rem}
 .switch input:checked + .slider::after{transform:translateX(22px)}
 .switch-label{font-size:.95rem;color:var(--muted-2)}
 
+/* Pricing teaser (homepage only) */
+.pricing-teaser{
+  max-width:700px;
+  margin:0 auto;
+  text-align:center;
+}
+.pricing-teaser h2{
+  font-size:clamp(1.75rem,4vw,2.5rem);
+  font-weight:700;
+  color:var(--fg);
+  margin:0 0 1.5rem;
+  line-height:1.2;
+}
+.pricing-teaser p{
+  font-size:1.125rem;
+  color:var(--muted-2);
+  line-height:1.6;
+  margin:0 0 1rem;
+}
+.pricing-teaser-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:2rem;
+}
+@media (min-width:640px){
+  .pricing-teaser-buttons{
+    flex-direction:row;
+    justify-content:center;
+  }
+}
+
 /* Form validation styles - neutral defaults */
 :where(input,select,textarea){box-shadow:none}
 :where(input,select,textarea):focus{outline:0;border-color:var(--accent)}
