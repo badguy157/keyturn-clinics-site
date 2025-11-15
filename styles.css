@@ -219,6 +219,7 @@ p{margin:.4rem 0 1rem;color:var(--muted-2);font-size:1rem}
 
 /* ---- Cards, grids, content blocks ---- */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.problems-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .pricing-grid{display:grid;gap:20px}
 @media (min-width:900px){.pricing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .pricing-grid .card,.pricing-ongoing{height:100%;display:flex;flex-direction:column}
@@ -493,6 +494,7 @@ details.tiny > summary{color:var(--muted);font-size:.9rem}
 @media (max-width:640px){
   .form-row.two{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
+  .problems-grid{grid-template-columns:1fr}
   input, button{min-height:44px;font-size:16px} /* Touch-friendly sizes, prevents zoom on iOS */
 }
 
