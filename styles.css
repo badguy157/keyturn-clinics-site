@@ -834,6 +834,11 @@ a:not(.btn):hover {
   border-color: rgba(90, 162, 255, 0.3);
 }
 
+/* Keep the accent glow visible on highlight card during hover */
+.highlight-card:hover{
+  box-shadow:0 0 0 1px var(--accent), 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
 /* ===== Page Animations ===== */
 
 /* Fade in animation for page load */
