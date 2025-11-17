@@ -587,26 +587,27 @@ a:not(.btn-primary)[aria-current="page"]{
   content:"";
   position:absolute;
   top:0;
-  left:-100%;
-  width:100%;
+  left:-150%;
+  width:50%;
   height:100%;
-  background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
   pointer-events:none;
   z-index:1;
+  transform:skewX(-20deg);
 }
 
 /* Animate shine on hover */
 .highlight-card:hover::before{
-  animation:shine 2s ease-in-out infinite;
+  animation:shine 2.5s ease-in-out infinite;
 }
 
 /* Shine animation keyframes */
 @keyframes shine{
   0%{
-    left:-100%;
+    left:-150%;
   }
   100%{
-    left:100%;
+    left:150%;
   }
 }
 .card-badge{
