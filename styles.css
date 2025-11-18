@@ -834,6 +834,17 @@ a:not(.btn):hover {
   border-color: rgba(90, 162, 255, 0.3);
 }
 
+/* Blue glow halo effect for makeover cards in pricing grid */
+.pricing-grid .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, filter 0.3s ease;
+}
+
+.pricing-grid .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(90, 162, 255, 0.6), 0 0 60px rgba(90, 162, 255, 0.3), 0 12px 40px rgba(0, 0, 0, 0.25);
+  border-color: rgba(90, 162, 255, 0.8);
+}
+
 /* ===== Page Animations ===== */
 
 /* Fade in animation for page load */
