@@ -81,7 +81,7 @@
 <section class="hero">
   <div class="container">
     <h1 class="hero-title">Get a clear, no-pressure quote</h1>
-    <p class="hero-lede">Tell us a bit about your clinic or service business and your current website. We'll send you a simple, one-page quote that explains the recommended package, price, and rough payback time.</p>
+    <p class="hero-lede">Tell us a bit about your clinic or service business and your current website. We'll send you a simple, one-page quote that explains the recommended package, price, and rough payback time. No mailing lists, no spam.</p>
   </div>
 </section>
 
@@ -122,8 +122,13 @@
             </div>
             <div class="form-field">
               <label for="websiteUrl" class="form-label">Website URL <span style="color:#ff6b6b">*</span></label>
-              <input id="websiteUrl" name="websiteUrl" type="url" class="form-input" placeholder="https://…" required>
+              <input id="websiteUrl" name="websiteUrl" type="text" class="form-input" placeholder="Paste your current website URL, or write 'No website yet'." required>
             </div>
+          </div>
+
+          <div class="form-field">
+            <label for="location" class="form-label">Location(s) <span style="color:#ff6b6b">*</span></label>
+            <input id="location" name="location" class="form-input" placeholder="City / area and number of locations" required>
           </div>
 
           <div class="grid two" style="gap:16px">
@@ -132,15 +137,42 @@
               <input id="contactName" name="contactName" class="form-input" required>
             </div>
             <div class="form-field">
-              <label for="email" class="form-label">Email <span style="color:#ff6b6b">*</span></label>
-              <input id="email" name="email" type="email" class="form-input" required>
+              <label for="role" class="form-label">Role <span style="color:#ff6b6b">*</span></label>
+              <select id="role" name="role" class="form-input" required>
+                <option value="" selected disabled>Select your role…</option>
+                <option>Owner</option>
+                <option>Practice manager</option>
+                <option>Lead clinician</option>
+                <option>Marketing</option>
+                <option>Other</option>
+              </select>
             </div>
           </div>
 
           <div class="grid two" style="gap:16px">
             <div class="form-field">
+              <label for="email" class="form-label">Email <span style="color:#ff6b6b">*</span></label>
+              <input id="email" name="email" type="email" class="form-input" required>
+            </div>
+            <div class="form-field">
               <label for="phone" class="form-label">Phone <span style="color:var(--muted);font-weight:400">(optional)</span></label>
               <input id="phone" name="phone" type="tel" class="form-input" inputmode="tel">
+            </div>
+          </div>
+
+
+
+          <div class="grid two" style="gap:16px">
+            <div class="form-field">
+              <label for="businessType" class="form-label">Business type <span style="color:#ff6b6b">*</span></label>
+              <select id="businessType" name="businessType" class="form-input" required>
+                <option value="" selected disabled>Select your business type…</option>
+                <option>Dental / implant clinic</option>
+                <option>Cosmetic clinic / medspa / spa</option>
+                <option>Physio / chiropractic</option>
+                <option>Boutique hotel / inn</option>
+                <option>Other clinic or service business</option>
+              </select>
             </div>
             <div class="form-field">
               <label for="bookingSystem" class="form-label">Booking or scheduling system <span style="color:#ff6b6b">*</span></label>
@@ -156,19 +188,14 @@
 
           <div class="grid two" style="gap:16px">
             <div class="form-field">
-              <label for="businessType" class="form-label">Business type <span style="color:#ff6b6b">*</span></label>
-              <select id="businessType" name="businessType" class="form-input" required>
-                <option value="" selected disabled>Select your business type…</option>
-                <option>Dental / implant clinic</option>
-                <option>Cosmetic clinic / medspa / spa</option>
-                <option>Physio / chiropractic</option>
-                <option>Boutique hotel / inn</option>
-                <option>Other clinic or service business</option>
-              </select>
+              <label for="clientValue" class="form-label">Approx. value of a new patient/client <span style="color:#ff6b6b">*</span></label>
+              <input id="clientValue" name="clientValue" class="form-input" placeholder="e.g. $1,500 or $2k–5k range" required>
+              <p class="small" style="color:var(--muted);margin-top:4px">Even a rough range is fine.</p>
             </div>
             <div class="form-field">
-              <label for="clientValue" class="form-label">Approx. value of a new patient/client <span style="color:#ff6b6b">*</span></label>
-              <input id="clientValue" name="clientValue" class="form-input" placeholder="e.g. $1,500+ over a full treatment plan" required>
+              <label for="newClients" class="form-label">Approx. new patients/clients per month <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+              <input id="newClients" name="newClients" class="form-input" placeholder="Ballpark is fine">
+              <p class="small" style="color:var(--muted);margin-top:4px">Ballpark is fine – this just helps us estimate potential uplift.</p>
             </div>
           </div>
 
@@ -177,36 +204,35 @@
               <label for="goal" class="form-label">Primary goal <span style="color:#ff6b6b">*</span></label>
               <select id="goal" name="goal" class="form-input" required>
                 <option value="" selected disabled>What's most important?</option>
-                <option>More booked consultations / new patients</option>
-                <option>Make our site match the quality of our clinic</option>
-                <option>Improve mobile experience</option>
-                <option>Help our existing SEO / ads convert better</option>
-                <option>Other (I'll explain below)</option>
+                <option>Increase online bookings/enquiries</option>
+                <option>Attract higher-value cases/patients</option>
+                <option>Improve look and professionalism</option>
+                <option>Fix confusing or broken parts of the site</option>
+                <option>Make it easier to update content ourselves</option>
+                <option>Other (explain below)</option>
               </select>
             </div>
             <div class="form-field">
               <label for="launchTiming" class="form-label">Ideal launch timing <span style="color:#ff6b6b">*</span></label>
               <select id="launchTiming" name="launchTiming" class="form-input" required>
                 <option value="" selected disabled>When would you like to launch?</option>
-                <option>As soon as possible</option>
-                <option>1–3 months</option>
-                <option>3–6 months</option>
-                <option>Flexible</option>
+                <option>ASAP / within 4–6 weeks</option>
+                <option>Within 2–3 months</option>
+                <option>3+ months / exploring options</option>
               </select>
             </div>
           </div>
 
-          <div class="grid two" style="gap:16px">
-            <div class="form-field">
-              <label for="newClients" class="form-label">Approx. new patients/clients per month <span style="color:var(--muted);font-weight:400">(optional)</span></label>
-              <input id="newClients" name="newClients" class="form-input" placeholder="Rough ballpark is fine">
-            </div>
-            <div class="form-field"></div>
-          </div>
-
           <div class="form-field">
-            <label for="assetsLink" class="form-label">Shared folder link <span style="color:var(--muted);font-weight:400">(optional, photos/brand assets)</span></label>
-            <input id="assetsLink" name="assetsLink" type="url" class="form-input" placeholder="Dropbox / Google Drive / OneDrive link">
+            <label for="budget" class="form-label">Budget comfort zone <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+            <select id="budget" name="budget" class="form-input">
+              <option value="" selected>Select if you'd like…</option>
+              <option>Under $10k</option>
+              <option>$10k–$15k</option>
+              <option>$15k–$25k</option>
+              <option>Flexible if the payback makes sense</option>
+              <option>Not sure yet</option>
+            </select>
           </div>
 
           <div class="form-field">
