@@ -30,6 +30,9 @@
       <p class="hero-lede">
         Use a one-time, expiring, encrypted link with <strong>Bitwarden Send</strong>. We’ll store it in our vault and ask you to rotate later.
       </p>
+      <p class="hero-lede" style="margin-top:12px;font-size:1rem;color:var(--muted-2)">
+        This page matches the "Access & accounts" step in your onboarding checklist and the "Domain / DNS access" section on your onboarding page.
+      </p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#bitwarden">Use Bitwarden Send (free)</a>
         <a class="btn btn-ghost" href="/onboarding.html#step2">Back to onboarding</a>
@@ -67,9 +70,12 @@
 
       <h4 style="margin-top:16px">DNS-only template (recommended)</h4>
 
+      <p class="small muted" style="margin-top:8px;margin-bottom:8px">
+        You can type directly into the template below – edit it with your details before clicking "Copy DNS template".
+      </p>
+
       <div id="dns-help" class="small muted" style="margin:6px 0 8px">
-        Tip: the “Temporary password” below is a short-term password for your domain registrar login so we can make DNS edits.
-        You can enter your own or click <em>Generate temporary password</em> to fill that line. We’ll ask you to change it after we confirm access.
+        <strong>Tip:</strong> You can use "Generate temporary password" to create a short-term password for us to use. We'll ask you to change it after we confirm access. Or you can enter your own temporary password for your domain registrar login so we can make DNS edits.
       </div>
 
       <textarea id="tpl" aria-describedby="dns-help" style="
@@ -97,6 +103,7 @@ Notes
 
       <details style="margin-top:12px">
         <summary class="small"><strong>Optional: Hosting / analytics credentials template (only if requested)</strong></summary>
+        <p class="small muted" style="margin-top:8px">If we've specifically asked for hosting or analytics access, you can type your details directly into this template and then copy it into your Bitwarden Send message.</p>
         <p class="small muted" style="margin-top:8px">Please don't send booking system or OTA passwords here. We don't need them.</p>
         <textarea id="tpl2" style="
           width:100%;
