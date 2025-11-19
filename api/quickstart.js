@@ -2,6 +2,7 @@
 // Sends you an admin copy + sends the client a short confirmation.
 // Admin email "Reply-To" = client’s email (so you can reply back).
 // Client confirmation "Reply-To" = your Proton (so their reply lands in your inbox).
+// Updated to include all Request a Quote form fields in the email body.
 
 export default async function handler(req, res) {
   // Preflight + method guard
@@ -19,12 +20,18 @@ export default async function handler(req, res) {
     const {
       propertyName = '',
       websiteUrl = '',
+      location = '',
       contactName = '',
+      role = '',
       email = '',
       phone = '',
+      businessType = '',
       bookingSystem = '',
+      clientValue = '',
+      newClients = '',
       goal = '',
       launchTiming = '',
+      budget = '',
       assetsLink = '',
       notes = '',
       company = '',
@@ -42,8 +49,9 @@ export default async function handler(req, res) {
 
     const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
     if (
-      !propertyName || !websiteUrl || !contactName ||
-      !isEmail(email) || !bookingSystem || !goal || !launchTiming
+      !propertyName || !websiteUrl || !location || !contactName || !role ||
+      !isEmail(email) || !businessType || !bookingSystem || !clientValue ||
+      !goal || !launchTiming
     ) {
       return res.status(400).json({ ok: false, error: 'Missing required fields' });
     }
@@ -58,16 +66,22 @@ export default async function handler(req, res) {
     const htmlAdmin = `
       <h2>New Quote Request</h2>
       <table cellpadding="6" cellspacing="0" style="font-family:Inter,Arial,sans-serif">
-        ${row('Property', propertyName)}
-        ${row('Website', websiteUrl)}
-        ${row('Contact', contactName)}
+        ${row('Clinic / business name', propertyName)}
+        ${row('Website URL', websiteUrl)}
+        ${row('Location(s)', location)}
+        ${row('Contact name', contactName)}
+        ${row('Role', role)}
         ${row('Email', email)}
         ${row('Phone', phone)}
-        ${row('Booking system', bookingSystem)}
+        ${row('Business type', businessType)}
+        ${row('Booking / scheduling system', bookingSystem)}
+        ${row('Approx. value of a new patient/client', clientValue)}
+        ${row('Approx. new patients/clients per month', newClients)}
         ${row('Primary goal', goal)}
-        ${row('Ideal timing', launchTiming)}
+        ${row('Ideal launch timing', launchTiming)}
+        ${row('Budget comfort zone', budget)}
+        ${row('Additional details', notes)}
         ${row('Assets link', assetsLink)}
-        ${row('Notes', notes)}
       </table>
       <hr style="margin:16px 0;border:0;border-top:1px solid #e5eaf2">
       <p style="font:12px/1.4 Inter,Arial,sans-serif;color:#6b7280">
