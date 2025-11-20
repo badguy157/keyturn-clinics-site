@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+# Optional if/when you have one:
+# Sitemap: https://www.keyturn.studio/sitemap.xml
