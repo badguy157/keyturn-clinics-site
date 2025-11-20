@@ -227,6 +227,29 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 @media (min-width:768px){.problems-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .pricing-grid{display:grid;gap:20px}
 @media (min-width:900px){.pricing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Clinic types and services grids - 2-column layout on desktop */
+.clinic-types-grid,
+.services-offer-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+/* Mobile: single column */
+@media (max-width: 767px) {
+  .clinic-types-grid,
+  .services-offer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop: 2 columns to avoid empty space */
+@media (min-width: 768px) {
+  .clinic-types-grid,
+  .services-offer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 .pricing-grid .card,.pricing-ongoing{height:100%;display:flex;flex-direction:column}
 .pricing-grid .card .btn,.pricing-ongoing .btn{margin-top:auto}
 .card{
