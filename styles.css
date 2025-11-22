@@ -1160,3 +1160,51 @@ img {
     padding: 20px 24px;
   }
 }
+
+/* ===== Newsletter Inline Form ===== */
+.inline-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.inline-form input[type="email"] {
+  flex: 1;
+  padding: 14px 16px;
+  background: rgba(255,255,255,.06);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.inline-form input[type="email"]:hover {
+  border-color: rgba(90,162,255,.4);
+  background: rgba(255,255,255,.08);
+}
+
+.inline-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255,255,255,.1);
+  box-shadow: 0 0 0 3px rgba(90,162,255,.15);
+}
+
+.inline-form input[type="email"]::placeholder {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+@media (min-width: 640px) {
+  .inline-form {
+    flex-direction: row;
+  }
+  
+  .inline-form button {
+    white-space: nowrap;
+  }
+}
