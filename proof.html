@@ -24,6 +24,23 @@
     "sameAs": []
   }
   </script>
+
+  <!-- Responsive grid styles for demo cards -->
+  <style>
+    #clinic-demos .grid {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      #clinic-demos .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      #clinic-demos .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -197,6 +214,23 @@
           </ul>
           <a class="btn" href="https://chiro-demo.keyturn.studio/" target="_blank" rel="noopener" style="margin-top:16px">
             Open chiro demo →
+          </a>
+        </article>
+
+        <!-- Primary Care -->
+        <article class="card" style="display:flex;flex-direction:column">
+          <h3 style="margin-top:0">Primary Care & Family Medicine Demo</h3>
+          <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
+            Example homepage for GP and family medicine clinics.
+          </p>
+          <ul style="margin:16px 0;padding-left:20px;color:var(--muted-2);flex-grow:1">
+            <li>Simple "Book visit" and "Call the clinic" CTAs tuned for mobile.</li>
+            <li>Clear sections for common visit reasons and ongoing care.</li>
+            <li>Space for insurance info, new patient steps, and FAQs.</li>
+            <li>Location, hours, and contact details kept highly visible.</li>
+          </ul>
+          <a class="btn" href="https://primary-demo.keyturn.studio/" target="_blank" rel="noopener" style="margin-top:16px">
+            Open primary care demo →
           </a>
         </article>
       </div>
