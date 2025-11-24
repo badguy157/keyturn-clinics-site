@@ -24,6 +24,40 @@
     "sameAs": []
   }
   </script>
+
+  <!-- Responsive grid styles for demo cards -->
+  <style>
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 1180px;
+      margin-inline: auto;
+    }
+    @media (min-width: 768px) {
+      .demo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .demo-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      height: 100%;
+    }
+    .demo-card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .demo-card-footer {
+      margin-top: 24px;
+      padding-top: 8px;
+    }
+  </style>
 </head>
 <body>
 
@@ -148,56 +182,89 @@
     <div style="max-width:900px;margin:0 auto">
       <h2 style="margin-top:0;margin-bottom:20px">See what a patient-flow website could look like</h2>
       <p style="color:var(--muted-2);font-size:1.05rem;line-height:1.6;max-width:800px;margin-bottom:40px">
-        We've built full demo homepages for three common clinic types so you can see how the layout, messaging, and calls-to-action would work in your world. These are example sites – not real clinics – but the structure is very close to what we'd launch in a live project.
+        We've built full demo homepages for four common clinic types so you can see how the layout, messaging, and calls-to-action would work in your world. These are example sites – not real clinics – but the structure is very close to what we'd launch in a live project.
       </p>
 
-      <div class="grid" style="gap:24px">
+      <div class="demo-grid">
         <!-- Cosmetic -->
-        <article class="card" style="display:flex;flex-direction:column">
-          <h3 style="margin-top:0">Cosmetic & Medspa Demo</h3>
-          <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
-            Example homepage for injectables, laser, and aesthetic treatment packages.
-          </p>
-          <ul style="margin:16px 0;padding-left:20px;color:var(--muted-2);flex-grow:1">
-            <li>Prominent "Book consultation" and "View packages" CTAs above the fold.</li>
-            <li>Sections for signature treatments and membership or bundle offers.</li>
-            <li>Space for before-and-after proof, reviews, and financing information.</li>
-          </ul>
-          <a class="btn" href="https://cosmetic-demo.keyturn.studio/" target="_blank" rel="noopener" style="margin-top:16px">
-            Open cosmetic demo →
-          </a>
+        <article class="demo-card">
+          <div class="demo-card-body">
+            <h3 style="margin-top:0">Cosmetic & Medspa Demo</h3>
+            <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
+              Example homepage for injectables, laser, and aesthetic treatment packages.
+            </p>
+            <ul style="margin:16px 0;padding-left:20px;color:var(--muted-2)">
+              <li>Prominent "Book consultation" and "View packages" CTAs above the fold.</li>
+              <li>Sections for signature treatments and membership or bundle offers.</li>
+              <li>Space for before-and-after proof, reviews, and financing information.</li>
+            </ul>
+          </div>
+          <div class="demo-card-footer">
+            <a class="btn" href="https://cosmetic-demo.keyturn.studio/" target="_blank" rel="noopener">
+              Open cosmetic demo →
+            </a>
+          </div>
         </article>
 
         <!-- Dental -->
-        <article class="card" style="display:flex;flex-direction:column">
-          <h3 style="margin-top:0">Dental & Implant Demo</h3>
-          <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
-            Built around high-value treatments like implants, Invisalign, and smile makeovers.
-          </p>
-          <ul style="margin:16px 0;padding-left:20px;color:var(--muted-2);flex-grow:1">
-            <li>Clear treatment landing sections with simple pathways to "Book exam".</li>
-            <li>Room for fee guides, financing details, and new-patient offer blocks.</li>
-            <li>Trust section for clinician bios, reviews, and case studies.</li>
-          </ul>
-          <a class="btn" href="https://dental-demo.keyturn.studio/" target="_blank" rel="noopener" style="margin-top:16px">
-            Open dental demo →
-          </a>
+        <article class="demo-card">
+          <div class="demo-card-body">
+            <h3 style="margin-top:0">Dental & Implant Demo</h3>
+            <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
+              Built around high-value treatments like implants, Invisalign, and smile makeovers.
+            </p>
+            <ul style="margin:16px 0;padding-left:20px;color:var(--muted-2)">
+              <li>Clear treatment landing sections with simple pathways to "Book exam".</li>
+              <li>Room for fee guides, financing details, and new-patient offer blocks.</li>
+              <li>Trust section for clinician bios, reviews, and case studies.</li>
+            </ul>
+          </div>
+          <div class="demo-card-footer">
+            <a class="btn" href="https://dental-demo.keyturn.studio/" target="_blank" rel="noopener">
+              Open dental demo →
+            </a>
+          </div>
         </article>
 
         <!-- Chiro -->
-        <article class="card" style="display:flex;flex-direction:column">
-          <h3 style="margin-top:0">Chiropractic & Physio Demo</h3>
-          <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
-            For clinics that rely on ongoing care plans and local reputation.
-          </p>
-          <ul style="margin:16px 0;padding-left:20px;color:var(--muted-2);flex-grow:1">
-            <li>Simple "Book visit" journey tuned for mobile visitors.</li>
-            <li>Areas for conditions treated, treatment pathways, and FAQs.</li>
-            <li>Slot for reviews, outcomes, and ongoing care programs.</li>
-          </ul>
-          <a class="btn" href="https://chiro-demo.keyturn.studio/" target="_blank" rel="noopener" style="margin-top:16px">
-            Open chiro demo →
-          </a>
+        <article class="demo-card">
+          <div class="demo-card-body">
+            <h3 style="margin-top:0">Chiropractic & Physio Demo</h3>
+            <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
+              For clinics that rely on ongoing care plans and local reputation.
+            </p>
+            <ul style="margin:16px 0;padding-left:20px;color:var(--muted-2)">
+              <li>Simple "Book visit" journey tuned for mobile visitors.</li>
+              <li>Areas for conditions treated, treatment pathways, and FAQs.</li>
+              <li>Slot for reviews, outcomes, and ongoing care programs.</li>
+            </ul>
+          </div>
+          <div class="demo-card-footer">
+            <a class="btn" href="https://chiro-demo.keyturn.studio/" target="_blank" rel="noopener">
+              Open chiro demo →
+            </a>
+          </div>
+        </article>
+
+        <!-- Primary Care -->
+        <article class="demo-card">
+          <div class="demo-card-body">
+            <h3 style="margin-top:0">Primary Care & Family Medicine Demo</h3>
+            <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
+              Example homepage for GP and family medicine clinics.
+            </p>
+            <ul style="margin:16px 0;padding-left:20px;color:var(--muted-2)">
+              <li>Simple "Book visit" and "Call the clinic" CTAs tuned for mobile.</li>
+              <li>Clear sections for common visit reasons and ongoing care.</li>
+              <li>Space for insurance info, new patient steps, and FAQs.</li>
+              <li>Location, hours, and contact details kept highly visible.</li>
+            </ul>
+          </div>
+          <div class="demo-card-footer">
+            <a class="btn" href="https://primary-demo.keyturn.studio/" target="_blank" rel="noopener">
+              Open primary care demo →
+            </a>
+          </div>
         </article>
       </div>
 
