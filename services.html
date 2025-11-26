@@ -21,23 +21,37 @@
 <body>
 
 <main id="main">
-  <!-- ===== Intro Section ===== -->
-  <section class="hero">
-    <div class="container">
-      <h1 class="hero-title">Services</h1>
-      <p class="hero-lede">We rebuild your website so more visitors become booked patients.</p>
-      <p style="color:var(--muted);font-size:1rem;margin-top:16px">
-        We work with medspas, cosmetic surgery clinics, aesthetic dental practices, and dermatology clinics. If you help people look and feel their best, we help you get more of the right patients.
-      </p>
+  <!-- ===== Hero Section ===== -->
+  <section class="services-hero container">
+    <div class="services-hero-layout">
+      <div class="services-hero-left">
+        <h1 class="hero-title">Services</h1>
+        <p class="hero-lede">We rebuild your website so more visitors become booked patients.</p>
+        <p class="services-hero-intro">
+          We work with medspas, cosmetic surgery clinics, aesthetic dental practices, and dermatology clinics. If you help people look and feel their best, we help you get more of the right patients.
+        </p>
+      </div>
+      <div class="services-hero-right">
+        <div class="services-hero-card">
+          <h2 class="services-hero-card-title">What you get</h2>
+          <ul class="services-hero-card-list">
+            <li><strong>Who we help:</strong> Medspas, cosmetic surgery, cosmetic dental, dermatology</li>
+            <li><strong>Turnaround:</strong> 3–5 weeks from kickoff to launch</li>
+            <li><strong>Done-for-you:</strong> Copy, design, and build—all handled</li>
+            <li><strong>Tracking included:</strong> Know where your leads come from</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ===== Core Services Section ===== -->
-  <section class="container section">
-    <h2 style="margin-bottom:32px">What we do</h2>
+  <section class="services-offerings container section">
+    <h2 class="services-section-heading">What we do</h2>
     <div class="services-offer-grid">
-      <article class="card">
-        <h3 style="margin-top:0">Rebuild your website</h3>
+      <article class="service-card">
+        <div class="service-card-accent"></div>
+        <h3>Rebuild your website</h3>
         <ul class="features">
           <li>Redesign your home and key pages so visitors take action</li>
           <li>Write clear copy for your homepage and key treatment pages</li>
@@ -47,8 +61,9 @@
         </ul>
       </article>
 
-      <article class="card">
-        <h3 style="margin-top:0">Set up tracking and analytics</h3>
+      <article class="service-card">
+        <div class="service-card-accent"></div>
+        <h3>Set up tracking and analytics</h3>
         <ul class="features">
           <li>Set up GA4 (Google Analytics 4)</li>
           <li>Track form fills and phone clicks</li>
@@ -57,8 +72,9 @@
         </ul>
       </article>
 
-      <article class="card">
-        <h3 style="margin-top:0">Landing pages for high-value treatments</h3>
+      <article class="service-card">
+        <div class="service-card-accent"></div>
+        <h3>Landing pages for high-value treatments</h3>
         <ul class="features">
           <li>Focused pages for implants, cosmetic work, and packages</li>
           <li>Writing that speaks to patient concerns and leads to booking</li>
@@ -67,8 +83,9 @@
         </ul>
       </article>
 
-      <article class="card">
-        <h3 style="margin-top:0">Ongoing Care and Growth</h3>
+      <article class="service-card">
+        <div class="service-card-accent"></div>
+        <h3>Ongoing Care and Growth</h3>
         <ul class="features">
           <li>Monthly support after launch to keep things running</li>
           <li>Regular tweaks based on what's working</li>
@@ -80,162 +97,131 @@
   </section>
 
   <!-- ===== Packages Overview Section ===== -->
-  <section class="container section" style="background:rgba(255,255,255,.02);border-radius:var(--radius);padding:var(--section-y) var(--container-x)">
-    <h2 style="text-align:center;margin-bottom:12px">Our Packages</h2>
-    <p style="text-align:center;color:var(--muted);margin-bottom:32px">Every package is a full website rebuild – new homepage, navigation, and a clean layout for your main pages. The difference is how much writing we do, how many treatment pages we build out, and how complex your site needs to be.</p>
+  <section class="services-packages container section">
+    <h2 class="services-section-heading">Our Packages</h2>
+    <p class="services-packages-intro">Every package includes a full website rebuild plus a 30-day launch warranty for fixes and small text or photo changes.</p>
     
-    <div class="pricing-grid">
-      <article class="card">
-        <h3 class="card-title">Core Website Makeover</h3>
-        <p class="who small" style="margin-bottom:16px"><strong>Best for:</strong> Single-location clinics or smaller medspas moving from a basic site to one built for bookings.</p>
-        <p style="color:var(--muted-2);margin-bottom:12px"><strong>What's included:</strong></p>
-        <ul class="features" style="font-size:.95rem">
-          <li>Full redesign of your homepage, navigation, and overall look.</li>
-          <li>We write the copy for your homepage and 3–5 key treatment pages.</li>
-          <li>Simple, clean template for the rest of your pages (about, team, legal, etc.).</li>
-          <li>Clear "Book a visit" or "Call now" buttons linked to your booking system.</li>
-          <li>Mobile-first layouts and basic speed improvements.</li>
-          <li>Tracking setup for forms, call clicks, and booking clicks.</li>
-          <li>Launch support and a short walkthrough for your team.</li>
+    <div class="pricing-cards-grid">
+      <article class="pricing-card">
+        <div class="pricing-card-header">
+          <h3 class="pricing-card-name">Core Website Makeover</h3>
+        </div>
+        <p class="services-package-best-for"><strong>Best for:</strong> Single-location clinics or smaller medspas moving from a basic site to one built for bookings.</p>
+        <p class="pricing-card-includes">What's included</p>
+        <ul class="pricing-card-features">
+          <li>Full redesign of homepage, navigation, and overall look</li>
+          <li>Copy for homepage and 3–5 key treatment pages</li>
+          <li>Clean template for other pages (about, team, legal)</li>
+          <li>Clear booking buttons and mobile-first layouts</li>
+          <li>Tracking setup for forms, calls, and bookings</li>
         </ul>
       </article>
 
-      <article class="card highlight-card">
-        <div class="card-badge">Most booked</div>
-        <h3 class="card-title">Pro Website Makeover</h3>
-        <p class="who small" style="margin-bottom:16px"><strong>Best for:</strong> Busy practices where even small improvements bring more patients.</p>
-        <p style="color:var(--muted-2);margin-bottom:12px"><strong>What's included:</strong></p>
-        <ul class="features" style="font-size:.95rem">
-          <li>Everything in Core, plus more depth.</li>
-          <li>Stronger writing across your key pages (not just headlines).</li>
-          <li>Extra landing pages for priority treatments (implants, Invisalign, memberships).</li>
-          <li>More trust-building sections (reviews, credentials, before/after, FAQs).</li>
-          <li>Clearer links between pages so patients move from "curious" to "ready to book."</li>
-          <li>Better tracking so you see which pages bring the most leads.</li>
+      <article class="pricing-card pricing-card-featured">
+        <div class="pricing-badge">Most popular</div>
+        <div class="pricing-card-header">
+          <h3 class="pricing-card-name">Pro Website Makeover</h3>
+        </div>
+        <p class="services-package-best-for"><strong>Best for:</strong> Busy practices where even small improvements bring more patients.</p>
+        <p class="pricing-card-includes">What's included</p>
+        <ul class="pricing-card-features">
+          <li>Everything in Core, plus more depth</li>
+          <li>Stronger writing across all key pages</li>
+          <li>Extra landing pages for priority treatments</li>
+          <li>Trust-building sections (reviews, credentials, FAQs)</li>
+          <li>Better tracking to see which pages convert</li>
         </ul>
       </article>
 
-      <article class="card">
-        <h3 class="card-title">Premier Website Makeover</h3>
-        <p class="who small" style="margin-bottom:16px"><strong>Best for:</strong> Multi-location or cosmetic/implant-focused clinics that need a bigger, more complex site.</p>
-        <p style="color:var(--muted-2);margin-bottom:12px"><strong>What's included:</strong></p>
-        <ul class="features" style="font-size:.95rem">
-          <li>Everything in Pro, plus deeper structure for complex clinics.</li>
-          <li>Site layout for multi-location practices or clinics with several high-value programs.</li>
-          <li>Dedicated sections for high-value programs with deeper content and FAQs.</li>
-          <li>More detailed writing for complex or expensive treatments.</li>
-          <li>Extra custom page layouts where needed.</li>
-          <li>More treatment pages so patients know what to expect before they contact you.</li>
+      <article class="pricing-card">
+        <div class="pricing-card-header">
+          <h3 class="pricing-card-name">Premier Website Makeover</h3>
+        </div>
+        <p class="services-package-best-for"><strong>Best for:</strong> Multi-location or cosmetic/implant-focused clinics that need a bigger, more complex site.</p>
+        <p class="pricing-card-includes">What's included</p>
+        <ul class="pricing-card-features">
+          <li>Everything in Pro, plus deeper structure</li>
+          <li>Multi-location site layout</li>
+          <li>Dedicated sections for high-value programs</li>
+          <li>Detailed writing for complex treatments</li>
+          <li>More treatment pages with FAQs</li>
         </ul>
       </article>
     </div>
     
-    <p style="text-align:center;margin-top:32px">Every project includes a 30-day launch warranty for bug fixes and small text or photo corrections after the site goes live.</p>
-
-    <div style="text-align:center;margin-top:32px">
-      <a class="btn btn-primary" href="/pricing.html" style="min-width:200px">View full pricing</a>
+    <div class="services-packages-cta">
+      <a href="/pricing.html" class="btn btn-outline">View full pricing</a>
     </div>
   </section>
 
   <!-- ===== Who We're a Good Fit For Section ===== -->
-  <section class="container section">
-    <h2 style="text-align:center;margin-bottom:32px">Who we work with</h2>
-    <div class="clinic-types-grid">
-      <article class="card">
-        <h3 style="margin-top:0">Medspas</h3>
+  <section class="services-clients container section">
+    <h2 class="services-section-heading">Who we work with</h2>
+    <p class="services-clients-intro">We focus on a small set of clinic types so we can speak your language and design for your exact patients.</p>
+    <div class="services-clients-grid">
+      <article class="client-type-card">
+        <h3>Medspas</h3>
         <p>We build pages for injectables, facials, and packages. Easy booking steps. Content that builds trust and gets visitors to book.</p>
       </article>
 
-      <article class="card">
-        <h3 style="margin-top:0">Cosmetic / plastic surgery clinics</h3>
+      <article class="client-type-card">
+        <h3>Cosmetic / plastic surgery clinics</h3>
         <p>Clear pages for each procedure. Before-and-after sections. A simple path from "I'm curious" to "I'm ready to book a consult."</p>
       </article>
 
-      <article class="card">
-        <h3 style="margin-top:0">Cosmetic &amp; implant-focused dental practices</h3>
+      <article class="client-type-card">
+        <h3>Cosmetic &amp; implant-focused dental practices</h3>
         <p>Pages that show off your best work—implants, veneers, smile makeovers. We help patients see what's possible and book their first visit.</p>
       </article>
 
-      <article class="card">
-        <h3 style="margin-top:0">Aesthetic dermatology clinics</h3>
+      <article class="client-type-card">
+        <h3>Aesthetic dermatology clinics</h3>
         <p>We help you explain skin treatments in plain language. Clear service pages, easy booking, and tracking so you know what's working.</p>
       </article>
     </div>
   </section>
 
   <!-- ===== Small expert team section ===== -->
-  <section class="container section">
-    <div class="card" style="max-width:800px;margin:0 auto">
-      <h3 style="margin-top:0">A small expert team, just for your clinic</h3>
+  <section class="services-team container section">
+    <div class="services-team-card">
+      <h3>A small expert team, just for your clinic</h3>
       <p>
         Most clinic websites are built by one person doing everything. With Keyturn, you get a small team that works only on your site for 3–5 weeks:
       </p>
-      <ul style="line-height:1.8;margin-top:16px">
+      <ul class="services-team-list">
         <li><strong>Designer</strong> – makes your site look clean and modern.</li>
         <li><strong>Writer</strong> – keeps the words simple and clear.</li>
         <li><strong>Builder</strong> – makes sure the site works fast on phones and computers.</li>
       </ul>
-      <p style="margin-top:16px">
+      <p>
         I lead the team and keep everyone focused on one thing: making it easy for the right patients to book with you.
       </p>
     </div>
   </section>
 
   <!-- ===== How We Work With Your Tools Section ===== -->
-  <section class="container section">
-    <div class="card" style="max-width:800px;margin:0 auto">
-      <h2 style="margin-top:0;text-align:center">We work with your tools</h2>
+  <section class="services-tools container section">
+    <div class="services-tools-card">
+      <h2>We work with your tools</h2>
       <p>We usually work with your existing website platform and booking system. We can work with most systems.</p>
-      <p><strong>Important:</strong> We only work with your website and marketing tools. We never touch medical records, patient data, or clinical systems. Our work stays on the marketing side – website, booking steps, and analytics.</p>
-      <p style="margin-bottom:0">If you need a new platform or are starting fresh, we can suggest options that fit your clinic's size and needs.</p>
+      <div class="services-tools-callout">
+        <p><strong>Important:</strong> We only work with your website and marketing tools. We never touch medical records, patient data, or clinical systems. Our work stays on the marketing side – website, booking steps, and analytics.</p>
+      </div>
+      <p>If you need a new platform or are starting fresh, we can suggest options that fit your clinic's size and needs.</p>
     </div>
   </section>
 
   <!-- ===== Call-to-Action Section ===== -->
-  <section class="container section" id="services-cta" style="padding-left:16px;padding-right:16px;padding-top:32px;padding-bottom:32px">
-    <div class="card" style="max-width:56rem;margin:0 auto;padding:24px;border-radius:16px;background:rgba(15,23,42,0.7)">
-      <div style="text-align:center">
-        <h2 style="margin:0 0 8px 0;font-size:1.5rem;font-weight:600">Want to see what we'd do for your clinic?</h2>
-        <p style="margin:0 0 20px 0;font-size:0.95rem;color:var(--muted-2)">No pressure. We'll take a quick look at your site and send you a clear quote.</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px">
-        <a class="btn btn-primary" href="/quote.html" style="width:100%;text-align:center" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'services-cta'})">Get a Quote</a>
-        <a class="btn btn-ghost" href="https://calendly.com/vinnie-keyturn/intro?utm_source=services" target="_blank" rel="noopener" style="width:100%;text-align:center">Book a 15-min Call</a>
+  <section class="services-cta container section">
+    <div class="services-cta-band">
+      <h2>Want to see what we'd do for your clinic?</h2>
+      <p>No pressure. We'll take a quick look at your site and send you a clear quote.</p>
+      <div class="services-cta-buttons">
+        <a class="btn btn-primary" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'services-cta'})">Get a Quote</a>
+        <a class="btn btn-outline" href="https://calendly.com/vinnie-keyturn/intro?utm_source=services" target="_blank" rel="noopener">Book a 15-min Call</a>
       </div>
     </div>
   </section>
-
-  <style>
-    @media (min-width: 768px) {
-      #services-cta .card {
-        padding: 32px;
-      }
-      #services-cta > .card > div:first-child {
-        text-align: left;
-      }
-      #services-cta > .card > div:last-child {
-        flex-direction: row;
-        justify-content: flex-end;
-        margin-top: 0;
-      }
-      #services-cta > .card > div:last-child a {
-        width: auto;
-        min-width: 160px;
-      }
-      #services-cta .card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-      }
-      #services-cta .card > div:first-child {
-        flex: 1;
-      }
-      #services-cta .card > div:last-child {
-        flex-shrink: 0;
-      }
-    }
-  </style>
 </main>
 
 <footer class="site-footer">
