@@ -38,41 +38,46 @@
 <body>
 
 <!-- ===== Pricing Hero ===== -->
-<section class="hero">
+<section class="pricing-hero">
   <div class="container">
-    <h1 class="hero-title">Pricing</h1>
-    <p class="hero-lede">Clear pricing for clinic website rebuilds. Pick the package that fits your practice.</p>
+    <div class="pricing-hero-layout">
+      <div class="pricing-hero-left">
+        <h1 class="hero-title">Pricing</h1>
+        <p class="hero-lede pricing-hero-intro">Clear pricing for clinic website rebuilds. Pick the package that fits your practice.</p>
+      </div>
+      <div class="pricing-hero-right">
+        <div class="pricing-payback-card">
+          <h2 class="pricing-payback-title">It usually pays for itself</h2>
+          <div class="pricing-payback-content">
+            <p>A few extra high-value patients per month (implants, cosmetic work, medspa packages) often covers the project cost in under a year.</p>
+            <p>The difference between packages isn't just scope, but how deep we go on persuasive copywriting, trust-building elements, and dedicated pages for your highest-value services. Pick the one that matches where your clinic is today and where you want to be.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <main id="main">
 
-  <!-- ===== Intro Section ===== -->
-  <section class="container section" style="padding-top:40px;padding-bottom:40px">
-    <div class="card" style="text-align:center;max-width:800px;margin:0 auto">
-      <h2 style="margin-top:0">It usually pays for itself</h2>
-      <div style="text-align:left;margin-top:20px">
-        <p>A few extra high-value patients per month (implants, cosmetic work, medspa packages) often covers the project cost in under a year.</p>
-        <p style="margin-top:16px">The difference between packages isn’t just scope, but how deep we go on persuasive copywriting, trust-building elements, and dedicated pages for your highest-value services. Pick the one that matches where your clinic is today and where you want to be.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== Project Packages ===== -->
-  <section id="pricing" class="container section">
-    <h2 style="text-align:center">Project packages</h2>
-    <p class="small" style="text-align:center;margin-bottom:32px">For clinics, medspas, and service businesses.</p>
+  <section id="pricing" class="pricing-packages container section">
+    <h2 class="pricing-section-heading">Project packages</h2>
+    <p class="pricing-section-subheading">For clinics, medspas, and service businesses.</p>
     
-    <p style="text-align:center;margin-top:16px;margin-bottom:32px;color:var(--muted)">
+    <p class="pricing-payment-note">
       You pay 50% to start and 50% on launch. Most sites go live in 3–5 weeks. If you need a different payment schedule, let us know when you ask for a quote.
     </p>
     
-    <div class="pricing-grid">
+    <div class="pricing-cards-grid">
       <!-- Core Package -->
-      <article class="card">
-        <h3 class="card-title">Core Website Makeover – $7,500</h3>
-        <p class="who small"><strong>What's included</strong></p>
-        <ul class="features">
+      <article class="pricing-card">
+        <div class="pricing-card-header">
+          <h3 class="pricing-card-name">Core Website Makeover</h3>
+          <div class="pricing-card-price">$7,500</div>
+        </div>
+        <p class="pricing-card-includes">What's included</p>
+        <ul class="pricing-card-features">
           <li>Full redesign of your homepage, navigation, and overall look.</li>
           <li>We write the copy for your homepage and 3–5 key treatment pages.</li>
           <li>Simple, clean template for the rest of your pages (about, team, legal, etc.).</li>
@@ -81,15 +86,18 @@
           <li>Tracking setup for forms, call clicks, and booking clicks.</li>
           <li>Launch support and a short walkthrough for your team.</li>
         </ul>
-        <a class="btn btn-primary" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-core'})">Get a Quote</a>
+        <a class="btn btn-primary pricing-card-cta" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-core'})">Get a Quote</a>
       </article>
       
       <!-- Pro Package -->
-      <article class="card highlight-card">
-        <div class="card-badge">Most booked</div>
-        <h3 class="card-title">Pro Website Makeover – $12,000</h3>
-        <p class="who small"><strong>What's included</strong></p>
-        <ul class="features">
+      <article class="pricing-card pricing-card-featured">
+        <div class="pricing-badge">Most popular</div>
+        <div class="pricing-card-header">
+          <h3 class="pricing-card-name">Pro Website Makeover</h3>
+          <div class="pricing-card-price">$12,000</div>
+        </div>
+        <p class="pricing-card-includes">What's included</p>
+        <ul class="pricing-card-features">
           <li>Everything in Core, plus more depth.</li>
           <li>Stronger writing across your key pages (not just headlines).</li>
           <li>Extra landing pages for priority treatments (implants, Invisalign, memberships).</li>
@@ -97,14 +105,17 @@
           <li>Clearer links between pages so patients move from "curious" to "ready to book."</li>
           <li>Better tracking so you see which pages bring the most leads.</li>
         </ul>
-        <a class="btn btn-primary" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-pro'})">Get a Quote</a>
+        <a class="btn btn-primary pricing-card-cta" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-pro'})">Get a Quote</a>
       </article>
 
       <!-- Premier Package -->
-      <article class="card">
-        <h3 class="card-title">Premier Website Makeover – $18,000–$25,000</h3>
-        <p class="who small"><strong>What's included</strong></p>
-        <ul class="features">
+      <article class="pricing-card">
+        <div class="pricing-card-header">
+          <h3 class="pricing-card-name">Premier Website Makeover</h3>
+          <div class="pricing-card-price">$18,000–$25,000</div>
+        </div>
+        <p class="pricing-card-includes">What's included</p>
+        <ul class="pricing-card-features">
           <li>Everything in Pro, plus deeper structure for complex clinics.</li>
           <li>Site layout for multi-location practices or clinics with several high-value programs.</li>
           <li>Dedicated sections for high-value programs with deeper content and FAQs.</li>
@@ -112,104 +123,95 @@
           <li>Extra custom page layouts where needed.</li>
           <li>More treatment pages so patients know what to expect before they contact you.</li>
         </ul>
-        <a class="btn btn-primary" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-premier'})">Get a Quote</a>
+        <a class="btn btn-primary pricing-card-cta" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-premier'})">Get a Quote</a>
       </article>
     </div>
     
-    <p style="text-align:center;margin-top:32px">Every project includes a 30-day launch warranty for bug fixes and small text or photo corrections after the site goes live.</p>
+    <p class="pricing-warranty-note">Every project includes a 30-day launch warranty for bug fixes and small text or photo corrections after the site goes live.</p>
   </section>
 
   <!-- ===== Ongoing Care & Growth ===== -->
-  <section class="container section">
-    <article class="card pricing-ongoing">
-      <h3 class="card-title">Ongoing Care &amp; Growth (optional)</h3>
-      <div class="price">$300–$900/mo</div>
-      <p class="who small">Month-to-month. No long-term contracts. Cancel anytime.</p>
-      <ul class="features">
-        <li><strong>Care ($300/mo):</strong> Safe hosting, backups, and updates. Minor text and photo changes as needed. We check that forms, call links, and booking steps work.</li>
-        <li><strong>Growth ($900/mo):</strong> Everything in Care, plus one real improvement per month (new section, new page, or layout tweak). Simple tests to help more visitors book. Monthly email with key numbers and what we changed.</li>
-      </ul>
-      <p class="small" style="margin-top:16px;color:var(--muted)"><strong>Important:</strong> Care and Growth are optional. You can start, pause, or cancel anytime. They're not bundled with project packages.</p>
-      <a class="btn btn-primary" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-ongoing'})">Get a Quote</a>
-    </article>
-  </section>
-
-  <!-- ===== Who Each Tier Fits ===== -->
-  <section class="container section">
-    <div class="card footnote">
-      <h3 style="margin-top:0">Who each package is for</h3>
-      <ul style="line-height:1.8">
-        <li><strong>Core ($7.5k):</strong> Single-location clinics or smaller medspas. Best for solo providers or small teams. We redesign your homepage and 3–5 key treatment pages; the rest uses a clean template.</li>
-        <li><strong>Pro ($12k):</strong> Busy practices where even small improvements bring more patients. Good for dental groups, cosmetic clinics, or medspas with steady demand. Includes everything in Core plus deeper writing, extra landing pages, and better tracking.</li>
-        <li><strong>Premier ($18k–$25k):</strong> Multi-location or heavily cosmetic/implant-focused clinics that need a bigger, more complex site. Includes everything in Pro plus multi-location structure and more detailed treatment pages.</li>
-        <li>We also help boutique hotels and inns where direct bookings matter, but clinics and medspas are our main focus.</li>
-        <li><strong>Probably not a fit</strong> if your site gets very little traffic or you're already booking most visitors.</li>
-      </ul>
-      <p class="tiny" style="margin-top:16px">Care and Growth are separate month-to-month add-ons for ongoing tweaks after launch.</p>
+  <section class="pricing-retainers">
+    <div class="container">
+      <div class="pricing-retainers-layout">
+        <div class="pricing-retainers-left">
+          <h3 class="pricing-retainers-title">Ongoing Care &amp; Growth (optional)</h3>
+          <div class="pricing-retainers-price">$300–$900/mo</div>
+          <p class="pricing-retainers-terms">Month-to-month. No long-term contracts. Cancel anytime.</p>
+        </div>
+        <div class="pricing-retainers-right">
+          <div class="pricing-retainer-option">
+            <h4 class="pricing-retainer-name">Care – $300/mo</h4>
+            <ul class="pricing-retainer-features">
+              <li>Safe hosting, backups, and updates.</li>
+              <li>Minor text and photo changes as needed.</li>
+              <li>We check that forms, call links, and booking steps work.</li>
+            </ul>
+          </div>
+          <div class="pricing-retainer-divider"></div>
+          <div class="pricing-retainer-option">
+            <h4 class="pricing-retainer-name">Growth – $900/mo</h4>
+            <ul class="pricing-retainer-features">
+              <li>Everything in Care, plus one real improvement per month (new section, new page, or layout tweak).</li>
+              <li>Simple tests to help more visitors book.</li>
+              <li>Monthly email with key numbers and what we changed.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="pricing-retainers-note">Care and Growth are optional. You can start, pause, or cancel any time.</p>
     </div>
   </section>
 
-  <!-- ===== Payback / ROI Note ===== -->
-  <section class="container section" style="padding-top:56px;border-top:1px solid rgba(255,255,255,.06)">
-    <div class="card" style="text-align:center;max-width:700px;margin:0 auto;background:rgba(90,162,255,.06);border:1px solid rgba(90,162,255,.2)">
-      <h3 style="margin-top:0">Want to see the payback math?</h3>
-      <p>Use our simple calculator. Enter your average value per patient and see how fast a new site could pay for itself.</p>
-      <p>The math works the same for clinics, medspas, and hotels.</p>
-      <div class="buttons" style="margin-top:20px;margin-bottom:0">
+  <!-- ===== Who Each Package is For ===== -->
+  <section class="pricing-tiers container section">
+    <h3 class="pricing-section-heading">Who each package is for</h3>
+    
+    <div class="pricing-tiers-grid">
+      <div class="pricing-tier-card">
+        <h4 class="pricing-tier-name">Core – $7.5k</h4>
+        <p class="pricing-tier-desc">Single-location clinics or smaller medspas. Best for solo providers or small teams. We redesign your homepage and 3–5 key treatment pages; the rest uses a clean template.</p>
+      </div>
+      <div class="pricing-tier-card">
+        <h4 class="pricing-tier-name">Pro – $12k</h4>
+        <p class="pricing-tier-desc">Busy practices where even small improvements bring more patients. Good for dental groups, cosmetic clinics, or medspas with steady demand. Includes everything in Core plus deeper writing, extra landing pages, and better tracking.</p>
+      </div>
+      <div class="pricing-tier-card">
+        <h4 class="pricing-tier-name">Premier – $18k–$25k</h4>
+        <p class="pricing-tier-desc">Multi-location or heavily cosmetic/implant-focused clinics that need a bigger, more complex site. Includes everything in Pro plus multi-location structure and more detailed treatment pages.</p>
+      </div>
+    </div>
+    
+    <div class="pricing-tier-note-card">
+      <p>We also help boutique hotels and inns where direct bookings matter, but clinics and medspas are our main focus.</p>
+      <p><strong>Probably not a fit</strong> if your site gets very little traffic or you're already booking most visitors.</p>
+    </div>
+    
+    <p class="pricing-tier-footnote">Care and Growth are separate month-to-month add-ons for ongoing tweaks after launch.</p>
+  </section>
+
+  <!-- ===== CTAs Section ===== -->
+  <section class="pricing-ctas container section">
+    <div class="pricing-ctas-grid">
+      <!-- Payback Calculator CTA -->
+      <div class="pricing-cta-card">
+        <h3 class="pricing-cta-title">Want to see the payback math?</h3>
+        <p class="pricing-cta-desc">Use our simple calculator. Enter your average value per patient and see how fast a new site could pay for itself.</p>
+        <p class="pricing-cta-note">The math works the same for clinics, medspas, and hotels.</p>
         <a class="btn btn-primary" href="/tools/roi.html">Try the Payback Calculator</a>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== Final CTA ===== -->
-  <section class="container section" id="quote-cta" style="padding-left:16px; padding-right:16px; padding-top:32px; padding-bottom:32px;">
-    <div class="card" style="max-width:56rem; margin:0 auto; padding:24px; border-radius:16px; background:rgba(15, 23, 42, 0.7);">
-      <div style="text-align:center;">
-        <p style="margin:0 0 8px 0; font-size:1.125rem; font-weight:600;">
-          Not sure which package fits?
-        </p>
-        <p style="margin:0 0 20px 0; font-size:0.875rem; color:rgba(203, 213, 225, 1);">
-          Tell us about your clinic and we'll suggest the right one for you.
-        </p>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:12px; margin-top:16px;">
-        <a class="btn btn-primary" href="/quote.html" style="width:100%; text-align:center;">Get a Quote</a>
-        <a class="btn btn-ghost" href="https://calendly.com/vinnie-keyturn/intro?utm_source=site" target="_blank" rel="noopener" style="width:100%; text-align:center;">Book a 15-min Call</a>
+      
+      <!-- Not Sure Which Package CTA -->
+      <div class="pricing-cta-card">
+        <h3 class="pricing-cta-title">Not sure which package fits?</h3>
+        <p class="pricing-cta-desc">Tell us about your clinic and we'll suggest the right one for you.</p>
+        <div class="pricing-cta-buttons">
+          <a class="btn btn-primary" href="/quote.html">Get a Quote</a>
+          <a class="btn btn-ghost" href="https://calendly.com/vinnie-keyturn/intro?utm_source=site" target="_blank" rel="noopener">Book a 15-min Call</a>
+        </div>
       </div>
     </div>
   </section>
-
-  <style>
-    @media (min-width: 768px) {
-      #quote-cta .card {
-        padding: 32px;
-      }
-      #quote-cta > .card > div:first-child {
-        text-align: left;
-      }
-      #quote-cta > .card > div:last-child {
-        flex-direction: row;
-        justify-content: flex-end;
-        margin-top: 0;
-      }
-      #quote-cta > .card > div:last-child a {
-        width: auto;
-        min-width: 160px;
-      }
-      #quote-cta .card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-      }
-      #quote-cta .card > div:first-child {
-        flex: 1;
-      }
-      #quote-cta .card > div:last-child {
-        flex-shrink: 0;
-      }
-    }
-  </style>
 
 </main>
 
@@ -246,8 +248,6 @@
     <p class="footer-meta">Operated by Ridgeway Labs LLC</p>
   </div>
 </footer>
-
-
 
 </body>
 </html>
