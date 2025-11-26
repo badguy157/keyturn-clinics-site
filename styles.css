@@ -40,6 +40,9 @@
 
   /* typography */
   --font: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  
+  /* metrics typography */
+  --metric-heroic-size: clamp(48px, 7vw, 64px);
 }
 
 /* Larger viewports: widen gutters & vertical rhythm */
@@ -1540,7 +1543,9 @@ img {
     position: relative;
   }
   
-  /* Connector line between steps */
+  /* Connector line between steps - positioned at center of step numbers */
+  /* 16.67% = 1/6 (half of one column width in 3-column grid) */
+  /* 20px = half the step-number width (48px / 2 - margin adjustment) */
   .stepper::before {
     content: "";
     position: absolute;
@@ -1596,11 +1601,66 @@ img {
 }
 
 .metrics-grid-heroic .metric-xl {
-  font-size: clamp(48px, 7vw, 64px);
+  font-size: var(--metric-heroic-size);
   margin-bottom: 16px;
 }
 
 .metrics-grid-heroic h5 {
   font-size: 1rem;
   margin-bottom: 8px;
+}
+
+/* ===== General Polish & Spacing Refinements ===== */
+
+/* Tighten heading spacing for key sections */
+#proof h2,
+.what-we-do-section h2,
+#pricing h2 {
+  margin-bottom: 24px;
+}
+
+/* Consistent section heading hierarchy */
+.section h2 {
+  text-align: center;
+}
+
+/* Reduce excessive vertical gaps in certain areas */
+.faq-accordion {
+  margin-top: 16px;
+}
+
+/* Ensure consistent CTA button styling */
+.btn {
+  font-size: 0.95rem;
+  padding: 13px 20px;
+}
+
+/* Mobile-specific refinements */
+@media (max-width: 767px) {
+  /* Ensure comfortable padding on all text */
+  .hero-left,
+  .what-we-do-summary,
+  .about-text {
+    padding: 0;
+  }
+  
+  /* Stack hero buttons properly on mobile */
+  .hero-ctas {
+    grid-auto-flow: row;
+  }
+  
+  /* Clinic types grid: ensure 2x2 on mobile */
+  .clinic-types-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  /* Adjust stepper for mobile stacking */
+  .stepper {
+    gap: 24px;
+  }
+  
+  .step p {
+    max-width: none;
+  }
 }
