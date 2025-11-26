@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Payback Estimator | Keyturn Studio</title>
+  <title>Payback Calculator | Keyturn Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="See how fast a new website could pay for itself. Simple calculator for clinics and hotels.">
+  <meta name="description" content="See how fast a new website could pay for itself. Simple calculator for clinics and medspas.">
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
@@ -12,30 +12,33 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
   <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png?v=2">
   <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <script src="/public/site.js" defer></script>
 </head>
 <body>
 
-<!-- ===== Compact hero (same style) ===== -->
+<!-- ===== Hero Section ===== -->
 <section class="hero">
-  <div class="container">
+  <div class="container" style="max-width:720px">
     <h1 class="hero-title">See how fast a new website could pay for itself</h1>
-    <p class="hero-lede">For clinics and hotels. Enter your numbers and see how fast it could pay off.</p>
+    <p class="hero-lede">For clinics and medspas. Enter a few numbers and see how fast a new site might pay for itself.<br>It's a rough guide, not a promise — but it helps you sense the upside.</p>
   </div>
 </section>
 
 <main id="main">
   <section class="container section">
-    <div class="card">
-      <h2>Payback Calculator</h2>
-      <p class="small">See how many months it might take for a new website to pay for itself.</p>
+    <!-- Calculator Card -->
+    <div class="card premium-form-card" style="max-width:720px;margin-left:auto;margin-right:auto;padding:40px 32px">
+      <h2 style="margin-top:0;margin-bottom:12px">Payback calculator</h2>
+      <p class="small" style="margin-bottom:28px">See about how many months it might take for a new website to cover its own cost.</p>
 
-      <form id="roiForm" class="audit-form" style="margin-top: 20px;">
+      <form id="roiForm" class="audit-form">
         <div class="form-row">
-          <label for="businessType">Business type</label>
-          <select id="businessType" class="audit-form-select" required>
+          <label for="businessType">Business type <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
+          <select id="businessType" class="audit-form-select" required aria-required="true">
             <option value="">Select your business type</option>
             <option value="Dental / Implant clinic">Dental / Implant clinic</option>
             <option value="Cosmetic / Medspa / Spa">Cosmetic / Medspa / Spa</option>
@@ -47,23 +50,26 @@
 
         <div class="form-row two">
           <div>
-            <label for="avgValue">Average value per new patient or booking (USD)</label>
-            <input id="avgValue" type="number" min="0" step="1" placeholder="e.g., 500" required inputmode="decimal">
+            <label for="avgValue">Average value per new patient or booking (USD) <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
+            <input id="avgValue" type="number" min="0" step="1" placeholder="e.g., 500" required aria-required="true" inputmode="decimal">
+            <p class="small" style="color:var(--muted);margin-top:4px;margin-bottom:0">Think of one full treatment, package, or first visit.</p>
           </div>
           <div>
-            <label for="currentPerMonth">Current new patients or bookings per month</label>
-            <input id="currentPerMonth" type="number" min="0" step="1" placeholder="e.g., 20" required inputmode="numeric">
+            <label for="currentPerMonth">Current new patients or bookings per month <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
+            <input id="currentPerMonth" type="number" min="0" step="1" placeholder="e.g., 20" required aria-required="true" inputmode="numeric">
+            <p class="small" style="color:var(--muted);margin-top:4px;margin-bottom:0">A rough number is fine.</p>
           </div>
         </div>
 
         <div class="form-row two">
           <div>
-            <label for="extraPerMonth">Conservative extra patients or bookings per month</label>
-            <input id="extraPerMonth" type="number" min="0" step="0.5" placeholder="2 or 3" required inputmode="decimal">
+            <label for="extraPerMonth">Extra patients or bookings per month (conservative) <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
+            <input id="extraPerMonth" type="number" min="0" step="0.5" placeholder="e.g., 2 or 3" required aria-required="true" inputmode="decimal">
+            <p class="small" style="color:var(--muted);margin-top:4px;margin-bottom:0">Pick a small number you feel is realistic.</p>
           </div>
           <div>
-            <label for="projectPackage">Project package</label>
-            <select id="projectPackage" class="audit-form-select" required>
+            <label for="projectPackage">Project package <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
+            <select id="projectPackage" class="audit-form-select" required aria-required="true">
               <option value="">Select a package</option>
               <option value="Core" data-cost="7500">Core – $7,500</option>
               <option value="Pro" data-cost="12000">Pro – $12,000</option>
@@ -72,46 +78,51 @@
           </div>
         </div>
 
-        <div id="validationMessage" class="tiny" style="color:#e66;margin-top:8px;display:none"></div>
+        <div id="validationMessage" class="tiny" style="color:#e66;margin-top:8px;display:none" role="alert"></div>
 
-        <button class="btn btn-primary" type="button" id="calc" style="margin-top:16px">Calculate payback</button>
+        <button class="btn btn-primary" type="button" id="calc" style="margin-top:20px">Calculate payback</button>
       </form>
 
-      <div id="out" class="roi-box" style="display:none; margin-top: 24px;">
-        <h3 style="margin: 0 0 16px;">Results</h3>
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
-          <div class="metric-card">
-            <h5>Extra monthly revenue</h5>
-            <p><strong id="monthlyRev">—</strong></p>
+      <!-- Results Display -->
+      <div id="out" role="status" aria-live="polite" style="display:none;margin-top:28px;padding:24px;background:rgba(90,162,255,.06);border:1px solid rgba(90,162,255,.2);border-radius:12px">
+        <h3 style="margin:0 0 8px;font-size:1rem;color:var(--muted-2)">Estimated payback:</h3>
+        <p style="margin:0 0 12px;font-size:1.5rem;font-weight:700;color:var(--fg)"><span id="payback">—</span></p>
+        <p id="explanation" class="small" style="margin:0;color:var(--muted-2)"></p>
+        
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(90,162,255,.15)">
+          <div class="metric-card" style="padding:16px">
+            <h5 style="margin:0 0 4px;font-size:0.85rem">Extra monthly revenue</h5>
+            <p style="margin:0"><strong id="monthlyRev">—</strong></p>
           </div>
-          <div class="metric-card">
-            <h5>Extra annual revenue</h5>
-            <p><strong id="annualRev">—</strong></p>
-          </div>
-          <div class="metric-card">
-            <h5>Estimated months to break even</h5>
-            <p><strong id="payback">—</strong></p>
+          <div class="metric-card" style="padding:16px">
+            <h5 style="margin:0 0 4px;font-size:0.85rem">Extra annual revenue</h5>
+            <p style="margin:0"><strong id="annualRev">—</strong></p>
           </div>
         </div>
-        <p id="explanation" class="small" style="margin-top: 16px; padding: 16px; background: rgba(90,162,255,.06); border: 1px solid rgba(90,162,255,.2); border-radius: 8px;"></p>
-      </div>
-    
-      <div style="margin-top:24px;padding:20px;background:rgba(255,255,255,.04);border-radius:8px">
-        <h3 style="margin-top:0">Context</h3>
-        <p>This is a rough estimate, not a guarantee. We keep it conservative. Many clinics see more results as the site keeps working over time.</p>
-        <p style="margin-top:12px">The goal is to compare the project cost with the value of a few extra patients or bookings each month.</p>
-        <p style="margin-top:12px;margin-bottom:0;color:var(--muted)"><strong>Note:</strong> Some Premier projects can go up to $25k depending on scope, but we use $18k as the default for this calculator.</p>
-      </div>
-
-
-    <div style="margin-top:32px;text-align:center;padding:28px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)">
-      <p style="font-size:1.15rem;margin-bottom:12px;color:var(--fg)"><strong>Want to see a more tailored estimate for your clinic?</strong></p>
-      <p style="color:var(--muted);margin-bottom:20px">Get a quote or book a quick call to discuss what makes sense for you.</p>
-      <div class="buttons" style="justify-items:center">
-        <a class="btn btn-primary" href="/quote.html">Get a Quote</a>
-        <a class="btn btn-ghost" href="https://calendly.com/vinnie-keyturn/intro" target="_blank" rel="noopener">Book a 15-min Call</a>
       </div>
     </div>
+
+    <!-- Context / Disclaimer Section -->
+    <div style="max-width:720px;margin:32px auto 0;padding:24px;background:rgba(255,255,255,.04);border-radius:12px">
+      <h2 style="margin-top:0;font-size:1.25rem">How to read this number</h2>
+      <ul style="margin:16px 0 0;padding-left:20px;line-height:1.8;color:var(--muted-2)">
+        <li>This is a rough estimate, not a guarantee.</li>
+        <li>We keep the math conservative. Many clinics see more upside over time.</li>
+        <li>The calculator only looks at new patients from the website, not all of your marketing.</li>
+        <li>If your site already gets strong traffic, even small lifts in bookings can add up fast.</li>
+      </ul>
+      <p style="margin-top:16px;margin-bottom:0;color:var(--muted);font-size:0.9rem"><strong>Note:</strong> For Premier projects we often go higher than this, but we use $18k as the default here to keep the math simple.</p>
+    </div>
+
+    <!-- CTA Card -->
+    <div style="max-width:720px;margin:32px auto 0;text-align:center;padding:32px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)">
+      <h2 style="margin-top:0;margin-bottom:12px;font-size:1.35rem">Want a custom estimate for your clinic?</h2>
+      <p style="color:var(--muted-2);margin-bottom:8px">If you like the numbers you see here, we can run a more detailed estimate for your clinic or medspa.</p>
+      <p style="color:var(--muted-2);margin-bottom:24px">You can get a clear quote by email or talk it through on a quick call. No pressure.</p>
+      <div class="hero-ctas" style="justify-content:center">
+        <a class="btn btn-primary" href="/quote.html">Get a quote</a>
+        <a class="btn btn-ghost" href="https://calendly.com/vinnie-keyturn/intro" target="_blank" rel="noopener">Book a 15-min call</a>
+      </div>
     </div>
   </section>
 </main>
@@ -214,10 +225,13 @@
     document.getElementById('annualRev').textContent = money(extraAnnualRevenue);
     document.getElementById('payback').textContent = formatMonths(paybackMonths);
 
-    // Create explanation sentence
-    const extraText = extraPerMonth === 1 ? '1 extra patient/booking' : extraPerMonth + ' extra patients/bookings';
-    const explanation = `For a <strong>${businessType}</strong>, at ${extraText} per month, a <strong>${packageName}</strong> project at ${money(projectCost)} would roughly pay for itself in <strong>${formatMonths(paybackMonths)}</strong>.`;
-    document.getElementById('explanation').innerHTML = explanation;
+    // Create simple explanation sentence
+    const extraText = extraPerMonth === 1 ? '1 extra patient or booking' : extraPerMonth + ' extra patients or bookings';
+    let explanation = `If your numbers are close, the project could cover its cost in about ${formatMonths(paybackMonths)}.`;
+    if (paybackMonths <= 12) {
+      explanation = `If your numbers are close, the project could cover its cost in under a year.`;
+    }
+    document.getElementById('explanation').textContent = explanation;
 
     // Show results
     document.getElementById('out').style.display = 'block';
