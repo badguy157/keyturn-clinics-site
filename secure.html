@@ -101,7 +101,7 @@
 Registrar (e.g. GoDaddy, Namecheap, Cloudflare):
 Login URL:
 Account email:
-Temporary password (a password just for us — you can change it later):
+Temporary password (a password just for us; you can change it later):
 MFA method on the account (don't send us codes):
 
 Notes
@@ -198,7 +198,7 @@ Notes / scope:</textarea>
       if (!/Temporary password/i.test(t1.value)) {
         t1.value += `\nTemporary password: ${pass}`;
       } else {
-        t1.value = t1.value.replace(/Temporary password.*$/im, `Temporary password (a password just for us — you can change it later): ${pass}`);
+        t1.value = t1.value.replace(/Temporary password.*$/im, `Temporary password (a password just for us; you can change it later): ${pass}`);
       }
       autosize(t1);
       msg.textContent = 'Temporary password inserted into the DNS template.';

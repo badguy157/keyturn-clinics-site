@@ -24,7 +24,7 @@
 <section class="hero">
   <div class="container" style="max-width:720px">
     <h1 class="hero-title">See how fast a new website could pay for itself</h1>
-    <p class="hero-lede">For clinics and medspas. Enter a few numbers and see how fast a new site might pay for itself.<br>It's a rough guide, not a promise — but it helps you sense the upside.</p>
+    <p class="hero-lede">For clinics and medspas. Enter a few numbers and see how fast a new site might pay for itself.<br>This is a rough guide, not a promise; it helps you sense the upside.</p>
   </div>
 </section>
 
@@ -71,9 +71,9 @@
             <label for="projectPackage">Project package <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
             <select id="projectPackage" class="audit-form-select" required aria-required="true">
               <option value="">Select a package</option>
-              <option value="Core" data-cost="7500">Core – $7,500</option>
-              <option value="Pro" data-cost="12000">Pro – $12,000</option>
-              <option value="Premier" data-cost="18000">Premier – $18,000</option>
+              <option value="Core" data-cost="7500">Core: $7,500</option>
+              <option value="Pro" data-cost="12000">Pro: $12,000</option>
+              <option value="Premier" data-cost="18000">Premier: $18,000</option>
             </select>
           </div>
         </div>
@@ -86,17 +86,17 @@
       <!-- Results Display -->
       <div id="out" role="status" aria-live="polite" style="display:none;margin-top:28px;padding:24px;background:rgba(90,162,255,.06);border:1px solid rgba(90,162,255,.2);border-radius:12px">
         <h3 style="margin:0 0 8px;font-size:1rem;color:var(--muted-2)">Estimated payback:</h3>
-        <p style="margin:0 0 12px;font-size:1.5rem;font-weight:700;color:var(--fg)"><span id="payback">—</span></p>
+        <p style="margin:0 0 12px;font-size:1.5rem;font-weight:700;color:var(--fg)"><span id="payback">-</span></p>
         <p id="explanation" class="small" style="margin:0;color:var(--muted-2)"></p>
         
         <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(90,162,255,.15)">
           <div class="metric-card" style="padding:16px">
             <h5 style="margin:0 0 4px;font-size:0.85rem">Extra monthly revenue</h5>
-            <p style="margin:0"><strong id="monthlyRev">—</strong></p>
+            <p style="margin:0"><strong id="monthlyRev">-</strong></p>
           </div>
           <div class="metric-card" style="padding:16px">
             <h5 style="margin:0 0 4px;font-size:0.85rem">Extra annual revenue</h5>
-            <p style="margin:0"><strong id="annualRev">—</strong></p>
+            <p style="margin:0"><strong id="annualRev">-</strong></p>
           </div>
         </div>
       </div>
@@ -174,7 +174,7 @@
     return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(x||0); 
   }
   function formatMonths(x){ 
-    if (!x || !isFinite(x)) return '—';
+    if (!x || !isFinite(x)) return '-';
     if (x > 60) return 'more than 5 years';
     return x.toFixed(1) + ' months';
   }

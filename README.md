@@ -1,24 +1,24 @@
-# Keyturn Studio — Website
+# Keyturn Studio | Website
 
 Marketing website for Keyturn Studio, a hospitality website makeover service for inns, small hotels, and B&Bs.
 
 ## Tech Stack
 
-- **HTML/CSS/Vanilla JS** — No build process required
-- **Vercel** — Hosting and serverless functions
-- **Formspree** — Form submissions
+- **HTML/CSS/Vanilla JS**: No build process required
+- **Vercel**: Hosting and serverless functions
+- **Formspree**: Form submissions
 
 ## How to Edit
 
 ### Content Updates
 
 **Homepage** (`/index.html`)
-- Hero section: Update title, lede, and CTAs around line 20–36
+- Hero section: Update title, lede, and CTAs around line 20 to 36
 - Trust strip logos: Add/remove logos in `/public/logos/`
-- Services cards: Edit around line 45–85
-- Results/metrics: Update metric cards around line 165–181
-- Testimonial quotes: Edit around lines 184–187, 298–302
-- Pricing cards: Update tiers and pricing around line 190–300
+- Services cards: Edit around line 45 to 85
+- Results/metrics: Update metric cards around line 165 to 181
+- Testimonial quotes: Edit around lines 184 to 187, 298 to 302
+- Pricing cards: Update tiers and pricing around line 190 to 300
 
 **Service Pages** (`/services/*.html`)
 - Each service page has its own file (inn-website-design, small-hotel-website-design, etc.)
@@ -26,34 +26,34 @@ Marketing website for Keyturn Studio, a hospitality website makeover service for
 - Schema markup is in the `<head>` section
 
 **Onboarding** (`/onboarding.html`)
-- Edit the 3-step process around lines 50–200
+- Edit the 3-step process around lines 50 to 200
 - Update access requirements in Step 2
 
 **Audit Form** (`/audit.html`)
-- Form fields and validation around lines 44–79
+- Form fields and validation around lines 44 to 79
 - Formspree endpoint: Line 46
 
 ### Styling
 
 **Global Styles** (`/styles.css`)
-- Design tokens (colors, spacing): Lines 6–42
-- Typography: Around line 60–90
+- Design tokens (colors, spacing): Lines 6 to 42
+- Typography: Around line 60 to 90
 - Components (buttons, cards, nav): Throughout
-- Hero styles: Around line 152–162
-- Forms: Around line 289–300
+- Hero styles: Around line 152 to 162
+- Forms: Around line 289 to 300
 
 ### Navigation & Header
 
 **Site-wide Header** (`/public/site.js`)
-- Header HTML injected on all pages: Lines 30–89
-- Update nav links around lines 41–52
-- Services dropdown menu: Lines 43–52
-- Mobile menu: Lines 73–82
+- Header HTML injected on all pages: Lines 30 to 89
+- Update nav links around lines 41 to 52
+- Services dropdown menu: Lines 43 to 52
+- Mobile menu: Lines 73 to 82
 
 ### Analytics & Events
 
 **GA4 Helper** (`/public/site.js`)
-- `safeEvent()` function for tracking: Lines 11–20
+- `safeEvent()` function for tracking: Lines 11 to 20
 - Add `data-evt` attributes to buttons/links for automatic tracking
 
 ### Serverless Functions
@@ -66,7 +66,7 @@ Marketing website for Keyturn Studio, a hospitality website makeover service for
 
 **Local Development:**
 ```bash
-# No build step needed — just open HTML files
+# No build step needed, just open HTML files
 # Use a local server:
 npx serve .
 # Or:
@@ -108,7 +108,7 @@ python3 -m http.server 8000
 
 ## Updating Schema Markup
 
-**Organization Schema** — Present on all pages in `<head>`:
+**Organization Schema**: Present on all pages in `<head>`:
 ```json
 {
   "@context": "https://schema.org",
@@ -119,8 +119,8 @@ python3 -m http.server 8000
 }
 ```
 
-**Product/Service Schema** — On `index.html` for pricing
-**FAQPage Schema** — On service pages for FAQ sections
+**Product/Service Schema**: On `index.html` for pricing
+**FAQPage Schema**: On service pages for FAQ sections
 
 ## Form Submission
 

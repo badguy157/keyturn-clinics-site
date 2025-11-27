@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Keyturn — Commission Savings & Payback Calculator</title>
+  <title>Keyturn | Commission Savings & Payback Calculator</title>
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
@@ -77,19 +77,19 @@
       <div class="cols">
         <div class="kpi">
           Monthly OTA spend today
-          <b id="otaNow">—</b>
+          <b id="otaNow">-</b>
         </div>
         <div class="kpi">
           Monthly OTA spend after improvement
-          <b id="otaAfter">—</b>
+          <b id="otaAfter">-</b>
         </div>
         <div class="kpi">
           Monthly commission saved
-          <b id="saved">—</b>
+          <b id="saved">-</b>
         </div>
         <div class="kpi">
           Payback period (months)
-          <b id="payback">—</b>
+          <b id="payback">-</b>
         </div>
       </div>
     </div>
@@ -101,7 +101,7 @@
 
   <script>
     function money(x){ return new Intl.NumberFormat(undefined,{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(x||0); }
-    function months(x){ return (x && isFinite(x)) ? (Math.ceil(x*10)/10).toFixed(1) : '—'; }
+    function months(x){ return (x && isFinite(x)) ? (Math.ceil(x*10)/10).toFixed(1) : '-'; }
 
     function calc(){
       const rooms = +document.getElementById('rooms').value || 0;
@@ -124,7 +124,7 @@
       document.getElementById('otaNow').textContent = money(otaNow);
       document.getElementById('otaAfter').textContent = money(otaAfter);
       document.getElementById('saved').textContent = money(saved);
-      document.getElementById('payback').textContent = (payback===Infinity ? '—' : months(payback));
+      document.getElementById('payback').textContent = (payback===Infinity ? '-' : months(payback));
 
       document.getElementById('out').style.display = 'block';
     }
