@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <script src="/public/site.js" defer></script>
+  <script src="/public/accordion.js" defer></script>
 
   <!-- Organization Schema -->
   <script type="application/ld+json">
@@ -227,41 +228,61 @@
   <!-- ===== FAQ (onboarding-specific) ===== -->
   <section class="container section">
     <h2 style="text-align:center;margin-bottom:24px">Quick questions</h2>
-    <div class="faq-accordion" style="max-width:800px;margin:0 auto">
-      <details>
-        <summary>How many rounds of changes do we get before launch?</summary>
-        <div class="faq-answer">
-          <p>You get up to 2 rounds of consolidated feedback on the main pages before launch. For each round we send you a simple feedback log to fill in. You collect your team's comments into that one log and send it back in a single email. We apply the changes, send an updated version on the test link, and then either move to the next round or to final approval. After those rounds we aim to lock the layout and copy so we can launch cleanly. Bigger rethinks after that may count as a change request and can affect the timeline and fee.</p>
+    <div class="faq-group">
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-onboarding-1">
+          How many rounds of changes do we get before launch?
+        </button>
+        <div class="faq-answer" id="faq-onboarding-1" hidden>
+          <div class="faq-answer-inner">
+            <p>You get up to 2 rounds of consolidated feedback on the main pages before launch. For each round we send you a simple feedback log to fill in. You collect your team's comments into that one log and send it back in a single email. We apply the changes, send an updated version on the test link, and then either move to the next round or to final approval. After those rounds we aim to lock the layout and copy so we can launch cleanly. Bigger rethinks after that may count as a change request and can affect the timeline and fee.</p>
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>What if we don't have all our photos ready?</summary>
-        <div class="faq-answer">
-          <p>That's fine. We can launch with what you have and add new photos later. Many clients do a photo shoot after the site is live.</p>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-onboarding-2">
+          What if we don't have all our photos ready?
+        </button>
+        <div class="faq-answer" id="faq-onboarding-2" hidden>
+          <div class="faq-answer-inner">
+            <p>That's fine. We can launch with what you have and add new photos later. Many clients do a photo shoot after the site is live.</p>
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>Can we change pages or wording later?</summary>
-        <div class="faq-answer">
-          <p>Yes, within the included rounds of feedback. During the project we expect some small text tweaks and refinements. Bigger changes, like adding new pages or reworking layouts after approval, may count as a change request and can affect the timeline and fee.</p>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-onboarding-3">
+          Can we change pages or wording later?
+        </button>
+        <div class="faq-answer" id="faq-onboarding-3" hidden>
+          <div class="faq-answer-inner">
+            <p>Yes, within the included rounds of feedback. During the project we expect some small text tweaks and refinements. Bigger changes, like adding new pages or reworking layouts after approval, may count as a change request and can affect the timeline and fee.</p>
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>What if we need to pause the project?</summary>
-        <div class="faq-answer">
-          <p>Just let us know. We can pause for up to 2 weeks. Longer pauses may need rescheduling.</p>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-onboarding-4">
+          What if we need to pause the project?
+        </button>
+        <div class="faq-answer" id="faq-onboarding-4" hidden>
+          <div class="faq-answer-inner">
+            <p>Just let us know. We can pause for up to 2 weeks. Longer pauses may need rescheduling.</p>
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>How do we ask for small fixes after launch?</summary>
-        <div class="faq-answer">
-          <p>Email us. Small text edits and simple photo swaps are included for 30 days after launch. During that period we also fix any bugs we find. After the 30 day window, ongoing changes are handled through a Care or Growth plan.</p>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-onboarding-5">
+          How do we ask for small fixes after launch?
+        </button>
+        <div class="faq-answer" id="faq-onboarding-5" hidden>
+          <div class="faq-answer-inner">
+            <p>Email us. Small text edits and simple photo swaps are included for 30 days after launch. During that period we also fix any bugs we find. After the 30 day window, ongoing changes are handled through a Care or Growth plan.</p>
+          </div>
         </div>
-      </details>
+      </div>
     </div>
   </section>
 

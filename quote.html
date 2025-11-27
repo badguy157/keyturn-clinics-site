@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <script src="/public/site.js" defer></script>
+  <script src="/public/accordion.js" defer></script>
 
   <!-- Organization Schema -->
   <script type="application/ld+json">
@@ -305,50 +306,70 @@
   <!-- FAQ Section (beneath form) -->
   <section class="container section" style="padding-top:40px">
     <h2 style="text-align:center;margin-bottom:28px">Common questions</h2>
-    <div class="faq-accordion" style="max-width:720px;margin:0 auto">
-      <details>
-        <summary>When do I pay anything?</summary>
-        <div class="faq-answer">
-          <p>You only pay after you approve the proposal and sign the agreement.</p>
-          <p>No fee to request a quote. No card needed for this form.</p>
+    <div class="faq-group" style="max-width:720px;margin:0 auto">
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-quote-1">
+          When do I pay anything?
+        </button>
+        <div class="faq-answer" id="faq-quote-1" hidden>
+          <div class="faq-answer-inner">
+            <p>You only pay after you approve the proposal and sign the agreement.</p>
+            <p>No fee to request a quote. No card needed for this form.</p>
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>Can you help me choose a package?</summary>
-        <div class="faq-answer">
-          <p>Yes. The quote includes our recommended package.</p>
-          <p>If you're not sure, we can adjust the scope up or down on a short call.</p>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-quote-2">
+          Can you help me choose a package?
+        </button>
+        <div class="faq-answer" id="faq-quote-2" hidden>
+          <div class="faq-answer-inner">
+            <p>Yes. The quote includes our recommended package.</p>
+            <p>If you're not sure, we can adjust the scope up or down on a short call.</p>
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>Do you move my existing content?</summary>
-        <div class="faq-answer">
-          <p>Yes. For most projects we move over key pages, photos, and forms.</p>
-          <p>We'll note what's included in the proposal so there are no surprises.</p>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-quote-3">
+          Do you move my existing content?
+        </button>
+        <div class="faq-answer" id="faq-quote-3" hidden>
+          <div class="faq-answer-inner">
+            <p>Yes. For most projects we move over key pages, photos, and forms.</p>
+            <p>We'll note what's included in the proposal so there are no surprises.</p>
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>Who owns the website?</summary>
-        <div class="faq-answer">
-          <p>You own your domain, content, and site.</p>
-          <p>If we use any paid tools, we'll explain how they work and what you control.</p>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-quote-4">
+          Who owns the website?
+        </button>
+        <div class="faq-answer" id="faq-quote-4" hidden>
+          <div class="faq-answer-inner">
+            <p>You own your domain, content, and site.</p>
+            <p>If we use any paid tools, we'll explain how they work and what you control.</p>
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details>
-        <summary>Do you offer ongoing support?</summary>
-        <div class="faq-answer">
-          <p>Yes. We have flexible Care and Growth plans.</p>
-          <ul style="margin:12px 0;padding-left:20px;line-height:1.7">
-            <li><strong>Care</strong> covers safe hosting, backups, and small text/photo changes.</li>
-            <li><strong>Growth</strong> adds one meaningful improvement each month plus simple reports.</li>
-          </ul>
-          <p>All plans are month-to-month.</p>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-quote-5">
+          Do you offer ongoing support?
+        </button>
+        <div class="faq-answer" id="faq-quote-5" hidden>
+          <div class="faq-answer-inner">
+            <p>Yes. We have flexible Care and Growth plans.</p>
+            <ul>
+              <li><strong>Care</strong> covers safe hosting, backups, and small text/photo changes.</li>
+              <li><strong>Growth</strong> adds one meaningful improvement each month plus simple reports.</li>
+            </ul>
+            <p>All plans are month-to-month.</p>
+          </div>
         </div>
-      </details>
+      </div>
     </div>
   </section>
 
