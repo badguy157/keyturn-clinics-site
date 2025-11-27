@@ -178,6 +178,59 @@
     }
   }
 
+  // ===== FAQ Accordion (single-open behavior) =====
+  function initFaqAccordions() {
+    // Find all accordion groups
+    const accordionGroups = document.querySelectorAll('.faq-accordion');
+    
+    accordionGroups.forEach(group => {
+      const details = group.querySelectorAll('details');
+      
+      details.forEach(detail => {
+        const summary = detail.querySelector('summary');
+        const answer = detail.querySelector('.faq-answer');
+        
+        // Generate unique ID for the answer panel if not present
+        if (answer && !answer.id) {
+          answer.id = 'faq-answer-' + Math.random().toString(36).substr(2, 9);
+        }
+        
+        // Set initial ARIA attributes
+        if (summary && answer) {
+          summary.setAttribute('aria-expanded', detail.open ? 'true' : 'false');
+          summary.setAttribute('aria-controls', answer.id);
+          answer.setAttribute('aria-hidden', detail.open ? 'false' : 'true');
+        }
+        
+        // Listen for toggle events
+        detail.addEventListener('toggle', () => {
+          // Update ARIA for this item
+          if (summary && answer) {
+            summary.setAttribute('aria-expanded', detail.open ? 'true' : 'false');
+            answer.setAttribute('aria-hidden', detail.open ? 'false' : 'true');
+          }
+          
+          // If this item was opened, close all other items in the same group
+          if (detail.open) {
+            details.forEach(otherDetail => {
+              if (otherDetail !== detail && otherDetail.open) {
+                otherDetail.open = false;
+                
+                // Update ARIA for closed item
+                const otherSummary = otherDetail.querySelector('summary');
+                const otherAnswer = otherDetail.querySelector('.faq-answer');
+                if (otherSummary && otherAnswer) {
+                  otherSummary.setAttribute('aria-expanded', 'false');
+                  otherAnswer.setAttribute('aria-hidden', 'true');
+                }
+              }
+            });
+          }
+        });
+      });
+    });
+  }
+
   // ===== Calendly Link Normalization =====
   function normalizeCalendlyLinks() {
     document.querySelectorAll('a.book-intro').forEach(a => {
@@ -195,6 +248,7 @@
       initServicesDropdown();
       updateYear();
       normalizeCalendlyLinks();
+      initFaqAccordions();
     });
   } else {
     injectHeader();
@@ -202,5 +256,6 @@
     initServicesDropdown();
     updateYear();
     normalizeCalendlyLinks();
+    initFaqAccordions();
   }
 })();
