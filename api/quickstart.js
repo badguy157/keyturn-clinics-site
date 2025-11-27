@@ -1,6 +1,6 @@
-// /api/quickstart.js — Quote request intake
+// /api/quickstart.js : Quote request intake
 // Sends you an admin copy + sends the client a short confirmation.
-// Admin email "Reply-To" = client’s email (so you can reply back).
+// Admin email "Reply-To" = client's email (so you can reply back).
 // Client confirmation "Reply-To" = your Proton (so their reply lands in your inbox).
 // Updated to include all Request a Quote form fields in the email body.
 
@@ -62,7 +62,7 @@ export default async function handler(req, res) {
     const BIZ_REPLY_TO  = process.env.QS_REPLY_TO || process.env.REPLY_TO || 'hello@keyturn.studio'; // Proton inbox
 
     // Admin email (to you)
-    const subject = `Quote request — ${propertyName}`;
+    const subject = `Quote request: ${propertyName}`;
     const htmlAdmin = `
       <h2>New Quote Request</h2>
       <table cellpadding="6" cellspacing="0" style="font-family:Inter,Arial,sans-serif">
@@ -85,7 +85,7 @@ export default async function handler(req, res) {
       </table>
       <hr style="margin:16px 0;border:0;border-top:1px solid #e5eaf2">
       <p style="font:12px/1.4 Inter,Arial,sans-serif;color:#6b7280">
-        Meta — page: ${escapeHtml(pagePath)} | utm: ${escapeHtml(utm_source)}/${escapeHtml(utm_medium)}/${escapeHtml(utm_campaign)} |
+        Meta : page: ${escapeHtml(pagePath)} | utm: ${escapeHtml(utm_source)}/${escapeHtml(utm_medium)}/${escapeHtml(utm_campaign)} |
         tz: ${escapeHtml(timezone)} | referrer: ${escapeHtml(referrer)} | UA: ${escapeHtml(userAgent)}
       </p>
     `;
@@ -97,15 +97,15 @@ export default async function handler(req, res) {
           <tr><td>
             <div style="background:#ffffff;border:1px solid #e5eaf2;border-radius:16px;padding:24px">
               <h1 style="margin:0 0 12px;font:700 20px Inter,Arial,sans-serif;color:#0b1220">
-                Thanks — we’ve received your quote request
+                Thanks : we've received your quote request
               </h1>
               <p style="margin:0 0 12px;font:14px/1.6 Inter,Arial,sans-serif;color:#0b1220">
-                Hi ${escapeHtml(contactName)}, thanks for the details. We’ll send a <b>1-page quote within 1 business day</b>.
+                Hi ${escapeHtml(contactName)}, thanks for the details. We'll send a <b>1-page quote within 1 business day</b>.
               </p>
               <p style="margin:0;font:14px/1.6 Inter,Arial,sans-serif;color:#0b1220">
                 If anything else would be helpful in the meantime, just reply to this email.
               </p>
-              <p style="margin:16px 0 0;font:14px/1.6 Inter,Arial,sans-serif;color:#0b1220">— Keyturn Studio</p>
+              <p style="margin:16px 0 0;font:14px/1.6 Inter,Arial,sans-serif;color:#0b1220">Keyturn Studio</p>
             </div>
           </td></tr>
           <tr><td style="text-align:center;color:#cdd6ea;font:12px Inter,Arial,sans-serif;padding-top:12px">
@@ -168,7 +168,7 @@ async function sendViaResend(from, to, subject, htmlAdmin, clientEmail, htmlClie
     body: JSON.stringify({
       from,
       to: [clientEmail],
-      subject: 'Thanks — we’ve received your quote request',
+      subject: 'Thanks : we've received your quote request',
       html: htmlClient,
       reply_to: bizReplyTo
     })
@@ -200,7 +200,7 @@ async function sendViaSendGrid(from, to, subject, htmlAdmin, clientEmail, htmlCl
     method: 'POST',
     headers: { 'Authorization': `Bearer ${key}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      personalizations: [{ to: [{ email: clientEmail }], subject: 'Thanks — we’ve received your quote request' }],
+      personalizations: [{ to: [{ email: clientEmail }], subject: 'Thanks : we've received your quote request' }],
       from: { email: extractEmail(from) },
       reply_to: { email: bizReplyTo },
       content: [{ type: 'text/html', value: htmlClient }]
