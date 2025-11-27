@@ -179,6 +179,8 @@
   }
 
   // ===== FAQ Accordion (single-open behavior) =====
+  let faqIdCounter = 0;
+  
   function initFaqAccordions() {
     // Find all accordion groups
     const accordionGroups = document.querySelectorAll('.faq-accordion');
@@ -192,7 +194,7 @@
         
         // Generate unique ID for the answer panel if not present
         if (answer && !answer.id) {
-          answer.id = 'faq-answer-' + Math.random().toString(36).substr(2, 9);
+          answer.id = 'faq-answer-' + (++faqIdCounter);
         }
         
         // Set initial ARIA attributes
