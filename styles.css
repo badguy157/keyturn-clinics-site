@@ -1815,9 +1815,10 @@ img {
 .avatar-placeholder {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, rgba(90,162,255,.2) 0%, rgba(90,162,255,.1) 100%);
   border: 2px solid rgba(90,162,255,.3);
-  border-radius: 50%;
+  border-radius: 9999px;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(90,162,255,.2);
 }
 
 .about-text h3 {
