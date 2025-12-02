@@ -46,7 +46,7 @@
         <li><a href="/blog.html"${isActive('/blog') ? ' aria-current="page"' : ''}>Blog</a></li>
       </ul>
       <div class="nav-ctas">
-        <a class="btn btn-primary" href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''} onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'nav'})">Request a Quote</a>
+        <a class="btn btn-primary" href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''} onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'nav'})">Start with a Blueprint</a>
         <a class="btn btn-ghost"
    href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
    target="_blank" rel="noopener"
@@ -67,7 +67,7 @@
     <a href="/pricing.html">Pricing</a>
     <a href="/how-it-works.html">How it works</a>
     <a href="/blog.html">Blog</a>
-    <a class="btn btn-primary w-full" href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''} onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'mobile-nav'})">Request a Quote</a>
+    <a class="btn btn-primary w-full" href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''} onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'mobile-nav'})">Start with a Blueprint</a>
     <a class="btn btn-ghost w-full"
    href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
    target="_blank" rel="noopener">Book 15-min Q&A</a>
