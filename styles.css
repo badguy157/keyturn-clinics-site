@@ -2346,6 +2346,53 @@ img {
   margin: 40px 0 0;
 }
 
+/* Blueprint Add-on Info Block */
+.pricing-blueprint-addon-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  margin: 40px auto 0;
+  max-width: 800px;
+  transition: all 0.3s ease;
+}
+
+.pricing-blueprint-addon-card:hover {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(90,162,255,.2);
+  transform: translateY(-2px);
+}
+
+.pricing-blueprint-addon-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.pricing-blueprint-addon-body {
+  color: var(--muted-2);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .pricing-blueprint-addon-card {
+    padding: 32px 36px;
+  }
+  
+  .pricing-blueprint-addon-title {
+    font-size: 1.25rem;
+  }
+  
+  .pricing-blueprint-addon-body {
+    font-size: 1rem;
+  }
+}
+
 /* Guarantees Section */
 .pricing-guarantees {
   padding-top: 64px;
