@@ -1355,6 +1355,30 @@ img {
   max-width: 640px;
 }
 
+/* Blog Info Bar */
+.blog-info-bar {
+  display: inline-block;
+  background: rgba(90,162,255,.15);
+  color: var(--muted-2);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding: 10px 18px;
+  border-radius: 999px;
+  margin-top: 24px;
+  max-width: 600px;
+}
+
+.blog-info-bar-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.blog-info-bar-link:hover {
+  text-decoration: underline;
+}
+
 /* Blog Posts Section */
 .blog-posts-section {
   padding-top: var(--section-y);
@@ -1552,9 +1576,41 @@ img {
   }
 }
 
+/* Blog Mini Teardown Section */
+.blog-mini-teardown {
+  padding-top: var(--section-y);
+  padding-bottom: calc(var(--section-y) * 0.75);
+}
+
+.blog-mini-teardown-card {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.blog-mini-teardown-title {
+  font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--fg);
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.blog-mini-teardown-desc {
+  color: var(--muted-2);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.blog-mini-teardown-card .btn {
+  min-width: 180px;
+}
+
 /* Blog CTA Section */
 .blog-cta {
-  padding-top: var(--space-6);
+  padding-top: calc(var(--section-y) * 0.75);
   padding-bottom: var(--section-y);
 }
 
