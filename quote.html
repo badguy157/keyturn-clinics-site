@@ -493,12 +493,57 @@
       btn.disabled = true;
       btn.textContent = 'Sending…';
   
-      const formData = new FormData(qsForm);
-      const payload = Object.fromEntries(formData.entries());
-  
-      // Do NOT stop on honeypot here; backend will silently ignore bots
-      payload.userAgent = navigator.userAgent || '';
-      payload.referrer = document.referrer || '';
+      // Build JSON payload matching API route fields
+      const getValue = (name) => {
+        const el = qsForm.querySelector(`[name="${name}"]`);
+        return el ? el.value : '';
+      };
+      
+      const getRadioValue = (name) => {
+        const checked = qsForm.querySelector(`input[name="${name}"]:checked`);
+        return checked ? checked.value : '';
+      };
+      
+      // Get start preference from radio group
+      const startType = getRadioValue('start_type');
+      let notesText = getValue('notes');
+      
+      // Append start preference to notes if selected
+      if (startType) {
+        const startPrefLabel = startType === 'full_rebuild' 
+          ? 'Full website rebuild quote' 
+          : 'Clinic Booking Blueprint & Site Audit first';
+        notesText = notesText 
+          ? `Start preference: ${startPrefLabel}\n\n${notesText}`
+          : `Start preference: ${startPrefLabel}`;
+      }
+      
+      const payload = {
+        propertyName: getValue('propertyName'),
+        websiteUrl: getValue('websiteUrl'),
+        location: getValue('location'),
+        contactName: getValue('contactName'),
+        role: getValue('role'),
+        email: getValue('email'),
+        phone: getValue('phone'),
+        businessType: getValue('businessType'),
+        bookingSystem: getValue('bookingSystem'),
+        clientValue: getValue('clientValue'),
+        newClients: getValue('newClients'),
+        goal: getValue('goal'),
+        launchTiming: getValue('launchTiming'),
+        budget: getValue('budget'),
+        notes: notesText,
+        company: getValue('company'), // honeypot
+        // Meta fields
+        pagePath: window.location.pathname,
+        userAgent: navigator.userAgent,
+        referrer: document.referrer,
+        utm_source: getValue('utm_source'),
+        utm_medium: getValue('utm_medium'),
+        utm_campaign: getValue('utm_campaign'),
+        timezone: getValue('timezone')
+      };
   
       try {
         const res = await fetch('/api/quickstart', {
@@ -508,27 +553,26 @@
         });
         const data = await res.json().catch(() => ({}));
   
-        if (!res.ok || !data.ok) {
+        if (res.ok && data.ok) {
+          // Success - reset form and show success message
+          qsForm.reset();
+          window.safeEvent('quote_request_submit', { page_path: location.pathname });
+          
+          msg.textContent = "Thanks - we've received your quote request. We'll email you within 1 business day.";
+          msg.style.color = '#5aa2ff';
+          msg.style.fontWeight = '600';
+          
+          btn.disabled = false;
+          btn.innerHTML = '<span>Get my quote →</span>';
+        } else {
           throw new Error(data.error || `Server error: ${res.status}`);
         }
-  
-        window.safeEvent('quote_request_submit', { page_path: location.pathname });
-  
-        qsForm.innerHTML = `
-          <h3>Thanks! We’ve got your request.</h3>
-          <p>We’ll email your 1-page quote within 1 business day.</p>
-          <div class="hero-ctas" style="margin-top:20px">
-            <a class="btn btn-primary" href="/">Back to home</a>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://calendly.com/vinnie-keyturn/intro?utm_source=quote_success">Book a 15-min call</a>
-          </div>
-        `;
       } catch (err) {
         console.error('Form submission error:', err);
-        const mailto = `mailto:hello@keyturn.studio?subject=${encodeURIComponent('Quote Request (fallback)')}`;
-        msg.innerHTML = `Could not send automatically. Please <a href="${mailto}" style="color:var(--accent);text-decoration:underline">email us directly</a> or try again.`;
+        msg.textContent = 'Could not send automatically. Please email us directly or try again.';
         msg.style.color = '#e66';
         btn.disabled = false;
-        btn.textContent = 'Get my quote →';
+        btn.innerHTML = '<span>Get my quote →</span>';
       }
     });
   })();
