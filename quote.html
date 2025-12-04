@@ -510,9 +510,11 @@
       
       // Append start preference to notes if selected
       if (startType) {
-        const startPrefLabel = startType === 'full_rebuild' 
-          ? 'Full website rebuild quote' 
-          : 'Clinic Booking Blueprint & Site Audit first';
+        const startPrefLabels = {
+          'full_rebuild': 'Full website rebuild',
+          'blueprint_first': 'Blueprint & Audit first'
+        };
+        const startPrefLabel = startPrefLabels[startType] || startType;
         notesText = notesText 
           ? `Start preference: ${startPrefLabel}\n\n${notesText}`
           : `Start preference: ${startPrefLabel}`;
@@ -536,9 +538,9 @@
         notes: notesText,
         company: getValue('company'), // honeypot
         // Meta fields
-        pagePath: window.location.pathname,
-        userAgent: navigator.userAgent,
-        referrer: document.referrer,
+        pagePath: window.location.pathname || '',
+        userAgent: navigator.userAgent || '',
+        referrer: document.referrer || '',
         utm_source: getValue('utm_source'),
         utm_medium: getValue('utm_medium'),
         utm_campaign: getValue('utm_campaign'),
