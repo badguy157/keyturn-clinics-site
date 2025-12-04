@@ -2,7 +2,6 @@
 // Sends you an admin copy + sends the client a short confirmation.
 // Admin email "Reply-To" = client's email (so you can reply back).
 // Client confirmation "Reply-To" = your Proton (so their reply lands in your inbox).
-// Updated to include all Request a Quote form fields in the email body.
 
 export default async function handler(req, res) {
   // Preflight + method guard
@@ -17,6 +16,7 @@ export default async function handler(req, res) {
 
   try {
     const body = await readJson(req);
+
     const {
       propertyName = '',
       websiteUrl = '',
@@ -44,22 +44,43 @@ export default async function handler(req, res) {
       referrer = ''
     } = body || {};
 
-    // Honeypot
-    if (company) return res.status(200).json({ ok: true });
+    console.log('[quickstart] Incoming body:', body);
+
+    // Honeypot — bots bail out silently
+    if (company) {
+      return res.status(200).json({ ok: true, emailSent: false });
+    }
 
     const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    if (
-      !propertyName || !websiteUrl || !location || !contactName || !role ||
-      !isEmail(email) || !businessType || !bookingSystem || !clientValue ||
-      !goal || !launchTiming
-    ) {
-      return res.status(400).json({ ok: false, error: 'Missing required fields' });
+
+    // ✅ Only the *absolute basics* are required.
+    const missingBasics =
+      !propertyName ||
+      !websiteUrl ||
+      !contactName ||
+      !isEmail(email);
+
+    if (missingBasics) {
+      return res.status(400).json({
+        ok: false,
+        error:
+          'Missing clinic name, website URL, contact name, or a valid email.'
+      });
     }
 
     // Env
-    const TO            = process.env.RESEND_NOTIFICATIONS || process.env.QS_TO_EMAIL || 'hello@keyturn.studio';
-    const FROM          = process.env.RESEND_FROM || process.env.QS_FROM_EMAIL || 'Keyturn Studio <hello@updates.keyturn.studio>';
-    const BIZ_REPLY_TO  = process.env.QS_REPLY_TO || process.env.REPLY_TO || 'hello@keyturn.studio'; // Proton inbox
+    const TO =
+      process.env.RESEND_NOTIFICATIONS ||
+      process.env.QS_TO_EMAIL ||
+      'hello@keyturn.studio';
+    const FROM =
+      process.env.RESEND_FROM ||
+      process.env.QS_FROM_EMAIL ||
+      'Keyturn Studio <hello@updates.keyturn.studio>';
+    const BIZ_REPLY_TO =
+      process.env.QS_REPLY_TO ||
+      process.env.REPLY_TO ||
+      'hello@keyturn.studio'; // Proton inbox
 
     // Admin email (to you)
     const subject = `Quote request: ${propertyName}`;
@@ -85,8 +106,14 @@ export default async function handler(req, res) {
       </table>
       <hr style="margin:16px 0;border:0;border-top:1px solid #e5eaf2">
       <p style="font:12px/1.4 Inter,Arial,sans-serif;color:#6b7280">
-        Meta : page: ${escapeHtml(pagePath)} | utm: ${escapeHtml(utm_source)}/${escapeHtml(utm_medium)}/${escapeHtml(utm_campaign)} |
-        tz: ${escapeHtml(timezone)} | referrer: ${escapeHtml(referrer)} | UA: ${escapeHtml(userAgent)}
+        Meta : page: ${escapeHtml(pagePath)} | utm: ${escapeHtml(
+      utm_source
+    )}/${escapeHtml(utm_medium)}/${escapeHtml(
+      utm_campaign
+    )} |
+        tz: ${escapeHtml(timezone)} | referrer: ${escapeHtml(
+      referrer
+    )} | UA: ${escapeHtml(userAgent)}
       </p>
     `;
 
@@ -100,7 +127,9 @@ export default async function handler(req, res) {
                 Thanks : we've received your quote request
               </h1>
               <p style="margin:0 0 12px;font:14px/1.6 Inter,Arial,sans-serif;color:#0b1220">
-                Hi ${escapeHtml(contactName)}, thanks for the details. We'll send a <b>1-page quote within 1 business day</b>.
+                Hi ${escapeHtml(
+                  contactName
+                )}, thanks for the details. We'll send a <b>1-page quote within 1 business day</b>.
               </p>
               <p style="margin:0;font:14px/1.6 Inter,Arial,sans-serif;color:#0b1220">
                 If anything else would be helpful in the meantime, just reply to this email.
@@ -115,12 +144,28 @@ export default async function handler(req, res) {
       </div>
     `;
 
-    // Send (soft-fail)
+    // Send (soft-fail — never block the form)
     let emailSent = false;
     try {
       emailSent =
-        (await sendViaResend(FROM, TO, subject, htmlAdmin, email, htmlClient, BIZ_REPLY_TO)) ||
-        (await sendViaSendGrid(FROM, TO, subject, htmlAdmin, email, htmlClient, BIZ_REPLY_TO));
+        (await sendViaResend(
+          FROM,
+          TO,
+          subject,
+          htmlAdmin,
+          email,
+          htmlClient,
+          BIZ_REPLY_TO
+        )) ||
+        (await sendViaSendGrid(
+          FROM,
+          TO,
+          subject,
+          htmlAdmin,
+          email,
+          htmlClient,
+          BIZ_REPLY_TO
+        ));
     } catch (e) {
       console.error('Email send error (continuing):', e);
     }
@@ -133,42 +178,72 @@ export default async function handler(req, res) {
 }
 
 /* ------------ helpers ------------- */
-function row(label, value){
-  return `<tr><td><b>${escapeHtml(label)}</b></td><td>${escapeHtml(value || '')}</td></tr>`;
+function row(label, value) {
+  return `<tr><td><b>${escapeHtml(label)}</b></td><td>${escapeHtml(
+    value || ''
+  )}</td></tr>`;
 }
 function escapeHtml(s) {
   return String(s || '').replace(/[&<>"']/g, (m) => ({
-    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;'
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
   }[m]));
 }
-async function readJson(req){
+async function readJson(req) {
   const chunks = [];
   for await (const c of req) chunks.push(c);
   const raw = Buffer.concat(chunks).toString('utf8');
-  try { return JSON.parse(raw); } catch { return {}; }
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return {};
+  }
 }
 
 /* -------- Email providers ---------- */
-async function sendViaResend(from, to, subject, htmlAdmin, clientEmail, htmlClient, bizReplyTo){
+async function sendViaResend(
+  from,
+  to,
+  subject,
+  htmlAdmin,
+  clientEmail,
+  htmlClient,
+  bizReplyTo
+) {
   const key = process.env.RESEND_API_KEY;
   if (!key) return false;
 
   // Admin → you (reply-to = client)
   const r1 = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: { 'Authorization': `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from, to: [to], reply_to: clientEmail || undefined, subject, html: htmlAdmin })
+    headers: {
+      Authorization: `Bearer ${key}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      from,
+      to: [to],
+      reply_to: clientEmail || undefined,
+      subject,
+      html: htmlAdmin
+    })
   });
   if (!r1.ok) throw new Error(`Resend admin error: ${await r1.text()}`);
 
   // Client confirmation (reply-to = your Proton)
   const r2 = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: { 'Authorization': `Bearer ${key}`, 'Content-Type': 'application/json' },
+    headers: {
+      Authorization: `Bearer ${key}`,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({
       from,
       to: [clientEmail],
-      subject: 'Thanks : we've received your quote request',
+      subject: "Thanks : we've received your quote request",
       html: htmlClient,
       reply_to: bizReplyTo
     })
@@ -178,14 +253,25 @@ async function sendViaResend(from, to, subject, htmlAdmin, clientEmail, htmlClie
   return true;
 }
 
-async function sendViaSendGrid(from, to, subject, htmlAdmin, clientEmail, htmlClient, bizReplyTo){
+async function sendViaSendGrid(
+  from,
+  to,
+  subject,
+  htmlAdmin,
+  clientEmail,
+  htmlClient,
+  bizReplyTo
+) {
   const key = process.env.SENDGRID_API_KEY;
   if (!key) return false;
 
   // Admin → you (reply-to = client)
   const r1 = await fetch('https://api.sendgrid.com/v3/mail/send', {
     method: 'POST',
-    headers: { 'Authorization': `Bearer ${key}`, 'Content-Type': 'application/json' },
+    headers: {
+      Authorization: `Bearer ${key}`,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({
       personalizations: [{ to: [{ email: to }], subject }],
       from: { email: extractEmail(from) },
@@ -193,21 +279,34 @@ async function sendViaSendGrid(from, to, subject, htmlAdmin, clientEmail, htmlCl
       content: [{ type: 'text/html', value: htmlAdmin }]
     })
   });
-  if (r1.status >= 400) throw new Error(`SendGrid admin error: ${await r1.text()}`);
+  if (r1.status >= 400)
+    throw new Error(`SendGrid admin error: ${await r1.text()}`);
 
   // Client confirmation (reply-to = your Proton)
   const r2 = await fetch('https://api.sendgrid.com/v3/mail/send', {
     method: 'POST',
-    headers: { 'Authorization': `Bearer ${key}`, 'Content-Type': 'application/json' },
+    headers: {
+      Authorization: `Bearer ${key}`,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({
-      personalizations: [{ to: [{ email: clientEmail }], subject: 'Thanks : we've received your quote request' }],
+      personalizations: [
+        {
+          to: [{ email: clientEmail }],
+          subject: "Thanks : we've received your quote request"
+        }
+      ],
       from: { email: extractEmail(from) },
       reply_to: { email: bizReplyTo },
       content: [{ type: 'text/html', value: htmlClient }]
     })
   });
-  if (r2.status >= 400) throw new Error(`SendGrid client error: ${await r2.text()}`);
+  if (r2.status >= 400)
+    throw new Error(`SendGrid client error: ${await r2.text()}`);
 
   return true;
 }
-function extractEmail(v){ return String(v || '').replace(/^.*<|>$/g, '') || v; }
+
+function extractEmail(v) {
+  return String(v || '').replace(/^.*<|>$/g, '') || v;
+}
