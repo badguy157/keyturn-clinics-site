@@ -2567,6 +2567,68 @@ img {
   font-size: 0.95rem;
 }
 
+/* Support Comparison Section */
+.pricing-support-compare {
+  padding-top: 64px;
+}
+
+.pricing-support-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+@media (min-width: 640px) {
+  .pricing-support-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .pricing-support-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pricing-support-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: all 0.3s ease;
+}
+
+.pricing-support-card:hover {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(90,162,255,.3);
+  transform: translateY(-2px);
+}
+
+.pricing-support-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 0 0 12px;
+}
+
+.pricing-support-link {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pricing-support-link:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+.pricing-support-body {
+  color: var(--muted-2);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 /* Ongoing Care & Growth Section */
 .pricing-retainers {
   background: linear-gradient(180deg, rgba(30,41,59,.4) 0%, rgba(15,23,42,.6) 100%);
