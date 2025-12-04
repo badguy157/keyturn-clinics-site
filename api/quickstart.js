@@ -66,6 +66,14 @@ export default async function handler(req, res) {
         error:
           'Missing clinic name, website URL, contact name, or a valid email.'
       });
+    // Honeypot
+    if (company) return res.status(200).json({ ok: true });
+
+    const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    if (!propertyName || !websiteUrl || !contactName || !isEmail(email)) {
+      return res
+        .status(400)
+        .json({ ok: false, error: 'Missing clinic name, website URL, contact name, or a valid email.' });
     }
 
     // Env
