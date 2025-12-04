@@ -1896,6 +1896,72 @@ img {
   line-height: 1.5;
 }
 
+/* ===== Who you'll work with section ===== */
+.work-with-section {
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.work-with-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 700px;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .work-with-content {
+    flex-direction: row;
+    text-align: left;
+    gap: 32px;
+  }
+}
+
+.work-with-image {
+  flex-shrink: 0;
+}
+
+.work-with-text h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.work-with-text p {
+  margin: 0 0 16px;
+  color: var(--muted-2);
+  line-height: 1.6;
+}
+
+.work-with-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.work-with-text ul li {
+  margin-bottom: 12px;
+  color: var(--muted-2);
+  line-height: 1.6;
+}
+
+.work-with-text ul li strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.work-with-text .reassurance {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
 /* ===== About / Founder Strip ===== */
 .about-strip {
   background: rgba(255,255,255,.02);
