@@ -305,7 +305,7 @@ async function sendViaSendGrid(
       personalizations: [
         {
           to: [{ email: clientEmail }],
-          subject: "Thanks : we've received your quote request"
+          subject: "Thanks, we've received your quote request"
         }
       ],
       from: { email: extractEmail(from) },
