@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const body = await readJson(req);
+    const body = getJsonBody(req);
 
     const {
       propertyName = '',
@@ -34,6 +34,7 @@ export default async function handler(req, res) {
       budget = '',
       assetsLink = '',
       notes = '',
+      start_type = '',          // ✅ radio field
       company = '',
       pagePath = '',
       utm_source = '',
@@ -53,7 +54,7 @@ export default async function handler(req, res) {
 
     const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
-    // ✅ Only the *absolute basics* are required.
+    // ✅ Only the absolute basics are required server-side
     const missingBasics =
       !propertyName ||
       !websiteUrl ||
@@ -66,15 +67,14 @@ export default async function handler(req, res) {
         error:
           'Missing clinic name, website URL, contact name, or a valid email.'
       });
-    // Honeypot
-    if (company) return res.status(200).json({ ok: true });
-
-    const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    if (!propertyName || !websiteUrl || !contactName || !isEmail(email)) {
-      return res
-        .status(400)
-        .json({ ok: false, error: 'Missing clinic name, website URL, contact name, or a valid email.' });
     }
+
+    const startLabel =
+      start_type === 'full_rebuild'
+        ? 'Full website rebuild quote'
+        : start_type === 'blueprint_first'
+        ? 'Clinic Booking Blueprint & Site Audit first'
+        : start_type || 'Not specified';
 
     // Env
     const TO =
@@ -90,7 +90,7 @@ export default async function handler(req, res) {
       process.env.REPLY_TO ||
       'hello@keyturn.studio'; // Proton inbox
 
-    // Admin email (to you)
+    // Admin email (to you) – includes *all* form details
     const subject = `Quote request: ${propertyName}`;
     const htmlAdmin = `
       <h2>New Quote Request</h2>
@@ -109,6 +109,7 @@ export default async function handler(req, res) {
         ${row('Primary goal', goal)}
         ${row('Ideal launch timing', launchTiming)}
         ${row('Budget comfort zone', budget)}
+        ${row('How they’d like to start', startLabel)}
         ${row('Additional details', notes)}
         ${row('Assets link', assetsLink)}
       </table>
@@ -186,11 +187,24 @@ export default async function handler(req, res) {
 }
 
 /* ------------ helpers ------------- */
+
+// Use Next's parsed body if available; fall back to JSON.parse
+function getJsonBody(req) {
+  if (req.body) {
+    if (typeof req.body === 'string') {
+      try { return JSON.parse(req.body); } catch { return {}; }
+    }
+    return req.body;
+  }
+  return {};
+}
+
 function row(label, value) {
   return `<tr><td><b>${escapeHtml(label)}</b></td><td>${escapeHtml(
     value || ''
   )}</td></tr>`;
 }
+
 function escapeHtml(s) {
   return String(s || '').replace(/[&<>"']/g, (m) => ({
     '&': '&amp;',
@@ -199,16 +213,6 @@ function escapeHtml(s) {
     '"': '&quot;',
     "'": '&#39;'
   }[m]));
-}
-async function readJson(req) {
-  const chunks = [];
-  for await (const c of req) chunks.push(c);
-  const raw = Buffer.concat(chunks).toString('utf8');
-  try {
-    return JSON.parse(raw);
-  } catch {
-    return {};
-  }
 }
 
 /* -------- Email providers ---------- */
