@@ -4010,7 +4010,7 @@ img {
 
 /* Wrapper for max-width and spacing */
 .proof-section-wrapper {
-  max-width: 80rem; /* 1280px - equivalent to max-w-5xl in Tailwind */
+  max-width: 64rem; /* 1024px - equivalent to max-w-5xl in Tailwind */
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -4194,10 +4194,4 @@ img {
   margin-top: 0.25rem; /* mt-1 */
   text-align: right;
   font-style: normal;
-}
-
-@media (min-width: 1024px) {
-  .proof-testimonial figcaption {
-    text-align: right;
-  }
 }
