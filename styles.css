@@ -1930,6 +1930,24 @@ img {
   line-height: 1.5;
 }
 
+/* ===== Fix the leaks section (combined Problems + What we do) ===== */
+.fix-leaks-layout {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .fix-leaks-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+.fix-leaks-card {
+  height: 100%;
+}
+
 /* ===== Who you'll work with section ===== */
 .work-with-section {
   background: rgba(255,255,255,.02);
