@@ -4009,8 +4009,16 @@ img {
 /* ===== Tailwind-style Utility Classes for Proof Section ===== */
 
 /* Layout utilities */
+.max-w-4xl {
+  max-width: 56rem;
+}
+
 .max-w-5xl {
   max-width: 64rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
 }
 
 .mx-auto {
@@ -4042,8 +4050,16 @@ img {
   margin-top: 0.25rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .mt-6 {
   margin-top: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .flex {
@@ -4101,6 +4117,11 @@ img {
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .py-4 {
@@ -4190,6 +4211,10 @@ img {
 
 /* Responsive design - md breakpoint (768px+) */
 @media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
