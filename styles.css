@@ -2078,8 +2078,7 @@ img {
   }
   
   /* Connector line between steps - positioned at center of step numbers */
-  /* 16.67% = 1/6 (half of one column width in 3-column grid) */
-  /* 48px = padding-top of step + half the step-number height */
+  /* Positioned at: 24px card padding + 24px (half of 48px step-number height) */
   .stepper::before {
     content: "";
     position: absolute;
