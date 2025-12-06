@@ -3147,20 +3147,90 @@ img {
   color: var(--fg);
 }
 
+/* Visual Element: Analytics Chart */
+.services-hero-visual {
+  margin-top: 24px;
+  background: rgba(15,23,42,.6);
+  border: 1px solid rgba(71,85,105,.4);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.services-hero-visual-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.services-hero-visual-icon {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+.services-hero-visual-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.services-hero-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  height: 100px;
+  margin-bottom: 12px;
+  padding: 0 8px;
+}
+
+.services-hero-chart-bar {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.services-hero-chart-bar-fill {
+  width: 100%;
+  height: var(--bar-height, 50%);
+  background: linear-gradient(180deg, var(--accent) 0%, rgba(56,189,248,.5) 100%);
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 0 16px rgba(56,189,248,.3);
+  transition: height 0.5s ease;
+}
+
+.services-hero-chart-label {
+  font-size: 0.8rem;
+  color: var(--muted-2);
+  font-weight: 500;
+}
+
+.services-hero-visual-caption {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+  font-style: italic;
+}
+
 /* Desktop: 2-column hero layout */
 @media (min-width: 900px) {
   .services-hero-layout {
     flex-direction: row;
     align-items: flex-start;
-    gap: 48px;
+    gap: 56px;
   }
   
   .services-hero-left {
-    flex: 1;
+    flex: 1 1 55%;
+    max-width: 640px;
   }
   
   .services-hero-right {
-    flex: 0 0 420px;
+    flex: 1 1 45%;
+    max-width: 480px;
   }
   
   .services-hero-card {
