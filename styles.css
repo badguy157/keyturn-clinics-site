@@ -2237,6 +2237,13 @@ img {
   max-width: 640px;
 }
 
+.pricing-hero-stat {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 12px 0 16px;
+  max-width: 640px;
+}
+
 .pricing-hero-scarcity {
   color: var(--muted);
   font-size: 0.95rem;
@@ -2271,6 +2278,35 @@ img {
 
 .pricing-payback-content p:last-child {
   margin-bottom: 0;
+}
+
+.pricing-payback-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pricing-payback-bullets li {
+  position: relative;
+  padding-left: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: var(--muted-2);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+}
+
+.pricing-payback-bullets li:last-child {
+  border-bottom: none;
+}
+
+.pricing-payback-bullets li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
 }
 
 /* Desktop: 2-column hero layout */
