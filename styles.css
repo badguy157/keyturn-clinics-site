@@ -167,12 +167,14 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
   gap:8px;font-weight:600;white-space:nowrap;text-decoration:none;
   border-radius:12px;border:1px solid var(--line);
   padding:13px 20px;font-size:0.95rem;
+  transition:transform 0.15s ease-out,box-shadow 0.15s ease-out,filter 0.15s ease-out,background 0.15s ease-out,border-color 0.15s ease-out;
 }
 .btn-primary,.btn.primary{
   background:var(--fg);color:#0a0f1a;border-color:var(--fg);
 }
-.btn-primary:hover,.btn.primary:hover{filter:brightness(.96)}
+.btn-primary:hover,.btn.primary:hover{filter:brightness(.96);transform:translateY(-1px);box-shadow:0 4px 12px rgba(90,162,255,.3)}
 .btn-ghost,.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn-ghost:hover,.btn.ghost:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.2);transform:translateY(-1px)}
 .w-full{width:100%}
 
 /* Ensure contrast for primary inside mobile drawer */
@@ -180,16 +182,24 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 .mobile-drawer .btn-ghost{color:var(--fg)}
 
 /* Button clusters */
-.buttons,.hero-ctas{display:grid;gap:10px;margin-top:12px}
-@media (min-width:768px){ .hero-ctas{grid-auto-flow:column;grid-auto-columns:max-content} }
+.buttons,.hero-ctas{display:flex;flex-direction:column;gap:12px;margin-top:0}
+@media (min-width:640px){ 
+  .hero-ctas{
+    flex-direction:row;
+    gap:16px;
+  } 
+}
 
 /* ---- Hero ---- */
-.hero{padding-top:var(--hero-y);padding-bottom:var(--hero-y-bottom)}
-.hero-title{
-  font-size:clamp(32px,6.5vw,64px);
-  line-height:1.05;margin:0 0 10px;font-weight:600;
+.hero{padding-top:4rem;padding-bottom:4rem}
+@media (min-width:768px){
+  .hero{padding-top:6rem;padding-bottom:6rem}
 }
-.hero-lede{color:var(--muted);font-size:clamp(16px,3.6vw,20px);margin:0 0 14px}
+.hero-title{
+  font-size:clamp(36px,7vw,72px);
+  line-height:1.05;margin:0 0 16px;font-weight:700;
+}
+.hero-lede{color:rgba(203,213,225,0.9);font-size:clamp(17px,3.6vw,20px);margin:0 0 32px;line-height:1.7;max-width:540px}
 .accent{color:var(--accent)}
 .chip-row{display:flex;gap:8px;overflow-x:auto; -webkit-overflow-scrolling:touch; padding:6px 0 12px}
 .chip{border:1px solid var(--line);border-radius:999px;padding:6px 12px;white-space:nowrap;color:var(--muted);font-size:14px}
@@ -198,16 +208,68 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 @media (max-width:767px){.hero-bullets{flex-direction:column;gap:8px}}
 .hero-subtext{color:var(--muted);font-size:14px;margin-top:6px}
 
-/* Hero 2-column agency layout */
+/* Hero 2-column premium layout */
 .hero-layout{
   display:flex;
   flex-direction:column;
-  gap:40px;
+  gap:48px;
 }
 .hero-left{max-width:600px}
 
-/* Hero stat strip */
-.hero-stats-strip{
+/* Premium visual card wrapper for right column */
+.hero-visual-card{
+  background:rgba(30,41,59,0.4);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 8px 32px rgba(0,0,0,.2);
+}
+@media (min-width:768px){
+  .hero-visual-card{
+    padding:32px;
+  }
+}
+
+/* Hero stat tiles - compact grid */
+.hero-stats-grid{
+  margin-top:24px;
+  display:grid;
+  gap:12px;
+  grid-template-columns:1fr;
+}
+@media (min-width:640px){
+  .hero-stats-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+}
+.hero-stat-tile{
+  background:rgba(15,23,42,0.6);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  padding:16px;
+  text-align:center;
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hero-stat-tile:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
+}
+.hero-stat-tile-value{
+  font-size:1.75rem;
+  font-weight:700;
+  color:var(--accent);
+  line-height:1.2;
+  margin-bottom:8px;
+}
+.hero-stat-tile-label{
+  font-size:0.75rem;
+  color:var(--muted);
+  line-height:1.4;
+}
+
+/* Legacy styles for other pages */
+.hero-stat-strip{
   margin-top:20px;
   padding:20px;
   background:var(--card);
@@ -218,7 +280,7 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
   grid-template-columns:1fr;
 }
 @media (min-width:768px){
-  .hero-stats-strip{
+  .hero-stat-strip{
     grid-template-columns:repeat(3,1fr);
     gap:24px;
   }
@@ -326,11 +388,11 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
   .hero-layout{
     flex-direction:row;
     align-items:center;
-    gap:48px;
+    gap:60px;
   }
   .hero-left{flex:1}
-  .hero-right{flex:0 0 auto}
-  .hero-mock{max-width:360px}
+  .hero-right{flex:0 0 auto;max-width:480px}
+  .hero-mock{max-width:100%}
 }
 
 /* ---- Trust strip ---- */
