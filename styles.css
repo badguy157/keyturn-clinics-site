@@ -2759,14 +2759,9 @@ img {
   padding: var(--section-y) 0;
 }
 
-.pricing-retainers-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.pricing-retainers-left {
+.pricing-retainers-header {
   text-align: center;
+  margin-bottom: 32px;
 }
 
 .pricing-retainers-title {
@@ -2783,64 +2778,57 @@ img {
   margin-bottom: 8px;
 }
 
-.pricing-retainers-terms {
+.pricing-retainers-price-note {
   color: var(--muted);
-  font-size: 0.95rem;
-  margin: 0;
+  font-size: 0.85rem;
+  margin: 8px 0 0;
+  text-align: center;
 }
 
-.pricing-retainers-right {
+.pricing-retainers-cards {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
-.pricing-retainer-option {
+.pricing-retainer-card {
   background: rgba(255,255,255,.04);
   border: 1px solid rgba(255,255,255,.06);
   border-radius: var(--r-sm);
-  padding: 20px;
+  padding: 24px;
+  flex: 1;
 }
 
-.pricing-retainer-name {
-  font-size: 1.1rem;
-  font-weight: 600;
+.pricing-retainer-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--fg);
-  margin: 0 0 8px;
+  margin: 0 0 16px;
+  text-align: center;
 }
 
-.pricing-retainer-pricing {
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin: 0 0 12px;
-  line-height: 1.5;
-}
-
-.pricing-retainer-features {
+.pricing-retainer-card-features {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.pricing-retainer-features li {
+.pricing-retainer-card-features li {
   position: relative;
   padding-left: 20px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-.pricing-retainer-features li::before {
+.pricing-retainer-card-features li::before {
   content: "•";
   position: absolute;
   left: 0;
   color: var(--accent);
-}
-
-.pricing-retainer-divider {
-  display: none;
+  font-weight: bold;
 }
 
 .pricing-retainers-note {
@@ -2854,43 +2842,20 @@ img {
   border-radius: var(--r-sm);
 }
 
-/* Desktop: 2-column retainers layout */
+/* Desktop: 2-column equal cards layout */
 @media (min-width: 768px) {
-  .pricing-retainers-layout {
+  .pricing-retainers-cards {
     flex-direction: row;
-    align-items: flex-start;
-    gap: 48px;
+    gap: 24px;
   }
   
-  .pricing-retainers-left {
-    flex: 0 0 280px;
+  .pricing-retainer-card {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .pricing-retainer-card-title {
     text-align: left;
-  }
-  
-  .pricing-retainers-right {
-    flex: 1;
-    flex-direction: row;
-    gap: 0;
-  }
-  
-  .pricing-retainer-option {
-    flex: 1;
-    border-radius: 0;
-  }
-  
-  .pricing-retainer-option:first-child {
-    border-radius: var(--r-sm) 0 0 var(--r-sm);
-    border-right: none;
-  }
-  
-  .pricing-retainer-option:last-child {
-    border-radius: 0 var(--r-sm) var(--r-sm) 0;
-  }
-  
-  .pricing-retainer-divider {
-    display: block;
-    width: 1px;
-    background: rgba(255,255,255,.1);
   }
 }
 
