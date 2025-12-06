@@ -2330,6 +2330,17 @@ img {
   }
 }
 
+/* Section Eyebrow Label (Unified Style) */
+.section-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+  text-align: center;
+}
+
 /* Pricing Section Headings */
 .pricing-section-heading {
   text-align: center;
@@ -2623,7 +2634,7 @@ img {
 
 /* Guarantees Section */
 .pricing-guarantees {
-  padding-top: 64px;
+  margin-top: var(--section-y);
 }
 
 .pricing-guarantees-grid {
@@ -2879,7 +2890,7 @@ img {
 
 /* Optional Add-ons Section */
 .pricing-addons {
-  padding-top: 64px;
+  margin-top: var(--section-y);
 }
 
 .pricing-addons-grid {
@@ -2975,6 +2986,10 @@ img {
 }
 
 /* Who Each Package Is For Section */
+.pricing-tiers {
+  margin-top: var(--section-y);
+}
+
 .pricing-tiers-grid {
   display: grid;
   gap: 20px;
@@ -3043,6 +3058,10 @@ img {
 }
 
 /* Pricing CTAs Section */
+.pricing-ctas {
+  margin-top: var(--section-y);
+}
+
 .pricing-ctas-grid {
   display: grid;
   gap: 24px;
@@ -3106,7 +3125,7 @@ img {
 
 /* Pricing Page Packages Section - ensure proper spacing */
 .pricing-packages {
-  padding-top: var(--section-y);
+  margin-top: var(--section-y);
   padding-bottom: var(--section-y);
 }
 
@@ -3289,9 +3308,23 @@ img {
   margin: 0 0 32px;
 }
 
+/* Comfortable paragraph line-height for services and pricing pages */
+.services-offerings p,
+.services-packages p,
+.services-packages-intro,
+.services-addons p,
+.services-clients p,
+.services-clients-intro,
+.pricing-packages p,
+.pricing-guarantees p,
+.pricing-addons p,
+.pricing-tier-card p {
+  line-height: 1.7;
+}
+
 /* Services Offerings Grid */
 .services-offerings {
-  padding-top: var(--section-y);
+  margin-top: var(--section-y);
   padding-bottom: var(--section-y);
 }
 
@@ -3360,10 +3393,17 @@ img {
 
 /* Services Packages Section */
 .services-packages {
-  padding-top: var(--section-y);
+  margin-top: var(--section-y);
+  padding-top: 48px;
   padding-bottom: var(--section-y);
   background: linear-gradient(180deg, rgba(255,255,255,.02) 0%, transparent 100%);
   border-radius: var(--radius);
+}
+
+@media (min-width: 768px) {
+  .services-packages {
+    padding-top: 64px;
+  }
 }
 
 .services-packages-intro {
@@ -3389,6 +3429,11 @@ img {
   margin-top: 40px;
 }
 
+/* Services Addons Section */
+.services-addons {
+  margin-top: var(--section-y);
+}
+
 /* Button outline style */
 .btn-outline {
   background: transparent;
@@ -3406,7 +3451,7 @@ img {
 
 /* Services Clients Section */
 .services-clients {
-  padding-top: var(--section-y);
+  margin-top: var(--section-y);
   padding-bottom: var(--section-y);
 }
 
@@ -3470,7 +3515,7 @@ img {
 
 /* Services Team Section */
 .services-team {
-  padding-top: var(--section-y);
+  margin-top: var(--section-y);
   padding-bottom: var(--section-y);
 }
 
@@ -3537,7 +3582,7 @@ img {
 
 /* Services Tools Section */
 .services-tools {
-  padding-top: var(--section-y);
+  margin-top: var(--section-y);
   padding-bottom: var(--section-y);
 }
 
@@ -3596,7 +3641,7 @@ img {
 
 /* Services CTA Section */
 .services-cta {
-  padding-top: var(--section-y);
+  margin-top: var(--section-y);
   padding-bottom: var(--section-y);
 }
 
