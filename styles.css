@@ -2473,13 +2473,13 @@ img {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 20px rgba(0,0,0,.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
 }
 
 .pricing-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 40px rgba(90,162,255,.5), 0 12px 40px rgba(0,0,0,.25);
-  border-color: rgba(90,162,255,.4);
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(90,162,255,.35), 0 8px 32px rgba(0,0,0,.2);
+  border-color: rgba(90,162,255,.35);
 }
 
 /* Featured / Most Popular Card */
@@ -2490,7 +2490,7 @@ img {
 }
 
 .pricing-card-featured:hover {
-  box-shadow: 0 0 50px rgba(90,162,255,.6), 0 0 80px rgba(90,162,255,.3), 0 12px 40px rgba(0,0,0,.25);
+  box-shadow: 0 0 35px rgba(90,162,255,.45), 0 0 60px rgba(90,162,255,.25), 0 8px 32px rgba(0,0,0,.2);
 }
 
 .pricing-badge {
@@ -2666,13 +2666,11 @@ img {
   border: 1px solid rgba(255,255,255,.08);
   border-radius: var(--radius);
   padding: 28px 24px;
-  transition: all 0.3s ease;
+  transition: border-color 0.15s ease-out;
 }
 
 .pricing-guarantee-card:hover {
-  background: rgba(255,255,255,.06);
-  border-color: rgba(90,162,255,.3);
-  transform: translateY(-2px);
+  border-color: rgba(90,162,255,.2);
 }
 
 .pricing-guarantee-title {
@@ -2881,13 +2879,11 @@ img {
   border: 1px solid rgba(255,255,255,.08);
   border-radius: var(--radius);
   padding: 28px 24px;
-  transition: all 0.3s ease;
+  transition: border-color 0.15s ease-out;
 }
 
 .pricing-addon-card:hover {
-  background: rgba(255,255,255,.06);
-  border-color: rgba(90,162,255,.3);
-  transform: translateY(-2px);
+  border-color: rgba(90,162,255,.2);
 }
 
 .pricing-addon-title {
@@ -3309,13 +3305,11 @@ img {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 20px rgba(0,0,0,.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: border-color 0.15s ease-out;
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 30px rgba(90,162,255,.4), 0 12px 40px rgba(0,0,0,.25);
-  border-color: rgba(90,162,255,.3);
+  border-color: rgba(90,162,255,.2);
 }
 
 .service-card-accent {
@@ -3462,13 +3456,11 @@ img {
   border: 1px solid rgba(255,255,255,.06);
   border-radius: var(--r-sm);
   padding: 24px 20px;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.15s ease-out;
 }
 
 .client-type-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(90,162,255,.3);
-  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+  border-color: rgba(90,162,255,.2);
 }
 
 .client-type-icon {
