@@ -2242,6 +2242,13 @@ img {
   font-size: 0.9rem;
   margin: 12px 0 16px;
   max-width: 640px;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .pricing-hero-stat {
+    font-size: 1rem;
+  }
 }
 
 .pricing-hero-scarcity {
@@ -2249,6 +2256,13 @@ img {
   font-size: 0.95rem;
   margin-top: 16px;
   max-width: 640px;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .pricing-hero-scarcity {
+    font-size: 1rem;
+  }
 }
 
 .pricing-hero-right {
@@ -2293,8 +2307,14 @@ img {
   padding-bottom: 8px;
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.7;
   border-bottom: 1px solid rgba(255,255,255,.04);
+}
+
+@media (min-width: 768px) {
+  .pricing-payback-bullets li {
+    font-size: 1rem;
+  }
 }
 
 .pricing-payback-bullets li:last-child {
@@ -2354,6 +2374,13 @@ img {
   color: var(--muted);
   font-size: 0.95rem;
   margin: 0 0 24px;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .pricing-section-subheading {
+    font-size: 1rem;
+  }
 }
 
 .pricing-payment-note {
@@ -2364,6 +2391,13 @@ img {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .pricing-payment-note {
+    font-size: 1rem;
+  }
 }
 
 /* Blueprint Panel */
@@ -2405,6 +2439,12 @@ img {
   line-height: 1.7;
   margin: 0 0 12px;
   font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .pricing-blueprint-text {
+    font-size: 1rem;
+  }
 }
 
 .pricing-blueprint-text:last-of-type {
@@ -2555,8 +2595,14 @@ img {
   padding-bottom: 8px;
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.7;
   border-bottom: 1px solid rgba(255,255,255,.04);
+}
+
+@media (min-width: 768px) {
+  .pricing-card-features li {
+    font-size: 1rem;
+  }
 }
 
 .pricing-card-features li:last-child {
@@ -2589,6 +2635,13 @@ img {
   color: var(--muted);
   font-size: 0.95rem;
   margin: 40px 0 0;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .pricing-warranty-note {
+    font-size: 1rem;
+  }
 }
 
 /* Blueprint Add-on Info Block */
@@ -2682,9 +2735,15 @@ img {
 
 .pricing-guarantee-body {
   color: var(--muted-2);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
   font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .pricing-guarantee-body {
+    font-size: 1rem;
+  }
 }
 
 /* Support Comparison Section */
@@ -2818,7 +2877,13 @@ img {
   padding-bottom: 8px;
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .pricing-retainer-card-features li {
+    font-size: 1rem;
+  }
 }
 
 .pricing-retainer-card-features li::before {
@@ -2838,6 +2903,13 @@ img {
   background: rgba(90,162,255,.08);
   border: 1px solid rgba(90,162,255,.15);
   border-radius: var(--r-sm);
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .pricing-retainers-note {
+    font-size: 1rem;
+  }
 }
 
 /* Desktop: 2-column equal cards layout */
@@ -2895,9 +2967,15 @@ img {
 
 .pricing-addon-body {
   color: var(--muted-2);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
   font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .pricing-addon-body {
+    font-size: 1rem;
+  }
 }
 
 /* Budget-Friendly Ways to Start Section */
@@ -2948,8 +3026,14 @@ img {
 .pricing-budget-desc {
   color: var(--muted-2);
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.7;
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .pricing-budget-desc {
+    font-size: 1rem;
+  }
 }
 
 /* Who Each Package Is For Section */
@@ -2992,8 +3076,14 @@ img {
 .pricing-tier-desc {
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .pricing-tier-desc {
+    font-size: 1rem;
+  }
 }
 
 .pricing-tier-note-card {
@@ -3009,8 +3099,14 @@ img {
 .pricing-tier-note-card p {
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0 0 12px;
+}
+
+@media (min-width: 768px) {
+  .pricing-tier-note-card p {
+    font-size: 1rem;
+  }
 }
 
 .pricing-tier-note-card p:last-child {
@@ -3022,6 +3118,13 @@ img {
   color: var(--muted);
   font-size: 0.88rem;
   margin: 0;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .pricing-tier-footnote {
+    font-size: 0.95rem;
+  }
 }
 
 /* Pricing CTAs Section */
@@ -3059,14 +3162,27 @@ img {
 .pricing-cta-desc {
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0 0 12px;
+}
+
+@media (min-width: 768px) {
+  .pricing-cta-desc {
+    font-size: 1rem;
+  }
 }
 
 .pricing-cta-note {
   color: var(--muted);
   font-size: 0.9rem;
   margin: 0 0 20px;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .pricing-cta-note {
+    font-size: 1rem;
+  }
 }
 
 .pricing-cta-buttons {
@@ -3152,9 +3268,15 @@ img {
 .services-hero-card-list li {
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   padding-left: 24px;
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .services-hero-card-list li {
+    font-size: 1rem;
+  }
 }
 
 .services-hero-card-list li::before {
@@ -3327,6 +3449,19 @@ img {
   margin: 0 0 16px;
 }
 
+.service-card > p {
+  color: var(--muted-2);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .service-card > p {
+    font-size: 1rem;
+  }
+}
+
 .service-card .features {
   list-style: none;
   margin: 0;
@@ -3340,7 +3475,13 @@ img {
   padding-bottom: 6px;
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .service-card .features li {
+    font-size: 1rem;
+  }
 }
 
 .service-card .features li::before {
@@ -3379,14 +3520,26 @@ img {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .services-packages-intro {
+    font-size: 1rem;
+  }
 }
 
 .services-package-best-for {
   color: var(--muted-2);
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.7;
   margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .services-package-best-for {
+    font-size: 1rem;
+  }
 }
 
 .services-packages-cta {
@@ -3479,8 +3632,14 @@ img {
 .client-type-card p {
   color: var(--muted-2);
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .client-type-card p {
+    font-size: 1rem;
+  }
 }
 
 /* Services Team Section */
@@ -3524,9 +3683,15 @@ img {
 .services-team-list li {
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   padding-left: 24px;
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .services-team-list li {
+    font-size: 1rem;
+  }
 }
 
 .services-team-list li::before {
@@ -3636,7 +3801,7 @@ img {
 .services-cta-band > p {
   color: var(--muted-2);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0 0 28px;
   max-width: 500px;
   margin-left: auto;
