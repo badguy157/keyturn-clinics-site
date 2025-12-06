@@ -3439,18 +3439,20 @@ img {
 
 .services-clients-grid {
   display: grid;
-  gap: 24px;
+  gap: 20px;
 }
 
 @media (min-width: 640px) {
   .services-clients-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
 }
 
 @media (min-width: 1024px) {
   .services-clients-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
   }
 }
 
@@ -3469,6 +3471,12 @@ img {
   box-shadow: 0 8px 24px rgba(0,0,0,.2);
 }
 
+.client-type-icon {
+  color: var(--accent);
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
 .client-type-card h3 {
   font-size: 1rem;
   font-weight: 600;
@@ -3479,9 +3487,8 @@ img {
 .client-type-card p {
   color: var(--muted-2);
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
-  max-width: 280px;
 }
 
 /* Services Team Section */
