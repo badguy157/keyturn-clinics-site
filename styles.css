@@ -1919,14 +1919,14 @@ img {
   flex-direction: column;
   gap: 8px;
   text-align: center;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s ease-out, border-color 0.15s ease-out, box-shadow 0.15s ease-out;
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 
 .clinic-type-card:hover {
   border-color: rgba(90, 162, 255, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
 }
 
 .clinic-type-card strong {
@@ -2019,12 +2019,12 @@ img {
 .fix-leaks-card {
   height: 100%;
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
 }
 
 .fix-leaks-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
   border-color: rgba(90,162,255,.2);
 }
 
@@ -2046,12 +2046,12 @@ img {
   border-radius: var(--radius);
   padding: 36px 28px;
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
 }
 
 .work-with-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
   border-color: rgba(90,162,255,.2);
 }
 
@@ -2223,12 +2223,13 @@ img {
   border-radius: var(--radius);
   padding: 24px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
 }
 
 .step:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+  border-color: rgba(90,162,255,.2);
 }
 
 .step-number {
@@ -4297,16 +4298,17 @@ img {
 /* ===== FAQ Group Accordion (New JS-powered system) ===== */
 .faq-group {
   display: grid;
-  gap: 12px;
+  gap: 16px;
   max-width: 800px;
   margin: 0 auto;
 }
 
 .faq-item {
   background: var(--card);
-  border: 1px solid rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
   border-radius: var(--radius);
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 
 .faq-item:hover {
@@ -4553,6 +4555,13 @@ img {
   margin: 0 auto;
   box-shadow: 0 4px 16px rgba(0,0,0,.12);
   text-align: left;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+}
+
+.is-this-you-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+  border-color: rgba(90,162,255,.2);
 }
 
 .is-this-you-bullets {
@@ -4613,6 +4622,13 @@ img {
   border-radius: var(--radius);
   padding: 28px;
   box-shadow: 0 4px 20px rgba(0,0,0,.15);
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+}
+
+.case-study-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+  border-color: rgba(90,162,255,.2);
 }
 
 .case-study-content {
