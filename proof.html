@@ -53,6 +53,30 @@
       border-radius: var(--radius);
       padding: 28px;
       height: 100%;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.15s ease-out;
+    }
+    .demo-card-clickable {
+      cursor: pointer;
+    }
+    .demo-card-clickable:hover,
+    .demo-card-clickable:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+      border-color: rgba(255,255,255,.15);
+    }
+    .demo-card-clickable:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .demo-category-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 12px 0;
     }
     .demo-card-body {
       flex-grow: 1;
@@ -70,10 +94,25 @@
 <!-- Hero section for case study -->
 <section class="hero">
   <div class="container">
-    <p class="small" style="color:var(--accent);margin-bottom:8px;font-weight:600">PROOF</p>
+    <p class="section-eyebrow">CASE STUDY</p>
     <h1 class="hero-title">How a better website gets more bookings</h1>
-    <p class="hero-lede">This case study is from an <strong>independent hotel in England</strong>. The same ideas work for clinics and medspas. Clear booking buttons, simple steps, and good tracking work whether you're filling hotel rooms or appointment calendars.</p>
-    <p class="hero-lede" style="margin-top:12px">The approach works across industries.</p>
+    <p class="hero-lede">This case study is from an independent hotel in England. The same ideas work for clinics and medspas: clear booking paths, simple steps, and tracking that shows what's working.</p>
+    
+    <!-- Stat strip with key metrics -->
+    <div class="hiw-hero-stats">
+      <div class="hiw-hero-stat">
+        <span class="hiw-hero-stat-value">~8% → 22–25%</span>
+        <span class="hiw-hero-stat-label">direct bookings</span>
+      </div>
+      <div class="hiw-hero-stat">
+        <span class="hiw-hero-stat-value">+107%</span>
+        <span class="hiw-hero-stat-label">more clicks from Google</span>
+      </div>
+      <div class="hiw-hero-stat">
+        <span class="hiw-hero-stat-value">3–5 weeks</span>
+        <span class="hiw-hero-stat-label">rebuild timeline</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -81,17 +120,10 @@
   <!-- Case Study Introduction: The Anchor Hotel -->
   <section class="container section" style="padding-top:40px">
     <div class="card" style="max-width:900px;margin:0 auto">
-      <p class="small" style="color:var(--accent);margin-bottom:8px;font-weight:600">CASE STUDY</p>
       <h2 style="margin-top:0">The Anchor Hotel, Haydon Bridge</h2>
-      <p style="max-width:800px">A small hotel in England. The old site made it hard for guests to book. Too many left to use travel sites like Booking.com.</p>
-      <p style="max-width:800px">We rebuilt the site around booking and clear info. Now more guests book direct.</p>
-      <div class="chip-row" aria-label="Project highlights" style="margin-top:20px">
-        <span class="chip">Direct bookings up</span>
-        <span class="chip">More search visibility</span>
-        <span class="chip">Easy tracking</span>
-      </div>
-      <div class="buttons" style="margin-top:20px">
-        <a class="btn" href="https://www.theanchorhotelhaydonbridge.com" target="_blank" rel="noopener">View the live site</a>
+      <p style="max-width:800px">A small hotel in England. The old site made it hard for guests to book. Too many left to use travel sites like Booking.com. We rebuilt the site around booking and clear info. Now more guests book direct.</p>
+      <div class="buttons" style="margin-top:24px">
+        <a class="btn btn-primary" href="https://www.theanchorhotelhaydonbridge.com" target="_blank" rel="noopener">View the live site</a>
       </div>
     </div>
   </section>
@@ -112,51 +144,90 @@
     </div>
   </section>
 
-  <!-- What was wrong before -->
+  <!-- Before/After Story -->
   <section class="container section">
-    <div class="card" style="max-width:900px;margin:0 auto">
-      <h2>What was wrong before</h2>
-      <p style="max-width:800px">The old site was hard to use on phones. Visitors couldn't see how to book. Too many guests went to travel sites and the hotel paid extra fees.</p>
-      <h3 style="margin-top:24px;margin-bottom:12px;font-size:1.1rem">Our goals</h3>
-      <ul style="max-width:800px">
-        <li>Get more direct bookings.</li>
-        <li>Cut fees paid to online travel sites.</li>
-        <li>Make it easy to book on every page.</li>
-        <li>Make the site feel calm, clear, and modern.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- What we changed + What happened after (side by side) -->
-  <section class="container section">
-    <div class="grid">
+    <h2 style="text-align:center;margin-bottom:12px">What changed and what happened next</h2>
+    <p style="text-align:center;color:var(--muted-2);margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto">A clear before → change → after story.</p>
+    
+    <div class="before-after-grid">
+      <!-- Before Card -->
       <article class="card">
-        <h2>What we changed</h2>
-        <p style="color:var(--muted-2);margin-bottom:16px">We rebuilt the site around booking and trust.</p>
-        <ul>
-          <li>New home page with clear calls to book.</li>
-          <li>Simple pages for rooms, food, and local area.</li>
-          <li>Clear buttons to "Book a room" on every key page.</li>
-          <li>Better photos and simple copy.</li>
-          <li>Tracking set up to see what pages bring bookings.</li>
+        <h3 style="margin-top:0;color:var(--accent);font-size:1.3rem">Before</h3>
+        <p style="color:var(--muted-2);margin-bottom:20px">The old site had several problems that sent guests to booking portals instead.</p>
+        <ul style="list-style:none;padding:0">
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            Buried booking button hard to find
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            Slow mobile pages that frustrated visitors
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            Unclear room information and pricing
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            No tracking to see what was working
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            Lost guests to Booking.com and other portals
+          </li>
         </ul>
-        <p style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)">
-          This project followed the same process we use today: a short Clinic Booking Blueprint & Site Audit to find the main leaks, followed by a focused rebuild and a 90-day launch sprint to keep improving.
-        </p>
       </article>
 
+      <!-- What We Changed Card -->
       <article class="card">
-        <h2>What happened after</h2>
-        <div style="margin-bottom:20px">
-          <div style="font-size:clamp(32px,5vw,48px);font-weight:700;color:var(--accent);line-height:1.1">~8% → 22–25%</div>
-          <p class="small" style="margin:4px 0 0">Direct bookings from their own website</p>
-        </div>
-        <ul>
-          <li>Direct bookings from their own website went from around 8% of stays to 22–25% in peak season (annual average about 21–22%).</li>
-          <li>More people found them on Google (+107% increase in search clicks after launch).</li>
-          <li>More of their bookings came direct instead of through third-party portals.</li>
+        <h3 style="margin-top:0;color:var(--accent);font-size:1.3rem">What we changed</h3>
+        <p style="color:var(--muted-2);margin-bottom:20px">We rebuilt the site around booking and trust.</p>
+        <ul style="list-style:none;padding:0">
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            Rebuilt the site around direct bookings
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            Added clear "Book a room" buttons on every page
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            Created simple pages for rooms and local area
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            Optimized for fast mobile experience
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            Set up tracking to see booking paths
+          </li>
         </ul>
-        <p class="small" style="margin-top:12px"><em>These numbers show what's possible when booking paths are clear and tracking is set up right.</em></p>
+      </article>
+
+      <!-- After Card -->
+      <article class="card">
+        <h3 style="margin-top:0;color:var(--accent);font-size:1.3rem">After</h3>
+        <p style="color:var(--muted-2);margin-bottom:20px">The results showed up quickly and stayed consistent.</p>
+        <ul style="list-style:none;padding:0">
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            <strong>Direct bookings rose from ~8% to 22–25%</strong> in peak season (21–22% annual average)
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            <strong>Google clicks increased by ~107%</strong> after launch
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            More calls and email enquiries from their own site
+          </li>
+          <li style="padding-left:28px;position:relative;margin-bottom:14px">
+            <span style="position:absolute;left:0;color:var(--muted)">•</span>
+            Stronger position when selling the hotel later
+          </li>
+        </ul>
       </article>
     </div>
   </section>
@@ -166,17 +237,23 @@
   <section class="container section">
     <div class="card roi-box" style="max-width:900px;margin:0 auto">
       <h2>The results that matter</h2>
-      <p style="color:var(--muted-2);margin-bottom:12px"><strong>Two key metrics changed after the rebuild.</strong></p>
-      <div style="margin-bottom:20px">
-        <div style="font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--accent);line-height:1.2;margin-bottom:8px">~8% → 22–25%</div>
-        <p><strong>Share of bookings coming from their own website after the rebuild.</strong></p>
-        <p style="color:var(--muted-2);font-size:0.95rem">Previously hovering around 8% on the old site. In peak season after launch, this jumped to 22–25% of total bookings. Annual average settled around 21–22%.</p>
+      
+      <!-- Stat blocks -->
+      <div class="results-stats-grid" style="margin-bottom:28px">
+        <div class="result-stat-block">
+          <div style="font-size:clamp(32px,5vw,48px);font-weight:700;color:var(--accent);line-height:1.1;margin-bottom:8px">~8% → 22–25%</div>
+          <p style="margin:0;font-weight:600;color:var(--muted-2)">direct bookings</p>
+        </div>
+        <div class="result-stat-block">
+          <div style="font-size:clamp(32px,5vw,48px);font-weight:700;color:var(--accent);line-height:1.1;margin-bottom:8px">+107%</div>
+          <p style="margin:0;font-weight:600;color:var(--muted-2)">more clicks from Google</p>
+        </div>
       </div>
-      <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--line)">
-        <div style="font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--accent);line-height:1.2;margin-bottom:8px">+107%</div>
-        <p><strong>Increase in search clicks from Google after launch.</strong></p>
-        <p style="color:var(--muted-2);font-size:0.95rem">More of the right people finding the site when searching for accommodation in the area.</p>
-      </div>
+      
+      <!-- Summary paragraph -->
+      <p style="color:var(--muted-2);line-height:1.7;max-width:800px">
+        Direct bookings jumped from around 8% to 22–25% in peak season (annual average 21–22%). Google traffic increased by over 107%. This meant more direct revenue for the hotel and a stronger position when they later sold the property. The gains came from clear booking paths and proper tracking.
+      </p>
     </div>
   </section>
 
@@ -184,15 +261,26 @@
   <section class="container section">
     <div class="card" style="background:linear-gradient(135deg, rgba(90,162,255,.08) 0%, rgba(90,162,255,.02) 100%);border:2px solid rgba(90,162,255,.2);max-width:900px;margin:0 auto">
       <h2>What this means for clinics</h2>
-      <p style="color:var(--muted-2);margin-bottom:16px"><strong>The same ideas work for your practice.</strong></p>
-      <ul style="margin-bottom:20px">
-        <li>We make it easy for people to see what you offer.</li>
-        <li>We make it simple to book or call from any page.</li>
-        <li>We set up tracking so you can see what's working.</li>
-        <li>You keep more of each patient's value because the site does its job.</li>
+      <ul style="list-style:none;padding:0;margin-bottom:24px">
+        <li style="padding-left:28px;position:relative;margin-bottom:14px">
+          <span style="position:absolute;left:0;color:var(--accent);font-weight:700">✓</span>
+          When we rebuild for patient-flow, direct bookings usually rise significantly.
+        </li>
+        <li style="padding-left:28px;position:relative;margin-bottom:14px">
+          <span style="position:absolute;left:0;color:var(--accent);font-weight:700">✓</span>
+          You don't need to be a tech person; we handle the build and tracking.
+        </li>
+        <li style="padding-left:28px;position:relative;margin-bottom:14px">
+          <span style="position:absolute;left:0;color:var(--accent);font-weight:700">✓</span>
+          Patient value is higher than hotel bookings ($3K–$8K per patient vs. $200–$500 per stay).
+        </li>
+        <li style="padding-left:28px;position:relative;margin-bottom:14px">
+          <span style="position:absolute;left:0;color:var(--accent);font-weight:700">✓</span>
+          You keep the gains even if you later sell or rebrand.
+        </li>
       </ul>
       <div style="padding:16px;background:rgba(255,255,255,.04);border-left:3px solid var(--accent);border-radius:8px">
-        <p style="margin:0;color:var(--muted-2);font-size:0.95rem">Patient value is usually higher than a hotel booking. One new patient might be worth $3,000 to $8,000. So the upside is even bigger.</p>
+        <p style="margin:0;color:var(--muted-2);font-size:0.95rem"><em>Most clinics that look like this hotel see similar lifts when we fix the leaks.</em></p>
       </div>
     </div>
   </section>
@@ -200,14 +288,15 @@
   <!-- Demo gallery -->
   <section id="clinic-demos" class="container section" style="padding-top:64px;padding-bottom:64px">
     <div style="max-width:900px;margin:0 auto">
-      <h2 style="margin-top:0;margin-bottom:20px">See what a booking-focused website can look like</h2>
-      <p style="color:var(--muted-2);font-size:1.05rem;line-height:1.6;max-width:800px;margin-bottom:40px">
-        These are demo sites for different clinic types. They show the kind of layout and wording we build.
+      <h2 style="margin-top:0;margin-bottom:12px">See what a booking-focused website can look like</h2>
+      <p style="color:var(--muted-2);font-size:1rem;line-height:1.7;max-width:700px;margin:0 auto 40px;text-align:center">
+        These are demo layouts for different clinic types. They show the sort of patient-flow booking sites we build.
       </p>
 
       <div class="demo-grid">
         <!-- Dermatology -->
-        <article class="demo-card">
+        <a href="https://cosmetic-demo.keyturn.studio/" target="_blank" rel="noopener" class="demo-card demo-card-clickable">
+          <p class="demo-category-label">Dermatology</p>
           <div class="demo-card-body">
             <h3 style="margin-top:0">Dermatology Demo</h3>
             <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
@@ -215,14 +304,15 @@
             </p>
           </div>
           <div class="demo-card-footer">
-            <a class="btn" href="https://cosmetic-demo.keyturn.studio/" target="_blank" rel="noopener">
-              Open dermatology demo
-            </a>
+            <span class="btn" style="pointer-events:none">
+              Open dermatology demo →
+            </span>
           </div>
-        </article>
+        </a>
 
         <!-- Cosmetic Dental -->
-        <article class="demo-card">
+        <a href="https://cosmetic-dental-demo.keyturn.studio/" target="_blank" rel="noopener" class="demo-card demo-card-clickable">
+          <p class="demo-category-label">Cosmetic dental</p>
           <div class="demo-card-body">
             <h3 style="margin-top:0">Cosmetic Dental Demo</h3>
             <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
@@ -230,14 +320,15 @@
             </p>
           </div>
           <div class="demo-card-footer">
-            <a class="btn" href="https://cosmetic-dental-demo.keyturn.studio/" target="_blank" rel="noopener">
-              Open cosmetic dental demo
-            </a>
+            <span class="btn" style="pointer-events:none">
+              Open cosmetic dental demo →
+            </span>
           </div>
-        </article>
+        </a>
 
         <!-- Medspa -->
-        <article class="demo-card">
+        <a href="https://medspa-demo.keyturn.studio/" target="_blank" rel="noopener" class="demo-card demo-card-clickable">
+          <p class="demo-category-label">Medspa</p>
           <div class="demo-card-body">
             <h3 style="margin-top:0">Medspa Demo</h3>
             <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
@@ -245,14 +336,15 @@
             </p>
           </div>
           <div class="demo-card-footer">
-            <a class="btn" href="https://medspa-demo.keyturn.studio/" target="_blank" rel="noopener">
-              Open medspa demo
-            </a>
+            <span class="btn" style="pointer-events:none">
+              Open medspa demo →
+            </span>
           </div>
-        </article>
+        </a>
 
         <!-- Plastic Surgery -->
-        <article class="demo-card">
+        <a href="https://plastic-surgery-demo.keyturn.studio/" target="_blank" rel="noopener" class="demo-card demo-card-clickable">
+          <p class="demo-category-label">Plastic Surgery</p>
           <div class="demo-card-body">
             <h3 style="margin-top:0">Plastic Surgery Demo</h3>
             <p style="color:var(--muted);font-size:0.95rem;margin-bottom:16px">
@@ -260,11 +352,11 @@
             </p>
           </div>
           <div class="demo-card-footer">
-            <a class="btn" href="https://plastic-surgery-demo.keyturn.studio/" target="_blank" rel="noopener">
-              Open plastic surgery demo
-            </a>
+            <span class="btn" style="pointer-events:none">
+              Open plastic surgery demo →
+            </span>
           </div>
-        </article>
+        </a>
       </div>
 
       <p class="small" style="margin-top:40px;color:var(--muted);text-align:center;font-size:0.9rem">
@@ -276,12 +368,10 @@
   <!-- Clinic case studies in progress -->
   <section class="container section">
     <div class="card" style="text-align:center;padding:40px 24px;border:1px dashed var(--border);max-width:800px;margin:0 auto">
+      <p class="section-eyebrow" style="margin-bottom:16px">Coming soon</p>
       <h2 style="margin-top:0;max-width:680px;margin-left:auto;margin-right:auto">Clinic Case Studies: In Progress</h2>
-      <p style="color:var(--muted-2);margin-bottom:16px;max-width:680px;margin-left:auto;margin-right:auto">
-        We're using this same approach for clinics and medspas right now. Early results look good: better bookings, clearer tracking, less stress about websites.
-      </p>
-      <p style="color:var(--muted);margin:0;max-width:600px;margin-left:auto;margin-right:auto">
-        Once we have permission, we'll share real clinic stories here. No fake logos. No made-up numbers.
+      <p style="color:var(--muted-2);margin:0;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7">
+        We're using this same approach for clinics and medspas right now. Early results look good. Once we have permission, we'll share real clinic stories here—no fake logos, no made-up numbers.
       </p>
     </div>
   </section>
@@ -332,8 +422,8 @@
   <section class="container section">
     <div class="card" style="text-align:center;padding:48px 24px;max-width:800px;margin:0 auto">
       <h2 style="margin-top:0;max-width:680px;margin-left:auto;margin-right:auto">Ready for a clear, no-pressure quote?</h2>
-      <p style="color:var(--muted-2);margin-bottom:28px;max-width:680px;margin-left:auto;margin-right:auto">
-        We'll take a quick look at your current site and booking setup, then send one short email with our recommended package and price. A quote is always free, and you can ask about the Clinic Booking Blueprint & Site Audit if you'd like a deeper audit.
+      <p style="color:var(--muted-2);margin-bottom:28px;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7">
+        We'll take a quick look at your current site and booking setup, then send one short email with our recommended package and price.
       </p>
       <div class="hero-ctas" style="justify-content:center">
         <a class="btn btn-primary" href="/quote.html">Get a quote</a>

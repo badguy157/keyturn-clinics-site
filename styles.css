@@ -427,6 +427,11 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 @media (min-width:768px){.problems-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .pricing-grid{display:grid;gap:20px}
 @media (min-width:900px){.pricing-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.before-after-grid{display:grid;gap:24px;grid-template-columns:1fr}
+@media (min-width:900px){.before-after-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.results-stats-grid{display:grid;gap:28px;grid-template-columns:1fr}
+@media (min-width:640px){.results-stats-grid{grid-template-columns:repeat(2,1fr)}}
+.result-stat-block{text-align:center;padding:24px;background:rgba(255,255,255,.04);border-radius:var(--r-sm);border:1px solid rgba(255,255,255,.06)}
 
 /* Clinic types and services grids - 2-column layout on desktop */
 .clinic-types-grid,
