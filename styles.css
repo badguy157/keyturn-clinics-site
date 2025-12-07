@@ -496,7 +496,7 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 .result-visual img{border-radius:var(--r-sm);border:1px solid var(--line);box-shadow:var(--shadow)}
 .result-visual figcaption{text-align:center;margin-top:8px;font-size:14px;color:var(--muted)}
 @media (max-width:900px){ .result{grid-template-columns:1fr} }
-.disclaimer{color:var(--muted)}
+.disclaimer{color:var(--muted);line-height:1.7}
 
 /* ---- Results/Stats Section ---- */
 .results-section{
@@ -1400,7 +1400,13 @@ img {
   border-top: 1px solid var(--line);
   font-size: 0.95rem;
   color: var(--muted-2);
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .faq-accordion .faq-answer {
+    font-size: 1rem;
+  }
 }
 
 .faq-accordion .faq-answer a {
@@ -1936,9 +1942,15 @@ img {
 }
 
 .clinic-type-card span {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--muted-2);
-  line-height: 1.5;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .clinic-type-card span {
+    font-size: 1rem;
+  }
 }
 
 /* ===== What We Do Section - 2-column layout ===== */
@@ -2119,6 +2131,13 @@ img {
   font-size: 0.95rem;
   color: var(--muted);
   font-style: italic;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .work-with-text .reassurance {
+    font-size: 1rem;
+  }
 }
 
 /* Maintain backward compatibility with old class name */
@@ -2257,7 +2276,7 @@ img {
 .step p {
   color: var(--muted-2);
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.7;
   margin: 0;
   max-width: 280px;
   margin: 0 auto;
@@ -2330,6 +2349,7 @@ img {
   
   .step p {
     max-width: none;
+    font-size: 1rem;
   }
 }
 
@@ -4383,13 +4403,14 @@ img {
   padding-top: 16px;
   font-size: 0.95rem;
   color: var(--muted-2);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 @media (min-width: 768px) {
   .faq-answer-inner {
     padding: 0 24px 20px;
     padding-top: 16px;
+    font-size: 1rem;
   }
 }
 
@@ -4609,11 +4630,17 @@ img {
 }
 
 .case-study-subtitle {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--muted-2);
-  line-height: 1.6;
+  line-height: 1.7;
   max-width: 700px;
   margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .case-study-subtitle {
+    font-size: 1rem;
+  }
 }
 
 .case-study-card {
@@ -4662,7 +4689,7 @@ img {
 .case-study-bullets li {
   position: relative;
   padding-left: 28px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.7;
   color: var(--muted-2);
   margin-bottom: 14px;
@@ -4683,7 +4710,7 @@ img {
 
 @media (min-width: 768px) {
   .case-study-bullets li {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 }
 
