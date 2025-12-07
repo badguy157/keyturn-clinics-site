@@ -1596,6 +1596,13 @@ img {
   text-decoration: none;
   color: inherit;
   transition: none;
+  transform: none;
+}
+
+.blog-post-card-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: var(--radius);
 }
 
 /* Blog Post Card */
