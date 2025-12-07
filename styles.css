@@ -4491,3 +4491,250 @@ img {
     font-size: 1.05rem;
   }
 }
+
+/* ===== Is This You? Card ===== */
+.is-this-you-card {
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  text-align: left;
+}
+
+.is-this-you-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.is-this-you-bullets li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted-2);
+  margin-bottom: 16px;
+}
+
+.is-this-you-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.is-this-you-bullets li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 768px) {
+  .is-this-you-bullets li {
+    font-size: 1.05rem;
+  }
+}
+
+/* ===== Case Study Section ===== */
+.case-study-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.case-study-header h2 {
+  margin-bottom: 12px;
+}
+
+.case-study-subtitle {
+  font-size: 1.05rem;
+  color: var(--muted-2);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.case-study-card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.15);
+}
+
+.case-study-content {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .case-study-content {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+  }
+
+  .case-study-card {
+    padding: 40px;
+  }
+}
+
+.case-study-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.case-study-bullets li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted-2);
+  margin-bottom: 14px;
+}
+
+.case-study-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-bullets li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent-clinic);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 768px) {
+  .case-study-bullets li {
+    font-size: 1.05rem;
+  }
+}
+
+/* Case Study Stats Strip */
+.case-study-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-sm);
+  margin-bottom: 24px;
+}
+
+.case-study-stat {
+  text-align: center;
+}
+
+.case-study-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.case-study-stat-label {
+  font-size: 0.85rem;
+  color: var(--muted-2);
+  line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+  .case-study-stat-value {
+    font-size: 1.75rem;
+  }
+  
+  .case-study-stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Case Study Buttons */
+.case-study-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+@media (min-width: 640px) {
+  .case-study-buttons {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.case-study-link {
+  color: var(--accent-clinic);
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-bottom-color 0.15s ease;
+}
+
+.case-study-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Case Study Browser Frame */
+.case-study-right {
+  display: flex;
+  align-items: flex-start;
+}
+
+.case-study-browser-frame {
+  width: 100%;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+}
+
+.browser-chrome {
+  background: rgba(255,255,255,.06);
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.browser-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+}
+
+.browser-dots span:nth-child(1) {
+  background: rgba(255,95,87,.8);
+}
+
+.browser-dots span:nth-child(2) {
+  background: rgba(255,189,46,.8);
+}
+
+.browser-dots span:nth-child(3) {
+  background: rgba(40,201,64,.8);
+}
+
+.case-study-browser-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 0;
+}
