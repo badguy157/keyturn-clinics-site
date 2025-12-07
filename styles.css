@@ -4012,6 +4012,66 @@ img {
   margin-bottom: 0;
 }
 
+.hiw-hero-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+
+.hiw-hero-bullets li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--muted-2);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.hiw-hero-bullets li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hiw-hero-bullets li strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.hiw-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.hiw-hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.hiw-hero-stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+
+.hiw-hero-stat-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  display: block;
+}
+
 @media (min-width: 768px) {
   .hiw-hero-card {
     padding: 48px 40px;
@@ -4019,6 +4079,14 @@ img {
   
   .hiw-hero-title {
     font-size: clamp(1.75rem, 4vw, 2.25rem);
+  }
+  
+  .hiw-hero-bullets li {
+    font-size: 1.05rem;
+  }
+  
+  .hiw-hero-stat-value {
+    font-size: 1.2rem;
   }
 }
 
@@ -4101,6 +4169,74 @@ img {
 @media (min-width: 768px) {
   .hiw-step-card {
     padding: 32px 28px;
+  }
+}
+
+/* How We Work Together Grid */
+.hiw-work-together-grid {
+  display: grid;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .hiw-work-together-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+/* Work Together Card */
+.hiw-work-card {
+  background: linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.04) 100%);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.hiw-work-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+  border-color: rgba(255,255,255,.12);
+}
+
+.hiw-work-card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 0 0 20px;
+}
+
+.hiw-work-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.hiw-work-bullets li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--muted-2);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hiw-work-bullets li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .hiw-work-card {
+    padding: 36px 28px;
   }
 }
 
@@ -4214,7 +4350,14 @@ img {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--fg);
-  margin: 0 0 10px;
+  margin: 0 0 8px;
+}
+
+.hiw-plan-price {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 16px;
 }
 
 .hiw-plan-summary {
