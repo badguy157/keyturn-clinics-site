@@ -2019,6 +2019,13 @@ img {
 .fix-leaks-card {
   height: 100%;
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.fix-leaks-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  border-color: rgba(90,162,255,.2);
 }
 
 /* ===== Who you'll work with section ===== */
@@ -2026,26 +2033,55 @@ img {
   background: rgba(255,255,255,.02);
 }
 
-.work-with-content {
+.work-with-card {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  max-width: 700px;
+  gap: 28px;
+  max-width: 800px;
   margin: 0 auto;
   align-items: center;
   text-align: center;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.04);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.work-with-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  border-color: rgba(90,162,255,.2);
 }
 
 @media (min-width: 640px) {
-  .work-with-content {
+  .work-with-card {
     flex-direction: row;
     text-align: left;
-    gap: 32px;
+    gap: 40px;
+    padding: 48px 40px;
   }
 }
 
 .work-with-image {
   flex-shrink: 0;
+}
+
+.avatar-enhanced {
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(90,162,255,.3);
+  border-radius: 9999px;
+  object-fit: cover;
+  box-shadow: 0 0 16px rgba(90,162,255,.25);
+}
+
+@media (min-width: 640px) {
+  .avatar-enhanced {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 .work-with-text h2 {
@@ -2083,6 +2119,25 @@ img {
   font-size: 0.95rem;
   color: var(--muted);
   font-style: italic;
+}
+
+/* Maintain backward compatibility with old class name */
+.work-with-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 700px;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .work-with-content {
+    flex-direction: row;
+    text-align: left;
+    gap: 32px;
+  }
 }
 
 /* ===== About / Founder Strip ===== */
