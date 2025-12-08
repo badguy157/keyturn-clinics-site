@@ -3048,6 +3048,21 @@ img {
   text-align: center;
 }
 
+.pricing-retainers-intro {
+  color: var(--brand-text);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 16px auto 0;
+  max-width: 650px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .pricing-retainers-intro {
+    font-size: 1.05rem;
+  }
+}
+
 .pricing-retainers-cards {
   display: flex;
   flex-direction: column;
