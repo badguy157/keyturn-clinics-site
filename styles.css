@@ -9,7 +9,7 @@
   --fg:#e6ebf5;        /* primary text */
   --muted:#a6b3cf;     /* secondary text */
   --muted-2:#cdd6ea;   /* lighter text */
-  --accent:#5aa2ff;    /* accent text */
+  --accent:#5aa2ff;    /* legacy accent - use --brand-primary or --brand-accent instead; kept for focus states and backward compatibility */
   --accent-clinic:#4fd1c5; /* secondary clinic accent (soft teal) */
   --brand:#1d4ed8;     /* brand fill */
   --card:rgba(255,255,255,.08);
@@ -741,7 +741,7 @@ form.show-errors :where(input,select,textarea):invalid{
 }
 
 .footer-column a:hover {
-  color: var(--accent);
+  color: var(--brand-primary);
 }
 
 .footer-bottom {
@@ -2296,7 +2296,7 @@ img {
     left: calc(16.67% + 20px);
     right: calc(16.67% + 20px);
     height: 2px;
-    background: linear-gradient(90deg, var(--brand-accent) 0%, rgba(125,184,255,.3) 50%, var(--brand-accent) 100%);
+    background: linear-gradient(90deg, var(--brand-accent) 0%, rgba(125,184,255,.3) 50%, var(--brand-accent) 100%); /* rgba matches brand-accent with opacity */
     z-index: 0;
   }
 }
