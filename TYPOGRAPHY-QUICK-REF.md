@@ -8,10 +8,10 @@
 
 | File | Purpose | Use When... |
 |------|---------|-------------|
-| **PREMIUM-TYPOGRAPHY-CSS.md** | Ready-to-use CSS code snippets | You need copy-paste CSS code organized by section |
-| **TYPOGRAPHY-UPGRADE.md** | Comprehensive tutorial | You want detailed explanations and Webflow instructions |
-| **TYPOGRAPHY-IMPLEMENTATION-SUMMARY.md** | Status report | You want to verify what's implemented |
-| **TYPOGRAPHY-QUICK-REF.md** (this file) | Quick lookup | You need a fast reference |
+| **PREMIUM-TYPOGRAPHY-CSS.md** (NEW) | Ready-to-use CSS code snippets | You need copy-paste CSS code organized by section |
+| **TYPOGRAPHY-UPGRADE.md** (PRE-EXISTING) | Comprehensive tutorial | You want detailed explanations and Webflow instructions |
+| **TYPOGRAPHY-IMPLEMENTATION-SUMMARY.md** (NEW) | Status report | You want to verify what's implemented |
+| **TYPOGRAPHY-QUICK-REF.md** (NEW - this file) | Quick lookup | You need a fast reference |
 
 ---
 
