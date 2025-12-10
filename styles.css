@@ -83,7 +83,7 @@ html{scroll-behavior:smooth}
 body{background:var(--brand-bg);color:var(--brand-text);font-family:var(--font);font-size:17px;line-height:1.6}
 /* Add bottom padding on mobile when sticky CTA is present */
 @media (max-width: 767px) {
-  body {
+  body.has-sticky-cta {
     padding-bottom: 80px;
   }
 }
