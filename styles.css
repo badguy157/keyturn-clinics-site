@@ -3087,6 +3087,24 @@ img {
   line-height: 1.6;
 }
 
+.pricing-retainer-card-subtitle {
+  font-size: 0.95rem;
+  color: var(--brand-muted);
+  margin: 0 0 16px;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.pricing-retainer-card-value {
+  font-size: 0.95rem;
+  color: var(--brand-text);
+  margin: 0 0 16px;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.6;
+}
+
 .pricing-retainer-card-features {
   list-style: none;
   margin: 0;
@@ -3154,6 +3172,14 @@ img {
   .pricing-retainer-card-price {
     text-align: left;
     font-size: 1.15rem;
+  }
+  
+  .pricing-retainer-card-subtitle {
+    text-align: left;
+  }
+  
+  .pricing-retainer-card-value {
+    text-align: left;
   }
 }
 
