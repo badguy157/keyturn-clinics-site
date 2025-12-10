@@ -573,9 +573,11 @@
   </div>
 </footer>
 
-<!-- Sticky mobile CTA (homepage only, dark bar at bottom on mobile) -->
+<!-- Sticky mobile CTA (homepage only, floating card at bottom on mobile) -->
 <div id="sticky-cta-wrapper" class="md:hidden" style="display:none;">
-  <a href="/quote.html" class="sticky-cta" aria-label="Get a Quote" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'sticky'})">Get a Quote</a>
+  <div class="sticky-cta-card">
+    <a href="/quote.html" class="sticky-cta" aria-label="Get a Quote" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'sticky'})">Get a Quote</a>
+  </div>
 </div>
 
 <script>
