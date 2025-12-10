@@ -1,0 +1,537 @@
+<style>
+/* ===============================================
+   Premium Metallic Gold & Silver Accents
+   Dark Navy Theme with Responsive Design
+   =============================================== */
+
+/* CSS Variables for Easy Customization */
+:root {
+  /* Premium Metallic Colors */
+  --premium-gold: #D4AF37;
+  --premium-gold-dark: #B8941F;
+  --premium-gold-light: #E8C968;
+  --premium-silver: #E0E0E0;
+  --premium-silver-dark: #C0C0C0;
+  --premium-silver-light: #F5F5F5;
+  
+  /* Dark Navy Base Colors */
+  --navy-base: #0A0F1E;
+  --navy-dark: #050A14;
+  --navy-medium: #1A2332;
+  
+  /* Blue Theme Fallback */
+  --blue-primary: #5AA2FF;
+  --blue-accent: #7DB8FF;
+  
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #E8C968 50%, #D4AF37 100%);
+  --gradient-silver: linear-gradient(135deg, #E0E0E0 0%, #F5F5F5 50%, #E0E0E0 100%);
+  --gradient-hero-navy: linear-gradient(180deg, #0A0F1E 0%, #050A14 100%);
+  --gradient-hero-gold-overlay: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.15) 50%, rgba(212, 175, 55, 0.08) 100%);
+}
+
+/* ===============================================
+   Button Styles with Gold Accents
+   =============================================== */
+
+/* Primary Gold Buttons */
+.button,
+.w-button,
+button.premium-gold,
+a.button-gold {
+  background: var(--gradient-gold) !important;
+  color: #0A0F1E !important;
+  border: 2px solid var(--premium-gold) !important;
+  font-weight: 700 !important;
+  padding: 14px 32px !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  cursor: pointer !important;
+}
+
+.button:hover,
+.w-button:hover,
+button.premium-gold:hover,
+a.button-gold:hover {
+  background: var(--premium-gold-light) !important;
+  border-color: var(--premium-gold-light) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.button:active,
+.w-button:active,
+button.premium-gold:active,
+a.button-gold:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Gold Outline Buttons */
+.button-outline,
+.w-button-outline,
+button.premium-gold-outline,
+a.button-gold-outline {
+  background: transparent !important;
+  color: var(--premium-gold) !important;
+  border: 2px solid var(--premium-gold) !important;
+  font-weight: 600 !important;
+  padding: 14px 32px !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+}
+
+.button-outline::before,
+.w-button-outline::before,
+button.premium-gold-outline::before,
+a.button-gold-outline::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(232, 201, 104, 0.25) 50%, rgba(212, 175, 55, 0.15) 100%) !important;
+  transition: left 0.4s ease !important;
+  z-index: -1 !important;
+}
+
+.button-outline:hover,
+.w-button-outline:hover,
+button.premium-gold-outline:hover,
+a.button-gold-outline:hover {
+  color: var(--premium-gold-light) !important;
+  border-color: var(--premium-gold-light) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3) !important;
+}
+
+.button-outline:hover::before,
+.w-button-outline:hover::before,
+button.premium-gold-outline:hover::before,
+a.button-gold-outline:hover::before {
+  left: 0 !important;
+}
+
+/* Silver Accent Buttons (Secondary) */
+.button-silver,
+.w-button-silver,
+button.premium-silver {
+  background: var(--gradient-silver) !important;
+  color: #0A0F1E !important;
+  border: 2px solid var(--premium-silver) !important;
+  font-weight: 700 !important;
+  padding: 14px 32px !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 12px rgba(224, 224, 224, 0.3), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  cursor: pointer !important;
+}
+
+.button-silver:hover,
+.w-button-silver:hover,
+button.premium-silver:hover {
+  background: var(--premium-silver-light) !important;
+  border-color: var(--premium-silver-light) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(224, 224, 224, 0.5), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ===============================================
+   Link Styles with Silver Hover
+   =============================================== */
+
+/* All links get silver hover effect */
+a {
+  color: var(--blue-accent) !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease, text-shadow 0.3s ease !important;
+  position: relative !important;
+}
+
+a:hover {
+  color: var(--premium-silver) !important;
+  text-shadow: 0 0 8px rgba(224, 224, 224, 0.4) !important;
+}
+
+/* Premium link styles with underline animation */
+a.link-premium,
+a.link-hover-silver {
+  color: var(--blue-accent) !important;
+  text-decoration: none !important;
+  position: relative !important;
+  transition: color 0.3s ease !important;
+}
+
+a.link-premium::after,
+a.link-hover-silver::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 2px !important;
+  background: var(--gradient-silver) !important;
+  transform: scaleX(0) !important;
+  transform-origin: right !important;
+  transition: transform 0.3s ease !important;
+}
+
+a.link-premium:hover,
+a.link-hover-silver:hover {
+  color: var(--premium-silver) !important;
+}
+
+a.link-premium:hover::after,
+a.link-hover-silver:hover::after {
+  transform: scaleX(1) !important;
+  transform-origin: left !important;
+}
+
+/* Gold accent links */
+a.link-gold {
+  color: var(--premium-gold) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+}
+
+a.link-gold::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 2px !important;
+  background: var(--gradient-gold) !important;
+  transform: scaleX(0) !important;
+  transform-origin: right !important;
+  transition: transform 0.3s ease !important;
+}
+
+a.link-gold:hover {
+  color: var(--premium-gold-light) !important;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.4) !important;
+}
+
+a.link-gold:hover::after {
+  transform: scaleX(1) !important;
+  transform-origin: left !important;
+}
+
+/* ===============================================
+   Hero Section Gradients
+   =============================================== */
+
+/* Navy-to-Dark Background with Gold Overlay */
+.hero-section,
+.hero,
+section.hero-premium {
+  position: relative !important;
+  background: var(--gradient-hero-navy) !important;
+  overflow: hidden !important;
+  min-height: 80vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 60px 20px !important;
+}
+
+.hero-section::before,
+.hero::before,
+section.hero-premium::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: var(--gradient-hero-gold-overlay) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.hero-section > *,
+.hero > *,
+section.hero-premium > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Hero with Radial Gold Spotlight */
+.hero-gold-radial {
+  position: relative !important;
+  background: var(--gradient-hero-navy) !important;
+  overflow: hidden !important;
+  min-height: 80vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 60px 20px !important;
+}
+
+.hero-gold-radial::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 150% !important;
+  height: 200% !important;
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.18) 0%, transparent 60%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.hero-gold-radial > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Hero with Dual-Tone Gradient (Gold + Blue) */
+.hero-dual-tone {
+  position: relative !important;
+  background: var(--gradient-hero-navy) !important;
+  overflow: hidden !important;
+  min-height: 80vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 60px 20px !important;
+}
+
+.hero-dual-tone::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, 
+    rgba(212, 175, 55, 0.12) 0%, 
+    rgba(90, 162, 255, 0.10) 30%,
+    rgba(212, 175, 55, 0.08) 60%,
+    rgba(90, 162, 255, 0.12) 100%
+  ) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.hero-dual-tone > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Animated Shimmer Hero Effect */
+.hero-shimmer {
+  position: relative !important;
+  background: var(--gradient-hero-navy) !important;
+  overflow: hidden !important;
+  min-height: 80vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 60px 20px !important;
+}
+
+.hero-shimmer::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.12) 45%,
+    rgba(232, 201, 104, 0.25) 50%,
+    rgba(212, 175, 55, 0.12) 55%,
+    transparent 100%
+  ) !important;
+  animation: shimmerEffect 8s linear infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.hero-shimmer > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+@keyframes shimmerEffect {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* ===============================================
+   Blue Theme Fallback
+   =============================================== */
+
+/* Apply blue theme when gold is not desired */
+.theme-blue .button,
+.theme-blue .w-button,
+.theme-blue button.premium-gold,
+.theme-blue a.button-gold {
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-accent) 100%) !important;
+  border-color: var(--blue-primary) !important;
+  box-shadow: 0 4px 12px rgba(90, 162, 255, 0.3), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.theme-blue .button:hover,
+.theme-blue .w-button:hover,
+.theme-blue button.premium-gold:hover,
+.theme-blue a.button-gold:hover {
+  background: var(--blue-accent) !important;
+  border-color: var(--blue-accent) !important;
+  box-shadow: 0 8px 20px rgba(90, 162, 255, 0.5), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.theme-blue .hero-section::before,
+.theme-blue .hero::before,
+.theme-blue section.hero-premium::before {
+  background: linear-gradient(135deg, rgba(90, 162, 255, 0.08) 0%, rgba(125, 184, 255, 0.15) 50%, rgba(90, 162, 255, 0.08) 100%) !important;
+}
+
+/* ===============================================
+   Responsive Media Queries
+   =============================================== */
+
+/* Tablets and up (768px+) */
+@media (min-width: 768px) {
+  .hero-section,
+  .hero,
+  section.hero-premium,
+  .hero-gold-radial,
+  .hero-dual-tone,
+  .hero-shimmer {
+    min-height: 90vh !important;
+    padding: 80px 28px !important;
+  }
+  
+  .button,
+  .w-button,
+  button.premium-gold,
+  a.button-gold,
+  .button-outline,
+  .w-button-outline,
+  button.premium-gold-outline,
+  a.button-gold-outline,
+  .button-silver,
+  .w-button-silver,
+  button.premium-silver {
+    padding: 16px 40px !important;
+    font-size: 1.05rem !important;
+  }
+}
+
+/* Desktop and up (1100px+) */
+@media (min-width: 1100px) {
+  .hero-section,
+  .hero,
+  section.hero-premium,
+  .hero-gold-radial,
+  .hero-dual-tone,
+  .hero-shimmer {
+    min-height: 100vh !important;
+    padding: 100px 32px !important;
+  }
+  
+  .button,
+  .w-button,
+  button.premium-gold,
+  a.button-gold,
+  .button-outline,
+  .w-button-outline,
+  button.premium-gold-outline,
+  a.button-gold-outline,
+  .button-silver,
+  .w-button-silver,
+  button.premium-silver {
+    padding: 18px 48px !important;
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .hero-shimmer::before {
+    animation: none !important;
+  }
+}
+
+/* ===============================================
+   Utility Classes
+   =============================================== */
+
+/* Text with gold accent */
+.text-gold {
+  color: var(--premium-gold) !important;
+}
+
+.text-silver {
+  color: var(--premium-silver) !important;
+}
+
+/* Background accents */
+.bg-gold {
+  background: var(--gradient-gold) !important;
+}
+
+.bg-silver {
+  background: var(--gradient-silver) !important;
+}
+
+/* Border accents */
+.border-gold {
+  border-color: var(--premium-gold) !important;
+}
+
+.border-silver {
+  border-color: var(--premium-silver) !important;
+}
+
+/* Gold accent bar for hero content */
+.accent-bar-gold {
+  border-left: 4px solid var(--premium-gold) !important;
+  padding-left: 20px !important;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(232, 201, 104, 0.25) 50%, rgba(212, 175, 55, 0.15) 100%) !important;
+  border-radius: 0 12px 12px 0 !important;
+}
+
+/* ===============================================
+   End Premium Metallic Accents
+   =============================================== */
+</style>
