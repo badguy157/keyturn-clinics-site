@@ -1136,22 +1136,22 @@ a:not(.btn):hover {
 
 /* Card hover effects */
 .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(90, 162, 255, 0.15);
   border-color: rgba(90, 162, 255, 0.3);
 }
 
 /* Blue glow halo effect for makeover cards in pricing grid */
 .pricing-grid .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, filter 0.3s ease;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .pricing-grid .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: 0 0 30px rgba(90, 162, 255, 0.6), 0 0 60px rgba(90, 162, 255, 0.3), 0 12px 40px rgba(0, 0, 0, 0.25);
   border-color: rgba(90, 162, 255, 0.8);
 }
@@ -1211,6 +1211,41 @@ a:not(.btn):hover {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* ===== Premium Scroll Reveal Animations ===== */
+/* Subtle fade-in for sections on scroll */
+@keyframes subtleFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Checklist item reveal animation */
+@keyframes checklistReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Parallax-ready transform for hero mockups */
+@keyframes heroMockFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
   }
 }
 
@@ -1350,6 +1385,109 @@ img {
     transform: translateY(0);
   }
 }
+
+/* ===== Premium Scroll-Based Reveal Animations ===== */
+/* Base state for elements that will animate on scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Checklist items scroll reveal */
+.checklist-item {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.checklist-item.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delays for checklist items */
+.checklist-item:nth-child(1).is-visible { transition-delay: 0.05s; }
+.checklist-item:nth-child(2).is-visible { transition-delay: 0.1s; }
+.checklist-item:nth-child(3).is-visible { transition-delay: 0.15s; }
+.checklist-item:nth-child(4).is-visible { transition-delay: 0.2s; }
+.checklist-item:nth-child(5).is-visible { transition-delay: 0.25s; }
+.checklist-item:nth-child(6).is-visible { transition-delay: 0.3s; }
+.checklist-item:nth-child(7).is-visible { transition-delay: 0.35s; }
+.checklist-item:nth-child(8).is-visible { transition-delay: 0.4s; }
+.checklist-item:nth-child(9).is-visible { transition-delay: 0.45s; }
+.checklist-item:nth-child(10).is-visible { transition-delay: 0.5s; }
+
+/* Subtle parallax effect for hero mockups */
+.hero-mock-parallax {
+  will-change: transform;
+  transition: transform 0.3s ease-out;
+}
+
+/* Hero mock subtle float animation */
+.hero-mock-float {
+  animation: heroMockFloat 6s ease-in-out infinite;
+}
+
+/* Section fade-in on scroll - more subtle */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.section-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card grid stagger animation on scroll */
+.card-grid-item {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.card-grid-item.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delays for card grids */
+.card-grid-item:nth-child(1).is-visible { transition-delay: 0.05s; }
+.card-grid-item:nth-child(2).is-visible { transition-delay: 0.1s; }
+.card-grid-item:nth-child(3).is-visible { transition-delay: 0.15s; }
+.card-grid-item:nth-child(4).is-visible { transition-delay: 0.2s; }
+.card-grid-item:nth-child(5).is-visible { transition-delay: 0.25s; }
+.card-grid-item:nth-child(6).is-visible { transition-delay: 0.3s; }
+
+/* List item reveal (for bullet lists) */
+.list-reveal li {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.list-reveal.is-visible li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.list-reveal.is-visible li:nth-child(1) { transition-delay: 0.05s; }
+.list-reveal.is-visible li:nth-child(2) { transition-delay: 0.1s; }
+.list-reveal.is-visible li:nth-child(3) { transition-delay: 0.15s; }
+.list-reveal.is-visible li:nth-child(4) { transition-delay: 0.2s; }
+.list-reveal.is-visible li:nth-child(5) { transition-delay: 0.25s; }
+.list-reveal.is-visible li:nth-child(6) { transition-delay: 0.3s; }
+.list-reveal.is-visible li:nth-child(7) { transition-delay: 0.35s; }
+.list-reveal.is-visible li:nth-child(8) { transition-delay: 0.4s; }
+.list-reveal.is-visible li:nth-child(9) { transition-delay: 0.45s; }
+.list-reveal.is-visible li:nth-child(10) { transition-delay: 0.5s; }
 
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {

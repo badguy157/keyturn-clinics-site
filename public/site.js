@@ -178,6 +178,72 @@
     }
   }
 
+  // ===== Scroll Reveal Animation with Intersection Observer =====
+  function initScrollReveal() {
+    // Check if browser supports Intersection Observer
+    if (!('IntersectionObserver' in window)) {
+      // Fallback: make all elements visible immediately
+      document.querySelectorAll('.animate-on-scroll, .section-reveal, .card-grid-item, .checklist-item, .list-reveal').forEach(el => {
+        el.classList.add('is-visible');
+      });
+      return;
+    }
+
+    // Create observer with subtle threshold
+    const observerOptions = {
+      threshold: 0.1, // Trigger when 10% of element is visible
+      rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters viewport
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // Optional: unobserve after animation to improve performance
+          // observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with scroll-reveal classes
+    const elementsToAnimate = document.querySelectorAll(
+      '.animate-on-scroll, .section-reveal, .card-grid-item, .checklist-item, .list-reveal'
+    );
+    
+    elementsToAnimate.forEach(el => observer.observe(el));
+  }
+
+  // ===== Subtle Parallax Effect for Hero Mockups =====
+  function initParallax() {
+    const parallaxElements = document.querySelectorAll('.hero-mock-parallax');
+    
+    if (parallaxElements.length === 0) return;
+
+    let ticking = false;
+
+    function updateParallax() {
+      const scrolled = window.pageYOffset;
+      
+      parallaxElements.forEach(el => {
+        // Subtle parallax - move at 30% of scroll speed
+        const yPos = -(scrolled * 0.3);
+        // Limit parallax to first 800px of scroll to avoid excessive movement
+        if (scrolled < 800) {
+          el.style.transform = `translateY(${yPos}px)`;
+        }
+      });
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    });
+  }
+
   // ===== Calendly Link Normalization =====
   function normalizeCalendlyLinks() {
     document.querySelectorAll('a.book-intro').forEach(a => {
@@ -195,6 +261,8 @@
       initServicesDropdown();
       updateYear();
       normalizeCalendlyLinks();
+      initScrollReveal();
+      initParallax();
     });
   } else {
     injectHeader();
@@ -202,5 +270,7 @@
     initServicesDropdown();
     updateYear();
     normalizeCalendlyLinks();
+    initScrollReveal();
+    initParallax();
   }
 })();
