@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Animation Demo | Keyturn Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/public/site.js" defer></script>
+</head>
+<body>
+
+<main id="main" style="padding-top: 100px;">
+  
+  <!-- Hero Section with Parallax -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-left">
+          <h1 class="hero-title">Premium Animation Demo</h1>
+          <p class="hero-lede">Scroll down to see subtle, professional animations in action.</p>
+        </div>
+        <div class="hero-right">
+          <div class="hero-mock hero-mock-parallax hero-mock-float">
+            <div class="mock-screen">
+              <div class="mock-header">
+                <div class="mock-logo"></div>
+                <div class="mock-nav">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div class="mock-hero-area">
+                <div class="mock-headline"></div>
+                <div class="mock-subline"></div>
+                <div class="mock-cta"></div>
+              </div>
+              <div class="mock-content">
+                <div class="mock-card"></div>
+                <div class="mock-card"></div>
+                <div class="mock-card"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Reveal Demo -->
+  <section class="section container">
+    <div class="section-reveal">
+      <h2>Section Fade-In Animation</h2>
+      <p style="color: var(--muted-2);">This entire section fades in as you scroll. The animation is subtle and professional, using a 0.5s ease-in-out timing.</p>
+    </div>
+  </section>
+
+  <!-- Card Grid Demo -->
+  <section class="section container">
+    <h2 class="animate-on-scroll">Card Hover Effects</h2>
+    <p class="animate-on-scroll" style="color: var(--muted-2); margin-bottom: 32px;">Hover over these cards to see the subtle scale-up and shadow enhancement.</p>
+    
+    <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+      <div class="card card-grid-item">
+        <h3 style="margin-top: 0; font-size: 1.25rem;">Core Package</h3>
+        <p style="color: var(--muted-2);">Essential features with subtle hover animation. Transform: scale(1.01) and translateY(-2px).</p>
+      </div>
+      <div class="card card-grid-item">
+        <h3 style="margin-top: 0; font-size: 1.25rem;">Pro Package</h3>
+        <p style="color: var(--muted-2);">Advanced features with enhanced shadow on hover. Box-shadow with blue accent glow.</p>
+      </div>
+      <div class="card card-grid-item">
+        <h3 style="margin-top: 0; font-size: 1.25rem;">Premier Package</h3>
+        <p style="color: var(--muted-2);">Complete solution. All animations under 0.3s with ease-in-out timing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checklist Demo -->
+  <section class="section container">
+    <div class="animate-on-scroll">
+      <h2>Checklist Scroll Reveal</h2>
+      <p style="color: var(--muted-2); margin-bottom: 24px;">Watch as each checklist item reveals with a subtle slide-in from left.</p>
+    </div>
+    
+    <div class="card" style="max-width: 640px; margin: 0 auto;">
+      <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 1.2rem;">Website Essentials</h3>
+      <ol style="margin: 0; padding-left: 24px; line-height: 1.8; color: var(--muted-2);">
+        <li class="checklist-item">Clear, patient-friendly headline that says who you help</li>
+        <li class="checklist-item">Visible booking buttons on both desktop and mobile</li>
+        <li class="checklist-item">High-quality photos that convey professionalism</li>
+        <li class="checklist-item">Dedicated pages for your highest-value treatments</li>
+        <li class="checklist-item">Easy-to-find contact information on every page</li>
+        <li class="checklist-item">Fast-loading pages that keep visitors engaged</li>
+        <li class="checklist-item">Mobile-friendly design that works on all devices</li>
+        <li class="checklist-item">Patient testimonials visible on key pages</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- List Reveal Demo -->
+  <section class="section container">
+    <div class="animate-on-scroll">
+      <h2>Feature List Animation</h2>
+      <p style="color: var(--muted-2); margin-bottom: 24px;">Lists fade in with staggered timing for a polished reveal effect.</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 32px;">
+      <div class="card">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: var(--brand-accent); margin-bottom: 16px;">Leaks we fix</h3>
+        <ul class="list-reveal" style="list-style: none; margin: 0; padding: 0; display: grid; gap: 12px;">
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <span style="color: var(--brand-accent); font-size: 1.2rem; line-height: 1;">•</span>
+            <span style="color: var(--brand-text); line-height: 1.7;">Broken forms and dead links</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <span style="color: var(--brand-accent); font-size: 1.2rem; line-height: 1;">•</span>
+            <span style="color: var(--brand-text); line-height: 1.7;">Slow pages that lose patients</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <span style="color: var(--brand-accent); font-size: 1.2rem; line-height: 1;">•</span>
+            <span style="color: var(--brand-text); line-height: 1.7;">Confusing navigation</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <span style="color: var(--brand-accent); font-size: 1.2rem; line-height: 1;">•</span>
+            <span style="color: var(--brand-text); line-height: 1.7;">Hidden booking buttons</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: var(--accent-clinic); margin-bottom: 16px;">What we do instead</h3>
+        <ul class="list-reveal" style="list-style: none; margin: 0; padding: 0; display: grid; gap: 12px;">
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <span style="color: var(--accent-clinic); font-size: 1.2rem; line-height: 1;">✓</span>
+            <span style="color: var(--brand-text); line-height: 1.7;">Clear booking paths</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <span style="color: var(--accent-clinic); font-size: 1.2rem; line-height: 1;">✓</span>
+            <span style="color: var(--brand-text); line-height: 1.7;">Fast-loading pages</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <span style="color: var(--accent-clinic); font-size: 1.2rem; line-height: 1;">✓</span>
+            <span style="color: var(--brand-text); line-height: 1.7;">Intuitive navigation</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <span style="color: var(--accent-clinic); font-size: 1.2rem; line-height: 1;">✓</span>
+            <span style="color: var(--brand-text); line-height: 1.7;">Prominent CTAs</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animation Summary -->
+  <section class="section container" style="margin-bottom: 80px;">
+    <div class="card section-reveal" style="max-width: 800px; margin: 0 auto; text-align: center; padding: 40px 32px; background: linear-gradient(135deg, rgba(90,162,255,.08) 0%, rgba(90,162,255,.02) 100%); border: 2px solid rgba(90,162,255,.2);">
+      <h2 style="margin-top: 0; margin-bottom: 20px;">All Animations Are:</h2>
+      <div style="display: grid; gap: 16px; margin-top: 24px; text-align: left;">
+        <div style="display: flex; gap: 12px; align-items: start;">
+          <span style="color: var(--brand-accent); font-size: 1.2rem; line-height: 1;">✓</span>
+          <span style="color: var(--brand-text); line-height: 1.7;"><strong>Under 0.5s duration</strong> - Fast and snappy, never sluggish</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: start;">
+          <span style="color: var(--brand-accent); font-size: 1.2rem; line-height: 1;">✓</span>
+          <span style="color: var(--brand-text); line-height: 1.7;"><strong>Ease-in-out timing</strong> - Professional, smooth acceleration</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: start;">
+          <span style="color: var(--brand-accent); font-size: 1.2rem; line-height: 1;">✓</span>
+          <span style="color: var(--brand-text); line-height: 1.7;"><strong>Webflow compatible</strong> - Works with Custom Code or Interactions</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: start;">
+          <span style="color: var(--brand-accent); font-size: 1.2rem; line-height: 1;">✓</span>
+          <span style="color: var(--brand-text); line-height: 1.7;"><strong>Accessible</strong> - Respects prefers-reduced-motion</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: start;">
+          <span style="color: var(--brand-accent); font-size: 1.2rem; line-height: 1;">✓</span>
+          <span style="color: var(--brand-text); line-height: 1.7;"><strong>Performance optimized</strong> - Uses Intersection Observer and requestAnimationFrame</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+      <p style="color: var(--muted-2); margin: 0;">Animation Demo Page - Keyturn Studio</p>
+      <p style="color: var(--muted); margin: 8px 0 0; font-size: 0.9rem;">All animations designed for professional, high-end feel.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
