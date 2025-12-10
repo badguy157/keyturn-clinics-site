@@ -3070,6 +3070,15 @@ img {
   text-align: center;
 }
 
+.pricing-retainer-card-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 0 0 16px;
+  text-align: center;
+  line-height: 1.6;
+}
+
 .pricing-retainer-card-features {
   list-style: none;
   margin: 0;
@@ -3132,6 +3141,11 @@ img {
   
   .pricing-retainer-card-title {
     text-align: left;
+  }
+  
+  .pricing-retainer-card-price {
+    text-align: left;
+    font-size: 1.15rem;
   }
 }
 
