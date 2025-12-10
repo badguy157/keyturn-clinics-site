@@ -1,0 +1,47 @@
+QUICK COPY-PASTE GUIDE FOR PREMIUM METALLIC ACCENTS
+=====================================================
+
+FILE TO COPY: premium-metallic-accents.html
+
+This file contains complete CSS ready to paste into:
+- Webflow Custom Code (Project Settings > Custom Code > Head Code)
+- WordPress Custom CSS
+- Any HTML page <head> section
+- Site-wide custom code areas
+
+WHAT IT INCLUDES:
+✅ Gold buttons (.button, .w-button, .button-gold)
+✅ Gold outline buttons (.button-outline, .button-gold-outline)
+✅ Silver buttons (.button-silver, .w-button-silver)
+✅ All links get silver hover by default
+✅ Premium link styles (.link-premium, .link-gold)
+✅ Hero gradients (.hero-section, .hero-gold-radial, .hero-dual-tone, .hero-shimmer)
+✅ Utility classes (.text-gold, .text-silver, .bg-gold, .border-gold, etc.)
+✅ Blue theme fallback (wrap in .theme-blue)
+✅ Responsive breakpoints (768px, 1100px)
+✅ Accessibility support (prefers-reduced-motion)
+
+COLOR SCHEME:
+- Gold: #D4AF37 (metallic gold)
+- Silver: #E0E0E0 (soft silver)
+- Navy Base: #0A0F1E (dark navy background)
+- Blue Fallback: #5AA2FF (primary blue)
+
+BROWSER COMPATIBILITY:
+✅ Chrome/Edge (latest)
+✅ Firefox (latest)
+✅ Safari (latest)
+✅ Opera (latest)
+
+CUSTOMIZATION:
+Edit CSS variables at the top of the file:
+--premium-gold: #D4AF37;
+--premium-silver: #E0E0E0;
+--navy-base: #0A0F1E;
+--blue-primary: #5AA2FF;
+
+LIVE DEMO:
+Open premium-metallic-demo.html in browser to see all styles
+
+DOCUMENTATION:
+See README-PREMIUM-METALLIC.md for detailed class reference
