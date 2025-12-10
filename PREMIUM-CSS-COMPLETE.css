@@ -1,0 +1,540 @@
+/* =============================================
+   PREMIUM METALLIC GOLD & SILVER THEME
+   Dark Navy Website with Premium Accents
+   
+   Copy this entire file to Webflow Custom Code
+   Project Settings → Custom Code → Head Code
+   Wrap in <style> tags
+   ============================================= */
+
+/* ---- CSS Variables ---- */
+:root {
+  /* Base Theme */
+  --bg-dark-navy: #0a1220;
+  --text-primary: #e6ebf5;
+  --text-muted: #a6b3cf;
+  
+  /* Premium Metallic Colors */
+  --premium-gold: #D4AF37;
+  --premium-gold-dark: #B8941F;
+  --premium-gold-light: #E8C968;
+  --premium-silver: #E0E0E0;
+  --premium-silver-dark: #C0C0C0;
+  --premium-silver-light: #F5F5F5;
+  
+  /* Fallback Blue Theme */
+  --fallback-blue: #5AA2FF;
+  --fallback-blue-dark: #4B8FE5;
+  
+  /* Premium Gradients */
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #E8C968 50%, #D4AF37 100%);
+  --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(232, 201, 104, 0.25) 50%, rgba(212, 175, 55, 0.15) 100%);
+  --gradient-silver: linear-gradient(135deg, #E0E0E0 0%, #F5F5F5 50%, #E0E0E0 100%);
+  
+  /* Hero Gradients - Navy to Dark with Gold Overlay */
+  --gradient-hero-premium: linear-gradient(180deg, 
+    rgba(10, 18, 32, 1) 0%,           /* Dark navy top */
+    rgba(15, 23, 42, 0.95) 50%,       /* Slightly darker middle */
+    rgba(10, 18, 32, 1) 100%          /* Dark navy bottom */
+  ),
+  linear-gradient(135deg, 
+    rgba(212, 175, 55, 0.08) 0%,      /* Gold overlay */
+    rgba(90, 162, 255, 0.05) 50%,     /* Blue blend */
+    rgba(212, 175, 55, 0.08) 100%     /* Gold overlay */
+  );
+  
+  --gradient-hero-gold-radial: radial-gradient(
+    ellipse at center top,
+    rgba(212, 175, 55, 0.12) 0%,
+    rgba(10, 18, 32, 1) 60%
+  );
+  
+  /* Shadows */
+  --shadow-gold: 0 4px 12px rgba(212, 175, 55, 0.3);
+  --shadow-gold-hover: 0 8px 24px rgba(212, 175, 55, 0.5);
+  --shadow-silver: 0 4px 12px rgba(224, 224, 224, 0.3);
+  --shadow-silver-hover: 0 8px 24px rgba(224, 224, 224, 0.5);
+}
+
+/* ---- Premium Buttons ---- */
+
+/* Gold Button - Primary Premium CTA */
+.btn-premium-gold,
+.button.premium-gold {
+  background: var(--gradient-gold);
+  color: var(--bg-dark-navy);
+  border: 1px solid var(--premium-gold);
+  font-weight: 700;
+  padding: 13px 24px;
+  border-radius: 12px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-gold), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-premium-gold:hover,
+.button.premium-gold:hover {
+  background: var(--premium-gold-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold-hover), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: var(--premium-gold-light);
+}
+
+.btn-premium-gold:active,
+.button.premium-gold:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-gold), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Gold Outline Button */
+.btn-premium-gold-outline,
+.button.premium-gold-outline {
+  background: transparent;
+  color: var(--premium-gold);
+  border: 2px solid var(--premium-gold);
+  font-weight: 600;
+  padding: 13px 24px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-premium-gold-outline::before,
+.button.premium-gold-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-gold-subtle);
+  transition: left 0.4s ease;
+  z-index: 0;
+}
+
+.btn-premium-gold-outline:hover,
+.button.premium-gold-outline:hover {
+  color: var(--premium-gold-light);
+  border-color: var(--premium-gold-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-premium-gold-outline:hover::before,
+.button.premium-gold-outline:hover::before {
+  left: 0;
+}
+
+/* Silver Button - Secondary Premium CTA */
+.btn-premium-silver,
+.button.premium-silver {
+  background: var(--gradient-silver);
+  color: var(--bg-dark-navy);
+  border: 1px solid var(--premium-silver);
+  font-weight: 700;
+  padding: 13px 24px;
+  border-radius: 12px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-silver), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-premium-silver:hover,
+.button.premium-silver:hover {
+  background: var(--premium-silver-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-silver-hover), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-color: var(--premium-silver-light);
+}
+
+.btn-premium-silver:active,
+.button.premium-silver:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-silver), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Silver Outline Button */
+.btn-premium-silver-outline,
+.button.premium-silver-outline {
+  background: transparent;
+  color: var(--premium-silver);
+  border: 2px solid var(--premium-silver);
+  font-weight: 600;
+  padding: 13px 24px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-premium-silver-outline:hover,
+.button.premium-silver-outline:hover {
+  background: rgba(224, 224, 224, 0.1);
+  color: var(--premium-silver-light);
+  border-color: var(--premium-silver-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-silver);
+}
+
+/* Fallback for browsers without CSS variable support */
+@supports not (color: var(--premium-gold)) {
+  .btn-premium-gold,
+  .button.premium-gold {
+    background: linear-gradient(135deg, #D4AF37 0%, #E8C968 50%, #D4AF37 100%);
+  }
+  
+  .btn-premium-gold-outline,
+  .button.premium-gold-outline {
+    color: #D4AF37;
+    border-color: #D4AF37;
+  }
+  
+  .btn-premium-silver,
+  .button.premium-silver {
+    background: linear-gradient(135deg, #E0E0E0 0%, #F5F5F5 50%, #E0E0E0 100%);
+  }
+}
+
+/* ---- Premium Links ---- */
+
+/* Gold Link with Animated Underline */
+a.link-premium-gold,
+.link.premium-gold {
+  color: var(--premium-gold);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, var(--premium-gold) 0%, var(--premium-gold-light) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+}
+
+a.link-premium-gold::after,
+.link.premium-gold::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-gold);
+  transition: width 0.3s ease;
+}
+
+a.link-premium-gold:hover,
+.link.premium-gold:hover {
+  background-position: 100% 50%;
+  transform: translateX(2px);
+}
+
+a.link-premium-gold:hover::after,
+.link.premium-gold:hover::after {
+  width: 100%;
+}
+
+/* Silver Link */
+a.link-premium-silver,
+.link.premium-silver {
+  color: var(--premium-silver);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a.link-premium-silver::after,
+.link.premium-silver::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-silver);
+  transition: width 0.3s ease;
+}
+
+a.link-premium-silver:hover,
+.link.premium-silver:hover {
+  color: var(--premium-silver-light);
+  transform: translateX(2px);
+}
+
+a.link-premium-silver:hover::after,
+.link.premium-silver:hover::after {
+  width: 100%;
+}
+
+/* Link with Animated Arrow Icon */
+a.link-premium-icon,
+.link.premium-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--premium-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+a.link-premium-icon::after,
+.link.premium-icon::after {
+  content: '→';
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+a.link-premium-icon:hover,
+.link.premium-icon:hover {
+  color: var(--premium-gold-light);
+}
+
+a.link-premium-icon:hover::after,
+.link.premium-icon:hover::after {
+  transform: translateX(4px);
+}
+
+/* ---- Hero Section Gradients ---- */
+
+/* Premium Gold Gradient Overlay - Navy to Dark with Gold */
+.hero-premium-gold {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+  min-height: 80vh;
+}
+
+.hero-premium-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-hero-premium);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-premium-gold > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Radial Gold Gradient - Spotlight Effect */
+.hero-premium-gold-radial {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+  min-height: 80vh;
+}
+
+.hero-premium-gold-radial::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 200%;
+  background: var(--gradient-hero-gold-radial);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-premium-gold-radial > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dual-Tone Gradient - Gold + Blue Balance */
+.hero-premium-dual {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+  min-height: 80vh;
+}
+
+.hero-premium-dual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(212, 175, 55, 0.1) 0%, 
+    rgba(90, 162, 255, 0.08) 30%,
+    rgba(10, 18, 32, 0.95) 60%,
+    rgba(90, 162, 255, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-premium-dual > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animated Shimmer Effect */
+.hero-premium-shimmer {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+  min-height: 80vh;
+}
+
+.hero-premium-shimmer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.1) 45%,
+    rgba(232, 201, 104, 0.2) 50%,
+    rgba(212, 175, 55, 0.1) 55%,
+    transparent 100%
+  );
+  animation: shimmer 8s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-premium-shimmer > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* ---- Background Accents ---- */
+
+/* Gold Accent Bar for Featured Content */
+.premium-accent-bar {
+  border-left: 4px solid var(--premium-gold);
+  padding-left: 24px;
+  background: var(--gradient-gold-subtle);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 20px 20px 24px;
+  margin: 20px 0;
+}
+
+/* Gold Highlight Box */
+.gold-highlight-box {
+  background: linear-gradient(135deg, 
+    rgba(212, 175, 55, 0.1) 0%, 
+    rgba(232, 201, 104, 0.15) 100%
+  );
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
+}
+
+/* ---- Responsive Adjustments ---- */
+@media (min-width: 768px) {
+  .hero-premium-gold,
+  .hero-premium-gold-radial,
+  .hero-premium-dual,
+  .hero-premium-shimmer {
+    padding: 100px 28px;
+    min-height: 90vh;
+  }
+  
+  .btn-premium-gold,
+  .btn-premium-gold-outline,
+  .btn-premium-silver,
+  .btn-premium-silver-outline,
+  .button.premium-gold,
+  .button.premium-gold-outline,
+  .button.premium-silver,
+  .button.premium-silver-outline {
+    padding: 15px 32px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .hero-premium-gold,
+  .hero-premium-gold-radial,
+  .hero-premium-dual,
+  .hero-premium-shimmer {
+    padding: 120px 32px;
+    min-height: 100vh;
+  }
+}
+
+/* ---- Fallback Theme Support ---- */
+/* If gold theme isn't working, these provide blue alternatives */
+@media (prefers-color-scheme: light) {
+  /* Optional: Different colors for light mode if needed */
+  :root {
+    --premium-gold: #B8941F; /* Darker gold for light backgrounds */
+    --premium-silver: #8B8B8B; /* Darker silver for contrast */
+  }
+}
+
+/* IE11 and older browser fallbacks */
+.no-cssvars .btn-premium-gold {
+  background: #D4AF37;
+  color: #0a1220;
+}
+
+.no-cssvars .btn-premium-silver {
+  background: #E0E0E0;
+  color: #0a1220;
+}
+
+/* ---- Print Styles ---- */
+@media print {
+  .btn-premium-gold,
+  .btn-premium-silver,
+  .button.premium-gold,
+  .button.premium-silver {
+    background: none;
+    color: #000;
+    border: 2px solid #000;
+  }
+}
