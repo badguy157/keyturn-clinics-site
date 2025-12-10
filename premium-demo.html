@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Premium Color Palette Demonstration - Keyturn Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Demo-specific styles */
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .demo-section {
+      margin-bottom: 80px;
+      padding: 40px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+    }
+    
+    .demo-title {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: var(--premium-gold);
+    }
+    
+    .demo-description {
+      color: var(--brand-muted);
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+    
+    .demo-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+    }
+    
+    @media (min-width: 768px) {
+      .demo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .demo-grid.three-col {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .demo-item {
+      padding: 24px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 12px;
+      text-align: center;
+    }
+    
+    .demo-item h3 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      color: var(--brand-text);
+    }
+    
+    .color-swatch {
+      width: 100%;
+      height: 100px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #0a1220;
+    }
+    
+    .color-code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      color: var(--brand-muted);
+      background: rgba(255,255,255,.04);
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    
+    .button-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+    
+    .link-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    
+    .hero-demo {
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 40px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .hero-demo h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 16px;
+    }
+    
+    .hero-demo p {
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+    
+    .code-block {
+      background: rgba(0,0,0,.3);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      color: var(--premium-gold-light);
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <!-- Header -->
+    <header style="text-align: center; margin-bottom: 60px; padding: 40px 0;">
+      <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 16px;">
+        Premium Color Palette
+      </h1>
+      <p style="font-size: 1.25rem; color: var(--brand-muted); max-width: 700px; margin: 0 auto;">
+        Metallic Gold & Soft Silver accents for the dark navy website (#0A1220 base with blue accents)
+      </p>
+    </header>
+
+    <!-- Color Swatches Section -->
+    <section class="demo-section">
+      <h2 class="demo-title">Color Swatches</h2>
+      <p class="demo-description">Core premium metallic colors and their variations</p>
+      
+      <div class="demo-grid three-col">
+        <div class="demo-item">
+          <div class="color-swatch" style="background: #D4AF37;">GOLD</div>
+          <span class="color-code">#D4AF37</span>
+          <p style="margin-top: 8px; font-size: 0.875rem;">Premium Gold</p>
+        </div>
+        
+        <div class="demo-item">
+          <div class="color-swatch" style="background: #E8C968;">LIGHT</div>
+          <span class="color-code">#E8C968</span>
+          <p style="margin-top: 8px; font-size: 0.875rem;">Gold Light</p>
+        </div>
+        
+        <div class="demo-item">
+          <div class="color-swatch" style="background: #B8941F;">DARK</div>
+          <span class="color-code">#B8941F</span>
+          <p style="margin-top: 8px; font-size: 0.875rem;">Gold Dark</p>
+        </div>
+        
+        <div class="demo-item">
+          <div class="color-swatch" style="background: #E0E0E0;">SILVER</div>
+          <span class="color-code">#E0E0E0</span>
+          <p style="margin-top: 8px; font-size: 0.875rem;">Premium Silver</p>
+        </div>
+        
+        <div class="demo-item">
+          <div class="color-swatch" style="background: #F5F5F5;">LIGHT</div>
+          <span class="color-code">#F5F5F5</span>
+          <p style="margin-top: 8px; font-size: 0.875rem;">Silver Light</p>
+        </div>
+        
+        <div class="demo-item">
+          <div class="color-swatch" style="background: #C0C0C0;">DARK</div>
+          <span class="color-code">#C0C0C0</span>
+          <p style="margin-top: 8px; font-size: 0.875rem;">Silver Dark</p>
+        </div>
+      </div>
+
+      <div class="demo-grid" style="margin-top: 32px;">
+        <div class="demo-item">
+          <div class="color-swatch" style="background: linear-gradient(135deg, #D4AF37 0%, #E8C968 50%, #D4AF37 100%);">GRADIENT</div>
+          <span class="color-code">gradient-gold</span>
+          <p style="margin-top: 8px; font-size: 0.875rem;">Gold Metallic Gradient</p>
+        </div>
+        
+        <div class="demo-item">
+          <div class="color-swatch" style="background: linear-gradient(135deg, #E0E0E0 0%, #F5F5F5 50%, #E0E0E0 100%);">GRADIENT</div>
+          <span class="color-code">gradient-silver</span>
+          <p style="margin-top: 8px; font-size: 0.875rem;">Silver Metallic Gradient</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Premium Buttons Section -->
+    <section class="demo-section">
+      <h2 class="demo-title">Premium Buttons</h2>
+      <p class="demo-description">Gold and silver button styles with hover effects</p>
+      
+      <div class="demo-grid">
+        <!-- Gold Buttons -->
+        <div class="demo-item">
+          <h3>Premium Gold Solid</h3>
+          <div class="button-showcase">
+            <a href="#" class="btn btn-premium-gold">Get Started Now</a>
+            <a href="#" class="btn btn-premium-gold">Book Consultation</a>
+          </div>
+          <div class="code-block">class="btn-premium-gold"</div>
+        </div>
+        
+        <div class="demo-item">
+          <h3>Premium Gold Outline</h3>
+          <div class="button-showcase">
+            <a href="#" class="btn btn-premium-gold-outline">Learn More</a>
+            <a href="#" class="btn btn-premium-gold-outline">View Portfolio</a>
+          </div>
+          <div class="code-block">class="btn-premium-gold-outline"</div>
+        </div>
+        
+        <!-- Silver Buttons -->
+        <div class="demo-item">
+          <h3>Premium Silver Solid</h3>
+          <div class="button-showcase">
+            <a href="#" class="btn btn-premium-silver">Contact Us</a>
+            <a href="#" class="btn btn-premium-silver">View Services</a>
+          </div>
+          <div class="code-block">class="btn-premium-silver"</div>
+        </div>
+        
+        <div class="demo-item">
+          <h3>Premium Silver Outline</h3>
+          <div class="button-showcase">
+            <a href="#" class="btn btn-premium-silver-outline">Explore</a>
+            <a href="#" class="btn btn-premium-silver-outline">Read More</a>
+          </div>
+          <div class="code-block">class="btn-premium-silver-outline"</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Premium Links Section -->
+    <section class="demo-section">
+      <h2 class="demo-title">Premium Links</h2>
+      <p class="demo-description">Animated link styles with underline and icon effects</p>
+      
+      <div class="demo-grid">
+        <div class="demo-item" style="text-align: left;">
+          <h3>Premium Gold Links</h3>
+          <div class="link-showcase">
+            <a href="#" class="link-premium-gold">Explore Premium Services</a>
+            <a href="#" class="link-premium-gold">View Our Portfolio</a>
+            <a href="#" class="link-premium-gold">Read Success Stories</a>
+          </div>
+          <div class="code-block">class="link-premium-gold"</div>
+        </div>
+        
+        <div class="demo-item" style="text-align: left;">
+          <h3>Premium Silver Links</h3>
+          <div class="link-showcase">
+            <a href="#" class="link-premium-silver">About Our Team</a>
+            <a href="#" class="link-premium-silver">Contact Information</a>
+            <a href="#" class="link-premium-silver">Privacy Policy</a>
+          </div>
+          <div class="code-block">class="link-premium-silver"</div>
+        </div>
+        
+        <div class="demo-item" style="text-align: left;">
+          <h3>Premium Icon Links</h3>
+          <div class="link-showcase">
+            <a href="#" class="link-premium-icon">View Case Studies</a>
+            <a href="#" class="link-premium-icon">Get Started Today</a>
+            <a href="#" class="link-premium-icon">Explore Solutions</a>
+          </div>
+          <div class="code-block">class="link-premium-icon"</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Gradient Overlays Section -->
+    <section class="demo-section">
+      <h2 class="demo-title">Hero Section Gradient Overlays</h2>
+      <p class="demo-description">Premium gradient overlays for hero sections and landing pages</p>
+      
+      <!-- Gold Gradient Hero -->
+      <div class="hero-demo hero-premium-gold">
+        <h2>Premium Gold Gradient</h2>
+        <p>Diagonal gradient overlay with gold and blue blend for a luxurious feel</p>
+        <a href="#" class="btn btn-premium-gold">Get Started</a>
+      </div>
+      <div class="code-block">class="hero-premium-gold"</div>
+      
+      <!-- Gold Radial Hero -->
+      <div class="hero-demo hero-premium-gold-radial" style="margin-top: 40px;">
+        <h2>Premium Gold Radial</h2>
+        <p>Centered radial gradient creates a spotlight effect on your content</p>
+        <a href="#" class="btn btn-premium-gold-outline">Learn More</a>
+      </div>
+      <div class="code-block">class="hero-premium-gold-radial"</div>
+      
+      <!-- Dual-Tone Hero -->
+      <div class="hero-demo hero-premium-dual" style="margin-top: 40px;">
+        <h2>Premium Dual-Tone</h2>
+        <p>Balanced blend of gold and blue for a harmonious premium aesthetic</p>
+        <a href="#" class="btn btn-premium-silver">Explore Services</a>
+      </div>
+      <div class="code-block">class="hero-premium-dual"</div>
+      
+      <!-- Shimmer Hero -->
+      <div class="hero-demo hero-premium-shimmer" style="margin-top: 40px;">
+        <h2>Premium Shimmer Effect</h2>
+        <p>Animated shimmer overlay for dynamic, eye-catching hero sections</p>
+        <a href="#" class="btn btn-premium-gold">Book Now</a>
+      </div>
+      <div class="code-block">class="hero-premium-shimmer"</div>
+    </section>
+
+    <!-- Background Accents Section -->
+    <section class="demo-section">
+      <h2 class="demo-title">Background Accents</h2>
+      <p class="demo-description">Featured content blocks with premium styling</p>
+      
+      <div class="hero-accent-bar" style="margin-bottom: 24px;">
+        <h3 style="margin-bottom: 8px;">Premium Feature Highlight</h3>
+        <p style="margin: 0;">This content block features a gold accent bar and subtle gradient background, perfect for highlighting important information, testimonials, or special offers.</p>
+      </div>
+      <div class="code-block">class="hero-accent-bar"</div>
+    </section>
+
+    <!-- Usage Examples Section -->
+    <section class="demo-section">
+      <h2 class="demo-title">Complete Example</h2>
+      <p class="demo-description">A real-world example combining multiple premium elements</p>
+      
+      <div class="hero-demo hero-premium-dual">
+        <h2 style="background: linear-gradient(90deg, #D4AF37 0%, #E8C968 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          Transform Your Website
+        </h2>
+        <p>
+          Experience premium web design with our expert team. 
+          <a href="#" class="link-premium-gold">Learn more about our process</a> 
+          or get started today.
+        </p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+          <a href="#" class="btn btn-premium-gold">Book Consultation</a>
+          <a href="#" class="btn btn-premium-gold-outline">View Portfolio</a>
+        </div>
+      </div>
+      
+      <div class="hero-accent-bar">
+        <h3 style="margin-bottom: 8px; color: var(--premium-gold);">Premium Guarantee</h3>
+        <p style="margin-bottom: 16px;">Our commitment to excellence ensures your project exceeds expectations.</p>
+        <a href="#" class="link-premium-icon">Discover our guarantee</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; margin-top: 80px; padding: 40px 0; border-top: 1px solid rgba(255,255,255,.1);">
+      <p style="color: var(--brand-muted);">
+        For detailed implementation instructions, see 
+        <a href="PREMIUM-COLOR-PALETTE.md" class="link-premium-gold">PREMIUM-COLOR-PALETTE.md</a>, 
+        <a href="PREMIUM-CSS-EXAMPLES.md" class="link-premium-gold">PREMIUM-CSS-EXAMPLES.md</a>, and 
+        <a href="PREMIUM-INTEGRATION-GUIDE.md" class="link-premium-gold">PREMIUM-INTEGRATION-GUIDE.md</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

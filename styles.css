@@ -27,6 +27,19 @@
   --brand-primary: #5aa2ff;         /* primary CTA color (strong blue for buttons & key links) */
   --brand-accent: #7db8ff;          /* softer accent for icons, stats, and supporting elements */
 
+  /* Premium metallic accents */
+  --premium-gold: #D4AF37;          /* metallic gold for premium elements */
+  --premium-gold-dark: #B8941F;     /* darker gold for hover states */
+  --premium-gold-light: #E8C968;    /* lighter gold for highlights */
+  --premium-silver: #E0E0E0;        /* soft silver for secondary premium elements */
+  --premium-silver-dark: #C0C0C0;   /* darker silver for hover states */
+  
+  /* Premium gradients */
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #E8C968 50%, #D4AF37 100%);
+  --gradient-gold-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(232, 201, 104, 0.25) 50%, rgba(212, 175, 55, 0.15) 100%);
+  --gradient-hero-premium: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(90, 162, 255, 0.08) 50%, rgba(212, 175, 55, 0.08) 100%);
+  --gradient-silver: linear-gradient(135deg, #E0E0E0 0%, #F5F5F5 50%, #E0E0E0 100%);
+
   /* radii & shadow */
   --radius:16px;
   --r-sm:12px;
@@ -412,6 +425,133 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
   .hero-left{flex:1}
   .hero-right{flex:0 0 auto;max-width:480px}
   .hero-mock{max-width:100%}
+}
+
+/* ========================================
+   Premium Hero Gradient Overlays
+   ======================================== */
+
+/* Premium Gold Gradient Hero Overlay */
+.hero-premium-gold {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-premium-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-hero-premium);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-premium-gold > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Premium Gold Radial Gradient (for centered spotlight effect) */
+.hero-premium-gold-radial {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-premium-gold-radial::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-premium-gold-radial > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Premium Dual-Tone Gradient (Gold + Blue blend) */
+.hero-premium-dual {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-premium-dual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(212, 175, 55, 0.1) 0%, 
+    rgba(90, 162, 255, 0.08) 30%,
+    rgba(212, 175, 55, 0.05) 60%,
+    rgba(90, 162, 255, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-premium-dual > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Premium Animated Shimmer Overlay */
+.hero-premium-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-premium-shimmer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.1) 45%,
+    rgba(232, 201, 104, 0.2) 50%,
+    rgba(212, 175, 55, 0.1) 55%,
+    transparent 100%
+  );
+  animation: shimmer 8s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-premium-shimmer > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* Premium Background Accent Bar */
+.hero-accent-bar {
+  border-left: 4px solid var(--premium-gold);
+  padding-left: 20px;
+  background: var(--gradient-gold-subtle);
+  border-radius: 0 12px 12px 0;
 }
 
 /* ---- Trust strip ---- */
@@ -1132,6 +1272,99 @@ a:not(.btn) {
 
 a:not(.btn):hover {
   color: var(--accent);
+}
+
+/* ========================================
+   Premium Link Styles - Gold & Silver
+   ======================================== */
+
+/* Premium Gold Links */
+a.link-premium-gold {
+  color: var(--premium-gold);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, var(--premium-gold) 0%, var(--premium-gold-light) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+}
+
+a.link-premium-gold::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-gold);
+  transition: width 0.3s ease;
+}
+
+a.link-premium-gold:hover {
+  background-position: 100% 50%;
+  transform: translateX(2px);
+}
+
+a.link-premium-gold:hover::after {
+  width: 100%;
+}
+
+/* Premium Silver Links */
+a.link-premium-silver {
+  color: var(--premium-silver);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a.link-premium-silver::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-silver);
+  transition: width 0.3s ease;
+}
+
+a.link-premium-silver:hover {
+  color: #F5F5F5;
+  transform: translateX(2px);
+}
+
+a.link-premium-silver:hover::after {
+  width: 100%;
+}
+
+/* Premium Link with Icon (for enhanced visual appeal) */
+a.link-premium-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--premium-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+a.link-premium-icon::after {
+  content: '→';
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+a.link-premium-icon:hover {
+  color: var(--premium-gold-light);
+}
+
+a.link-premium-icon:hover::after {
+  transform: translateX(4px);
 }
 
 /* Card hover effects */
@@ -3999,6 +4232,107 @@ img {
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-2px);
+}
+
+/* ========================================
+   Premium Button Styles - Gold & Silver
+   ======================================== */
+
+/* Premium Gold Button */
+.btn-premium-gold {
+  background: var(--gradient-gold);
+  color: #0a1220;
+  border: 1px solid var(--premium-gold);
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-premium-gold:hover {
+  background: var(--premium-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: var(--premium-gold-light);
+}
+
+.btn-premium-gold:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Premium Gold Outline Button */
+.btn-premium-gold-outline {
+  background: transparent;
+  color: var(--premium-gold);
+  border: 2px solid var(--premium-gold);
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-premium-gold-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-gold-subtle);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.btn-premium-gold-outline:hover {
+  color: var(--premium-gold-light);
+  border-color: var(--premium-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-premium-gold-outline:hover::before {
+  left: 0;
+}
+
+/* Premium Silver Button */
+.btn-premium-silver {
+  background: var(--gradient-silver);
+  color: #0a1220;
+  border: 1px solid var(--premium-silver);
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(224, 224, 224, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-premium-silver:hover {
+  background: #F5F5F5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(224, 224, 224, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-color: #F5F5F5;
+}
+
+.btn-premium-silver:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(224, 224, 224, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Premium Silver Outline Button */
+.btn-premium-silver-outline {
+  background: transparent;
+  color: var(--premium-silver);
+  border: 2px solid var(--premium-silver);
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-premium-silver-outline:hover {
+  background: rgba(224, 224, 224, 0.1);
+  color: #F5F5F5;
+  border-color: #F5F5F5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(224, 224, 224, 0.3);
 }
 
 /* Services Clients Section */
