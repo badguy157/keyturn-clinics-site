@@ -57,7 +57,7 @@
 
   /* layout paddings */
   --container-x:20px;      /* horizontal page gutters */
-  --section-y:64px;        /* top/bottom spacing per section */
+  --section-y:80px;        /* top/bottom spacing per section - increased for premium feel */
   --hero-y:56px;
   --hero-y-bottom:28px;
   --header-h:64px;
@@ -74,7 +74,7 @@
 @media (min-width:768px){
   :root{
     --container-x:28px;
-    --section-y:80px;
+    --section-y:88px;        /* increased for premium spacing */
     --hero-y:72px;
     --hero-y-bottom:40px;
     --header-h:68px;
@@ -83,7 +83,7 @@
 @media (min-width:1100px){
   :root{
     --container-x:32px;
-    --section-y:88px;
+    --section-y:100px;       /* increased to 100px for premium desktop spacing */
     --hero-y:96px;
     --hero-y-bottom:48px;
     --header-h:72px;
@@ -221,9 +221,24 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 }
 
 /* ---- Hero ---- */
-.hero{padding-top:4rem;padding-bottom:4rem}
+.hero{
+  padding-top:4rem;
+  padding-bottom:4rem;
+  min-height:80vh;  /* taller hero for premium feel */
+  display:flex;
+  align-items:center;
+}
 @media (min-width:768px){
-  .hero{padding-top:6rem;padding-bottom:6rem}
+  .hero{
+    padding-top:6rem;
+    padding-bottom:6rem;
+    min-height:90vh;  /* taller hero on tablet */
+  }
+}
+@media (min-width:1100px){
+  .hero{
+    min-height:100vh;  /* full viewport height on desktop */
+  }
 }
 .hero-title{
   font-size:clamp(36px,7vw,72px);
@@ -592,7 +607,7 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 @media (min-width:640px){.results-stats-grid{grid-template-columns:repeat(2,1fr)}}
 .result-stat-block{text-align:center;padding:24px;background:rgba(255,255,255,.04);border-radius:var(--r-sm);border:1px solid rgba(255,255,255,.06)}
 
-/* Clinic types and services grids - 2-column layout on desktop */
+/* Clinic types and services grids - asymmetric layout for premium feel */
 .clinic-types-grid,
 .services-offer-grid {
   display: grid;
@@ -607,19 +622,46 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
   }
 }
 
-/* Desktop: 2 columns to avoid empty space */
+/* Desktop: asymmetric 2-column layout with visual rhythm */
 @media (min-width: 768px) {
   .clinic-types-grid,
   .services-offer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr 1.15fr;  /* asymmetric for visual interest */
+    gap: 2rem;
+  }
+}
+
+/* Large desktop: more pronounced asymmetry */
+@media (min-width: 1100px) {
+  .clinic-types-grid,
+  .services-offer-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.5rem;
   }
 }
 .pricing-grid .card,.pricing-ongoing{height:100%;display:flex;flex-direction:column}
 .pricing-grid .card .btn,.pricing-ongoing .btn{margin-top:auto}
 .card{
-  background:var(--brand-surface);border:1px solid rgba(255,255,255,.04);
+  background:var(--brand-surface);
+  border:1px solid rgba(255,255,255,.08);  /* enhanced border visibility */
   border-radius:var(--radius);
   padding:20px; /* mobile card padding */
+  box-shadow: 0 4px 12px rgba(0,0,0,.2),    /* layered shadow for depth */
+              0 1px 3px rgba(0,0,0,.15);
+  position: relative;
+}
+/* Subtle inner glow for premium feel */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,.06) 0%, transparent 50%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 @media (min-width:768px){ .card{padding:24px} }
 
@@ -3108,9 +3150,11 @@ img {
   }
 }
 
+/* Desktop: asymmetric 3-column with featured card emphasis */
 @media (min-width: 900px) {
   .pricing-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 0.95fr 1.1fr 0.95fr;  /* center card (featured) slightly larger */
+    gap: 28px;
   }
 }
 
@@ -3118,30 +3162,45 @@ img {
 .pricing-card {
   position: relative;
   background: linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.04) 100%);
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);  /* enhanced border */
   border-radius: 20px;
   padding: 28px 24px 32px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 20px rgba(0,0,0,.15);
+  /* Enhanced layered shadows for premium depth */
+  box-shadow: 0 8px 24px rgba(0,0,0,.25),
+              0 2px 8px rgba(0,0,0,.15),
+              inset 0 1px 0 rgba(255,255,255,.05);  /* subtle inner highlight */
   transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
 }
 
 .pricing-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 30px rgba(90,162,255,.35), 0 8px 32px rgba(0,0,0,.2);
+  box-shadow: 0 0 30px rgba(90,162,255,.35), 
+              0 12px 36px rgba(0,0,0,.3),
+              0 4px 12px rgba(0,0,0,.2),
+              inset 0 1px 0 rgba(255,255,255,.08);
   border-color: rgba(90,162,255,.35);
 }
 
 /* Featured / Most Popular Card */
 .pricing-card-featured {
-  background: linear-gradient(135deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,.08) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.10) 100%);
   border: 2px solid var(--brand-primary);
-  box-shadow: 0 0 0 1px var(--brand-primary), 0 8px 32px rgba(90,162,255,.2);
+  /* Enhanced layered glow for featured card */
+  box-shadow: 0 0 0 1px var(--brand-primary), 
+              0 0 24px rgba(90,162,255,.3),
+              0 12px 36px rgba(90,162,255,.2),
+              0 4px 12px rgba(0,0,0,.25),
+              inset 0 1px 0 rgba(255,255,255,.08);
 }
 
 .pricing-card-featured:hover {
-  box-shadow: 0 0 35px rgba(90,162,255,.45), 0 0 60px rgba(90,162,255,.25), 0 8px 32px rgba(0,0,0,.2);
+  box-shadow: 0 0 40px rgba(90,162,255,.5), 
+              0 0 70px rgba(90,162,255,.3), 
+              0 16px 48px rgba(0,0,0,.3),
+              0 4px 16px rgba(90,162,255,.2),
+              inset 0 1px 0 rgba(255,255,255,.12);
 }
 
 .pricing-badge {
@@ -4226,17 +4285,27 @@ img {
 .service-card {
   position: relative;
   background: linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.04) 100%);
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);  /* enhanced border */
   border-radius: var(--radius);
   padding: 28px 24px 24px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 20px rgba(0,0,0,.15);
-  transition: border-color 0.15s ease-out;
+  /* Enhanced layered shadows */
+  box-shadow: 0 6px 20px rgba(0,0,0,.2),
+              0 2px 6px rgba(0,0,0,.15),
+              inset 0 1px 0 rgba(255,255,255,.04);
+  transition: border-color 0.15s ease-out, 
+              box-shadow 0.15s ease-out, 
+              transform 0.15s ease-out;
 }
 
 .service-card:hover {
-  border-color: rgba(90,162,255,.2);
+  border-color: rgba(90,162,255,.25);
+  transform: translateY(-2px);  /* subtle lift on hover */
+  box-shadow: 0 8px 28px rgba(0,0,0,.25),
+              0 0 20px rgba(90,162,255,.15),
+              0 2px 8px rgba(0,0,0,.15),
+              inset 0 1px 0 rgba(255,255,255,.06);
 }
 
 .service-card-accent {
