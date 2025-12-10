@@ -5835,3 +5835,386 @@ img {
     font-size: 1rem !important;
   }
 }
+
+/* ========================================================================
+   PREMIUM METALLIC ACCENTS - Gold & Silver Theme
+   Complete CSS block for dark navy websites with premium gold/silver accents
+   Ready to append to styles.css - No dependencies required
+   ======================================================================== */
+
+/* === CSS Variables for Easy Customization === */
+:root {
+  /* Premium Metallic Colors */
+  --pm-gold: #D4AF37;
+  --pm-gold-light: #E8C968;
+  --pm-gold-dark: #B8941F;
+  --pm-silver: #E0E0E0;
+  --pm-silver-light: #F5F5F5;
+  --pm-silver-dark: #C0C0C0;
+  
+  /* Base Colors */
+  --pm-navy-base: #0A0F1E;
+  --pm-navy-dark: #050812;
+  --pm-navy-light: #141B2E;
+  
+  /* Fallback Blue Theme */
+  --pm-blue-primary: #5aa2ff;
+  --pm-blue-accent: #7db8ff;
+  
+  /* Gradient Variables */
+  --pm-gradient-navy-dark: linear-gradient(135deg, var(--pm-navy-base) 0%, var(--pm-navy-dark) 100%);
+  --pm-gradient-navy-gold: linear-gradient(135deg, var(--pm-navy-base) 0%, var(--pm-navy-dark) 50%, var(--pm-navy-base) 100%);
+  --pm-gradient-gold-overlay: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(232, 201, 104, 0.08) 50%, rgba(212, 175, 55, 0.12) 100%);
+  --pm-gradient-hero-dual: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(10, 15, 30, 0.95) 50%, rgba(212, 175, 55, 0.08) 100%);
+}
+
+/* === Button Styles with Premium Gold Accents === */
+.button,
+button.button,
+a.button,
+input[type="submit"].button,
+input[type="button"].button {
+  background: var(--pm-gold) !important;
+  color: var(--pm-navy-base) !important;
+  border: 2px solid var(--pm-gold) !important;
+  padding: 14px 32px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.button:hover,
+button.button:hover,
+a.button:hover,
+input[type="submit"].button:hover,
+input[type="button"].button:hover {
+  background: var(--pm-gold-light) !important;
+  border-color: var(--pm-gold-light) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35) !important;
+}
+
+.button:active,
+button.button:active,
+a.button:active,
+input[type="submit"].button:active,
+input[type="button"].button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2) !important;
+}
+
+/* Button Outline Variant */
+.button-outline,
+button.button-outline,
+a.button-outline {
+  background: transparent !important;
+  color: var(--pm-gold) !important;
+  border: 2px solid var(--pm-gold) !important;
+  box-shadow: none !important;
+}
+
+.button-outline:hover,
+button.button-outline:hover,
+a.button-outline:hover {
+  background: var(--pm-gold) !important;
+  color: var(--pm-navy-base) !important;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35) !important;
+}
+
+/* Secondary Button with Silver */
+.button-secondary,
+button.button-secondary,
+a.button-secondary {
+  background: var(--pm-silver-dark) !important;
+  border-color: var(--pm-silver-dark) !important;
+  color: var(--pm-navy-base) !important;
+  box-shadow: 0 4px 12px rgba(224, 224, 224, 0.2) !important;
+}
+
+.button-secondary:hover,
+button.button-secondary:hover,
+a.button-secondary:hover {
+  background: var(--pm-silver) !important;
+  border-color: var(--pm-silver) !important;
+}
+
+/* === Link Styles with Soft Silver Hovers === */
+a {
+  color: var(--pm-gold) !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+}
+
+a:hover {
+  color: var(--pm-silver) !important;
+}
+
+/* Link with underline effect */
+a:not(.button):not(.button-outline):not(.button-secondary)::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: var(--pm-silver) !important;
+  transition: width 0.3s ease !important;
+}
+
+a:not(.button):not(.button-outline):not(.button-secondary):hover::after {
+  width: 100% !important;
+}
+
+/* Navigation Links */
+nav a,
+.nav a,
+.navbar a,
+.menu a,
+header a:not(.button) {
+  color: var(--pm-silver) !important;
+}
+
+nav a:hover,
+.nav a:hover,
+.navbar a:hover,
+.menu a:hover,
+header a:not(.button):hover {
+  color: var(--pm-gold) !important;
+}
+
+/* === Hero Section Gradients === */
+.hero-section,
+.hero,
+section.hero {
+  position: relative !important;
+  background: var(--pm-gradient-navy-dark) !important;
+  min-height: 80vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  padding: 80px 20px !important;
+}
+
+/* Gold overlay on hero */
+.hero-section::before,
+.hero::before,
+section.hero::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: var(--pm-gradient-gold-overlay) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.hero-section > *,
+.hero > *,
+section.hero > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Hero with radial gold accent */
+.hero-section-radial,
+.hero-radial {
+  background: radial-gradient(ellipse at center, var(--pm-navy-light) 0%, var(--pm-navy-dark) 100%) !important;
+}
+
+.hero-section-radial::before,
+.hero-radial::before {
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%) !important;
+}
+
+/* Hero with dual gradient (navy + gold) */
+.hero-section-dual,
+.hero-dual {
+  background: var(--pm-gradient-navy-gold) !important;
+}
+
+.hero-section-dual::before,
+.hero-dual::before {
+  background: var(--pm-gradient-hero-dual) !important;
+}
+
+/* === Fallback for Blue Theme === */
+@supports not (color: var(--pm-gold)) {
+  .button,
+  button.button,
+  a.button {
+    background: #5aa2ff !important;
+    border-color: #5aa2ff !important;
+  }
+  
+  .button:hover,
+  button.button:hover,
+  a.button:hover {
+    background: #7db8ff !important;
+    border-color: #7db8ff !important;
+  }
+  
+  a {
+    color: #5aa2ff !important;
+  }
+  
+  a:hover {
+    color: #E0E0E0 !important;
+  }
+  
+  .hero-section,
+  .hero {
+    background: linear-gradient(135deg, #0A0F1E 0%, #050812 100%) !important;
+  }
+}
+
+/* === Responsive Media Queries === */
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .button,
+  button.button,
+  a.button {
+    padding: 16px 40px !important;
+    font-size: 17px !important;
+  }
+  
+  .hero-section,
+  .hero,
+  section.hero {
+    min-height: 90vh !important;
+    padding: 100px 40px !important;
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .button,
+  button.button,
+  a.button {
+    padding: 18px 48px !important;
+    font-size: 18px !important;
+  }
+  
+  .hero-section,
+  .hero,
+  section.hero {
+    min-height: 100vh !important;
+    padding: 120px 60px !important;
+  }
+  
+  /* Enhanced hover effects on desktop */
+  .button:hover,
+  button.button:hover,
+  a.button:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+  }
+  
+  a:not(.button):hover::after {
+    width: 100% !important;
+    height: 3px !important;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1440px) {
+  .hero-section,
+  .hero,
+  section.hero {
+    padding: 140px 80px !important;
+  }
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 767px) {
+  .button,
+  button.button,
+  a.button {
+    width: 100% !important;
+    padding: 14px 24px !important;
+  }
+  
+  .hero-section,
+  .hero,
+  section.hero {
+    min-height: 70vh !important;
+    padding: 60px 16px !important;
+  }
+}
+
+/* === Additional Premium Accents === */
+
+/* Card accents with gold borders */
+.card-premium,
+.premium-card {
+  border: 2px solid var(--pm-gold) !important;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.15) !important;
+}
+
+/* Section dividers with gold */
+.section-divider,
+hr.premium {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent 0%, var(--pm-gold) 50%, transparent 100%) !important;
+  margin: 60px 0 !important;
+}
+
+/* Premium text accent */
+.text-gold,
+.premium-text {
+  color: var(--pm-gold) !important;
+}
+
+.text-silver {
+  color: var(--pm-silver) !important;
+}
+
+/* Highlight backgrounds */
+.bg-gold-subtle {
+  background: rgba(212, 175, 55, 0.1) !important;
+}
+
+.bg-silver-subtle {
+  background: rgba(224, 224, 224, 0.05) !important;
+}
+
+/* === Focus States for Accessibility === */
+.button:focus-visible,
+button.button:focus-visible,
+a.button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--pm-gold) !important;
+  outline-offset: 3px !important;
+}
+
+/* === Print Styles === */
+@media print {
+  .hero-section::before,
+  .hero::before,
+  section.hero::before {
+    display: none !important;
+  }
+  
+  .button,
+  button.button,
+  a.button {
+    border: 2px solid #000 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+}
+
+/* END PREMIUM METALLIC ACCENTS */
