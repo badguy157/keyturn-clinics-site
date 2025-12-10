@@ -3198,6 +3198,14 @@ img {
   }
 }
 
+.pricing-addon-price {
+  margin-top: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #7db8ff;
+  line-height: 1.5;
+}
+
 /* Budget-Friendly Ways to Start Section */
 .pricing-budget-strip {
   background: linear-gradient(180deg, rgba(30,41,59,.3) 0%, rgba(15,23,42,.4) 100%);
