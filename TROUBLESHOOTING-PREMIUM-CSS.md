@@ -49,6 +49,12 @@ This guide addresses the most common problems when implementing premium metallic
    - If it works here, it's definitely a cache issue
    - Clear cache as above
 
+5. **CDN Propagation Delay**
+   - For live sites, CDN may take 5-15 minutes to update worldwide
+   - If using custom domain, DNS/CDN cache can persist longer
+   - Wait a bit, then try from different location or device
+   - This is normal for production sites
+
 **Quick Test:**
 Add this temporary line to your CSS and check if it appears:
 ```css

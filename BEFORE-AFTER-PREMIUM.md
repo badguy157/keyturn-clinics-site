@@ -510,7 +510,7 @@ Perceived Brand Value:        $5X   ██████████████�
 
 **Improvements:**
 - CTR: **+200%** (3x improvement!)
-- Time on page: **+133%** (2.3x longer)
+- Time on page: **+133%** (2.33x longer)
 - Scroll depth: **+77%** (users explore more)
 - Bounce rate: **-29%** (more stay engaged)
 - Perceived value: **+400%** (5x higher!)

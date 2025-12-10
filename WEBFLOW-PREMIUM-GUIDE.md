@@ -267,7 +267,7 @@ Blue:      #5AA2FF  /* Fallback accent */
 /* Gold Link with Animated Underline */
 a.link-premium-gold,
 .link.premium-gold {
-  color: var(--premium-gold);
+  color: var(--premium-gold); /* Fallback if gradient fails */
   text-decoration: none;
   font-weight: 600;
   position: relative;
@@ -278,6 +278,15 @@ a.link-premium-gold,
   -webkit-text-fill-color: transparent;
   background-size: 200% 100%;
   background-position: 0% 50%;
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (background-clip: text) {
+  a.link-premium-gold,
+  .link.premium-gold {
+    color: var(--premium-gold);
+    -webkit-text-fill-color: initial;
+  }
 }
 
 a.link-premium-gold::after,
