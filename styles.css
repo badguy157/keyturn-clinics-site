@@ -2778,6 +2778,14 @@ img {
   letter-spacing: -0.02em;
 }
 
+.pricing-card-value-line {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--brand-muted);
+  margin: 12px 0 16px;
+  font-style: italic;
+}
+
 .pricing-card-includes {
   font-size: 0.85rem;
   font-weight: 600;
