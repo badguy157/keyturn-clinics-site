@@ -2827,7 +2827,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(30, 41, 59);
+  background: rgba(30, 41, 59, 1); /* slate-800 equivalent */
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0,0,0,.2);
 }
@@ -2851,7 +2851,7 @@ img {
 }
 
 .step-icon {
-  color: rgb(226, 232, 240);
+  color: var(--brand-text);
   z-index: 1;
 }
 
