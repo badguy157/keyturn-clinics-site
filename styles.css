@@ -2786,16 +2786,17 @@ img {
     position: relative;
   }
   
-  /* Connector line between steps - positioned at center of step numbers */
-  /* Positioned at: 24px card padding + 24px (half of 48px step-number height) */
+  /* Connector line between steps - positioned at center of icon containers */
+  /* Icon container is 64px tall, centered at top of card with 20px margin-bottom */
+  /* Line positioned at: 24px card padding + 32px (half of 64px icon height) */
   .stepper::before {
     content: "";
     position: absolute;
-    top: 48px;
-    left: calc(16.67% + 20px);
-    right: calc(16.67% + 20px);
-    height: 2px;
-    background: linear-gradient(90deg, var(--brand-accent) 0%, rgba(125,184,255,.3) 50%, var(--brand-accent) 100%); /* rgba matches brand-accent with opacity */
+    top: 56px;
+    left: calc(16.67% + 32px);
+    right: calc(16.67% + 32px);
+    height: 1px;
+    background: rgba(125,184,255,.15);
     z-index: 0;
   }
 }
@@ -2818,6 +2819,43 @@ img {
   border-color: rgba(90,162,255,.2);
 }
 
+.step-icon-container {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 41, 59, 1); /* slate-800 equivalent */
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+
+.step-number-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 24px;
+  height: 24px;
+  background: var(--brand-accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 8px rgba(90,162,255,.4);
+  z-index: 2;
+}
+
+.step-icon {
+  color: var(--brand-text);
+  z-index: 1;
+}
+
+/* Legacy support - keep for backwards compatibility */
 .step-number {
   width: 48px;
   height: 48px;
