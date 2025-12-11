@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cosmetic Surgery Clinic Y | Premium Aesthetic Procedures</title>
+  <title>Cosmetic Surgery Clinic Y | Premium Aesthetic Surgery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,264 +16,362 @@
       <div class="header-content">
         <h1 class="logo">Cosmetic Surgery Clinic Y</h1>
         <nav class="nav">
-          <a href="#procedures" class="nav-btn">Procedures</a>
-          <a href="#about" class="nav-btn">About</a>
-          <a href="#results" class="nav-btn">Results</a>
-          <a href="#contact" class="nav-btn">Contact</a>
-          <a href="#consultation" class="nav-btn nav-btn-primary">Book Consultation</a>
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#procedures" class="nav-link">Procedures</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="#consultation" class="nav-link nav-cta">Book Consultation</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Slideshow -->
   <section class="hero-section" id="home">
-    <div class="container">
-      <div class="hero-content">
-        <p class="hero-label">Premium Aesthetic Surgery</p>
-        <h2 class="hero-title">Redefine Your Beauty with Expert Precision</h2>
-        <p class="hero-description">Experience transformative cosmetic surgery with board-certified surgeons who combine artistry, advanced techniques, and personalized care to help you achieve your aesthetic goals with confidence.</p>
-        <div class="hero-cta">
-          <a href="#consultation" class="btn btn-primary">Schedule Free Consultation</a>
-          <a href="#procedures" class="btn btn-secondary">View Procedures</a>
+    <div class="slideshow">
+      <div class="slide active">
+        <div class="slide-overlay"></div>
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-label">Premium Cosmetic Surgery</p>
+            <h2 class="hero-title">Transform Your Appearance with Artistry & Precision</h2>
+            <p class="hero-description">Board-certified surgeons delivering exceptional results through advanced techniques and personalized care.</p>
+            <div class="hero-cta">
+              <a href="#consultation" class="btn btn-primary">Schedule Free Consultation</a>
+              <a href="#procedures" class="btn btn-outline">Explore Procedures</a>
+            </div>
+          </div>
         </div>
-        <!-- Integrated Consultation Button -->
-        <div class="consultation-widget">
-          <button class="consultation-btn" onclick="openConsultation()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="16" y1="2" x2="16" y2="6"></line>
-              <line x1="8" y1="2" x2="8" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>
-            <span>Request Virtual Consultation</span>
-          </button>
+      </div>
+      <div class="slide">
+        <div class="slide-overlay"></div>
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-label">Expert Facelift Surgery</p>
+            <h2 class="hero-title">Restore Youthful Radiance</h2>
+            <p class="hero-description">Advanced facelift techniques for natural, long-lasting rejuvenation.</p>
+            <div class="hero-cta">
+              <a href="#consultation" class="btn btn-primary">Get Started Today</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-overlay"></div>
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-label">Botox & Injectable Treatments</p>
+            <h2 class="hero-title">Smooth, Natural Results</h2>
+            <p class="hero-description">Quick, non-surgical treatments with no downtime.</p>
+            <div class="hero-cta">
+              <a href="#consultation" class="btn btn-primary">Book Your Visit</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="slideshow-controls">
+      <button class="slide-prev" onclick="changeSlide(-1)">‹</button>
+      <div class="slide-dots">
+        <span class="dot active" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
+      <button class="slide-next" onclick="changeSlide(1)">›</button>
+    </div>
   </section>
 
-  <!-- Procedures Section -->
+  <!-- Procedures Section with Accordion -->
   <section class="procedures-section" id="procedures">
     <div class="container">
       <div class="section-header">
         <p class="section-label">Our Specialties</p>
-        <h2 class="section-title">Signature Procedures</h2>
-        <p class="section-description">Expert surgical and non-surgical treatments tailored to enhance your natural beauty</p>
+        <h2 class="section-title">Expert Cosmetic Procedures</h2>
+        <p class="section-description">Discover our comprehensive range of surgical and non-surgical treatments</p>
       </div>
       
-      <div class="procedures-grid">
-        <!-- Procedure Card 1 - Facelift -->
-        <div class="procedure-card">
-          <div class="procedure-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-              <line x1="9" y1="9" x2="9.01" y2="9"></line>
-              <line x1="15" y1="9" x2="15.01" y2="9"></line>
-            </svg>
+      <div class="accordion">
+        <!-- Accordion Item 1 - Facelift -->
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <div class="accordion-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
+            </div>
+            <div class="accordion-title-group">
+              <h3 class="accordion-title">Facelift Surgery</h3>
+              <p class="accordion-subtitle">Comprehensive facial rejuvenation</p>
+            </div>
+            <span class="accordion-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              <p class="procedure-intro">Our advanced facelift procedures address all signs of aging to restore a youthful, natural appearance with results that can last 10+ years.</p>
+              <div class="procedure-details">
+                <div class="detail-group">
+                  <h4 class="detail-title">What It Treats:</h4>
+                  <ul class="detail-list">
+                    <li>Sagging skin and jowls</li>
+                    <li>Deep wrinkles and folds</li>
+                    <li>Loss of facial volume</li>
+                    <li>Neck laxity and bands</li>
+                  </ul>
+                </div>
+                <div class="detail-group">
+                  <h4 class="detail-title">Key Benefits:</h4>
+                  <ul class="detail-list">
+                    <li>Natural-looking rejuvenation</li>
+                    <li>Long-lasting results (10+ years)</li>
+                    <li>Improved self-confidence</li>
+                    <li>Customized to your features</li>
+                  </ul>
+                </div>
+                <div class="detail-group">
+                  <h4 class="detail-title">Recovery Time:</h4>
+                  <p class="detail-text">2-3 weeks for most swelling to subside, with full results visible in 3-6 months.</p>
+                </div>
+              </div>
+              <a href="#consultation" class="procedure-btn">Schedule Consultation</a>
+            </div>
           </div>
-          <h3 class="procedure-title">Facelift Surgery</h3>
-          <p class="procedure-description">Turn back the clock with our advanced facelift techniques. We address sagging skin, deep wrinkles, and loss of facial volume to restore a youthful, natural appearance with long-lasting results.</p>
-          <ul class="procedure-benefits">
-            <li>Reduces wrinkles and sagging</li>
-            <li>Natural-looking rejuvenation</li>
-            <li>Long-lasting transformation</li>
-          </ul>
-          <a href="#consultation" class="procedure-cta">Learn More →</a>
         </div>
 
-        <!-- Procedure Card 2 - Botox -->
-        <div class="procedure-card">
-          <div class="procedure-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-              <line x1="7" y1="7" x2="7.01" y2="7"></line>
-            </svg>
+        <!-- Accordion Item 2 - Botox -->
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <div class="accordion-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7.01" y2="7"></line>
+              </svg>
+            </div>
+            <div class="accordion-title-group">
+              <h3 class="accordion-title">Botox & Injectable Treatments</h3>
+              <p class="accordion-subtitle">Non-surgical wrinkle reduction</p>
+            </div>
+            <span class="accordion-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              <p class="procedure-intro">Quick, minimally invasive treatments that smooth wrinkles and fine lines with precision and artistry. No downtime required.</p>
+              <div class="procedure-details">
+                <div class="detail-group">
+                  <h4 class="detail-title">What It Treats:</h4>
+                  <ul class="detail-list">
+                    <li>Forehead lines and furrows</li>
+                    <li>Crow's feet around eyes</li>
+                    <li>Frown lines between brows</li>
+                    <li>Neck bands and lines</li>
+                  </ul>
+                </div>
+                <div class="detail-group">
+                  <h4 class="detail-title">Key Benefits:</h4>
+                  <ul class="detail-list">
+                    <li>Quick 15-30 minute sessions</li>
+                    <li>No downtime needed</li>
+                    <li>Results visible in 3-7 days</li>
+                    <li>Lasts 3-4 months</li>
+                  </ul>
+                </div>
+                <div class="detail-group">
+                  <h4 class="detail-title">Recovery Time:</h4>
+                  <p class="detail-text">None. You can return to normal activities immediately after treatment.</p>
+                </div>
+              </div>
+              <a href="#consultation" class="procedure-btn">Schedule Consultation</a>
+            </div>
           </div>
-          <h3 class="procedure-title">Botox & Injectables</h3>
-          <p class="procedure-description">Smooth fine lines and wrinkles with precision injectable treatments. Our expert injectors use premium products to deliver natural results that enhance your features without downtime.</p>
-          <ul class="procedure-benefits">
-            <li>Quick 15-30 minute sessions</li>
-            <li>No downtime required</li>
-            <li>Results visible in days</li>
-          </ul>
-          <a href="#consultation" class="procedure-cta">Learn More →</a>
         </div>
 
-        <!-- Procedure Card 3 - Rhinoplasty -->
-        <div class="procedure-card">
-          <div class="procedure-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
+        <!-- Accordion Item 3 - Other Procedures -->
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <div class="accordion-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="accordion-title-group">
+              <h3 class="accordion-title">Additional Aesthetic Procedures</h3>
+              <p class="accordion-subtitle">Comprehensive cosmetic solutions</p>
+            </div>
+            <span class="accordion-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              <p class="procedure-intro">We offer a full range of cosmetic procedures to help you achieve your aesthetic goals.</p>
+              <div class="procedure-grid">
+                <div class="mini-procedure">
+                  <h4 class="mini-title">Rhinoplasty</h4>
+                  <p class="mini-desc">Refine nose shape and improve breathing function</p>
+                </div>
+                <div class="mini-procedure">
+                  <h4 class="mini-title">Eyelid Surgery</h4>
+                  <p class="mini-desc">Rejuvenate tired-looking eyes</p>
+                </div>
+                <div class="mini-procedure">
+                  <h4 class="mini-title">Lip Fillers</h4>
+                  <p class="mini-desc">Add volume and definition</p>
+                </div>
+                <div class="mini-procedure">
+                  <h4 class="mini-title">Dermal Fillers</h4>
+                  <p class="mini-desc">Restore facial volume</p>
+                </div>
+              </div>
+              <a href="#consultation" class="procedure-btn">Discuss Your Goals</a>
+            </div>
           </div>
-          <h3 class="procedure-title">Rhinoplasty</h3>
-          <p class="procedure-description">Refine and reshape your nose with our precision rhinoplasty procedures. We create harmonious facial balance while preserving your unique character and improving breathing function.</p>
-          <ul class="procedure-benefits">
-            <li>Enhanced facial harmony</li>
-            <li>Functional improvements</li>
-            <li>Customized to your features</li>
-          </ul>
-          <a href="#consultation" class="procedure-cta">Learn More →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why Choose Us Section -->
-  <section class="why-section" id="about">
-    <div class="container">
-      <div class="why-grid">
-        <div class="why-content">
-          <p class="section-label">Why Clinic Y</p>
-          <h2 class="section-title">Board-Certified Expertise You Can Trust</h2>
-          <p class="why-description">Our team of double board-certified plastic surgeons brings over 60 years of combined experience in aesthetic and reconstructive surgery. We combine surgical excellence with an artistic eye to deliver beautiful, natural-looking results.</p>
-          
-          <div class="features-list">
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <div>
-                <h4 class="feature-title">Double Board-Certified</h4>
-                <p class="feature-text">Highest level of surgical expertise</p>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <div>
-                <h4 class="feature-title">State-of-the-Art Facility</h4>
-                <p class="feature-text">Accredited surgical center</p>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <div>
-                <h4 class="feature-title">Personalized Approach</h4>
-                <p class="feature-text">Custom treatment plans for you</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="#consultation" class="btn btn-primary">Schedule Consultation</a>
-        </div>
-        
-        <div class="why-stats">
-          <div class="stat-card">
-            <div class="stat-number">8,500+</div>
-            <div class="stat-label">Successful Procedures</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">60+</div>
-            <div class="stat-label">Years Combined Experience</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">99%</div>
-            <div class="stat-label">Patient Satisfaction</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Results/Testimonials Section -->
-  <section class="testimonials-section" id="results">
+  <!-- Testimonials with Quote Blocks -->
+  <section class="testimonials-section" id="testimonials">
     <div class="container">
       <div class="section-header">
-        <p class="section-label">Patient Testimonials</p>
-        <h2 class="section-title">Real Results, Real Stories</h2>
+        <p class="section-label">Patient Success Stories</p>
+        <h2 class="section-title">Real Transformations, Real Confidence</h2>
+        <p class="section-description">Hear from patients who have experienced life-changing results</p>
       </div>
 
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Dr. Johnson's facelift changed my life. The results are so natural that people just think I look refreshed and well-rested. The entire team made me feel safe and cared for throughout the process."</p>
-          <div class="testimonial-author">
-            <strong>Patricia L.</strong>
-            <span>Facelift Patient</span>
+      <div class="quote-blocks">
+        <div class="quote-block">
+          <div class="quote-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+            </svg>
+          </div>
+          <blockquote class="quote-text">
+            "Dr. Johnson's facelift completely transformed how I feel about myself. The results are so natural that people just think I look well-rested and refreshed. The entire team made me feel safe and supported throughout my journey."
+          </blockquote>
+          <div class="quote-author">
+            <div class="author-info">
+              <strong class="author-name">Patricia L.</strong>
+              <span class="author-detail">Facelift Surgery Patient</span>
+              <div class="author-rating">★★★★★</div>
+            </div>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"I've been getting Botox treatments here for three years now. The injectors are true artists - my results always look natural and exactly what I wanted. Highly recommend!"</p>
-          <div class="testimonial-author">
-            <strong>Amanda R.</strong>
-            <span>Botox & Fillers Patient</span>
+        <div class="quote-block featured">
+          <div class="quote-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+            </svg>
+          </div>
+          <blockquote class="quote-text">
+            "I've been coming here for Botox treatments for over three years. The injectors are true artists who understand facial anatomy perfectly. My results always look natural and exactly what I wanted. I wouldn't trust anyone else!"
+          </blockquote>
+          <div class="quote-author">
+            <div class="author-info">
+              <strong class="author-name">Amanda R.</strong>
+              <span class="author-detail">Botox & Fillers Patient</span>
+              <div class="author-rating">★★★★★</div>
+            </div>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"From consultation to recovery, everything exceeded my expectations. Dr. Chen is incredibly skilled and took time to understand exactly what I wanted. My rhinoplasty results are perfect!"</p>
-          <div class="testimonial-author">
-            <strong>Rebecca M.</strong>
-            <span>Rhinoplasty Patient</span>
+        <div class="quote-block">
+          <div class="quote-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+            </svg>
+          </div>
+          <blockquote class="quote-text">
+            "From the initial consultation to my final follow-up, everything exceeded my expectations. Dr. Chen took the time to truly understand my goals and delivered rhinoplasty results that are absolutely perfect. I finally love my profile!"
+          </blockquote>
+          <div class="quote-author">
+            <div class="author-info">
+              <strong class="author-name">Rebecca M.</strong>
+              <span class="author-detail">Rhinoplasty Patient</span>
+              <div class="author-rating">★★★★★</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section" id="consultation">
+  <!-- Consultation Form Section -->
+  <section class="consultation-section" id="consultation">
     <div class="container">
-      <div class="cta-content">
-        <h2 class="cta-title">Ready to Begin Your Transformation?</h2>
-        <p class="cta-description">Schedule a complimentary consultation with our board-certified surgeons. We'll create a personalized treatment plan designed specifically for your aesthetic goals and lifestyle.</p>
-        <div class="cta-buttons">
-          <a href="tel:555-987-6543" class="btn btn-primary btn-large">Call (555) 987-6543</a>
-          <button class="btn btn-secondary btn-large" onclick="openConsultation()">Book Free Consultation</button>
-        </div>
-        
-        <!-- Benefits Display -->
-        <div class="consultation-benefits">
-          <p class="benefits-text">✓ Complimentary consultation • ✓ Flexible financing available • ✓ Private consultation rooms</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="consultation-grid">
+        <div class="consultation-info">
+          <p class="section-label">Get Started</p>
+          <h2 class="section-title">Schedule Your Free Consultation</h2>
+          <p class="consultation-description">Take the first step toward achieving your aesthetic goals. Our board-certified surgeons will create a personalized treatment plan designed specifically for you.</p>
+          
+          <div class="consultation-features">
+            <div class="feature-item">
+              <div class="feature-icon">✓</div>
+              <div class="feature-content">
+                <h4>Complimentary Consultation</h4>
+                <p>No-obligation assessment with our expert surgeons</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">✓</div>
+              <div class="feature-content">
+                <h4>Personalized Treatment Plan</h4>
+                <p>Customized recommendations for your goals</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">✓</div>
+              <div class="feature-content">
+                <h4>Flexible Financing Available</h4>
+                <p>Multiple payment options to fit your budget</p>
+              </div>
+            </div>
+          </div>
 
-  <!-- Contact Section -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3 class="contact-title">Visit Our Practice</h3>
-          <div class="contact-details">
-            <div class="contact-item">
-              <strong>Address:</strong>
-              <p>456 Aesthetic Lane, Suite 500<br>Newport Beach, CA 92660</p>
-            </div>
-            <div class="contact-item">
-              <strong>Hours:</strong>
-              <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: By Appointment Only</p>
-            </div>
-            <div class="contact-item">
-              <strong>Phone:</strong>
-              <p>(555) 987-6543</p>
-            </div>
-            <div class="contact-item">
-              <strong>Email:</strong>
-              <p>info@cosmeticsurgeryy.com</p>
-            </div>
+          <div class="contact-info">
+            <p><strong>Call us directly:</strong></p>
+            <a href="tel:555-987-6543" class="phone-link">(555) 987-6543</a>
+            <p class="hours">Mon-Fri: 9:00 AM - 5:00 PM<br>Saturday: By Appointment</p>
           </div>
         </div>
 
-        <div class="contact-form">
-          <h3 class="contact-title">Request Information</h3>
-          <form class="form">
-            <input type="text" placeholder="Your Name" class="form-input" required>
-            <input type="email" placeholder="Your Email" class="form-input" required>
-            <input type="tel" placeholder="Phone Number" class="form-input">
-            <select class="form-input" required>
-              <option value="">Procedure of Interest</option>
-              <option value="facelift">Facelift Surgery</option>
-              <option value="botox">Botox & Injectables</option>
-              <option value="rhinoplasty">Rhinoplasty</option>
-              <option value="other">Other Procedure</option>
-            </select>
-            <textarea placeholder="Tell us about your goals" class="form-textarea" rows="4"></textarea>
-            <button type="submit" class="btn btn-primary btn-full">Request Consultation</button>
+        <div class="consultation-form">
+          <form class="form" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name *</label>
+              <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address *</label>
+              <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" id="phone" class="form-input" placeholder="(555) 123-4567">
+            </div>
+            
+            <div class="form-group">
+              <label for="procedure" class="form-label">Procedure of Interest *</label>
+              <select id="procedure" class="form-select" required>
+                <option value="">Select a procedure</option>
+                <option value="facelift">Facelift Surgery</option>
+                <option value="botox">Botox & Injectables</option>
+                <option value="rhinoplasty">Rhinoplasty</option>
+                <option value="eyelid">Eyelid Surgery</option>
+                <option value="other">Other / Multiple Procedures</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Tell us about your goals</label>
+              <textarea id="message" class="form-textarea" rows="4" placeholder="Describe what you'd like to achieve..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-full">Request Free Consultation</button>
+            <p class="form-note">We'll contact you within 24 hours to schedule your appointment.</p>
           </form>
         </div>
       </div>
@@ -284,34 +382,98 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-brand">
-          <h3>Cosmetic Surgery Clinic Y</h3>
-          <p>Where artistry meets excellence</p>
+        <div class="footer-section">
+          <h3 class="footer-title">Cosmetic Surgery Clinic Y</h3>
+          <p class="footer-tagline">Where artistry meets surgical excellence</p>
+          <p class="footer-address">456 Aesthetic Lane, Suite 500<br>Newport Beach, CA 92660</p>
         </div>
-        <div class="footer-links">
-          <a href="#procedures">Procedures</a>
-          <a href="#about">About</a>
-          <a href="#results">Results</a>
-          <a href="#contact">Contact</a>
+        <div class="footer-section">
+          <h4 class="footer-heading">Quick Links</h4>
+          <nav class="footer-nav">
+            <a href="#home">Home</a>
+            <a href="#procedures">Procedures</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#consultation">Book Consultation</a>
+          </nav>
         </div>
+        <div class="footer-section">
+          <h4 class="footer-heading">Contact</h4>
+          <p>Phone: <a href="tel:555-987-6543">(555) 987-6543</a></p>
+          <p>Email: <a href="mailto:info@cosmeticsurgeryy.com">info@cosmeticsurgeryy.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Cosmetic Surgery Clinic Y. All rights reserved.</p>
         <div class="footer-legal">
-          <p>&copy; 2024 Cosmetic Surgery Clinic Y. All rights reserved.</p>
-          <div class="footer-legal-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-          </div>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Consultation Modal Mockup -->
+  <!-- JavaScript -->
   <script>
-    function openConsultation() {
-      alert('Consultation booking system:\n\n- Virtual or in-person options\n- Calendar integration\n- Medical history form\n- Insurance verification\n- Photo upload for review\n- Confirmation & reminders\n- Tracking event: "consultation_requested"');
+    // Slideshow functionality
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(n) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      if (n >= slides.length) currentSlideIndex = 0;
+      if (n < 0) currentSlideIndex = slides.length - 1;
+      
+      slides[currentSlideIndex].classList.add('active');
+      dots[currentSlideIndex].classList.add('active');
     }
 
-    // Smooth scroll for anchor links
+    function changeSlide(n) {
+      currentSlideIndex += n;
+      showSlide(currentSlideIndex);
+    }
+
+    function currentSlide(n) {
+      currentSlideIndex = n;
+      showSlide(currentSlideIndex);
+    }
+
+    // Auto-advance slideshow every 6 seconds
+    setInterval(() => {
+      currentSlideIndex++;
+      showSlide(currentSlideIndex);
+    }, 6000);
+
+    // Accordion functionality
+    function toggleAccordion(button) {
+      const item = button.parentElement;
+      const content = item.querySelector('.accordion-content');
+      const toggle = button.querySelector('.accordion-toggle');
+      const isActive = item.classList.contains('active');
+      
+      // Close all accordion items
+      document.querySelectorAll('.accordion-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.accordion-toggle').textContent = '+';
+      });
+      
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+        toggle.textContent = '−';
+      }
+    }
+
+    // Form submission
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Thank you for your interest! We will contact you within 24 hours to schedule your free consultation.\n\nYour consultation will include:\n✓ Comprehensive facial assessment\n✓ Discussion of your aesthetic goals\n✓ Personalized treatment recommendations\n✓ Detailed pricing and financing options');
+      e.target.reset();
+    }
+
+    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -321,14 +483,6 @@
         }
       });
     });
-
-    // Tracking mockup - would integrate with Google Analytics, Meta Pixel, etc.
-    console.log('📊 Tracking Events Configured:');
-    console.log('- Page View');
-    console.log('- CTA Clicks (Consultation, Call)');
-    console.log('- Form Submissions');
-    console.log('- Procedure Card Views');
-    console.log('- Video/Gallery Interactions');
   </script>
 </body>
 </html>
