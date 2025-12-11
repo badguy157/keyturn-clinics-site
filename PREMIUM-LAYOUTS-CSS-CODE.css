@@ -1,0 +1,266 @@
+/* ===============================
+   PREMIUM LAYOUTS FOR DARK WEBSITE
+   Keyturn Studio — Complete CSS Code
+   =============================== */
+
+/* ---- PART 1: CSS VARIABLES & DESIGN TOKENS ---- */
+:root {
+  /* Premium spacing variables */
+  --section-y: 80px;        /* Section padding: 80px mobile */
+  --hero-y: 56px;
+  --hero-y-bottom: 28px;
+  
+  /* Premium shadows for dark backgrounds */
+  --shadow-premium: 0 8px 30px rgba(0,0,0,.28);
+  --shadow-card: 0 4px 12px rgba(0,0,0,.2), 0 1px 3px rgba(0,0,0,.15);
+  --shadow-card-hover: 0 0 30px rgba(90,162,255,.35), 
+                       0 12px 36px rgba(0,0,0,.3),
+                       0 4px 12px rgba(0,0,0,.2);
+  
+  /* Border and surface colors for dark theme */
+  --border-subtle: rgba(255,255,255,.12);
+  --surface-card: rgba(255,255,255,.08);
+  
+  /* Color palette for dark website */
+  --bg: #0a1220;              /* Deep navy background */
+  --fg: #e6ebf5;              /* Primary text */
+  --muted: #a6b3cf;           /* Secondary text */
+  --accent: #5aa2ff;          /* Brand blue accent */
+  --card: rgba(255,255,255,.08);
+  --line: rgba(255,255,255,.10);
+  
+  /* Premium radius */
+  --radius: 16px;
+  --r-sm: 12px;
+}
+
+/* Tablet spacing: increase to 88px */
+@media (min-width: 768px) {
+  :root {
+    --section-y: 88px;
+    --hero-y: 72px;
+    --hero-y-bottom: 40px;
+  }
+}
+
+/* Desktop spacing: maximum 100px for premium feel */
+@media (min-width: 1100px) {
+  :root {
+    --section-y: 100px;
+    --hero-y: 96px;
+    --hero-y-bottom: 48px;
+  }
+}
+
+/* ---- PART 2: PREMIUM SECTION PADDING (80-100px) ---- */
+section {
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+/* ---- PART 3: HERO HEIGHT (80-100vh) ---- */
+.hero {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  min-height: 80vh;         /* Mobile: 80vh */
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    min-height: 90vh;       /* Tablet: 90vh */
+  }
+}
+
+@media (min-width: 1100px) {
+  .hero {
+    min-height: 100vh;      /* Desktop: 100vh for dramatic impact */
+  }
+}
+
+/* ---- PART 4: ASYMMETRIC GRIDS FOR CARDS ---- */
+
+/* NOTE: Use these class names in your HTML:
+   - For 2-column layouts: .clinic-types-grid or .services-offer-grid
+   - For 3-column layouts: .pricing-cards-grid
+   These exact class names match the implementation in styles.css */
+
+/* 2-Column Asymmetric Grid (Services, Clinic Types) */
+.clinic-types-grid,
+.services-offer-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+/* Mobile: single column */
+@media (max-width: 767px) {
+  .clinic-types-grid,
+  .services-offer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop: asymmetric 2-column layout */
+@media (min-width: 768px) {
+  .clinic-types-grid,
+  .services-offer-grid {
+    grid-template-columns: 1fr 1.15fr;  /* Subtle asymmetry */
+    gap: 2rem;
+  }
+}
+
+/* Large desktop: more pronounced asymmetry */
+@media (min-width: 1100px) {
+  .clinic-types-grid,
+  .services-offer-grid {
+    grid-template-columns: 1fr 1.2fr;    /* 1:1.2 ratio for visual rhythm */
+    gap: 2.5rem;
+  }
+}
+
+/* 3-Column Asymmetric Grid (Pricing Cards) */
+.pricing-cards-grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .pricing-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: asymmetric 3-column with center emphasis */
+@media (min-width: 900px) {
+  .pricing-cards-grid {
+    grid-template-columns: 0.95fr 1.1fr 0.95fr;  /* Center card larger */
+    gap: 28px;
+  }
+}
+
+/* ---- PART 5: PREMIUM CARDS WITH SUBTLE SHADOWS & BORDERS ---- */
+
+/* Base Card Styles */
+.card {
+  background: var(--surface-card);
+  border: 1px solid rgba(255,255,255,.12);  /* Enhanced border visibility */
+  border-radius: var(--radius);
+  padding: 20px;
+  
+  /* Layered shadows for depth on dark backgrounds */
+  box-shadow: 0 4px 12px rgba(0,0,0,.2),    /* Ambient shadow */
+              0 1px 3px rgba(0,0,0,.15);     /* Focused shadow */
+  
+  transition: transform 0.3s ease, 
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 24px rgba(0,0,0,.3),
+              0 2px 8px rgba(0,0,0,.2);
+  border-color: rgba(255,255,255,.18);
+}
+
+/* Tablet padding increase */
+@media (min-width: 768px) {
+  .card {
+    padding: 28px;
+  }
+}
+
+/* Desktop padding increase */
+@media (min-width: 1100px) {
+  .card {
+    padding: 32px;
+  }
+}
+
+/* Premium Pricing Card with Enhanced Shadows */
+.pricing-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.04) 100%);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 20px;
+  padding: 28px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  
+  /* Triple-layered shadows for premium depth */
+  box-shadow: 0 8px 24px rgba(0,0,0,.25),          /* Ambient shadow */
+              0 2px 8px rgba(0,0,0,.15),            /* Contact shadow */
+              inset 0 1px 0 rgba(255,255,255,.05);  /* Inner highlight */
+  
+  transition: transform 0.15s ease-out, 
+              box-shadow 0.15s ease-out, 
+              border-color 0.15s ease-out;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  
+  /* Enhanced glow on hover */
+  box-shadow: 0 0 30px rgba(90,162,255,.35),       /* Blue glow */
+              0 12px 36px rgba(0,0,0,.3),          /* Deep ambient */
+              0 4px 12px rgba(0,0,0,.2),           /* Mid shadow */
+              inset 0 1px 0 rgba(255,255,255,.08); /* Brighter inner highlight */
+  
+  border-color: rgba(90,162,255,.35);
+}
+
+/* Featured/Most Popular Card */
+.pricing-card-featured {
+  background: linear-gradient(135deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.10) 100%);
+  border: 2px solid var(--accent);
+  
+  /* Enhanced layered glow for featured card */
+  box-shadow: 0 0 0 1px var(--accent), 
+              0 0 24px rgba(90,162,255,.3),
+              0 12px 36px rgba(90,162,255,.2),
+              0 4px 12px rgba(0,0,0,.2),
+              inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.pricing-card-featured:hover {
+  box-shadow: 0 0 0 1px var(--accent), 
+              0 0 40px rgba(90,162,255,.5),
+              0 16px 48px rgba(90,162,255,.3),
+              0 8px 24px rgba(0,0,0,.3),
+              inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+/* ---- PART 6: OPTIONAL UTILITY CLASSES ---- */
+
+/* Content blocks with subtle borders */
+.content-block {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--r-sm);
+  padding: 24px;
+}
+
+/* Subtle divider lines */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255,255,255,.12) 50%, 
+    transparent 100%);
+  margin: var(--section-y) 0;
+}
+
+/* Gradient background overlay for hero sections */
+.hero-gradient-overlay {
+  background: linear-gradient(135deg, 
+    rgba(10,18,32,.95) 0%, 
+    rgba(10,18,32,.85) 100%);
+}
+
+/* ===============================
+   END OF PREMIUM LAYOUTS CSS
+   =============================== */

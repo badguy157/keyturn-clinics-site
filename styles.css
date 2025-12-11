@@ -57,7 +57,7 @@
 
   /* layout paddings */
   --container-x:20px;      /* horizontal page gutters */
-  --section-y:80px;        /* top/bottom spacing per section - increased from 64px for premium feel */
+  --section-y:80px;        /* top/bottom spacing per section - PREMIUM LAYOUT: 80-100px responsive */
   --hero-y:56px;
   --hero-y-bottom:28px;
   --header-h:64px;
@@ -74,7 +74,7 @@
 @media (min-width:768px){
   :root{
     --container-x:28px;
-    --section-y:88px;        /* increased for premium spacing */
+    --section-y:88px;        /* PREMIUM LAYOUT: tablet spacing */
     --hero-y:72px;
     --hero-y-bottom:40px;
     --header-h:68px;
@@ -83,7 +83,7 @@
 @media (min-width:1100px){
   :root{
     --container-x:32px;
-    --section-y:100px;       /* increased to 100px for premium desktop spacing */
+    --section-y:100px;       /* PREMIUM LAYOUT: desktop spacing */
     --hero-y:96px;
     --hero-y-bottom:48px;
     --header-h:72px;
@@ -220,11 +220,11 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
   } 
 }
 
-/* ---- Hero ---- */
+/* ---- Hero ---- PREMIUM LAYOUT: 80-100vh responsive */
 .hero{
   padding-top:4rem;
   padding-bottom:4rem;
-  min-height:80vh;  /* taller hero for premium feel */
+  min-height:80vh !important;  /* PREMIUM: mobile 80vh */
   display:flex;
   align-items:center;
 }
@@ -232,12 +232,12 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
   .hero{
     padding-top:6rem;
     padding-bottom:6rem;
-    min-height:90vh;  /* taller hero on tablet */
+    min-height:90vh !important;  /* PREMIUM: tablet 90vh */
   }
 }
 @media (min-width:1100px){
   .hero{
-    min-height:100vh;  /* full viewport height on desktop */
+    min-height:100vh !important;  /* PREMIUM: desktop 100vh */
   }
 }
 .hero-title{
@@ -607,18 +607,18 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 @media (min-width:640px){.results-stats-grid{grid-template-columns:repeat(2,1fr)}}
 .result-stat-block{text-align:center;padding:24px;background:rgba(255,255,255,.04);border-radius:var(--r-sm);border:1px solid rgba(255,255,255,.06)}
 
-/* Clinic types and services grids - asymmetric layout for premium feel */
+/* Clinic types and services grids - PREMIUM LAYOUT: asymmetric grids */
 .clinic-types-grid,
 .services-offer-grid {
-  display: grid;
-  gap: 2.5rem;
+  display: grid !important;
+  gap: 2.5rem !important;
 }
 
 /* Mobile: single column */
 @media (max-width: 767px) {
   .clinic-types-grid,
   .services-offer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -626,8 +626,8 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 @media (min-width: 768px) {
   .clinic-types-grid,
   .services-offer-grid {
-    grid-template-columns: 1fr 1.15fr;  /* asymmetric for visual interest */
-    gap: 2rem;
+    grid-template-columns: 1fr 1.15fr !important;  /* PREMIUM: asymmetric 15% difference */
+    gap: 2rem !important;
   }
 }
 
@@ -635,19 +635,19 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 @media (min-width: 1100px) {
   .clinic-types-grid,
   .services-offer-grid {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1.2fr !important;  /* PREMIUM: asymmetric 20% difference */
+    gap: 2.5rem !important;
   }
 }
 .pricing-grid .card,.pricing-ongoing{height:100%;display:flex;flex-direction:column}
 .pricing-grid .card .btn,.pricing-ongoing .btn{margin-top:auto}
 .card{
   background:var(--brand-surface);
-  border:1px solid rgba(255,255,255,.12);  /* enhanced border visibility (increased from .04) */
+  border:1px solid rgba(255,255,255,.12) !important;  /* PREMIUM: enhanced border visibility */
   border-radius:var(--radius);
   padding:20px; /* mobile card padding */
-  box-shadow: 0 4px 12px rgba(0,0,0,.2),    /* layered shadow for depth */
-              0 1px 3px rgba(0,0,0,.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,.2),    /* PREMIUM: layered shadow - ambient */
+              0 1px 3px rgba(0,0,0,.15) !important;  /* PREMIUM: layered shadow - contact */
   position: relative;
 }
 /* Subtle inner glow for premium feel */
@@ -3145,48 +3145,48 @@ img {
   }
 }
 
-/* Pricing Cards Grid */
+/* Pricing Cards Grid - PREMIUM LAYOUT: asymmetric 3-column */
 .pricing-cards-grid {
-  display: grid;
-  gap: 24px;
+  display: grid !important;
+  gap: 24px !important;
 }
 
 @media (min-width: 640px) {
   .pricing-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 /* Desktop: asymmetric 3-column with featured card emphasis */
 @media (min-width: 900px) {
   .pricing-cards-grid {
-    grid-template-columns: 0.95fr 1.1fr 0.95fr;  /* center card (featured) slightly larger */
-    gap: 28px;
+    grid-template-columns: 0.95fr 1.1fr 0.95fr !important;  /* PREMIUM: center card emphasized */
+    gap: 28px !important;
   }
 }
 
-/* Premium Pricing Card */
+/* Premium Pricing Card - PREMIUM LAYOUT: subtle shadows */
 .pricing-card {
   position: relative;
   background: linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.04) 100%);
-  border: 1px solid rgba(255,255,255,.12);  /* enhanced border */
+  border: 1px solid rgba(255,255,255,.12) !important;  /* PREMIUM: enhanced border */
   border-radius: 20px;
   padding: 28px 24px 32px;
   display: flex;
   flex-direction: column;
-  /* Enhanced layered shadows for premium depth */
-  box-shadow: 0 8px 24px rgba(0,0,0,.25),
-              0 2px 8px rgba(0,0,0,.15),
-              inset 0 1px 0 rgba(255,255,255,.05);  /* subtle inner highlight */
+  /* PREMIUM: Enhanced layered shadows for depth */
+  box-shadow: 0 8px 24px rgba(0,0,0,.25),              /* ambient shadow */
+              0 2px 8px rgba(0,0,0,.15),                /* contact shadow */
+              inset 0 1px 0 rgba(255,255,255,.05) !important;  /* inner highlight */
   transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
 }
 
 .pricing-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 30px rgba(90,162,255,.35), 
-              0 12px 36px rgba(0,0,0,.3),
-              0 4px 12px rgba(0,0,0,.2),
-              inset 0 1px 0 rgba(255,255,255,.08);
+  box-shadow: 0 0 30px rgba(90,162,255,.35),           /* PREMIUM: blue glow */ 
+              0 12px 36px rgba(0,0,0,.3),              /* deep ambient */
+              0 4px 12px rgba(0,0,0,.2),               /* mid shadow */
+              inset 0 1px 0 rgba(255,255,255,.08) !important;
   border-color: rgba(90,162,255,.35);
 }
 

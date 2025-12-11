@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Layouts Demo - Dark Theme</title>
+  <style>
+    /* Import the premium layouts CSS inline for demo */
+    
+    /* ===============================
+       PREMIUM LAYOUTS FOR DARK WEBSITE
+       Keyturn Studio — Complete CSS Code
+       =============================== */
+
+    /* ---- PART 1: CSS VARIABLES & DESIGN TOKENS ---- */
+    :root {
+      /* Premium spacing variables */
+      --section-y: 80px;        /* Section padding: 80px mobile */
+      --hero-y: 56px;
+      --hero-y-bottom: 28px;
+      
+      /* Premium shadows for dark backgrounds */
+      --shadow-premium: 0 8px 30px rgba(0,0,0,.28);
+      --shadow-card: 0 4px 12px rgba(0,0,0,.2), 0 1px 3px rgba(0,0,0,.15);
+      --shadow-card-hover: 0 0 30px rgba(90,162,255,.35), 
+                           0 12px 36px rgba(0,0,0,.3),
+                           0 4px 12px rgba(0,0,0,.2);
+      
+      /* Border and surface colors for dark theme */
+      --border-subtle: rgba(255,255,255,.12);
+      --surface-card: rgba(255,255,255,.08);
+      
+      /* Color palette for dark website */
+      --bg: #0a1220;              /* Deep navy background */
+      --fg: #e6ebf5;              /* Primary text */
+      --muted: #a6b3cf;           /* Secondary text */
+      --accent: #5aa2ff;          /* Brand blue accent */
+      --card: rgba(255,255,255,.08);
+      --line: rgba(255,255,255,.10);
+      
+      /* Premium radius */
+      --radius: 16px;
+      --r-sm: 12px;
+    }
+
+    /* Tablet spacing: increase to 88px */
+    @media (min-width: 768px) {
+      :root {
+        --section-y: 88px;
+        --hero-y: 72px;
+        --hero-y-bottom: 40px;
+      }
+    }
+
+    /* Desktop spacing: maximum 100px for premium feel */
+    @media (min-width: 1100px) {
+      :root {
+        --section-y: 100px;
+        --hero-y: 96px;
+        --hero-y-bottom: 48px;
+      }
+    }
+
+    /* Base styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ---- PART 2: PREMIUM SECTION PADDING (80-100px) ---- */
+    section {
+      padding-top: var(--section-y);
+      padding-bottom: var(--section-y);
+    }
+
+    /* ---- PART 3: HERO HEIGHT (80-100vh) ---- */
+    .hero {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      min-height: 80vh;         /* Mobile: 80vh */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(10,18,32,.95) 0%, rgba(10,18,32,.85) 100%);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(90,162,255,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        min-height: 90vh;       /* Tablet: 90vh */
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .hero {
+        min-height: 100vh;      /* Desktop: 100vh for dramatic impact */
+      }
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .accent {
+      color: var(--accent);
+    }
+
+    /* ---- PART 4: ASYMMETRIC GRIDS FOR CARDS ---- */
+
+    /* 2-Column Asymmetric Grid */
+    .grid-2col {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2col {
+        grid-template-columns: 1fr 1.15fr;  /* Subtle asymmetry */
+        gap: 2rem;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .grid-2col {
+        grid-template-columns: 1fr 1.2fr;    /* 1:1.2 ratio for visual rhythm */
+        gap: 2.5rem;
+      }
+    }
+
+    /* 3-Column Asymmetric Grid */
+    .grid-3col {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 640px) {
+      .grid-3col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .grid-3col {
+        grid-template-columns: 0.95fr 1.1fr 0.95fr;  /* Center card larger */
+        gap: 28px;
+      }
+    }
+
+    /* ---- PART 5: PREMIUM CARDS WITH SUBTLE SHADOWS & BORDERS ---- */
+
+    .card {
+      background: var(--surface-card);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 20px;
+      
+      /* Layered shadows for depth on dark backgrounds */
+      box-shadow: 0 4px 12px rgba(0,0,0,.2),
+                  0 1px 3px rgba(0,0,0,.15);
+      
+      transition: transform 0.3s ease, 
+                  box-shadow 0.3s ease,
+                  border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 8px 24px rgba(0,0,0,.3),
+                  0 2px 8px rgba(0,0,0,.2);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 28px;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .card {
+        padding: 32px;
+      }
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--fg);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Premium Pricing Card */
+    .pricing-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.04) 100%);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      padding: 28px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      
+      /* Triple-layered premium shadows */
+      box-shadow: 0 8px 24px rgba(0,0,0,.25),
+                  0 2px 8px rgba(0,0,0,.15),
+                  inset 0 1px 0 rgba(255,255,255,.05);
+      
+      transition: transform 0.15s ease-out, 
+                  box-shadow 0.15s ease-out, 
+                  border-color 0.15s ease-out;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 30px rgba(90,162,255,.35),
+                  0 12px 36px rgba(0,0,0,.3),
+                  0 4px 12px rgba(0,0,0,.2),
+                  inset 0 1px 0 rgba(255,255,255,.08);
+      border-color: rgba(90,162,255,.35);
+    }
+
+    .pricing-card-featured {
+      background: linear-gradient(135deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.10) 100%);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 1px var(--accent), 
+                  0 0 24px rgba(90,162,255,.3),
+                  0 12px 36px rgba(90,162,255,.2),
+                  0 4px 12px rgba(0,0,0,.2),
+                  inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .pricing-card-featured:hover {
+      box-shadow: 0 0 0 1px var(--accent), 
+                  0 0 40px rgba(90,162,255,.5),
+                  0 16px 48px rgba(90,162,255,.3),
+                  0 8px 24px rgba(0,0,0,.3),
+                  inset 0 1px 0 rgba(255,255,255,.12);
+    }
+
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-card .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      margin: 1rem 0;
+      flex-grow: 1;
+    }
+
+    .pricing-card li {
+      padding: 0.5rem 0;
+      color: var(--muted);
+    }
+
+    .pricing-card li::before {
+      content: '✓';
+      color: var(--accent);
+      margin-right: 0.5rem;
+      font-weight: 700;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Section titles */
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 3rem;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Visual indicators */
+    .indicator {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.875rem;
+      font-family: monospace;
+      color: var(--accent);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    @media (max-width: 767px) {
+      .indicator { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Device indicator -->
+  <div class="indicator">
+    <span id="device-size"></span>
+  </div>
+
+  <!-- HERO SECTION (80-100vh) -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Premium Layouts for <span class="accent">Dark Websites</span></h1>
+      <p>Experience 80-100px section padding, 80-100vh hero heights, asymmetric grids, and subtle shadows optimized for dark themes.</p>
+    </div>
+  </section>
+
+  <!-- SECTION WITH PREMIUM PADDING (80-100px) -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">2-Column <span class="accent">Asymmetric Grid</span></h2>
+      <p class="section-subtitle">1fr : 1.2fr ratio creates visual rhythm and breaks monotony</p>
+      
+      <div class="grid-2col">
+        <div class="card">
+          <h3>Smaller Column</h3>
+          <p>This column uses 1fr width. Notice how the asymmetric layout creates a more dynamic and premium feel compared to equal columns.</p>
+        </div>
+        <div class="card">
+          <h3>Larger Column (20% wider)</h3>
+          <p>This column uses 1.2fr width, making it 20% wider than the first column. The subtle asymmetry adds sophistication and visual interest to the layout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-COLUMN ASYMMETRIC PRICING GRID -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">3-Column <span class="accent">Pricing Grid</span></h2>
+      <p class="section-subtitle">0.95fr : 1.1fr : 0.95fr with center emphasis</p>
+      
+      <div class="grid-3col">
+        <div class="pricing-card">
+          <h3>Starter</h3>
+          <div class="price">$49</div>
+          <ul>
+            <li>Feature one</li>
+            <li>Feature two</li>
+            <li>Feature three</li>
+            <li>Basic support</li>
+          </ul>
+        </div>
+        
+        <div class="pricing-card pricing-card-featured">
+          <span class="badge">Most Popular</span>
+          <h3>Professional</h3>
+          <div class="price">$99</div>
+          <ul>
+            <li>All Starter features</li>
+            <li>Advanced analytics</li>
+            <li>Priority support</li>
+            <li>Custom branding</li>
+            <li>API access</li>
+          </ul>
+        </div>
+        
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <div class="price">$199</div>
+          <ul>
+            <li>All Pro features</li>
+            <li>Dedicated support</li>
+            <li>SLA guarantee</li>
+            <li>Custom development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHADOW & BORDER SHOWCASE -->
+  <section style="padding-bottom: 120px;">
+    <div class="container">
+      <h2 class="section-title">Subtle <span class="accent">Shadows & Borders</span></h2>
+      <p class="section-subtitle">Multi-layered shadows for depth on dark backgrounds</p>
+      
+      <div class="grid-2col">
+        <div class="card">
+          <h3>Standard Card</h3>
+          <p>• Border: rgba(255,255,255,.12)<br>
+          • Shadow Layer 1: 0 4px 12px (ambient)<br>
+          • Shadow Layer 2: 0 1px 3px (contact)<br>
+          • Hover: Lift + enhanced glow</p>
+        </div>
+        <div class="pricing-card">
+          <h3>Premium Card</h3>
+          <p>• Border: rgba(255,255,255,.12)<br>
+          • Shadow Layer 1: 0 8px 24px (ambient)<br>
+          • Shadow Layer 2: 0 2px 8px (contact)<br>
+          • Shadow Layer 3: inset highlight<br>
+          • Hover: Blue glow effect</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Display current viewport width for demonstration
+    function updateDeviceIndicator() {
+      const width = window.innerWidth;
+      const indicator = document.getElementById('device-size');
+      
+      let device = 'Desktop';
+      let padding = '100px';
+      let hero = '100vh';
+      
+      if (width < 768) {
+        device = 'Mobile';
+        padding = '80px';
+        hero = '80vh';
+      } else if (width < 1100) {
+        device = 'Tablet';
+        padding = '88px';
+        hero = '90vh';
+      }
+      
+      indicator.textContent = `${device} (${width}px) • Padding: ${padding} • Hero: ${hero}`;
+    }
+    
+    updateDeviceIndicator();
+    window.addEventListener('resize', updateDeviceIndicator);
+  </script>
+</body>
+</html>
