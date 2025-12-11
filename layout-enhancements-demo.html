@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Layout Enhancements - Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Demo-specific styles */
+    .demo-header {
+      background: linear-gradient(135deg, rgba(90,162,255,0.1) 0%, rgba(212,175,55,0.05) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 2rem 0;
+      text-align: center;
+      margin-bottom: 0;
+    }
+    
+    .demo-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 0 0 0.5rem;
+      color: var(--fg);
+    }
+    
+    .demo-header p {
+      color: var(--brand-muted);
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    
+    .demo-section {
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    
+    .demo-label {
+      display: inline-block;
+      background: rgba(90,162,255,0.15);
+      color: var(--brand-primary);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+    
+    .enhancement-showcase {
+      display: grid;
+      gap: 3rem;
+    }
+    
+    .showcase-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    
+    .showcase-item h3 {
+      margin-top: 0;
+      color: var(--fg);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .showcase-item h3::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: rgba(90,162,255,0.2);
+      border-radius: 50%;
+      color: var(--brand-primary);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    
+    .code-snippet {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+    
+    .code-snippet code {
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #93c5fd;
+      line-height: 1.5;
+    }
+    
+    .visual-demo {
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      background: rgba(0,0,0,0.2);
+      border: 1px dashed rgba(255,255,255,0.15);
+      border-radius: 8px;
+    }
+    
+    .metric-display {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    
+    .metric {
+      background: rgba(90,162,255,0.1);
+      border: 1px solid rgba(90,162,255,0.2);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      flex: 1;
+      min-width: 120px;
+    }
+    
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      font-family: var(--font-heading);
+    }
+    
+    .metric-label {
+      font-size: 0.85rem;
+      color: var(--brand-muted);
+      margin-top: 0.25rem;
+    }
+    
+    /* Mini cards for demo */
+    .demo-cards-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .demo-cards-grid.asymmetric-2 {
+        grid-template-columns: 1fr 1.2fr;
+      }
+      
+      .demo-cards-grid.asymmetric-3 {
+        grid-template-columns: 0.95fr 1.1fr 0.95fr;
+      }
+    }
+    
+    .demo-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .demo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 0 20px rgba(90,162,255,0.15);
+    }
+    
+    .demo-card.featured {
+      border: 2px solid var(--brand-primary);
+      box-shadow: 0 0 24px rgba(90,162,255,0.3), 0 8px 24px rgba(0,0,0,0.25);
+    }
+    
+    .comparison {
+      display: grid;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    @media (min-width: 900px) {
+      .comparison {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .comparison-item {
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    
+    .comparison-item h4 {
+      margin-top: 0;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+    
+    .before {
+      border: 2px solid rgba(255,100,100,0.3);
+    }
+    
+    .before h4 {
+      color: rgba(255,150,150,0.9);
+    }
+    
+    .after {
+      border: 2px solid rgba(100,255,100,0.3);
+    }
+    
+    .after h4 {
+      color: rgba(150,255,150,0.9);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Header -->
+  <div class="demo-header">
+    <div class="container">
+      <h1>Premium Layout Enhancements</h1>
+      <p>Visual demonstration of spacing, grids, and shadows for dark websites</p>
+    </div>
+  </div>
+
+  <!-- Hero Enhancement Demo -->
+  <section class="hero section demo-section">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-left">
+          <span class="demo-label">Enhancement #1</span>
+          <h1 class="hero-title">Taller Hero Section</h1>
+          <p class="hero-lede">
+            This hero uses <strong>80vh-100vh</strong> viewport height (mobile to desktop) for a bold, 
+            premium first impression. Content is vertically centered using flexbox.
+          </p>
+          
+          <div class="metric-display">
+            <div class="metric">
+              <div class="metric-value">80vh</div>
+              <div class="metric-label">Mobile</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">90vh</div>
+              <div class="metric-label">Tablet</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">100vh</div>
+              <div class="metric-label">Desktop</div>
+            </div>
+          </div>
+          
+          <div class="code-snippet">
+            <code>
+.hero {<br>
+&nbsp;&nbsp;min-height: 80vh; /* mobile */<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;align-items: center;<br>
+}<br>
+@media (min-width: 1100px) {<br>
+&nbsp;&nbsp;.hero { min-height: 100vh; }<br>
+}
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Padding Demo -->
+  <section class="section demo-section">
+    <div class="container">
+      <span class="demo-label">Enhancement #2</span>
+      <h2>Increased Section Padding</h2>
+      <p class="hero-lede" style="margin-bottom: 2rem;">
+        Premium spacing creates breathing room. Sections now use 80-100px padding 
+        (increased from 64-88px) for a more luxurious, editorial feel.
+      </p>
+      
+      <div class="showcase-item">
+        <h3>Responsive Spacing Scale</h3>
+        <div class="metric-display">
+          <div class="metric">
+            <div class="metric-value">80px</div>
+            <div class="metric-label">Mobile Base</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">88px</div>
+            <div class="metric-label">Tablet (768px+)</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">100px</div>
+            <div class="metric-label">Desktop (1100px+)</div>
+          </div>
+        </div>
+        
+        <div class="code-snippet">
+          <code>
+:root { --section-y: 80px; }<br>
+@media (min-width: 768px) {<br>
+&nbsp;&nbsp;:root { --section-y: 88px; }<br>
+}<br>
+@media (min-width: 1100px) {<br>
+&nbsp;&nbsp;:root { --section-y: 100px; }<br>
+}
+          </code>
+        </div>
+        
+        <p style="color: var(--brand-muted); margin-top: 1rem; font-size: 0.95rem;">
+          <strong>Impact:</strong> The 56% increase in desktop spacing (64px → 100px) creates 
+          a noticeably more premium feel while maintaining content density on mobile.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Asymmetric Grid Demo -->
+  <section class="section demo-section">
+    <div class="container">
+      <span class="demo-label">Enhancement #3</span>
+      <h2>Asymmetric Grids for Visual Rhythm</h2>
+      <p class="hero-lede" style="margin-bottom: 2rem;">
+        Asymmetric column widths create visual interest and natural focal points, 
+        breaking the monotony of equal-width layouts.
+      </p>
+      
+      <div class="enhancement-showcase">
+        <!-- Services Grid -->
+        <div class="showcase-item">
+          <h3>Services Grid (1fr 1.2fr)</h3>
+          <p style="color: var(--brand-muted);">
+            Two-column layout with the second column 20% wider. Creates subtle 
+            movement and hierarchy.
+          </p>
+          
+          <div class="visual-demo">
+            <div class="demo-cards-grid asymmetric-2">
+              <div class="demo-card">
+                <div>
+                  <strong>Card 1</strong><br>
+                  <span style="font-size: 0.85rem; color: var(--brand-muted);">1fr</span>
+                </div>
+              </div>
+              <div class="demo-card">
+                <div>
+                  <strong>Card 2</strong><br>
+                  <span style="font-size: 0.85rem; color: var(--brand-muted);">1.2fr (20% wider)</span>
+                </div>
+              </div>
+              <div class="demo-card">
+                <div>
+                  <strong>Card 3</strong><br>
+                  <span style="font-size: 0.85rem; color: var(--brand-muted);">1fr</span>
+                </div>
+              </div>
+              <div class="demo-card">
+                <div>
+                  <strong>Card 4</strong><br>
+                  <span style="font-size: 0.85rem; color: var(--brand-muted);">1.2fr (20% wider)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-snippet">
+            <code>
+.services-offer-grid {<br>
+&nbsp;&nbsp;display: grid;<br>
+&nbsp;&nbsp;grid-template-columns: 1fr 1.2fr;<br>
+&nbsp;&nbsp;gap: 2.5rem;<br>
+}
+            </code>
+          </div>
+        </div>
+        
+        <!-- Pricing Grid -->
+        <div class="showcase-item">
+          <h3>Pricing Grid (0.95fr 1.1fr 0.95fr)</h3>
+          <p style="color: var(--brand-muted);">
+            Three-column layout with center column 15% wider. Perfect for emphasizing 
+            a featured/popular plan in the middle position.
+          </p>
+          
+          <div class="visual-demo">
+            <div class="demo-cards-grid asymmetric-3">
+              <div class="demo-card">
+                <div>
+                  <strong>Core Plan</strong><br>
+                  <span style="font-size: 0.85rem; color: var(--brand-muted);">0.95fr</span>
+                </div>
+              </div>
+              <div class="demo-card featured">
+                <div>
+                  <strong>PRO Plan ⭐</strong><br>
+                  <span style="font-size: 0.85rem; color: var(--brand-primary);">1.1fr (Featured)</span>
+                </div>
+              </div>
+              <div class="demo-card">
+                <div>
+                  <strong>Premier</strong><br>
+                  <span style="font-size: 0.85rem; color: var(--brand-muted);">0.95fr</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="code-snippet">
+            <code>
+.pricing-cards-grid {<br>
+&nbsp;&nbsp;display: grid;<br>
+&nbsp;&nbsp;grid-template-columns: 0.95fr 1.1fr 0.95fr;<br>
+&nbsp;&nbsp;gap: 28px;<br>
+}
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shadows & Borders Demo -->
+  <section class="section demo-section">
+    <div class="container">
+      <span class="demo-label">Enhancement #4</span>
+      <h2>Enhanced Shadows & Borders</h2>
+      <p class="hero-lede" style="margin-bottom: 2rem;">
+        Layered shadows and stronger borders create depth and definition on dark backgrounds.
+      </p>
+      
+      <div class="comparison">
+        <div class="comparison-item before">
+          <h4>❌ Before</h4>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-top: 1rem;">
+            <p style="margin: 0; color: var(--brand-muted); font-size: 0.9rem;">
+              Single shadow, weak border<br>
+              Looks flat and underwhelming
+            </p>
+          </div>
+          <div class="code-snippet" style="margin-top: 1rem;">
+            <code style="font-size: 0.8rem;">
+border: 1px solid rgba(255,255,255,0.04);<br>
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            </code>
+          </div>
+        </div>
+        
+        <div class="comparison-item after">
+          <h4>✅ After</h4>
+          <div class="demo-card" style="margin-top: 1rem;">
+            <p style="margin: 0; color: var(--fg); font-size: 0.9rem;">
+              Layered shadows, strong border<br>
+              <strong>Premium depth and definition</strong>
+            </p>
+          </div>
+          <div class="code-snippet" style="margin-top: 1rem;">
+            <code style="font-size: 0.8rem;">
+border: 1px solid rgba(255,255,255,0.12);<br>
+box-shadow: 0 4px 12px rgba(0,0,0,0.2),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 1px 3px rgba(0,0,0,0.15);
+            </code>
+          </div>
+        </div>
+      </div>
+      
+      <div class="showcase-item" style="margin-top: 2rem;">
+        <h3>Key Shadow Principles for Dark Backgrounds</h3>
+        <ul style="color: var(--brand-muted); line-height: 1.8;">
+          <li><strong>Layer multiple shadows</strong> - Combine ambient (far, soft) with focused (near, crisp)</li>
+          <li><strong>Higher opacity</strong> - Use 0.2-0.3 vs 0.1-0.15 on light backgrounds</li>
+          <li><strong>Stronger borders</strong> - Use 0.08-0.12 alpha instead of 0.04 for visibility</li>
+          <li><strong>Inset highlights</strong> - Add subtle top inner glow for dimensional "glass" effect</li>
+          <li><strong>Blue glow on hover</strong> - Brand color reinforces interactivity</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Implementation Summary -->
+  <section class="section demo-section" style="background: rgba(90,162,255,0.05);">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 2rem;">Implementation Summary</h2>
+      
+      <div class="enhancement-showcase">
+        <div class="showcase-item">
+          <h3>All Enhancements Applied ✅</h3>
+          <p style="color: var(--brand-muted); margin-bottom: 1.5rem;">
+            These premium layout enhancements are <strong>already implemented</strong> in styles.css 
+            and active across all pages (index.html, pricing.html, services.html).
+          </p>
+          
+          <table style="width: 100%; border-collapse: collapse; color: var(--brand-text);">
+            <thead>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <th style="text-align: left; padding: 0.75rem 0; color: var(--brand-primary);">Enhancement</th>
+                <th style="text-align: center; padding: 0.75rem 0; color: var(--brand-primary);">Mobile</th>
+                <th style="text-align: center; padding: 0.75rem 0; color: var(--brand-primary);">Tablet</th>
+                <th style="text-align: center; padding: 0.75rem 0; color: var(--brand-primary);">Desktop</th>
+              </tr>
+            </thead>
+            <tbody style="font-size: 0.95rem;">
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 0.75rem 0;">Section Padding</td>
+                <td style="text-align: center; padding: 0.75rem 0;">80px</td>
+                <td style="text-align: center; padding: 0.75rem 0;">88px</td>
+                <td style="text-align: center; padding: 0.75rem 0;">100px</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 0.75rem 0;">Hero Height</td>
+                <td style="text-align: center; padding: 0.75rem 0;">80vh</td>
+                <td style="text-align: center; padding: 0.75rem 0;">90vh</td>
+                <td style="text-align: center; padding: 0.75rem 0;">100vh</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 0.75rem 0;">Services Grid</td>
+                <td style="text-align: center; padding: 0.75rem 0;">1fr</td>
+                <td style="text-align: center; padding: 0.75rem 0;">1fr 1.15fr</td>
+                <td style="text-align: center; padding: 0.75rem 0;">1fr 1.2fr</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                <td style="padding: 0.75rem 0;">Pricing Grid</td>
+                <td style="text-align: center; padding: 0.75rem 0;">1fr</td>
+                <td style="text-align: center; padding: 0.75rem 0;">1fr 1fr</td>
+                <td style="text-align: center; padding: 0.75rem 0;">0.95 1.1 0.95</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.75rem 0;">Card Borders</td>
+                <td colspan="3" style="text-align: center; padding: 0.75rem 0;">rgba(255,255,255,0.12)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="showcase-item">
+          <h3>Documentation Available 📚</h3>
+          <ul style="color: var(--brand-muted); line-height: 2;">
+            <li><strong>LAYOUT-ENHANCEMENTS-SUMMARY.md</strong> - Complete guide with CSS snippets and step-by-step</li>
+            <li><strong>LAYOUT-ENHANCEMENTS-CSS.md</strong> - Detailed technical CSS reference</li>
+            <li><strong>LAYOUT-BEFORE-AFTER.md</strong> - Visual comparisons and design rationale</li>
+            <li><strong>WEBFLOW-STEP-BY-STEP.md</strong> - Webflow implementation guide</li>
+            <li><strong>styles.css</strong> - Live implementation (lines 60-91, 223-242, 610-641, 3148-3200)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section" style="border-top: 1px solid rgba(255,255,255,0.08); text-align: center;">
+    <div class="container">
+      <p style="color: var(--brand-muted); margin: 0;">
+        Premium Layout Enhancements Demo • December 2025
+      </p>
+      <p style="color: var(--brand-muted); margin: 0.5rem 0 0; font-size: 0.9rem;">
+        All enhancements implemented and active in production
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
