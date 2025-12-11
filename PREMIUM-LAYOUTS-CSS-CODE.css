@@ -83,6 +83,11 @@ section {
 
 /* ---- PART 4: ASYMMETRIC GRIDS FOR CARDS ---- */
 
+/* NOTE: Use these class names in your HTML:
+   - For 2-column layouts: .clinic-types-grid or .services-offer-grid
+   - For 3-column layouts: .pricing-cards-grid
+   These exact class names match the implementation in styles.css */
+
 /* 2-Column Asymmetric Grid (Services, Clinic Types) */
 .clinic-types-grid,
 .services-offer-grid {
