@@ -6086,3 +6086,102 @@ img {
   line-height: 1.6;
   margin: 0;
 }
+
+/* ===== Demo Grid for Proof Page ===== */
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 640px) {
+  .demo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .demo-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+}
+
+/* Demo card styles for proof page */
+.demo-grid .demo-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  border-radius: 12px;
+  padding: 0;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.demo-grid .demo-card:hover {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(148, 163, 184, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+.demo-grid .demo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.demo-grid .demo-category-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: var(--brand-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  z-index: 1;
+}
+
+.demo-grid .demo-card-body {
+  padding: 20px;
+  flex: 1;
+}
+
+.demo-grid .demo-card-body h3 {
+  color: var(--brand-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.demo-grid .demo-card-body p {
+  color: var(--brand-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.demo-grid .demo-card-footer {
+  padding: 0 20px 20px 20px;
+}
+
+.demo-grid .demo-card-footer .btn {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: var(--brand-accent);
+  font-weight: 500;
+}
+
+.demo-grid .demo-card:hover .demo-card-footer .btn {
+  color: var(--brand-accent-hover);
+}
