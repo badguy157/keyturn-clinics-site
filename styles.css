@@ -2520,6 +2520,24 @@ img {
   }
 }
 
+.clinic-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: #1e293b;
+  margin: 0 auto 12px;
+}
+
+.clinic-icon-circle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--brand-accent);
+  opacity: 0.9;
+}
+
 /* ===== What We Do Section - 2-column layout ===== */
 .what-we-do-layout {
   display: grid;
