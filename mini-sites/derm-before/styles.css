@@ -1,0 +1,236 @@
+/* Outdated Dermatology Clinic X Styles */
+
+/* Light gray background theme with poor contrast */
+body {
+    background-color: #e8e8e8;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Header with poor spacing */
+header {
+    background-color: #d0d0d0;
+    padding: 10px 15px;
+    text-align: center;
+    border-bottom: 3px solid #a0a0a0;
+    box-shadow: 2px 2px 5px #999;
+}
+
+header h1 {
+    margin: 5px 0;
+    font-family: 'Times New Roman', serif;
+    color: #2c3e50;
+    font-size: 32px;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 2px #fff;
+}
+
+marquee {
+    background-color: #ffd700;
+    color: #000;
+    font-family: Verdana, sans-serif;
+    font-size: 14px;
+    padding: 8px;
+    margin-top: 10px;
+    border: 2px dotted #ff6347;
+}
+
+/* Navigation with uneven, confusing buttons */
+nav {
+    background-color: #b8b8b8;
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #888;
+}
+
+nav a {
+    text-decoration: none;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+/* Uneven button styles - intentionally bad */
+.nav-btn-1 {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: Georgia, serif;
+    border-radius: 5px;
+    border: 2px solid #357abd;
+}
+
+.nav-btn-2 {
+    background-color: #e74c3c;
+    color: yellow;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-family: 'Comic Sans MS', cursive;
+    border-radius: 0;
+    border: 3px dotted #c0392b;
+    margin-left: 20px;
+}
+
+.nav-btn-3 {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-family: Impact, sans-serif;
+    border-radius: 15px;
+    border: 1px solid #27ae60;
+    margin-left: 10px;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+/* Container with cluttered layout */
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px;
+    gap: 10px;
+}
+
+.sidebar {
+    background-color: #c9c9c9;
+    padding: 15px;
+    width: 200px;
+    border: 2px solid #999;
+    box-shadow: inset 0 0 10px #aaa;
+}
+
+.sidebar h3 {
+    font-family: 'Courier New', monospace;
+    color: #e74c3c;
+    font-size: 16px;
+    margin-top: 0;
+    text-decoration: underline;
+}
+
+.sidebar ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.sidebar li {
+    margin-bottom: 8px;
+}
+
+.sidebar a {
+    color: #2980b9;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+    color: #e74c3c;
+}
+
+main {
+    flex: 1;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Poor typography with mixed fonts */
+main h2 {
+    font-family: 'Comic Sans MS', cursive;
+    color: #8e44ad;
+    font-size: 28px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    text-decoration: underline;
+}
+
+main h3 {
+    font-family: 'Times New Roman', serif;
+    color: #e67e22;
+    font-size: 22px;
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+main p {
+    font-family: Verdana, sans-serif;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 10px;
+    text-align: justify;
+    line-height: 1.3;
+}
+
+main section {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #fff;
+    border: 2px dashed #bbb;
+}
+
+/* Image placeholders with poor styling */
+.image-placeholder {
+    background-color: #ddd;
+    border: 3px solid #999;
+    padding: 40px 20px;
+    text-align: center;
+    margin: 15px 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #666;
+    box-shadow: 3px 3px 8px #aaa;
+}
+
+.sidebar-right {
+    background-color: #d4d4d4;
+    padding: 15px;
+    width: 250px;
+    border: 2px solid #999;
+}
+
+.sidebar-right h3 {
+    font-family: Impact, sans-serif;
+    color: #16a085;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.sidebar-right p {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #444;
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* Footer with poor contrast */
+footer {
+    background-color: #a9a9a9;
+    color: #222;
+    text-align: center;
+    padding: 20px;
+    border-top: 4px double #777;
+    font-family: 'Times New Roman', serif;
+    font-size: 12px;
+}
+
+footer a {
+    color: #2c3e50;
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* No mobile optimization - fixed widths everywhere */
+/* Horizontal scrolling on small screens is intentional for "bad design" */
