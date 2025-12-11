@@ -6,7 +6,7 @@
   <title>Medspa Clinic Z | Premium Aesthetic Treatments</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,10 +16,10 @@
       <div class="header-content">
         <h1 class="logo">Medspa Clinic Z</h1>
         <nav class="nav">
-          <a href="#treatments" class="nav-btn">Treatments</a>
-          <a href="#about" class="nav-btn">About</a>
-          <a href="#contact" class="nav-btn">Contact</a>
-          <a href="#book" class="nav-btn nav-btn-primary">Book Now</a>
+          <a href="#home">Home</a>
+          <a href="#treatments">Treatments</a>
+          <a href="#booking">Book</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </div>
@@ -29,248 +29,299 @@
   <section class="hero-section" id="home">
     <div class="container">
       <div class="hero-content">
-        <p class="hero-label">Premium Medical Spa</p>
+        <p class="hero-label">Premium Medical Spa Experience</p>
         <h2 class="hero-title">Transform Your Beauty with Advanced Aesthetic Treatments</h2>
         <p class="hero-description">Experience luxury medical spa services with our expert team. From premium injectables to rejuvenating facials, we help you look and feel your absolute best.</p>
         <div class="hero-cta">
           <a href="#injectables" class="btn btn-primary">Explore Injectables</a>
           <a href="#facials" class="btn btn-secondary">View Facials</a>
         </div>
-        <!-- Quick Booking Widget -->
-        <div class="scheduling-widget">
-          <button class="schedule-btn" onclick="openScheduler()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="16" y1="2" x2="16" y2="6"></line>
-              <line x1="8" y1="2" x2="8" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>
-            <span>Schedule Consultation</span>
-          </button>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Injectables Section -->
-  <section class="treatments-section" id="injectables">
+  <!-- Tabbed Treatments Section -->
+  <section class="treatments-section" id="treatments">
     <div class="container">
-      <div class="section-header">
-        <p class="section-label">Premium Injectables</p>
-        <h2 class="section-title">Injectable Treatments for Natural-Looking Results</h2>
-        <p class="section-description">Expert administration of neuromodulators and dermal fillers for subtle enhancement</p>
-      </div>
+      <h2 class="section-title">Our Premium Treatments</h2>
+      <p class="section-subtitle">Discover our comprehensive range of aesthetic services</p>
       
-      <div class="treatments-grid">
-        <!-- Injectable 1 -->
-        <div class="treatment-card" data-treatment="botox">
-          <div class="treatment-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-              <path d="M2 17l10 5 10-5"></path>
-              <path d="M2 12l10 5 10-5"></path>
-            </svg>
+      <!-- Tab Navigation -->
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="injectables">Injectables</button>
+        <button class="tab-btn" data-tab="facials">Facials</button>
+        <button class="tab-btn" data-tab="laser">Laser Treatments</button>
+        <button class="tab-btn" data-tab="skincare">Medical Skincare</button>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="tab-content">
+        <!-- Injectables Tab -->
+        <div id="injectables" class="tab-pane active">
+          <div class="treatments-grid">
+            <div class="treatment-card">
+              <div class="treatment-icon">💉</div>
+              <h3 class="treatment-title">Botox & Dysport</h3>
+              <p class="treatment-description">Smooth fine lines and wrinkles with FDA-approved neuromodulators. Perfect for forehead lines, crow's feet, and frown lines.</p>
+              <div class="treatment-details">
+                <span>⏱ 15-20 minutes</span>
+                <span>🏠 No downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('Botox & Dysport')">Book Treatment →</button>
+            </div>
+
+            <div class="treatment-card">
+              <div class="treatment-icon">💧</div>
+              <h3 class="treatment-title">Dermal Fillers</h3>
+              <p class="treatment-description">Add volume and contour with premium hyaluronic acid fillers. Enhance lips, cheeks, and jawline for a youthful appearance.</p>
+              <div class="treatment-details">
+                <span>⏱ 30-45 minutes</span>
+                <span>🏠 Minimal downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('Dermal Fillers')">Book Treatment →</button>
+            </div>
+
+            <div class="treatment-card">
+              <div class="treatment-icon">✨</div>
+              <h3 class="treatment-title">Kybella</h3>
+              <p class="treatment-description">Non-surgical double chin reduction with FDA-approved injectable. Permanent fat reduction for a defined jawline.</p>
+              <div class="treatment-details">
+                <span>⏱ 20-30 minutes</span>
+                <span>🏠 1-2 days downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('Kybella')">Book Treatment →</button>
+            </div>
           </div>
-          <h3 class="treatment-title">Botox & Dysport</h3>
-          <p class="treatment-description">Smooth fine lines and wrinkles with FDA-approved neuromodulators. Perfect for forehead lines, crow's feet, and frown lines.</p>
-          <div class="treatment-details">
-            <span class="treatment-duration">⏱ 15-20 minutes</span>
-            <span class="treatment-downtime">🏠 No downtime</span>
-          </div>
-          <button class="treatment-cta" onclick="openTreatmentForm('Botox & Dysport')">Book Treatment →</button>
         </div>
 
-        <!-- Injectable 2 -->
-        <div class="treatment-card" data-treatment="fillers">
-          <div class="treatment-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-              <line x1="9" y1="9" x2="9.01" y2="9"></line>
-              <line x1="15" y1="9" x2="15.01" y2="9"></line>
-            </svg>
+        <!-- Facials Tab -->
+        <div id="facials" class="tab-pane">
+          <div class="treatments-grid">
+            <div class="treatment-card">
+              <div class="treatment-icon">💆</div>
+              <h3 class="treatment-title">HydraFacial MD</h3>
+              <p class="treatment-description">The ultimate medical-grade facial. Deep cleansing, exfoliation, extraction, and hydration in one luxurious treatment.</p>
+              <div class="treatment-details">
+                <span>⏱ 45-60 minutes</span>
+                <span>🏠 No downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('HydraFacial MD')">Book Treatment →</button>
+            </div>
+
+            <div class="treatment-card">
+              <div class="treatment-icon">🧪</div>
+              <h3 class="treatment-title">Chemical Peels</h3>
+              <p class="treatment-description">Medical-grade peels to improve skin texture, tone, and clarity. Options from light to deep peels for your needs.</p>
+              <div class="treatment-details">
+                <span>⏱ 30-45 minutes</span>
+                <span>🏠 3-7 days downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('Chemical Peels')">Book Treatment →</button>
+            </div>
+
+            <div class="treatment-card">
+              <div class="treatment-icon">🎯</div>
+              <h3 class="treatment-title">Microneedling RF</h3>
+              <p class="treatment-description">Radiofrequency microneedling for collagen induction and skin tightening. Reduces fine lines, scars, and pores.</p>
+              <div class="treatment-details">
+                <span>⏱ 60-90 minutes</span>
+                <span>🏠 2-3 days downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('Microneedling RF')">Book Treatment →</button>
+            </div>
           </div>
-          <h3 class="treatment-title">Dermal Fillers</h3>
-          <p class="treatment-description">Add volume and contour with premium hyaluronic acid fillers. Enhance lips, cheeks, and jawline for a youthful appearance.</p>
-          <div class="treatment-details">
-            <span class="treatment-duration">⏱ 30-45 minutes</span>
-            <span class="treatment-downtime">🏠 Minimal downtime</span>
-          </div>
-          <button class="treatment-cta" onclick="openTreatmentForm('Dermal Fillers')">Book Treatment →</button>
         </div>
 
-        <!-- Injectable 3 -->
-        <div class="treatment-card" data-treatment="kybella">
-          <div class="treatment-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
+        <!-- Laser Treatments Tab -->
+        <div id="laser" class="tab-pane">
+          <div class="treatments-grid">
+            <div class="treatment-card">
+              <div class="treatment-icon">⚡</div>
+              <h3 class="treatment-title">IPL Photofacial</h3>
+              <p class="treatment-description">Intense pulsed light therapy to reduce sun damage, age spots, and redness. Even skin tone and texture.</p>
+              <div class="treatment-details">
+                <span>⏱ 30-45 minutes</span>
+                <span>🏠 1-2 days downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('IPL Photofacial')">Book Treatment →</button>
+            </div>
+
+            <div class="treatment-card">
+              <div class="treatment-icon">🔆</div>
+              <h3 class="treatment-title">Laser Hair Removal</h3>
+              <p class="treatment-description">Permanent hair reduction with medical-grade laser technology. Safe for all skin types and body areas.</p>
+              <div class="treatment-details">
+                <span>⏱ 15-60 minutes</span>
+                <span>🏠 No downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('Laser Hair Removal')">Book Treatment →</button>
+            </div>
+
+            <div class="treatment-card">
+              <div class="treatment-icon">💫</div>
+              <h3 class="treatment-title">Laser Skin Resurfacing</h3>
+              <p class="treatment-description">Fractional CO2 laser to improve skin texture, reduce wrinkles, and minimize scars. Advanced rejuvenation.</p>
+              <div class="treatment-details">
+                <span>⏱ 45-90 minutes</span>
+                <span>🏠 5-7 days downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('Laser Skin Resurfacing')">Book Treatment →</button>
+            </div>
           </div>
-          <h3 class="treatment-title">Kybella</h3>
-          <p class="treatment-description">Non-surgical double chin reduction with FDA-approved injectable. Permanent fat reduction for a defined jawline.</p>
-          <div class="treatment-details">
-            <span class="treatment-duration">⏱ 20-30 minutes</span>
-            <span class="treatment-downtime">🏠 1-2 days downtime</span>
+        </div>
+
+        <!-- Medical Skincare Tab -->
+        <div id="skincare" class="tab-pane">
+          <div class="treatments-grid">
+            <div class="treatment-card">
+              <div class="treatment-icon">🧴</div>
+              <h3 class="treatment-title">Medical-Grade Skincare</h3>
+              <p class="treatment-description">Prescription-strength products customized for your skin type. Professional guidance and results monitoring.</p>
+              <div class="treatment-details">
+                <span>⏱ Consultation</span>
+                <span>🏠 Daily use</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('Medical Skincare')">Book Treatment →</button>
+            </div>
+
+            <div class="treatment-card">
+              <div class="treatment-icon">💊</div>
+              <h3 class="treatment-title">Skin Analysis</h3>
+              <p class="treatment-description">Advanced skin imaging to assess sun damage, pigmentation, and aging. Personalized treatment planning.</p>
+              <div class="treatment-details">
+                <span>⏱ 30 minutes</span>
+                <span>🏠 No downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('Skin Analysis')">Book Treatment →</button>
+            </div>
+
+            <div class="treatment-card">
+              <div class="treatment-icon">🌿</div>
+              <h3 class="treatment-title">Vitamin IV Therapy</h3>
+              <p class="treatment-description">Nutrient infusions for skin health, hydration, and overall wellness. Customized vitamin blends.</p>
+              <div class="treatment-details">
+                <span>⏱ 30-60 minutes</span>
+                <span>🏠 No downtime</span>
+              </div>
+              <button class="treatment-cta" onclick="openTreatmentForm('Vitamin IV Therapy')">Book Treatment →</button>
+            </div>
           </div>
-          <button class="treatment-cta" onclick="openTreatmentForm('Kybella')">Book Treatment →</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Facials Section -->
-  <section class="facials-section" id="facials">
+  <!-- Appointment Calendar Mockup -->
+  <section class="calendar-section" id="booking">
     <div class="container">
-      <div class="section-header">
-        <p class="section-label">Luxury Facials</p>
-        <h2 class="section-title">Advanced Facial Treatments for Radiant Skin</h2>
-        <p class="section-description">Customized facials and skin rejuvenation treatments for all skin types</p>
-      </div>
+      <h2 class="section-title">Book Your Appointment</h2>
+      <p class="section-subtitle">Select a date and time that works for you</p>
       
-      <div class="treatments-grid">
-        <!-- Facial 1 -->
-        <div class="treatment-card" data-treatment="hydrafacial">
-          <div class="treatment-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-          </div>
-          <h3 class="treatment-title">HydraFacial MD</h3>
-          <p class="treatment-description">The ultimate medical-grade facial. Deep cleansing, exfoliation, extraction, and hydration in one luxurious treatment.</p>
-          <div class="treatment-details">
-            <span class="treatment-duration">⏱ 45-60 minutes</span>
-            <span class="treatment-downtime">🏠 No downtime</span>
-          </div>
-          <button class="treatment-cta" onclick="openTreatmentForm('HydraFacial MD')">Book Treatment →</button>
-        </div>
-
-        <!-- Facial 2 -->
-        <div class="treatment-card" data-treatment="chemical-peel">
-          <div class="treatment-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
-            </svg>
-          </div>
-          <h3 class="treatment-title">Chemical Peels</h3>
-          <p class="treatment-description">Medical-grade peels to improve skin texture, tone, and clarity. Options from light to deep peels for your needs.</p>
-          <div class="treatment-details">
-            <span class="treatment-duration">⏱ 30-45 minutes</span>
-            <span class="treatment-downtime">🏠 3-7 days downtime</span>
-          </div>
-          <button class="treatment-cta" onclick="openTreatmentForm('Chemical Peels')">Book Treatment →</button>
-        </div>
-
-        <!-- Facial 3 -->
-        <div class="treatment-card" data-treatment="microneedling">
-          <div class="treatment-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-              <line x1="7" y1="7" x2="7.01" y2="7"></line>
-            </svg>
-          </div>
-          <h3 class="treatment-title">Microneedling RF</h3>
-          <p class="treatment-description">Radiofrequency microneedling for collagen induction and skin tightening. Reduces fine lines, scars, and pores.</p>
-          <div class="treatment-details">
-            <span class="treatment-duration">⏱ 60-90 minutes</span>
-            <span class="treatment-downtime">🏠 2-3 days downtime</span>
-          </div>
-          <button class="treatment-cta" onclick="openTreatmentForm('Microneedling RF')">Book Treatment →</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us Section -->
-  <section class="why-section" id="about">
-    <div class="container">
-      <div class="why-grid">
-        <div class="why-content">
-          <p class="section-label">Why Medspa Clinic Z</p>
-          <h2 class="section-title">Medical Expertise Meets Luxury</h2>
-          <p class="why-description">Our board-certified medical professionals combine clinical excellence with spa-like luxury. With over 15 years of experience and thousands of satisfied clients, we're your trusted partner in aesthetic enhancement.</p>
-          
-          <div class="features-list">
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <div>
-                <h4 class="feature-title">Medical Director</h4>
-                <p class="feature-text">Board-certified physician oversight</p>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <div>
-                <h4 class="feature-title">Premium Products</h4>
-                <p class="feature-text">FDA-approved treatments only</p>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">✓</div>
-              <div>
-                <h4 class="feature-title">Customized Plans</h4>
-                <p class="feature-text">Personalized treatment protocols</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="#book" class="btn btn-primary">Schedule Consultation</a>
+      <div class="calendar-mockup">
+        <div class="calendar-header">
+          <button class="calendar-nav">←</button>
+          <h3 class="calendar-month">January 2024</h3>
+          <button class="calendar-nav">→</button>
         </div>
         
-        <div class="why-stats">
-          <div class="stat-card">
-            <div class="stat-number">10,000+</div>
-            <div class="stat-label">Treatments Performed</div>
+        <div class="calendar-grid">
+          <div class="calendar-day-header">Sun</div>
+          <div class="calendar-day-header">Mon</div>
+          <div class="calendar-day-header">Tue</div>
+          <div class="calendar-day-header">Wed</div>
+          <div class="calendar-day-header">Thu</div>
+          <div class="calendar-day-header">Fri</div>
+          <div class="calendar-day-header">Sat</div>
+          
+          <div class="calendar-day disabled">31</div>
+          <div class="calendar-day available" onclick="selectDate(this)">1</div>
+          <div class="calendar-day available" onclick="selectDate(this)">2</div>
+          <div class="calendar-day available" onclick="selectDate(this)">3</div>
+          <div class="calendar-day available" onclick="selectDate(this)">4</div>
+          <div class="calendar-day available" onclick="selectDate(this)">5</div>
+          <div class="calendar-day disabled">6</div>
+          <div class="calendar-day disabled">7</div>
+          <div class="calendar-day available" onclick="selectDate(this)">8</div>
+          <div class="calendar-day available" onclick="selectDate(this)">9</div>
+          <div class="calendar-day available selected" onclick="selectDate(this)">10</div>
+          <div class="calendar-day available" onclick="selectDate(this)">11</div>
+          <div class="calendar-day available" onclick="selectDate(this)">12</div>
+          <div class="calendar-day disabled">13</div>
+          <div class="calendar-day disabled">14</div>
+          <div class="calendar-day available" onclick="selectDate(this)">15</div>
+          <div class="calendar-day available" onclick="selectDate(this)">16</div>
+          <div class="calendar-day available" onclick="selectDate(this)">17</div>
+          <div class="calendar-day available" onclick="selectDate(this)">18</div>
+          <div class="calendar-day available" onclick="selectDate(this)">19</div>
+          <div class="calendar-day disabled">20</div>
+          <div class="calendar-day disabled">21</div>
+          <div class="calendar-day available" onclick="selectDate(this)">22</div>
+          <div class="calendar-day available" onclick="selectDate(this)">23</div>
+          <div class="calendar-day available" onclick="selectDate(this)">24</div>
+          <div class="calendar-day available" onclick="selectDate(this)">25</div>
+          <div class="calendar-day available" onclick="selectDate(this)">26</div>
+          <div class="calendar-day disabled">27</div>
+          <div class="calendar-day disabled">28</div>
+          <div class="calendar-day available" onclick="selectDate(this)">29</div>
+          <div class="calendar-day available" onclick="selectDate(this)">30</div>
+          <div class="calendar-day available" onclick="selectDate(this)">31</div>
+        </div>
+        
+        <div class="time-slots">
+          <h4>Available Times for January 10</h4>
+          <div class="time-slot-grid">
+            <button class="time-slot" onclick="selectTime(this)">9:00 AM</button>
+            <button class="time-slot" onclick="selectTime(this)">10:00 AM</button>
+            <button class="time-slot selected" onclick="selectTime(this)">11:00 AM</button>
+            <button class="time-slot" onclick="selectTime(this)">1:00 PM</button>
+            <button class="time-slot" onclick="selectTime(this)">2:00 PM</button>
+            <button class="time-slot" onclick="selectTime(this)">3:00 PM</button>
+            <button class="time-slot" onclick="selectTime(this)">4:00 PM</button>
+            <button class="time-slot disabled" disabled>5:00 PM (Booked)</button>
           </div>
-          <div class="stat-card">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Years Experience</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">99%</div>
-            <div class="stat-label">Client Satisfaction</div>
-          </div>
+        </div>
+
+        <div class="booking-confirm">
+          <p><strong>Selected:</strong> January 10, 2024 at 11:00 AM</p>
+          <button class="btn btn-primary btn-full" onclick="confirmBooking()">Confirm Appointment</button>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Booking Form Section -->
-  <section class="booking-section" id="book">
+  <section class="form-section">
     <div class="container">
-      <div class="booking-content">
-        <div class="section-header">
-          <p class="section-label">Get Started</p>
-          <h2 class="section-title">Book Your Consultation</h2>
-          <p class="section-description">Complete the form below and we'll contact you within 24 hours to schedule your personalized consultation</p>
-        </div>
+      <div class="form-content">
+        <h2 class="section-title">Complete Your Booking</h2>
+        <p class="section-subtitle">Fill out the form below to finalize your consultation</p>
 
-        <form class="booking-form" id="bookingForm" onsubmit="handleBookingSubmit(event)">
+        <form class="booking-form" onsubmit="handleBookingSubmit(event)">
           <div class="form-row">
             <div class="form-group">
-              <label for="firstName" class="form-label">First Name *</label>
-              <input type="text" id="firstName" class="form-input" required>
+              <label class="form-label">First Name *</label>
+              <input type="text" class="form-input" required>
             </div>
             <div class="form-group">
-              <label for="lastName" class="form-label">Last Name *</label>
-              <input type="text" id="lastName" class="form-input" required>
+              <label class="form-label">Last Name *</label>
+              <input type="text" class="form-input" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="email" class="form-label">Email *</label>
-              <input type="email" id="email" class="form-input" required>
+              <label class="form-label">Email *</label>
+              <input type="email" class="form-input" required>
             </div>
             <div class="form-group">
-              <label for="phone" class="form-label">Phone *</label>
-              <input type="tel" id="phone" class="form-input" required>
+              <label class="form-label">Phone *</label>
+              <input type="tel" class="form-input" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="treatment" class="form-label">Interested Treatment *</label>
-            <select id="treatment" class="form-select" required>
+            <label class="form-label">Treatment of Interest *</label>
+            <select class="form-select" required>
               <option value="">Select a treatment</option>
               <option value="botox">Botox & Dysport</option>
               <option value="fillers">Dermal Fillers</option>
@@ -283,28 +334,109 @@
           </div>
 
           <div class="form-group">
-            <label for="preferredDate" class="form-label">Preferred Date</label>
-            <input type="date" id="preferredDate" class="form-input">
-          </div>
-
-          <div class="form-group">
-            <label for="message" class="form-label">Additional Information</label>
-            <textarea id="message" class="form-textarea" rows="4" placeholder="Tell us about your goals and any questions you have..."></textarea>
+            <label class="form-label">Tell us about your goals</label>
+            <textarea class="form-textarea" rows="4" placeholder="What are you hoping to achieve with treatment?"></textarea>
           </div>
 
           <div class="form-group">
             <label class="form-checkbox">
               <input type="checkbox" required>
-              <span>I agree to receive text and email communications about my appointment and special offers *</span>
+              <span>I agree to receive communications about my appointment *</span>
             </label>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-large btn-full">Submit Consultation Request</button>
+          <button type="submit" class="btn btn-primary btn-large btn-full">Submit Booking</button>
         </form>
+      </div>
+    </div>
+  </section>
 
-        <!-- Trust Indicators -->
-        <div class="trust-indicators">
-          <p class="trust-text">✓ HIPAA Compliant • ✓ Flexible Payment Plans • ✓ Same-Week Appointments</p>
+  <!-- Analytics Dashboard Mock -->
+  <section class="analytics-section" id="analytics">
+    <div class="container">
+      <h2 class="section-title">Practice Dashboard</h2>
+      <p class="section-subtitle">Real-time analytics and insights (Admin View)</p>
+      
+      <div class="dashboard-grid">
+        <div class="dashboard-card">
+          <div class="dashboard-icon">📊</div>
+          <div class="dashboard-stat">1,234</div>
+          <div class="dashboard-label">Total Appointments</div>
+          <div class="dashboard-trend">↑ 12% vs last month</div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="dashboard-icon">💰</div>
+          <div class="dashboard-stat">$45,678</div>
+          <div class="dashboard-label">Monthly Revenue</div>
+          <div class="dashboard-trend">↑ 8% vs last month</div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="dashboard-icon">⭐</div>
+          <div class="dashboard-stat">4.9/5.0</div>
+          <div class="dashboard-label">Average Rating</div>
+          <div class="dashboard-trend">From 156 reviews</div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="dashboard-icon">👥</div>
+          <div class="dashboard-stat">892</div>
+          <div class="dashboard-label">Active Patients</div>
+          <div class="dashboard-trend">↑ 5% vs last month</div>
+        </div>
+      </div>
+
+      <div class="dashboard-chart-container">
+        <h3 class="dashboard-section-title">Popular Treatments</h3>
+        <div class="dashboard-chart">
+          <div class="chart-bar" style="--percentage: 85%">
+            <div class="chart-label">Botox</div>
+            <div class="chart-value">85%</div>
+          </div>
+          <div class="chart-bar" style="--percentage: 72%">
+            <div class="chart-label">Fillers</div>
+            <div class="chart-value">72%</div>
+          </div>
+          <div class="chart-bar" style="--percentage: 68%">
+            <div class="chart-label">HydraFacial</div>
+            <div class="chart-value">68%</div>
+          </div>
+          <div class="chart-bar" style="--percentage: 54%">
+            <div class="chart-label">Chemical Peels</div>
+            <div class="chart-value">54%</div>
+          </div>
+          <div class="chart-bar" style="--percentage: 42%">
+            <div class="chart-label">Microneedling</div>
+            <div class="chart-value">42%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-recent">
+        <h3 class="dashboard-section-title">Recent Bookings</h3>
+        <div class="booking-list">
+          <div class="booking-item">
+            <div class="booking-info">
+              <strong>Sarah Johnson</strong>
+              <span>Botox Consultation</span>
+            </div>
+            <div class="booking-time">Today at 2:00 PM</div>
+          </div>
+          <div class="booking-item">
+            <div class="booking-info">
+              <strong>Michael Chen</strong>
+              <span>Dermal Fillers</span>
+            </div>
+            <div class="booking-time">Today at 3:30 PM</div>
+          </div>
+          <div class="booking-item">
+            <div class="booking-info">
+              <strong>Emily Davis</strong>
+              <span>HydraFacial MD</span>
+            </div>
+            <div class="booking-time">Tomorrow at 10:00 AM</div>
+          </div>
         </div>
       </div>
     </div>
@@ -337,7 +469,7 @@
         </div>
 
         <div class="contact-form-wrapper">
-          <h3 class="contact-title">Quick Question?</h3>
+          <h3 class="contact-title">Send Us a Message</h3>
           <form class="contact-form" onsubmit="handleContactSubmit(event)">
             <input type="text" placeholder="Your Name" class="form-input" required>
             <input type="email" placeholder="Your Email" class="form-input" required>
@@ -359,34 +491,34 @@
           <p>Where beauty meets science</p>
         </div>
         <div class="footer-links">
-          <a href="#injectables">Injectables</a>
-          <a href="#facials">Facials</a>
-          <a href="#about">About</a>
+          <a href="#treatments">Treatments</a>
+          <a href="#booking">Book Now</a>
+          <a href="#analytics">Dashboard</a>
           <a href="#contact">Contact</a>
         </div>
         <div class="footer-legal">
           <p>&copy; 2024 Medspa Clinic Z. All rights reserved.</p>
           <div class="footer-legal-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">HIPAA Notice</a>
+            <a href="#">Privacy</a> • 
+            <a href="#">Terms</a> • 
+            <a href="#">HIPAA</a>
           </div>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Treatment Form Modal Mockup -->
-  <div id="treatmentModal" class="modal" style="display: none;">
+  <!-- Treatment Form Modal -->
+  <div id="treatmentModal" class="modal">
     <div class="modal-content">
       <span class="modal-close" onclick="closeTreatmentForm()">&times;</span>
       <h3 id="modalTitle" class="modal-title">Book Treatment</h3>
       <form class="modal-form" onsubmit="handleTreatmentSubmit(event)">
-        <input type="text" placeholder="Name" class="form-input" required>
+        <input type="text" placeholder="Full Name" class="form-input" required>
         <input type="email" placeholder="Email" class="form-input" required>
         <input type="tel" placeholder="Phone" class="form-input" required>
         <input type="date" class="form-input" required>
-        <textarea placeholder="Notes" class="form-textarea" rows="3"></textarea>
+        <textarea placeholder="Additional notes" class="form-textarea" rows="3"></textarea>
         <button type="submit" class="btn btn-primary btn-full">Schedule Treatment</button>
       </form>
     </div>
@@ -394,73 +526,51 @@
 
   <!-- JavaScript -->
   <script>
-    // Analytics Tracking Mock
-    const AnalyticsMock = {
-      pageView: function() {
-        console.log('📊 Analytics: Page View Tracked');
-        console.log('- Page: Medspa Clinic Z Homepage');
-        console.log('- Timestamp:', new Date().toISOString());
-        console.log('- User Agent:', navigator.userAgent);
-      },
-      
-      trackEvent: function(category, action, label, value) {
-        console.log('📊 Analytics Event:', {
-          category: category,
-          action: action,
-          label: label,
-          value: value,
-          timestamp: new Date().toISOString()
-        });
+    // Tab functionality
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const tabId = this.getAttribute('data-tab');
         
-        // Mock: Send to Google Analytics
-        if (typeof gtag !== 'undefined') {
-          gtag('event', action, {
-            event_category: category,
-            event_label: label,
-            value: value
-          });
-        }
-      },
-      
-      trackFormSubmit: function(formName, treatment) {
-        this.trackEvent('Forms', 'Submit', formName, 1);
-        console.log('📝 Form Submission:', formName, 'Treatment:', treatment);
-      },
-      
-      trackButtonClick: function(buttonName, location) {
-        this.trackEvent('Engagement', 'Click', buttonName, 1);
-        console.log('🖱️ Button Click:', buttonName, 'Location:', location);
-      }
-    };
-
-    // Initialize analytics on page load
-    window.addEventListener('load', function() {
-      AnalyticsMock.pageView();
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          AnalyticsMock.trackEvent('Navigation', 'Click', this.getAttribute('href'), 1);
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        // Remove active from all buttons and panes
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+        
+        // Add active to clicked button and corresponding pane
+        this.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+        
+        // Analytics tracking
+        console.log('📊 Tab View:', tabId);
       });
     });
 
-    // Scheduler function
-    function openScheduler() {
-      AnalyticsMock.trackButtonClick('Schedule Consultation', 'Hero Section');
-      alert('Scheduling Integration:\n\n✓ Connect to booking system (Calendly, Acuity, etc.)\n✓ Display available time slots\n✓ Capture patient information\n✓ Send confirmation emails\n✓ Add to calendar\n✓ Send SMS reminders');
+    // Calendar date selection
+    function selectDate(element) {
+      if (!element.classList.contains('disabled')) {
+        document.querySelectorAll('.calendar-day').forEach(day => day.classList.remove('selected'));
+        element.classList.add('selected');
+        console.log('📅 Date selected:', element.textContent);
+      }
     }
 
-    // Treatment form functions
+    // Time slot selection
+    function selectTime(element) {
+      document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected'));
+      element.classList.add('selected');
+      console.log('⏰ Time selected:', element.textContent);
+    }
+
+    // Confirm booking
+    function confirmBooking() {
+      alert('Appointment confirmed!\n\nYou will receive a confirmation email and SMS reminder.');
+      console.log('✅ Booking confirmed');
+    }
+
+    // Treatment modal
     function openTreatmentForm(treatmentName) {
-      AnalyticsMock.trackButtonClick('Book Treatment', treatmentName);
       document.getElementById('modalTitle').textContent = 'Book ' + treatmentName;
       document.getElementById('treatmentModal').style.display = 'flex';
+      console.log('📝 Treatment modal opened:', treatmentName);
     }
 
     function closeTreatmentForm() {
@@ -469,61 +579,23 @@
 
     function handleTreatmentSubmit(event) {
       event.preventDefault();
-      const treatmentName = document.getElementById('modalTitle').textContent.replace('Book ', '');
-      AnalyticsMock.trackFormSubmit('Treatment Booking Modal', treatmentName);
-      alert('Treatment booking submitted!\n\nNext steps:\n✓ Confirmation email sent\n✓ Calendar invite created\n✓ SMS reminder scheduled\n✓ Staff notified');
+      alert('Treatment booking submitted! We will contact you to confirm your appointment.');
       closeTreatmentForm();
     }
 
-    // Booking form handler
+    // Booking form
     function handleBookingSubmit(event) {
       event.preventDefault();
-      const treatment = document.getElementById('treatment').value;
-      AnalyticsMock.trackFormSubmit('Main Booking Form', treatment);
-      alert('Consultation request submitted!\n\nWe will contact you within 24 hours to schedule your appointment.\n\nThank you for choosing Medspa Clinic Z!');
+      alert('Booking submitted! We will contact you within 24 hours to schedule your consultation.');
       event.target.reset();
     }
 
-    // Contact form handler
+    // Contact form
     function handleContactSubmit(event) {
       event.preventDefault();
-      AnalyticsMock.trackFormSubmit('Contact Form', 'Quick Question');
-      alert('Message sent!\n\nWe will respond to your inquiry within 24 hours.\n\nThank you!');
+      alert('Message sent! We will respond to your inquiry within 24 hours.');
       event.target.reset();
     }
-
-    // Scroll tracking for section views
-    const sections = document.querySelectorAll('section[id]');
-    const sectionViews = new Set();
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !sectionViews.has(entry.target.id)) {
-          sectionViews.add(entry.target.id);
-          AnalyticsMock.trackEvent('Section Views', 'View', entry.target.id, 1);
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach(section => {
-      sectionObserver.observe(section);
-    });
-
-    // Track treatment card interactions
-    document.querySelectorAll('.treatment-card').forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        const treatment = this.getAttribute('data-treatment');
-        if (treatment) {
-          AnalyticsMock.trackEvent('Treatment Cards', 'Hover', treatment, 1);
-        }
-      });
-    });
 
     // Close modal when clicking outside
     window.onclick = function(event) {
@@ -533,15 +605,12 @@
       }
     };
 
-    // Analytics summary
-    console.log('📊 Analytics Configuration Complete');
-    console.log('Tracked Events:');
-    console.log('- Page Views');
-    console.log('- Button Clicks (CTAs, Book Now, Schedule)');
-    console.log('- Form Submissions (Booking, Contact, Treatment)');
-    console.log('- Section Views (Scroll Tracking)');
-    console.log('- Treatment Card Interactions');
-    console.log('- Navigation Clicks');
+    // Analytics initialization
+    console.log('📊 Medspa Clinic Z Analytics Active');
+    console.log('Tracking: Page views, Tab clicks, Form submissions, Calendar interactions');
+    
+    // Track page view
+    console.log('📄 Page view tracked:', document.title);
   </script>
 </body>
 </html>
