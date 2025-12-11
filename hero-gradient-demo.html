@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Gradient Demo - Keyturn Clinics</title>
+  <style>
+    /* Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #0a1220;
+      color: #e6ebf5;
+    }
+
+    /* CSS Variables - Hero Gradients */
+    :root {
+      --hero-gradient-navy: linear-gradient(135deg, #0c1a3a 0%, #0A0F1E 50%, #0c1a3a 100%);
+      --hero-gradient-dark: linear-gradient(180deg, #0A0F1E 0%, #060a14 100%);
+      --hero-overlay-gold: rgba(212, 175, 55, 0.1);
+      --brand-primary: #5aa2ff;
+      --brand-accent: #7db8ff;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero Gradient Backgrounds */
+    .hero,
+    .hero-section {
+      position: relative;
+      background: var(--hero-gradient-navy);
+      overflow: hidden;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      padding: 4rem 0;
+    }
+
+    /* Gold overlay using position absolute */
+    .hero::before,
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--hero-overlay-gold);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Ensure content stays above the overlay */
+    .hero > *,
+    .hero-section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Responsive gradient adjustments */
+    @media (min-width: 768px) {
+      .hero,
+      .hero-section {
+        background: linear-gradient(135deg, #0c1a3a 0%, #0A0F1E 40%, #060a14 100%);
+        min-height: 90vh;
+        padding: 6rem 0;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .hero,
+      .hero-section {
+        background: linear-gradient(135deg, #0d1f42 0%, #0A0F1E 30%, #0A0F1E 70%, #060a14 100%);
+        min-height: 100vh;
+      }
+    }
+
+    /* Hero Title */
+    .hero-title {
+      font-size: clamp(36px, 7vw, 72px);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      font-weight: 700;
+      font-family: 'Playfair Display', Georgia, serif;
+      letter-spacing: 1px;
+    }
+
+    .accent {
+      color: var(--brand-primary);
+    }
+
+    /* Hero Lede */
+    .hero-lede {
+      color: rgba(203, 213, 225, 0.9);
+      font-size: clamp(17px, 3.6vw, 20px);
+      margin: 0 0 32px;
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    /* Buttons */
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 0;
+    }
+
+    @media (min-width: 640px) {
+      .hero-ctas {
+        flex-direction: row;
+        gap: 16px;
+      }
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .button-primary {
+      background: var(--brand-primary);
+      color: white;
+    }
+
+    .button-primary:hover {
+      background: #4891e6;
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* Demo Info Section */
+    .demo-info {
+      padding: 60px 20px;
+      background: #0a1220;
+    }
+
+    .demo-info h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .demo-info p {
+      margin-bottom: 16px;
+      line-height: 1.7;
+      color: rgba(203, 213, 225, 0.9);
+    }
+
+    .demo-info ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .demo-info li {
+      padding: 8px 0;
+      color: rgba(203, 213, 225, 0.9);
+    }
+
+    .demo-info li::before {
+      content: "✓ ";
+      color: var(--brand-accent);
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    .code-block {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+
+    .code-block code {
+      color: #7db8ff;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+
+    /* Comparison Boxes */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    @media (min-width: 768px) {
+      .comparison {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .comparison-box {
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .comparison-box h3 {
+      margin-bottom: 16px;
+      color: var(--brand-accent);
+    }
+
+    .gradient-preview {
+      height: 200px;
+      border-radius: 12px;
+      margin-top: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .gradient-navy {
+      background: linear-gradient(135deg, #0c1a3a 0%, #0A0F1E 50%, #0c1a3a 100%);
+    }
+
+    .gradient-overlay {
+      background: linear-gradient(135deg, #0c1a3a 0%, #0A0F1E 50%, #0c1a3a 100%);
+      position: relative;
+    }
+
+    .gradient-overlay::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(212, 175, 55, 0.1);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Hero Section with Gradient -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">
+        Premium Hero <span class="accent">Gradient</span> Background
+      </h1>
+      <p class="hero-lede">
+        Navy-to-dark gradient (#0A0F1E base) with subtle gold overlay (#D4AF37 at 10% opacity).
+        Position relative/absolute pattern with responsive design.
+      </p>
+      <div class="hero-ctas">
+        <a href="#demo" class="button button-primary">View Demo Details</a>
+        <a href="#code" class="button button-secondary">See the Code</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Information Section -->
+  <section class="demo-info" id="demo">
+    <div class="container">
+      <h2>✨ Implementation Highlights</h2>
+      
+      <ul>
+        <li>Premium navy-to-dark gradient background</li>
+        <li>Subtle gold overlay at 10% opacity for warmth</li>
+        <li>Position relative/absolute overlay pattern</li>
+        <li>Fully responsive (mobile, tablet, desktop)</li>
+        <li>Button and link colors preserved</li>
+        <li>Targets .hero and .hero-section classes</li>
+        <li>Uses CSS variables for easy customization</li>
+      </ul>
+
+      <h2 style="margin-top: 60px;">🎨 Gradient Comparison</h2>
+      
+      <div class="comparison">
+        <div class="comparison-box">
+          <h3>Base Navy Gradient</h3>
+          <p>Linear gradient from navy to dark base color</p>
+          <div class="gradient-preview gradient-navy"></div>
+        </div>
+        
+        <div class="comparison-box">
+          <h3>With Gold Overlay</h3>
+          <p>Same gradient + 10% gold overlay for premium feel</p>
+          <div class="gradient-preview gradient-overlay"></div>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 60px;" id="code">📝 CSS Code Preview</h2>
+      
+      <div class="code-block">
+        <code>
+/* CSS Variables */<br>
+--hero-gradient-navy: linear-gradient(135deg, #0c1a3a 0%, #0A0F1E 50%, #0c1a3a 100%);<br>
+--hero-overlay-gold: rgba(212, 175, 55, 0.1);<br>
+<br>
+/* Hero Gradient Background */<br>
+.hero, .hero-section {<br>
+&nbsp;&nbsp;position: relative;<br>
+&nbsp;&nbsp;background: var(--hero-gradient-navy);<br>
+&nbsp;&nbsp;overflow: hidden;<br>
+}<br>
+<br>
+/* Gold Overlay */<br>
+.hero::before, .hero-section::before {<br>
+&nbsp;&nbsp;content: '';<br>
+&nbsp;&nbsp;position: absolute;<br>
+&nbsp;&nbsp;inset: 0;<br>
+&nbsp;&nbsp;background: var(--hero-overlay-gold);<br>
+&nbsp;&nbsp;pointer-events: none;<br>
+&nbsp;&nbsp;z-index: 0;<br>
+}
+        </code>
+      </div>
+
+      <h2 style="margin-top: 60px;">🚀 Deployment Steps</h2>
+      
+      <div class="code-block">
+        <code>
+# 1. Navigate to repository<br>
+cd /path/to/keyturn-clinics-site<br>
+<br>
+# 2. Checkout main branch<br>
+git checkout main<br>
+<br>
+# 3. Pull latest changes<br>
+git pull origin main<br>
+<br>
+# 4. Add CSS to styles.css (variables + hero gradient styles)<br>
+<br>
+# 5. Stage and commit<br>
+git add styles.css<br>
+git commit -m "Add hero gradients"<br>
+<br>
+# 6. Push to main<br>
+git push origin main
+        </code>
+      </div>
+
+      <p style="margin-top: 40px; padding: 20px; background: rgba(90, 162, 255, 0.1); border-radius: 12px; border-left: 4px solid var(--brand-primary);">
+        <strong>Note:</strong> This demo shows the exact implementation added to styles.css. 
+        The gradient seamlessly blends navy tones with the #0A0F1E base color, creating depth 
+        while maintaining readability. The gold overlay adds a subtle premium touch without 
+        overpowering the content.
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>
