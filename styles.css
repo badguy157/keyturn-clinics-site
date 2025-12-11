@@ -6183,5 +6183,5 @@ img {
 }
 
 .demo-grid .demo-card:hover .demo-card-footer .btn {
-  color: var(--brand-accent-hover);
+  text-decoration: underline;
 }
