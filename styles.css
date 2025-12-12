@@ -1074,7 +1074,7 @@ details.tiny > summary{color:var(--brand-muted);font-size:.9rem}
 }
 @supports(padding:max(0px)){ .sticky-cta{padding-bottom:max(12px, env(safe-area-inset-bottom))} }
 @media (min-width:768px){ 
-  .menu-toggle,.mobile-drawer,#sticky-cta-wrapper{display:none !important} 
+  .menu-toggle,.mobile-drawer,#sticky-cta-wrapper,.sticky-cta-bar{display:none !important} 
   .nav-desktop{display:flex}
 }
 
