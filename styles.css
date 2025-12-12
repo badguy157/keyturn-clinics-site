@@ -6185,3 +6185,15 @@ img {
 .demo-grid .demo-card:hover .demo-card-footer .btn {
   text-decoration: underline;
 }
+
+/* ===== Quote Page Spacing ===== */
+/* Add vertical space between hero and intro content on quote page only */
+.quote-page .quote-intro-section {
+  padding-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .quote-page .quote-intro-section {
+    padding-top: 4rem;
+  }
+}
