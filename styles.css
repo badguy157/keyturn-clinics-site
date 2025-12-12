@@ -1054,17 +1054,6 @@ details.tiny > summary{color:var(--brand-muted);font-size:.9rem}
 .est .btn{height:46px}
 
 /* Sticky bottom CTA (mobile only) */
-#sticky-cta-wrapper {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 1rem;
-  display: flex;
-  justify-content: center;
-  z-index: 1001;
-  pointer-events: none;
-}
-
 .sticky-cta-bar{
   position:fixed; bottom:0; left:0; right:0; z-index:1001;
   background:rgba(15, 23, 42, 0.9); backdrop-filter:blur(12px);
