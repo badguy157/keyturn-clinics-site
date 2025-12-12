@@ -1065,16 +1065,14 @@ details.tiny > summary{color:var(--brand-muted);font-size:.9rem}
   pointer-events: none;
 }
 
-.sticky-cta{
-  display:inline-flex; justify-content:center; align-items:center;
-  padding:12px 16px; background:var(--fg); color:#0a0f1a; text-decoration:none;
-  font-weight:800; border:1px solid var(--line); border-radius:8px; z-index:1001;
-  pointer-events: auto;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+.sticky-cta-bar{
+  position:fixed; bottom:0; left:0; right:0; z-index:1001;
+  background:rgba(15, 23, 42, 0.9); backdrop-filter:blur(12px);
+  box-shadow:0 -1px 0 rgba(15, 23, 42, 0.6);
+  padding:0.75rem 1rem 1rem 1rem;
 }
-@supports(padding:max(0px)){ .sticky-cta{padding-bottom:max(12px, env(safe-area-inset-bottom))} }
 @media (min-width:768px){ 
-  .menu-toggle,.mobile-drawer,#sticky-cta-wrapper,.sticky-cta-bar{display:none !important} 
+  .menu-toggle,.mobile-drawer,.sticky-cta-bar{display:none !important} 
   .nav-desktop{display:flex}
 }
 
