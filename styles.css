@@ -6054,6 +6054,8 @@ img {
   padding: 20px;
   transition: all 0.3s ease;
   text-align: left;
+  display: block;
+  text-decoration: none;
 }
 
 .demo-card:hover {
@@ -6083,6 +6085,11 @@ img {
 }
 
 .demo-card-title:hover {
+  color: var(--brand-accent);
+  text-decoration: underline;
+}
+
+.demo-card:hover .demo-card-title {
   color: var(--brand-accent);
   text-decoration: underline;
 }
