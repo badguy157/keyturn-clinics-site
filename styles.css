@@ -4914,6 +4914,36 @@ img {
   }
 }
 
+/* Secondary CTA link (text link below primary button) */
+.services-cta-secondary-link {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.services-cta-secondary-link a {
+  color: var(--brand-text);
+  text-decoration: underline;
+  font-size: 0.95rem;
+}
+
+.services-cta-secondary-link a:hover {
+  color: var(--brand-accent);
+}
+
+/* PS Reassurance Section */
+.services-ps-section {
+  padding-top: 0;
+  padding-bottom: 48px;
+}
+
+.services-ps-content {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--brand-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 /* ===== How It Works Page Premium Styles ===== */
 
 /* Hero Intro Card */
