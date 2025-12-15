@@ -278,7 +278,7 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 
 /* ---- Hero ---- PREMIUM LAYOUT: 80-100vh responsive */
 .hero{
-  padding-top:4rem;
+  padding-top:2.5rem; /* Reduced for mobile to show more content above fold */
   padding-bottom:4rem;
   min-height:80vh !important;  /* PREMIUM: mobile 80vh */
   display:flex;
@@ -393,10 +393,11 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 /* Hero 2-column premium layout */
 .hero-layout{
   display:flex;
-  flex-direction:column-reverse; /* Mobile: illustration first, then text */
+  flex-direction:column; /* Mobile: text first, then illustration */
   gap:32px;
 }
 .hero-left{
+  order:1; /* Ensure text appears first on mobile */
   max-width:40rem; /* max-w-xl equivalent */
   margin-left:auto;
   margin-right:auto;
@@ -519,6 +520,7 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 
 /* Hero right column - illustration container */
 .hero-right{
+  order:2; /* Ensure illustration appears after text on mobile */
   display:flex;
   justify-content:center;
   align-items:center;
