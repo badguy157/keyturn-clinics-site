@@ -2744,14 +2744,13 @@ img {
   gap: 8px;
   text-align: center;
   transition: transform 0.15s ease-out, border-color 0.15s ease-out, box-shadow 0.15s ease-out;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 
 @media (min-width: 640px) {
   .clinic-type-card {
     padding: 1.5rem; /* sm:p-6 */
   }
-}
-  box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 
 .clinic-type-card:hover {
@@ -6300,7 +6299,6 @@ img {
   .case-study-stat-card {
     padding: 1.5rem; /* sm:p-6 */
   }
-}
 }
 
 .case-study-stat-card:hover {
