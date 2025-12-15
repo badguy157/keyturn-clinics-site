@@ -412,7 +412,6 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 }
 @media (min-width:1024px){
   .hero-left{
-    order:1; /* Keep text first on desktop */
     max-width:600px;
     margin-left:0;
     margin-right:0;
@@ -533,7 +532,6 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 }
 @media (min-width:1024px){
   .hero-right{
-    order:2; /* Keep illustration second on desktop */
     max-width:none; /* lg:max-w-none */
     margin-top:0;
   }
