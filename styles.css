@@ -2064,6 +2064,14 @@ img {
   line-height: 1.6;
 }
 
+.blog-checklist-cta-note {
+  color: var(--brand-text);
+  font-size: 0.9rem;
+  margin: 0 0 16px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
 .blog-checklist-card .btn {
   display: inline-block;
 }
@@ -2099,6 +2107,45 @@ img {
   line-height: 1.6;
   margin: 0 0 40px;
   max-width: 700px;
+}
+
+.blog-new-here {
+  background: linear-gradient(135deg, rgba(79,209,197,.08) 0%, rgba(79,209,197,.04) 100%);
+  border: 1px solid rgba(79,209,197,.2);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+}
+
+.blog-new-here-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+.blog-new-here-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blog-new-here-list li a {
+  color: var(--accent-clinic);
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+.blog-new-here-list li a:hover {
+  color: var(--brand-primary);
+  text-decoration: underline;
 }
 
 .blog-posts-grid {
@@ -2168,6 +2215,13 @@ img {
   font-family: var(--font-heading);
   letter-spacing: 0.5px;
   line-height: 1.35;
+}
+
+.blog-post-card-audience {
+  color: var(--brand-muted);
+  font-size: 0.85rem;
+  margin: 0 0 8px;
+  font-style: italic;
 }
 
 .blog-post-card-summary {
@@ -2376,6 +2430,17 @@ img {
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0 0 28px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-cta-ps {
+  color: var(--brand-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 28px;
+  font-style: italic;
   max-width: 520px;
   margin-left: auto;
   margin-right: auto;
