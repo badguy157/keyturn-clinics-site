@@ -3255,6 +3255,61 @@ img {
   }
 }
 
+/* Quick View Section */
+.pricing-quick-view {
+  margin: 2rem 0 3rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  border-radius: 12px;
+}
+
+.pricing-quick-view-title {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--brand-text);
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.pricing-quick-view-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .pricing-quick-view-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pricing-quick-view-item {
+  text-align: center;
+}
+
+.pricing-quick-view-item h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brand-heading);
+  margin-bottom: 0.5rem;
+}
+
+.pricing-quick-view-item .price {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  margin-bottom: 0.5rem;
+}
+
+.pricing-quick-view-item p {
+  font-size: 0.875rem;
+  color: var(--brand-text);
+  line-height: 1.5;
+}
+
 /* Pricing Cards Grid - PREMIUM LAYOUT: asymmetric 3-column */
 .pricing-cards-grid {
   display: grid !important;
