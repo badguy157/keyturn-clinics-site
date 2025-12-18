@@ -3547,6 +3547,64 @@ img {
   line-height: 1.5;
 }
 
+/* Decision Callout Section */
+.pricing-decision-callout {
+  text-align: center;
+  padding: 24px;
+  margin: 32px 0;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  border-radius: var(--radius);
+}
+
+.pricing-decision-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin: 0 0 20px;
+  font-family: var(--font-heading);
+}
+
+.pricing-decision-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 16px;
+}
+
+@media (min-width: 640px) {
+  .pricing-decision-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+.pricing-decision-note {
+  font-size: 0.9rem;
+  color: var(--brand-muted);
+  margin: 0;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .pricing-decision-callout {
+    padding: 28px;
+  }
+  
+  .pricing-decision-title {
+    font-size: 1.4rem;
+  }
+  
+  .pricing-decision-note {
+    font-size: 0.95rem;
+  }
+}
+
 /* Pricing Cards Grid - PREMIUM LAYOUT: asymmetric 3-column */
 .pricing-cards-grid {
   display: grid !important;
