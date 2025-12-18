@@ -2231,8 +2231,37 @@ img {
   font-style: italic;
 }
 
-.blog-checklist-card .btn {
+.blog-checklist-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.blog-checklist-buttons .btn {
   display: inline-block;
+  min-width: 180px;
+}
+
+.blog-checklist-small-link {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.blog-checklist-small-link a {
+  color: var(--brand-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-checklist-small-link a:hover {
+  color: var(--accent);
+}
+
+@media (min-width: 640px) {
+  .blog-checklist-buttons {
+    flex-direction: row;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2240,7 +2269,7 @@ img {
     width: 100%;
   }
   
-  .blog-checklist-card .btn {
+  .blog-checklist-buttons .btn {
     width: 100%;
   }
 }
@@ -2557,6 +2586,21 @@ img {
   min-width: 200px;
 }
 
+.blog-mini-teardown-secondary-link {
+  margin: 16px 0 0;
+  font-size: 0.9rem;
+}
+
+.blog-mini-teardown-secondary-link a {
+  color: var(--brand-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-mini-teardown-secondary-link a:hover {
+  color: var(--accent);
+}
+
 /* Blog CTA Section */
 .blog-cta {
   padding-top: calc(var(--section-y) * 0.75);
@@ -2615,6 +2659,21 @@ img {
 
 .blog-cta-buttons .btn {
   min-width: 180px;
+}
+
+.blog-cta-tertiary-link {
+  margin: 16px 0 0;
+  font-size: 0.9rem;
+}
+
+.blog-cta-tertiary-link a {
+  color: var(--brand-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-cta-tertiary-link a:hover {
+  color: var(--accent);
 }
 
 @media (min-width: 640px) {
