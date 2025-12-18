@@ -276,6 +276,20 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
   }
 }
 
+/* Hero CTA microcopy */
+.hero-cta-microcopy {
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  color: var(--brand-muted);
+  line-height: 1.5;
+}
+
+@media (min-width:640px){
+  .hero-cta-microcopy {
+    font-size: 0.875rem;
+  }
+}
+
 /* ---- Hero ---- PREMIUM LAYOUT: 80-100vh responsive */
 .hero{
   padding-top:2.5rem; /* Reduced for mobile to show more content above fold */
@@ -388,7 +402,7 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 .hero-bullets{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:16px;font-size:14px;color:var(--brand-muted)}
 .hero-bullets li::before{content:"✓ ";color:var(--brand-accent);margin-right:4px}
 @media (max-width:767px){.hero-bullets{flex-direction:column;gap:8px}}
-.hero-subtext{color:var(--brand-muted);font-size:14px;margin-top:6px}
+.hero-subtext{color:var(--brand-muted);font-size:14px;margin-top:6px;margin-bottom:24px}
 
 /* Hero 2-column premium layout */
 .hero-layout{
@@ -6620,23 +6634,23 @@ img {
 
 /* ===== Hero Process Stepper ===== */
 .hero-process-stepper {
-  margin-top: 24px;
-  padding: 10px 16px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 999px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  margin-top: 20px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 0.8125rem;
+  text-transform: none;
+  letter-spacing: normal;
   color: var(--brand-muted);
-  text-align: center;
-  font-weight: 500;
-  max-width: fit-content;
+  text-align: left;
+  font-weight: 400;
+  max-width: 100%;
 }
 
 @media (min-width:768px){
   .hero-process-stepper {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
   }
 }
 
