@@ -108,6 +108,42 @@
             <p style="margin:0"><strong id="annualRev">-</strong></p>
           </div>
         </div>
+
+        <!-- Download PDF Button -->
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(90,162,255,.15);text-align:center">
+          <button id="downloadPdf" class="btn btn-ghost" style="font-size:0.9rem;padding:8px 16px" onclick="downloadSnapshot()">
+            Download 1-page snapshot
+          </button>
+        </div>
+      </div>
+
+      <!-- Next Step CTA Card -->
+      <div id="nextStepCard" role="region" aria-labelledby="nextStepTitle" style="display:none;margin-top:20px;padding:28px 24px;background:var(--card);border:1px solid var(--line);border-radius:12px">
+        <h3 id="nextStepTitle" style="margin:0 0 16px;font-size:1.25rem;color:var(--fg)">Want a clinic-specific Payback Snapshot + build plan?</h3>
+        <p style="margin:0 0 16px;color:var(--muted-2);line-height:1.7">We'll analyze your actual site and create a custom plan that includes:</p>
+        <ul style="margin:0 0 24px;padding-left:20px;line-height:1.8;color:var(--muted-2)">
+          <li>Priority fixes ranked by impact</li>
+          <li>Page map showing what to keep, cut, or add</li>
+          <li>Wireframe of your new patient flow</li>
+          <li>Tracking plan (GA4 events & conversions)</li>
+          <li>1-page snapshot you can share with your team</li>
+        </ul>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <a href="/quote.html?utm_source=roi&utm_medium=tool&utm_campaign=blueprint#blueprint" 
+             class="btn btn-primary" 
+             style="text-align:center"
+             onclick="window.safeEvent && window.safeEvent('roi_blueprint_cta_click', {location: 'results_card'})">
+            Get Clinic Booking Blueprint
+          </a>
+          <a href="https://calendly.com/vinnie-keyturn/intro?utm_source=roi&utm_medium=tool&utm_campaign=blueprint" 
+             class="btn btn-ghost" 
+             style="text-align:center"
+             target="_blank" 
+             rel="noopener noreferrer"
+             onclick="window.safeEvent && window.safeEvent('roi_qna_cta_click', {location: 'results_card'})">
+            Book 15-min Q&amp;A
+          </a>
+        </div>
       </div>
     </div>
 
@@ -246,6 +282,157 @@
 
     // Show results
     document.getElementById('out').style.display = 'block';
+    document.getElementById('nextStepCard').style.display = 'block';
+
+    // Fire GA4 event for ROI calculation
+    if (window.safeEvent) {
+      window.safeEvent('roi_calculate', {
+        business_type: businessType,
+        avg_value: avgValue,
+        extra_per_month: extraPerMonth,
+        package: packageName,
+        payback_months: paybackMonths.toFixed(1)
+      });
+    }
+  }
+
+  function downloadSnapshot(){
+    // Fire GA4 event for PDF download
+    if (window.safeEvent) {
+      window.safeEvent('roi_pdf_download_click', {location: 'results_card'});
+    }
+
+    // Create print-friendly view
+    const businessType = document.getElementById('businessType').value;
+    const avgValue = +document.getElementById('avgValue').value || 0;
+    const currentPerMonth = +document.getElementById('currentPerMonth').value || 0;
+    const extraPerMonth = +document.getElementById('extraPerMonth').value || 0;
+    const packageName = document.getElementById('projectPackage').value;
+    const payback = document.getElementById('payback').textContent;
+    const monthlyRev = document.getElementById('monthlyRev').textContent;
+    const annualRev = document.getElementById('annualRev').textContent;
+
+    // HTML escape function to prevent XSS
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Open print window with snapshot
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>ROI Payback Snapshot - Keyturn Studio</title>
+        <style>
+          @media print {
+            body { margin: 0; }
+          }
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            line-height: 1.6;
+            color: #1a1a1a;
+          }
+          h1 { font-size: 28px; margin-bottom: 8px; color: #0a1220; }
+          h2 { font-size: 20px; margin-top: 32px; margin-bottom: 12px; color: #0a1220; }
+          .subtitle { color: #6b7280; margin-bottom: 32px; }
+          .result-box {
+            background: #f3f4f6;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 20px 0;
+          }
+          .result-box h3 { margin-top: 0; font-size: 16px; color: #6b7280; }
+          .result-box .big { font-size: 32px; font-weight: bold; margin: 8px 0; color: #0a1220; }
+          .metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+          }
+          .metric {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+          }
+          .metric h4 { margin: 0 0 4px; font-size: 14px; color: #6b7280; font-weight: normal; }
+          .metric p { margin: 0; font-weight: bold; font-size: 18px; color: #0a1220; }
+          .inputs {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+          }
+          .inputs p { margin: 8px 0; }
+          .inputs strong { color: #0a1220; }
+          .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 14px;
+            color: #6b7280;
+          }
+          @media print {
+            .no-print { display: none; }
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Website Payback Snapshot</h1>
+        <p class="subtitle">Generated from Keyturn Studio ROI Calculator</p>
+        
+        <div class="result-box">
+          <h3>Estimated Payback Time</h3>
+          <div class="big">${escapeHtml(payback)}</div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <h4>Extra Monthly Revenue</h4>
+            <p>${escapeHtml(monthlyRev)}</p>
+          </div>
+          <div class="metric">
+            <h4>Extra Annual Revenue</h4>
+            <p>${escapeHtml(annualRev)}</p>
+          </div>
+        </div>
+
+        <h2>Your Inputs</h2>
+        <div class="inputs">
+          <p><strong>Business Type:</strong> ${escapeHtml(businessType)}</p>
+          <p><strong>Average Value per Patient/Booking:</strong> ${escapeHtml(money(avgValue))}</p>
+          <p><strong>Current Patients/Bookings per Month:</strong> ${escapeHtml(String(currentPerMonth))}</p>
+          <p><strong>Extra Patients/Bookings per Month:</strong> ${escapeHtml(String(extraPerMonth))}</p>
+          <p><strong>Project Package:</strong> ${escapeHtml(packageName)}</p>
+        </div>
+
+        <h2>What This Means</h2>
+        <p>This is a rough estimate showing how long it might take for a new website to pay for itself based on your projected increase in patient bookings or sales.</p>
+        <ul>
+          <li><strong>&lt; 6 months:</strong> Very strong upside potential</li>
+          <li><strong>6-12 months:</strong> Healthy return on investment</li>
+          <li><strong>12+ months:</strong> May still be worth it for brand and trust</li>
+        </ul>
+
+        <div class="footer">
+          <p><strong>Next Steps:</strong></p>
+          <p>Want a clinic-specific analysis with real traffic data? Book a free consultation at keyturn.studio</p>
+          <p style="margin-top: 16px; font-size: 12px;">This calculator provides rough estimates only and is not a guarantee of results. Actual performance may vary based on many factors including your market, competition, and execution.</p>
+        </div>
+
+        <div class="no-print" style="margin-top: 40px; text-align: center;">
+          <button onclick="window.print()" style="background: #5aa2ff; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer;">Print or Save as PDF</button>
+          <button onclick="window.close()" style="background: #e5e7eb; color: #1a1a1a; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer; margin-left: 12px;">Close</button>
+        </div>
+      </body>
+      </html>
+    `);
+    printWindow.document.close();
   }
   
   document.getElementById('calc').addEventListener('click', calc);
