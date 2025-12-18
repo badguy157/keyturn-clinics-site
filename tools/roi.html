@@ -129,7 +129,7 @@
           <li>1-page snapshot you can share with your team</li>
         </ul>
         <div style="display:flex;flex-direction:column;gap:12px">
-          <a href="/quote.html#blueprint?utm_source=roi&utm_medium=tool&utm_campaign=blueprint" 
+          <a href="/quote.html?utm_source=roi&utm_medium=tool&utm_campaign=blueprint#blueprint" 
              class="btn btn-primary" 
              style="text-align:center"
              onclick="window.safeEvent && window.safeEvent('roi_blueprint_cta_click', {location: 'results_card'})">
@@ -139,7 +139,7 @@
              class="btn btn-ghost" 
              style="text-align:center"
              target="_blank" 
-             rel="noopener"
+             rel="noopener noreferrer"
              onclick="window.safeEvent && window.safeEvent('roi_qna_cta_click', {location: 'results_card'})">
             Book 15-min Q&amp;A
           </a>
@@ -312,6 +312,13 @@
     const monthlyRev = document.getElementById('monthlyRev').textContent;
     const annualRev = document.getElementById('annualRev').textContent;
 
+    // HTML escape function to prevent XSS
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
     // Open print window with snapshot
     const printWindow = window.open('', '_blank');
     printWindow.document.write(`
@@ -381,27 +388,27 @@
         
         <div class="result-box">
           <h3>Estimated Payback Time</h3>
-          <div class="big">${payback}</div>
+          <div class="big">${escapeHtml(payback)}</div>
         </div>
 
         <div class="metrics">
           <div class="metric">
             <h4>Extra Monthly Revenue</h4>
-            <p>${monthlyRev}</p>
+            <p>${escapeHtml(monthlyRev)}</p>
           </div>
           <div class="metric">
             <h4>Extra Annual Revenue</h4>
-            <p>${annualRev}</p>
+            <p>${escapeHtml(annualRev)}</p>
           </div>
         </div>
 
         <h2>Your Inputs</h2>
         <div class="inputs">
-          <p><strong>Business Type:</strong> ${businessType}</p>
-          <p><strong>Average Value per Patient/Booking:</strong> ${money(avgValue)}</p>
-          <p><strong>Current Patients/Bookings per Month:</strong> ${currentPerMonth}</p>
-          <p><strong>Extra Patients/Bookings per Month:</strong> ${extraPerMonth}</p>
-          <p><strong>Project Package:</strong> ${packageName}</p>
+          <p><strong>Business Type:</strong> ${escapeHtml(businessType)}</p>
+          <p><strong>Average Value per Patient/Booking:</strong> ${escapeHtml(money(avgValue))}</p>
+          <p><strong>Current Patients/Bookings per Month:</strong> ${escapeHtml(String(currentPerMonth))}</p>
+          <p><strong>Extra Patients/Bookings per Month:</strong> ${escapeHtml(String(extraPerMonth))}</p>
+          <p><strong>Project Package:</strong> ${escapeHtml(packageName)}</p>
         </div>
 
         <h2>What This Means</h2>
