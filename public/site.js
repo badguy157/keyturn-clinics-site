@@ -52,7 +52,7 @@
         <a class="btn btn-ghost"
    href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
    target="_blank" rel="noopener"
-   aria-label="Book 15-minute Q&A on Calendly">Book 15-min Q&A</a>
+   aria-label="Book 15-minute Q&A on Calendly">Book 15-min Q&amp;A</a>
       </div>
     </nav>
 
@@ -74,7 +74,7 @@
     <a class="btn btn-primary w-full" href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''} onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'mobile-nav'})">Get a quote</a>
     <a class="btn btn-ghost w-full"
    href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
-   target="_blank" rel="noopener">Book 15-min Q&A</a>
+   target="_blank" rel="noopener">Book 15-min Q&amp;A</a>
   </nav>
 </header>
     `.trim();
