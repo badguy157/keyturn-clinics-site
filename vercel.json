@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/quote",
+      "destination": "/quote.html",
+      "permanent": true
+    }
+  ]
+}
