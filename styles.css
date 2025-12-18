@@ -6610,28 +6610,6 @@ img {
   }
 }
 
-/* ===== Hero Process Stepper ===== */
-.hero-process-stepper {
-  margin-top: 20px;
-  padding: 0;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  font-size: 0.8125rem;
-  text-transform: none;
-  letter-spacing: normal;
-  color: var(--brand-muted);
-  text-align: left;
-  font-weight: 400;
-  max-width: 100%;
-}
-
-@media (min-width:768px){
-  .hero-process-stepper {
-    font-size: 0.875rem;
-  }
-}
-
 /* ===== Start Here Section ===== */
 .start-here-grid {
   display: grid;
