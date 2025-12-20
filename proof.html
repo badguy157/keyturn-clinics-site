@@ -88,6 +88,19 @@
       margin-top: 24px;
       padding-top: 8px;
     }
+    
+    /* How it works responsive grid */
+    .hiw-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    @media (min-width: 768px) {
+      .hiw-steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -103,389 +116,208 @@
 </section>
 
 <main id="main">
-  <!-- Real Client Project: Hotel Case Study -->
+  <!-- Section 1: Demo rebuilds (fictional clinics) -->
+  <section class="container section" style="padding-top:80px;padding-bottom:80px">
+    <h2 style="text-align:center;margin-bottom:12px">Demo rebuilds (fictional clinics)</h2>
+    <p style="text-align:center;color:var(--brand-text);margin-bottom:60px;max-width:680px;margin-left:auto;margin-right:auto">Example websites built to demonstrate our deliverables and approach.</p>
+    
+    <div class="demo-grid" style="max-width:1180px;margin:0 auto 40px">
+      <!-- Dermatology Demo Card -->
+      <div class="demo-card">
+        <h3 style="margin-top:0;margin-bottom:16px">Dermatology Demo</h3>
+        <div class="buttons" style="margin-bottom:20px;flex-direction:row;gap:12px">
+          <a class="btn btn-ghost" href="/mini-sites/derm-before/" target="_blank" rel="noopener" style="flex:1">View Before</a>
+          <a class="btn btn-primary" href="/mini-sites/derm-after/" target="_blank" rel="noopener" style="flex:1">View After</a>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="padding-left:24px;position:relative;margin-bottom:12px;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Clear booking path on every page
+          </li>
+          <li style="padding-left:24px;position:relative;margin-bottom:12px;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Trust signals (reviews, credentials)
+          </li>
+          <li style="padding-left:24px;position:relative;margin-bottom:0;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Mobile-first design, fast load
+          </li>
+        </ul>
+      </div>
+
+      <!-- Cosmetic Dental Demo Card -->
+      <div class="demo-card">
+        <h3 style="margin-top:0;margin-bottom:16px">Cosmetic Dental Demo</h3>
+        <div class="buttons" style="margin-bottom:20px;flex-direction:row;gap:12px">
+          <a class="btn btn-ghost" href="/mini-sites/cos-before/" target="_blank" rel="noopener" style="flex:1">View Before</a>
+          <a class="btn btn-primary" href="/mini-sites/cos-after/" target="_blank" rel="noopener" style="flex:1">View After</a>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="padding-left:24px;position:relative;margin-bottom:12px;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Simplified service pages
+          </li>
+          <li style="padding-left:24px;position:relative;margin-bottom:12px;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Prominent CTAs above fold
+          </li>
+          <li style="padding-left:24px;position:relative;margin-bottom:0;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Speed optimizations (3x faster)
+          </li>
+        </ul>
+      </div>
+
+      <!-- Medspa Demo Card -->
+      <div class="demo-card">
+        <h3 style="margin-top:0;margin-bottom:16px">Medspa Demo</h3>
+        <div class="buttons" style="margin-bottom:20px;flex-direction:row;gap:12px">
+          <a class="btn btn-ghost" href="/mini-sites/med-before/" target="_blank" rel="noopener" style="flex:1">View Before</a>
+          <a class="btn btn-primary" href="/mini-sites/med-after/" target="_blank" rel="noopener" style="flex:1">View After</a>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="padding-left:24px;position:relative;margin-bottom:12px;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Treatment clarity and pricing
+          </li>
+          <li style="padding-left:24px;position:relative;margin-bottom:12px;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Mobile conversion optimization
+          </li>
+          <li style="padding-left:24px;position:relative;margin-bottom:0;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Reduced friction to book
+          </li>
+        </ul>
+      </div>
+
+      <!-- Plastic Surgery Demo Card -->
+      <div class="demo-card">
+        <h3 style="margin-top:0;margin-bottom:16px">Plastic Surgery Demo</h3>
+        <div class="buttons" style="margin-bottom:20px;flex-direction:row;gap:12px">
+          <a class="btn btn-ghost" href="https://plastic-surgery-demo.keyturn.studio/" target="_blank" rel="noopener" style="flex:1">View Before</a>
+          <a class="btn btn-primary" href="https://plastic-surgery-demo.keyturn.studio/" target="_blank" rel="noopener" style="flex:1">View After</a>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0">
+          <li style="padding-left:24px;position:relative;margin-bottom:12px;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Premium feel, clear procedures
+          </li>
+          <li style="padding-left:24px;position:relative;margin-bottom:12px;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Professional trust markers
+          </li>
+          <li style="padding-left:24px;position:relative;margin-bottom:0;font-size:0.95rem">
+            <span style="position:absolute;left:0;color:var(--brand-accent)">•</span>
+            Streamlined consultation booking
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <p style="text-align:center;color:var(--brand-muted);font-size:0.9rem;max-width:800px;margin:0 auto">
+      <em>Demo projects (fictional clinics). Shown to demonstrate deliverables, not client results.</em>
+    </p>
+  </section>
+
+  <!-- Section 2: What we fix every time -->
+  <section class="container section" style="padding-top:80px;padding-bottom:80px;background:rgba(255,255,255,.01)">
+    <h2 style="text-align:center;margin-bottom:16px">What we fix every time</h2>
+    <p style="text-align:center;color:var(--brand-text);margin-bottom:60px;max-width:680px;margin-left:auto;margin-right:auto">The same core issues appear across most clinic websites. We address all six.</p>
+    
+    <div style="max-width:900px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:1fr;gap:24px">
+        <!-- Clarity -->
+        <div class="card" style="padding:28px">
+          <h3 style="margin-top:0;color:var(--accent);font-size:1.25rem;margin-bottom:12px">Clarity</h3>
+          <p style="color:var(--brand-text);margin:0">Visitors need to understand what you offer in seconds. We remove jargon, organize services clearly, and make it obvious what comes next.</p>
+        </div>
+
+        <!-- Booking Path -->
+        <div class="card" style="padding:28px">
+          <h3 style="margin-top:0;color:var(--accent);font-size:1.25rem;margin-bottom:12px">Booking Path</h3>
+          <p style="color:var(--brand-text);margin:0">Every page should guide visitors toward booking. We add clear CTAs, reduce steps, and make scheduling frictionless.</p>
+        </div>
+
+        <!-- Mobile Experience -->
+        <div class="card" style="padding:28px">
+          <h3 style="margin-top:0;color:var(--accent);font-size:1.25rem;margin-bottom:12px">Mobile Experience</h3>
+          <p style="color:var(--brand-text);margin:0">Most clinic visitors browse on phones. We prioritize mobile-first design, fast load times, and thumb-friendly navigation.</p>
+        </div>
+
+        <!-- Trust Signals -->
+        <div class="card" style="padding:28px">
+          <h3 style="margin-top:0;color:var(--accent);font-size:1.25rem;margin-bottom:12px">Trust Signals</h3>
+          <p style="color:var(--brand-text);margin:0">Medical decisions require confidence. We highlight credentials, patient reviews, before/afters, and safety information prominently.</p>
+        </div>
+
+        <!-- Speed & Performance -->
+        <div class="card" style="padding:28px">
+          <h3 style="margin-top:0;color:var(--accent);font-size:1.25rem;margin-bottom:12px">Speed & Performance</h3>
+          <p style="color:var(--brand-text);margin:0">Slow sites lose visitors. We optimize images, code, and hosting to ensure pages load in under 2 seconds.</p>
+        </div>
+
+        <!-- Conversion Friction -->
+        <div class="card" style="padding:28px">
+          <h3 style="margin-top:0;color:var(--accent);font-size:1.25rem;margin-bottom:12px">Conversion Friction</h3>
+          <p style="color:var(--brand-text);margin:0">Every unnecessary click costs bookings. We simplify forms, reduce distractions, and eliminate barriers between interest and action.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: How it works (3–5 weeks) -->
+  <section class="container section" style="padding-top:80px;padding-bottom:80px">
+    <h2 style="text-align:center;margin-bottom:16px">How it works (3–5 weeks)</h2>
+    <p style="text-align:center;color:var(--brand-text);margin-bottom:60px;max-width:680px;margin-left:auto;margin-right:auto">From kickoff to launch in under a month.</p>
+    
+    <div style="max-width:1000px;margin:0 auto">
+      <div class="hiw-steps-grid">
+        <!-- Step 1 -->
+        <div style="text-align:center">
+          <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;background:var(--brand-primary);border-radius:50%;margin-bottom:20px;font-size:1.5rem;font-weight:700;color:#ffffff">1</div>
+          <h3 style="margin:0 0 12px 0;font-size:1.25rem">Audit & Strategy</h3>
+          <p style="color:var(--brand-text);margin:0;max-width:320px;margin-left:auto;margin-right:auto">We review your current site, run a patient-flow scan, and build a custom plan for your clinic.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div style="text-align:center">
+          <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;background:var(--brand-primary);border-radius:50%;margin-bottom:20px;font-size:1.5rem;font-weight:700;color:#ffffff">2</div>
+          <h3 style="margin:0 0 12px 0;font-size:1.25rem">Design & Build</h3>
+          <p style="color:var(--brand-text);margin:0;max-width:320px;margin-left:auto;margin-right:auto">We design and build your new site, focusing on booking flow, mobile experience, and clear messaging.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div style="text-align:center">
+          <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;background:var(--brand-primary);border-radius:50%;margin-bottom:20px;font-size:1.5rem;font-weight:700;color:#ffffff">3</div>
+          <h3 style="margin:0 0 12px 0;font-size:1.25rem">Launch & Track</h3>
+          <p style="color:var(--brand-text);margin:0;max-width:320px;margin-left:auto;margin-right:auto">We launch your site, set up tracking, and provide handoff documentation so you know what changed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Other work (non-clinic) -->
   <section class="container section" style="padding-top:80px;padding-bottom:100px;background:rgba(255,255,255,.01)">
-    <div style="text-align:center;margin-bottom:16px">
-      <span style="display:inline-block;background:var(--accent);color:var(--navy);font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:20px">Real client project</span>
-    </div>
-    <h2 style="text-align:center;margin-bottom:12px">Real Client Project</h2>
-    <p style="text-align:center;color:var(--brand-text);margin-bottom:60px;max-width:680px;margin-left:auto;margin-right:auto">This case study is from an independent hotel in England. The same ideas work for clinics and medspas: clear booking paths, simple steps, and tracking that shows what's working.</p>
+    <h2 style="text-align:center;margin-bottom:16px">Other work (non-clinic)</h2>
+    <p style="text-align:center;color:var(--brand-text);margin-bottom:48px;max-width:680px;margin-left:auto;margin-right:auto">Past projects from different industries.</p>
     
-    <!-- Case Study Introduction: The Anchor Hotel -->
-    <div class="card" style="max-width:900px;margin:0 auto 40px auto;box-shadow:0 4px 12px rgba(0,0,0,0.1)">
-      <h3 style="margin-top:0">The Anchor Hotel, Haydon Bridge</h3>
-      <p style="max-width:800px">A riverside hotel in England. The old site made it hard for guests to book. Too many left to use travel sites like Booking.com. We rebuilt the site around booking and clear info. Now more guests book direct.</p>
-      <div class="buttons" style="margin-top:24px">
-        <a class="btn btn-primary" href="https://www.theanchorhotelhaydonbridge.com" target="_blank" rel="noopener">View the live site</a>
-      </div>
-    </div>
-
-    <!-- Website Screenshot -->
-    <div class="card" style="padding:32px;overflow:hidden;background:radial-gradient(ellipse at top, rgba(90,162,255,.08), rgba(10,18,32,.5) 60%);border:2px solid rgba(255,255,255,.06);box-shadow:0 4px 12px rgba(0,0,0,0.1);max-width:900px;margin:0 auto 40px auto">
-      <a href="/screenshot.png" target="_blank" rel="noopener" style="display:block;position:relative;cursor:zoom-in">
-        <img src="/screenshot.png" 
-             alt="The Anchor Hotel website homepage screenshot" 
-             style="width:100%;height:auto;display:block;border-radius:14px"
-             loading="lazy"
-             decoding="async">
-        <div style="position:absolute;top:16px;right:16px;background:rgba(10,18,32,.92);backdrop-filter:blur(8px);padding:8px 16px;border-radius:8px;font-size:0.85rem;font-weight:600;color:var(--brand-accent);border:1px solid var(--line)">
-          Click to enlarge →
+    <!-- Anchor Hotel Card - Smaller -->
+    <div style="max-width:700px;margin:0 auto">
+      <div class="card" style="padding:32px">
+        <div style="display:inline-block;background:rgba(90,162,255,.15);color:var(--brand-primary);font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:20px">Hospitality project (past work)</div>
+        <h3 style="margin-top:0;margin-bottom:16px">The Anchor Hotel</h3>
+        <p style="color:var(--brand-text);margin-bottom:24px;line-height:1.7">Independent riverside hotel in England. Rebuilt site around direct bookings. Direct bookings rose from 8% to 25% in the first year.</p>
+        <div class="buttons" style="margin-top:24px">
+          <a class="btn btn-primary" href="https://www.theanchorhotelhaydonbridge.com" target="_blank" rel="noopener">View live site</a>
         </div>
-      </a>
-    </div>
-
-    <!-- Before/After/Results Story -->
-    <div style="max-width:900px;margin:0 auto">
-      <h3 style="text-align:center;margin-bottom:40px">Before → What Changed → Results</h3>
-      <p style="text-align:center;font-weight:700;font-size:1.15rem;color:var(--brand-primary);margin-bottom:32px">Result: Direct bookings went from single digits to about 25 percent share in the first year.</p>
-      
-      <div class="before-after-grid" style="margin-bottom:40px">
-        <!-- Before Card -->
-        <article class="card" style="box-shadow:0 4px 12px rgba(0,0,0,0.1)">
-          <h4 style="margin-top:0;color:var(--accent);font-size:1.3rem">Before</h4>
-          <p style="color:var(--brand-text);margin-bottom:20px">The old site had several problems that sent guests to booking portals instead.</p>
-          <ul style="list-style:none;padding:0">
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              Buried booking button hard to find
-            </li>
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              Slow mobile pages that frustrated visitors
-            </li>
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              Unclear room information and pricing
-            </li>
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              No tracking to see what was working
-            </li>
-          </ul>
-        </article>
-
-        <!-- What We Changed Card -->
-        <article class="card" style="box-shadow:0 4px 12px rgba(0,0,0,0.1)">
-          <h4 style="margin-top:0;color:var(--accent);font-size:1.3rem">What Changed</h4>
-          <p style="color:var(--brand-text);margin-bottom:20px">We rebuilt the site around booking and trust.</p>
-          <ul style="list-style:none;padding:0">
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              Rebuilt the site around direct bookings
-            </li>
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              Added clear "Book a room" buttons on every page
-            </li>
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              Created simple pages for rooms and local area
-            </li>
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              Optimized for fast mobile experience
-            </li>
-          </ul>
-        </article>
-
-        <!-- After Card -->
-        <article class="card" style="box-shadow:0 4px 12px rgba(0,0,0,0.1)">
-          <h4 style="margin-top:0;color:var(--accent);font-size:1.3rem">Results</h4>
-          <p style="color:var(--brand-text);margin-bottom:20px">The results showed up quickly and stayed consistent.</p>
-          <ul style="list-style:none;padding:0">
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              <strong>Direct bookings rose from 8% to 25% (+17 percentage points)</strong>
-            </li>
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              <strong>Google clicks increased by ~107%</strong>
-            </li>
-            <li style="padding-left:28px;position:relative;margin-bottom:14px">
-              <span style="position:absolute;left:0;color:var(--brand-muted)">•</span>
-              More calls and email inquiries
-            </li>
-          </ul>
-        </article>
-      </div>
-
-      <!-- Disclaimer -->
-      <div style="padding:20px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;text-align:center;margin-bottom:40px">
-        <p class="small" style="margin:0;color:var(--brand-muted)">
-          <em>Independent studio. "The Anchor Hotel" case study shown with permission. <strong>No affiliation or ownership.</strong></em>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Example clinic blueprints -->
-  <section class="container section" style="padding-top:80px;padding-bottom:100px">
-    <h2 style="text-align:center;margin-bottom:12px">See a plan that matches your clinic</h2>
-    <p style="text-align:center;color:var(--brand-text);margin-bottom:16px;max-width:680px;margin-left:auto;margin-right:auto">Pick the example that feels closest to you. Your plan would be similar, just tuned to your clinic.</p>
-    <p style="text-align:center;color:var(--brand-text);margin-bottom:60px;max-width:680px;margin-left:auto;margin-right:auto">These are example scenarios based on common clinic problems, not real client projects.</p>
-    
-    <!-- Dermatology Clinic - Seattle -->
-    <div class="card" style="max-width:900px;margin:0 auto 60px auto;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:40px">
-      <h3 style="margin-top:0;color:var(--accent);font-size:1.5rem;display:flex;align-items:center;gap:12px">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="var(--accent)"/>
-        </svg>
-        Dermatology Clinic
-      </h3>
-      
-      <div class="before-after-grid" style="margin-bottom:32px;gap:32px">
-        <!-- Before -->
-        <div>
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:12px">Before</h4>
-          <p style="color:var(--brand-text);margin-bottom:16px">Slow mobile load, confusing navigation with bounce rate at 65%.</p>
-          <img src="/images/derm-before.jpg" alt="Dermatology clinic before redesign" style="width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15)" loading="lazy">
-        </div>
-        
-        <!-- After -->
-        <div>
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:12px">What Changed</h4>
-          <p style="color:var(--brand-text);margin-bottom:16px">Streamlined mobile layout, clear booking paths, integrated scheduling, improved tracking.</p>
-          <img src="/images/derm-after.jpg" alt="Dermatology clinic after redesign" style="width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15)" loading="lazy">
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line)">
+          <p style="margin:0;color:var(--brand-muted);font-size:0.875rem">
+            <em>Case study shown with permission. No affiliation or ownership.</em>
+          </p>
         </div>
       </div>
-      
-      <!-- Goals -->
-      <div style="padding:24px;background:rgba(90,162,255,.05);border-left:4px solid var(--accent);border-radius:8px">
-        <h4 style="margin-top:0;color:var(--accent);margin-bottom:16px">Goals</h4>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="padding-left:32px;position:relative;margin-bottom:12px;font-size:1.05rem">
-            <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700;font-size:1.2rem">•</span>
-            More people booking consults
-          </li>
-          <li style="padding-left:32px;position:relative;margin-bottom:12px;font-size:1.05rem">
-            <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700;font-size:1.2rem">•</span>
-            Better visibility in Google search
-          </li>
-          <li style="padding-left:32px;position:relative;margin-bottom:12px;font-size:1.05rem">
-            <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700;font-size:1.2rem">•</span>
-            Fewer visitors leaving immediately
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    <!-- Divider -->
-    <hr style="max-width:700px;margin:60px auto;border:none;border-top:1px solid rgba(255,255,255,.1)">
-    
-    <!-- Cosmetic Surgery Clinic - New York -->
-    <div class="card" style="max-width:900px;margin:0 auto 60px auto;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:40px">
-      <h3 style="margin-top:0;color:var(--accent);font-size:1.5rem;display:flex;align-items:center;gap:12px">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="var(--accent)"/>
-        </svg>
-        Cosmetic Surgery Clinic
-      </h3>
-      
-      <div class="before-after-grid" style="margin-bottom:32px;gap:32px">
-        <!-- Before -->
-        <div>
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:12px">Before</h4>
-          <p style="color:var(--brand-text);margin-bottom:16px">Cluttered pages, low engagement with average time on site of just 45 seconds.</p>
-          <img src="/images/cosmetic-before.jpg" alt="Cosmetic surgery clinic before redesign" style="width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15)" loading="lazy">
-        </div>
-        
-        <!-- After -->
-        <div>
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:12px">What Changed</h4>
-          <p style="color:var(--brand-text);margin-bottom:16px">Premium visuals, focused landing pages, stronger proof sections, better CTAs.</p>
-          <img src="/images/cosmetic-after.jpg" alt="Cosmetic surgery clinic after redesign" style="width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15)" loading="lazy">
-        </div>
-      </div>
-      
-      <!-- Goals -->
-      <div style="padding:24px;background:rgba(90,162,255,.05);border-left:4px solid var(--accent);border-radius:8px">
-        <h4 style="margin-top:0;color:var(--accent);margin-bottom:16px">Goals</h4>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="padding-left:32px;position:relative;margin-bottom:12px;font-size:1.05rem">
-            <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700;font-size:1.2rem">•</span>
-            More patients choosing higher-value treatments
-          </li>
-          <li style="padding-left:32px;position:relative;margin-bottom:12px;font-size:1.05rem">
-            <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700;font-size:1.2rem">•</span>
-            Longer time spent exploring procedures
-          </li>
-          <li style="padding-left:32px;position:relative;margin-bottom:12px;font-size:1.05rem">
-            <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700;font-size:1.2rem">•</span>
-            More organic traffic from search engines
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    <!-- Divider -->
-    <hr style="max-width:700px;margin:60px auto;border:none;border-top:1px solid rgba(255,255,255,.1)">
-    
-    <!-- Medspa Clinic - Los Angeles -->
-    <div class="card" style="max-width:900px;margin:0 auto 60px auto;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:40px">
-      <h3 style="margin-top:0;color:var(--accent);font-size:1.5rem;display:flex;align-items:center;gap:12px">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="var(--accent)"/>
-        </svg>
-        Medspa Clinic
-      </h3>
-      
-      <div class="before-after-grid" style="margin-bottom:32px;gap:32px">
-        <!-- Before -->
-        <div>
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:12px">Before</h4>
-          <p style="color:var(--brand-text);margin-bottom:16px">Non-responsive mobile design, low conversions (under 2%) for injectables.</p>
-          <img src="/images/medspa-before.jpg" alt="Medspa before redesign" style="width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15)" loading="lazy">
-        </div>
-        
-        <!-- After -->
-        <div>
-          <h4 style="color:var(--accent);font-size:1.1rem;margin-bottom:12px">What Changed</h4>
-          <p style="color:var(--brand-text);margin-bottom:16px">Mobile-first optimization, detailed treatment pages with forms, basic analytics.</p>
-          <img src="/images/medspa-after.jpg" alt="Medspa after redesign" style="width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15)" loading="lazy">
-        </div>
-      </div>
-      
-      <!-- Goals -->
-      <div style="padding:24px;background:rgba(90,162,255,.05);border-left:4px solid var(--accent);border-radius:8px">
-        <h4 style="margin-top:0;color:var(--accent);margin-bottom:16px">Goals</h4>
-        <ul style="list-style:none;padding:0;margin:0">
-          <li style="padding-left:32px;position:relative;margin-bottom:12px;font-size:1.05rem">
-            <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700;font-size:1.2rem">•</span>
-            Higher conversion rates for treatments
-          </li>
-          <li style="padding-left:32px;position:relative;margin-bottom:12px;font-size:1.05rem">
-            <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700;font-size:1.2rem">•</span>
-            Fewer clicks to book appointments
-          </li>
-          <li style="padding-left:32px;position:relative;margin-bottom:12px;font-size:1.05rem">
-            <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700;font-size:1.2rem">•</span>
-            More inquiries from mobile visitors
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    <!-- CTA Button -->
-    <div style="text-align:center;margin-top:60px">
-      <a class="btn btn-primary" href="#" data-kt-link="quote" style="font-size:1.1rem;padding:16px 32px">Get Your Quote</a>
-    </div>
-  </section>
-
-  <!-- What this means for clinics -->
-  <section class="container section" style="padding-top:80px;padding-bottom:100px">
-    <div class="card" style="background:linear-gradient(135deg, rgba(90,162,255,.08) 0%, rgba(90,162,255,.02) 100%);border:2px solid rgba(90,162,255,.2);max-width:900px;margin:0 auto;box-shadow:0 4px 12px rgba(0,0,0,0.1)">
-      <h2>What this means for clinics</h2>
-      <ul style="list-style:none;padding:0;margin-bottom:24px">
-        <li style="padding-left:28px;position:relative;margin-bottom:14px">
-          <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700">✓</span>
-          When we rebuild for patient-flow, direct bookings usually rise significantly.
-        </li>
-        <li style="padding-left:28px;position:relative;margin-bottom:14px">
-          <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700">✓</span>
-          You don't need to be a tech person; we handle the build and tracking.
-        </li>
-        <li style="padding-left:28px;position:relative;margin-bottom:14px">
-          <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700">✓</span>
-          Patient value is higher than hotel bookings ($3K–$8K per patient vs. $200–$500 per stay).
-        </li>
-        <li style="padding-left:28px;position:relative;margin-bottom:14px">
-          <span style="position:absolute;left:0;color:var(--brand-accent);font-weight:700">✓</span>
-          You keep the gains even if you later sell or rebrand.
-        </li>
-      </ul>
-      <div style="padding:16px;background:rgba(255,255,255,.04);border-left:3px solid var(--accent);border-radius:8px">
-        <p style="margin:0;color:var(--brand-text);font-size:0.95rem"><em>Most clinics that look like this hotel see similar lifts when we fix the leaks.</em></p>
-      </div>
-    </div>
-    
-    <!-- CTA block after "What this means" -->
-    <div style="text-align:center;margin-top:48px;max-width:680px;margin-left:auto;margin-right:auto">
-      <p style="color:var(--brand-text);font-size:1.05rem;margin-bottom:20px;line-height:1.6">Want to see what this could look like for your clinic?</p>
-      <a class="btn btn-primary" href="#" data-kt-link="quote" style="font-size:1.05rem;padding:14px 28px">Get a clear quote</a>
-    </div>
-  </section>
-
-  <!-- Demo gallery -->
-  <section id="clinic-demos" class="container section" style="padding-top:64px;padding-bottom:64px">
-    <div style="max-width:900px;margin:0 auto">
-      <h2 style="margin-top:0;margin-bottom:12px">See what a booking-focused website can look like</h2>
-      <p style="color:var(--brand-text);font-size:1rem;line-height:1.7;max-width:700px;margin:0 auto 40px;text-align:center">
-        These are demo layouts for different clinic types. They show the sort of patient-flow booking sites we build.
-      </p>
-
-      <div class="demo-grid">
-        <!-- Dermatology -->
-        <a href="https://cosmetic-demo.keyturn.studio/" target="_blank" rel="noopener" class="demo-card demo-card-clickable">
-          <div style="position: relative;">
-            <img src="/images/demo-dermatology.png" alt="Dermatology website demo homepage" style="margin-bottom: 0; border-radius: 0;">
-            <p class="demo-category-label">Dermatology</p>
-          </div>
-          <div class="demo-card-body">
-            <h3>Dermatology Demo</h3>
-            <p>Calm layout for cosmetic and aesthetic derm clinics.</p>
-          </div>
-          <div class="demo-card-footer">
-            <span class="btn" style="pointer-events:none">
-              Open dermatology demo →
-            </span>
-          </div>
-        </a>
-
-        <!-- Cosmetic Dental -->
-        <a href="https://cosmetic-dental-demo.keyturn.studio/" target="_blank" rel="noopener" class="demo-card demo-card-clickable">
-          <div style="position: relative;">
-            <img src="/images/demo-dental.png" alt="Cosmetic dental website demo homepage" style="margin-bottom: 0; border-radius: 0;">
-            <p class="demo-category-label">Cosmetic dental</p>
-          </div>
-          <div class="demo-card-body">
-            <h3>Cosmetic Dental Demo</h3>
-            <p>Spotlights implants, Invisalign, and cosmetic treatments.</p>
-          </div>
-          <div class="demo-card-footer">
-            <span class="btn" style="pointer-events:none">
-              Open cosmetic dental demo →
-            </span>
-          </div>
-        </a>
-
-        <!-- Medspa -->
-        <a href="https://medspa-demo.keyturn.studio/" target="_blank" rel="noopener" class="demo-card demo-card-clickable">
-          <div style="position: relative;">
-            <img src="/images/demo-medspa.png" alt="Medspa website demo homepage" style="margin-bottom: 0; border-radius: 0;">
-            <p class="demo-category-label">Medspa</p>
-          </div>
-          <div class="demo-card-body">
-            <h3>Medspa Demo</h3>
-            <p>Built to sell packages, not just single sessions.</p>
-          </div>
-          <div class="demo-card-footer">
-            <span class="btn" style="pointer-events:none">
-              Open medspa demo →
-            </span>
-          </div>
-        </a>
-
-        <!-- Plastic Surgery -->
-        <a href="https://plastic-surgery-demo.keyturn.studio/" target="_blank" rel="noopener" class="demo-card demo-card-clickable">
-          <div style="position: relative;">
-            <img src="/images/demo-plastic-surgery.png" alt="Plastic surgery website demo homepage" style="margin-bottom: 0; border-radius: 0;">
-            <p class="demo-category-label">Plastic Surgery</p>
-          </div>
-          <div class="demo-card-body">
-            <h3>Plastic Surgery Demo</h3>
-            <p>Makes big procedures feel clear, safe, and bookable.</p>
-          </div>
-          <div class="demo-card-footer">
-            <span class="btn" style="pointer-events:none">
-              Open plastic surgery demo →
-            </span>
-          </div>
-        </a>
-      </div>
-
-      <p class="small" style="margin-top:40px;color:var(--brand-muted);text-align:center;font-size:0.9rem">
-        These are example builds, not real clinics. Live projects are fully customized.
-      </p>
     </div>
   </section>
 
