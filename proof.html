@@ -88,6 +88,69 @@
       margin-top: 24px;
       padding-top: 8px;
     }
+
+    /* Hero grid layout for CTA + Clinic proof */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-top: 32px;
+    }
+    @media (min-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 48px;
+        align-items: center;
+      }
+    }
+    .clinic-proof-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .clinic-proof-card h3 {
+      margin: 0 0 16px 0;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+    .clinic-proof-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .clinic-proof-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px 0;
+    }
+    .clinic-proof-card ul li {
+      padding-left: 28px;
+      position: relative;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .clinic-proof-card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--brand-accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .clinic-proof-card .disclaimer {
+      font-size: 0.85rem;
+      color: var(--brand-muted);
+      font-style: italic;
+      margin: 0;
+      text-align: center;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
   </style>
 </head>
 <body>
@@ -99,6 +162,29 @@
     <h1 class="hero-title">How a better website gets more bookings</h1>
     <p style="color:var(--brand-text);font-size:1.1rem;margin:16px 0 0;line-height:1.6;max-width:680px">Clinics that work with us usually see 15 to 40 percent more booked consults from the same traffic.</p>
     <p class="hero-lede">See how our redesigns drive real results for clinics.</p>
+    
+    <!-- Hero grid: CTAs + Clinic proof -->
+    <div class="hero-grid">
+      <!-- Left: CTAs -->
+      <div>
+        <div class="hero-ctas" style="margin-top:0">
+          <a class="btn btn-primary" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
+          <a class="btn btn-ghost" href="https://calendly.com/vinnie-keyturn/intro?utm_source=site" target="_blank" rel="noopener">Book 15-min Fit Check</a>
+        </div>
+      </div>
+      
+      <!-- Right: Clinic proof card -->
+      <div class="clinic-proof-card">
+        <h3>Clinic demo mockup (fictional)</h3>
+        <img src="/images/derm-after.jpg" alt="Dermatology clinic homepage mockup" loading="eager">
+        <ul>
+          <li>Booking CTA made obvious</li>
+          <li>Trust stack rebuilt</li>
+          <li>Mobile layout simplified</li>
+        </ul>
+        <p class="disclaimer">Mockup only. Shown to demonstrate deliverables.</p>
+      </div>
+    </div>
   </div>
 </section>
 
