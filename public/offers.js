@@ -6,6 +6,8 @@
   const SCAN_URL_BASE = "https://scan.keyturn.studio";
 
   // Primary scan URL (canonical - no mode parameter)
+  // Both quickScanUrl and deepScanUrl point to the same URL because
+  // Deep Scan is unlocked from within the free scan report, not a separate entry point
   const quickScanUrl = SCAN_URL_BASE + "/";
   const deepScanUrl = SCAN_URL_BASE + "/";
 
