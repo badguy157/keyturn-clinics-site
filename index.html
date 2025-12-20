@@ -109,8 +109,8 @@
         <p class="hero-lede">We rebuild your website and booking steps in 3–5 weeks. We also run a Patient-Flow Scan so you can see what to fix first.</p>
 
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=home_hero">Start the $1,000 Blueprint</a>
-          <a class="btn btn-ghost" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run the Free Patient-Flow Scan</a>
+          <a class="btn btn-primary" href="#" data-kt-link="blueprint">Start the $1,000 Blueprint</a>
+          <a class="btn btn-ghost" href="#" data-kt-link="quick-scan" target="_blank" rel="noopener">Run the Free Patient-Flow Scan</a>
         </div>
 
         <!-- Microcopy below buttons -->
@@ -183,7 +183,7 @@
         <li>Quick wins</li>
       </ul>
       <div class="start-here-cta">
-        <a class="btn btn-primary js-quick-scan-btn" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run free scan</a>
+        <a class="btn btn-primary js-quick-scan-btn" href="#" data-kt-link="quick-scan" target="_blank" rel="noopener">Run free scan</a>
       </div>
     </div>
 
@@ -201,7 +201,7 @@
         <li>Category scores + rating</li>
       </ul>
       <div class="start-here-cta">
-        <a class="btn btn-primary js-deep-scan-btn" href="https://scan.keyturn.studio/?mode=deep" target="_blank" rel="noopener">Unlock Deep Scan</a>
+        <a class="btn btn-primary js-deep-scan-btn" href="#" data-kt-link="deep-scan" target="_blank" rel="noopener">Unlock Deep Scan</a>
       </div>
       <p class="start-here-note">Upgrade to the Blueprint within 14 days and we credit your $297.</p>
     </div>
@@ -218,7 +218,7 @@
         <li>What to ignore (and why)</li>
       </ul>
       <div class="start-here-cta">
-        <a class="btn btn-primary js-blueprint-btn" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=home_card">Start the Blueprint</a>
+        <a class="btn btn-primary js-blueprint-btn" href="#" data-kt-link="blueprint">Start the Blueprint</a>
       </div>
     </div>
   </div>
@@ -483,7 +483,7 @@
       
       <div class="pricing-teaser-buttons">
         <a class="btn btn-primary" href="/pricing.html">View pricing</a>
-        <a class="btn btn-ghost" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=home_pricing">Start with a Blueprint</a>
+        <a class="btn btn-ghost" href="#" data-kt-link="blueprint">Start with a Blueprint</a>
       </div>
     </div>
   </section>
@@ -603,7 +603,7 @@
         </p>
       </div>
       <div style="display:flex; flex-direction:column; gap:12px; margin-top:16px;">
-        <a class="btn btn-primary" href="/quote.html" style="width:100%; text-align:center;">Get a quote</a>
+        <a class="btn btn-primary" href="#" data-kt-link="quote" style="width:100%; text-align:center;">Get a quote</a>
         <a class="btn btn-ghost" href="https://calendly.com/vinnie-keyturn/intro" target="_blank" rel="noopener" style="width:100%; text-align:center;">Book a 15-min Fit Check</a>
       </div>
     </div>
@@ -662,7 +662,7 @@
         <ul>
           <li><a href="/tools/roi.html">Payback Calculator</a></li>
           <li><a href="/tools/checklist.html">Clinic Website Checklist</a></li>
-          <li><a href="/quote.html">Get a Quote</a></li>
+          <li><a href="#" data-kt-link="quote">Get a Quote</a></li>
           <li><a href="/onboarding.html">Onboarding</a></li>
           <li><a href="/referrals.html">Referral Thank-You</a></li>
         </ul>
@@ -697,29 +697,12 @@
 
 <!-- Sticky mobile CTA (homepage only, centered at bottom on mobile) -->
 <div id="sticky-cta-wrapper" class="fixed inset-x-0 bottom-4 flex justify-center md:hidden z-50" style="display:none; position:fixed; left:0; right:0; bottom:1rem; justify-content:center; z-index:1001;">
-  <a href="/quote.html" class="sticky-cta" aria-label="Get a quote" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'sticky'})" style="display:inline-flex;">Get a quote</a>
+  <a href="#" data-kt-link="quote" class="sticky-cta" aria-label="Get a quote" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'sticky'})" style="display:inline-flex;">Get a quote</a>
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu and year are handled by site.js
-
-    // ===== Set offer links from KEYTURN_OFFERS =====
-    if (window.KEYTURN_OFFERS) {
-      const quickScanBtn = document.querySelector('.js-quick-scan-btn');
-      const deepScanBtn = document.querySelector('.js-deep-scan-btn');
-      const blueprintBtn = document.querySelector('.js-blueprint-btn');
-
-      if (quickScanBtn && window.KEYTURN_OFFERS.quickScanUrl) {
-        quickScanBtn.href = window.KEYTURN_OFFERS.quickScanUrl;
-      }
-      if (deepScanBtn && window.KEYTURN_OFFERS.deepScanUrl) {
-        deepScanBtn.href = window.KEYTURN_OFFERS.deepScanUrl;
-      }
-      if (blueprintBtn && window.KEYTURN_OFFERS.blueprintUrl) {
-        blueprintBtn.href = window.KEYTURN_OFFERS.blueprintUrl;
-      }
-    }
 
     // ===== Show sticky CTA only on homepage =====
     const stickyCTAWrapper = document.getElementById('sticky-cta-wrapper');
@@ -957,5 +940,6 @@
 </div>
 
 <script src="/public/offers.js"></script>
+<script src="/public/cta-links.js"></script>
 </body>
 </html>
