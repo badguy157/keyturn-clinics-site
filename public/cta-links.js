@@ -32,11 +32,12 @@
     });
   }
 
-  // Run when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', wireCTALinks);
-  } else {
-    // DOM already loaded
+  // Run when DOM is ready - use multiple strategies for maximum compatibility
+  if (document.readyState !== 'loading') {
+    // DOM already ready
     wireCTALinks();
+  } else {
+    // Wait for DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', wireCTALinks);
   }
 })();
