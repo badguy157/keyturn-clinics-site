@@ -109,17 +109,23 @@
   </div>
 </section>
 
-<main id="main" class="container section">
-  <!-- Intent mode toggle -->
-  <div class="intent-toggle">
-    <button type="button" id="toggle-quote" class="intent-toggle-btn is-active">
-      Get a rebuild quote
-    </button>
-    <button type="button" id="toggle-blueprint" class="intent-toggle-btn">
-      Start with the Blueprint
-    </button>
+<!-- Callout Card: Not sure what you need? -->
+<section class="container" style="padding-top:2rem;padding-bottom:0">
+  <div class="card" style="max-width:720px;margin:0 auto;padding:28px 24px;background:var(--brand-soft);border:1px solid rgba(90,162,255,.2);box-shadow:0 8px 24px rgba(0,0,0,.2)">
+    <h3 style="margin:0 0 12px;font-size:1.25rem;font-weight:700;color:var(--fg)">Not sure what you need yet?</h3>
+    <p style="margin:0 0 20px;font-size:1rem;line-height:1.7;color:var(--brand-text)">Run the Free Scan first. You'll get a patient-flow score + quick wins in 60 seconds.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+      <a href="https://scan.keyturn.studio/" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center">
+        Run Free Scan
+      </a>
+      <a href="#main" class="text-link-primary" style="font-size:0.95rem;align-self:center">
+        Continue to quote form
+      </a>
+    </div>
   </div>
+</section>
 
+<main id="main" class="container section">
   <section class="card premium-form-card" id="blueprint" style="max-width:720px;margin-left:auto;margin-right:auto;padding:40px 32px;background:var(--brand-soft);border:1px solid rgba(255,255,255,.04)">
     
     <div style="background:rgba(90,162,255,.06);border:1px solid rgba(90,162,255,.2);border-radius:12px;padding:24px;margin-bottom:32px">
@@ -139,21 +145,30 @@
 
         <div style="display:grid;gap:28px">
           
-          <!-- Clinic basics -->
+          <!-- Required fields only -->
           <div>
-            <h3 style="font-size:1.1rem;margin:0 0 16px;color:var(--fg)">Clinic basics</h3>
             <div style="display:grid;gap:20px">
-              <div class="grid two" style="gap:16px">
-                <div class="form-field">
-                  <label for="propertyName" class="form-label">Clinic / business name <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
-                  <input id="propertyName" name="propertyName" type="text" class="form-input" placeholder="Smile Bright Dental" required aria-required="true">
-                </div>
-                <div class="form-field">
-                  <label for="websiteUrl" class="form-label">Website URL <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
-                  <input id="websiteUrl" name="websiteUrl" type="text" class="form-input" placeholder="https://yourclinic.com" required aria-required="true">
-                </div>
+              <div class="form-field">
+                <label for="propertyName" class="form-label">Clinic / business name <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
+                <input id="propertyName" name="propertyName" type="text" class="form-input" placeholder="Smile Bright Dental" required aria-required="true">
+              </div>
+              
+              <div class="form-field">
+                <label for="websiteUrl" class="form-label">Website URL <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
+                <input id="websiteUrl" name="websiteUrl" type="text" class="form-input" placeholder="https://yourclinic.com" required aria-required="true">
               </div>
 
+              <div class="form-field">
+                <label for="email" class="form-label">Email <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" class="form-input" required aria-required="true">
+              </div>
+            </div>
+          </div>
+
+          <!-- Clinic details (optional) -->
+          <details style="border:1px solid var(--line);border-radius:12px;padding:20px;background:rgba(255,255,255,.02)">
+            <summary style="cursor:pointer;font-size:1.1rem;font-weight:600;color:var(--fg);margin-bottom:0;user-select:none">Clinic details (optional)</summary>
+            <div style="display:grid;gap:20px;margin-top:20px">
               <div class="form-field">
                 <label for="location" class="form-label">Location(s) <span style="color:var(--brand-muted);font-weight:400">(optional)</span></label>
                 <input id="location" name="location" type="text" class="form-input" placeholder="City / area and number of locations">
@@ -161,16 +176,27 @@
 
               <div class="grid two" style="gap:16px">
                 <div class="form-field">
-                  <label for="contactName" class="form-label">Contact name <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
-                  <input id="contactName" name="contactName" type="text" class="form-input" required aria-required="true">
+                  <label for="contactName" class="form-label">Contact name <span style="color:var(--brand-muted);font-weight:400">(optional)</span></label>
+                  <input id="contactName" name="contactName" type="text" class="form-input">
                 </div>
                 <div class="form-field">
-                  <label for="email" class="form-label">Email <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
-                  <input id="email" name="email" type="email" class="form-input" required aria-required="true">
+                  <label for="phone" class="form-label">Phone <span style="color:var(--brand-muted);font-weight:400">(optional)</span></label>
+                  <input id="phone" name="phone" type="tel" class="form-input" inputmode="tel">
                 </div>
               </div>
 
               <div class="grid two" style="gap:16px">
+                <div class="form-field">
+                  <label for="businessType" class="form-label">Business type <span style="color:var(--brand-muted);font-weight:400">(optional)</span></label>
+                  <select id="businessType" name="businessType" class="form-input">
+                    <option value="" selected>Select your business type…</option>
+                    <option>Medspa / aesthetic spa</option>
+                    <option>Cosmetic &amp; plastic surgery clinic</option>
+                    <option>Cosmetic &amp; implant dentistry</option>
+                    <option>Aesthetic / cosmetic dermatology clinic</option>
+                    <option>Other clinic or service business</option>
+                  </select>
+                </div>
                 <div class="form-field">
                   <label for="role" class="form-label">Role <span style="color:var(--brand-muted);font-weight:400">(optional)</span></label>
                   <select id="role" name="role" class="form-input">
@@ -182,34 +208,18 @@
                     <option>Other</option>
                   </select>
                 </div>
-                <div class="form-field">
-                  <label for="phone" class="form-label">Phone <span style="color:var(--brand-muted);font-weight:400">(optional)</span></label>
-                  <input id="phone" name="phone" type="tel" class="form-input" inputmode="tel">
-                </div>
-              </div>
-
-              <div class="form-field">
-                <label for="businessType" class="form-label">Business type <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
-                <select id="businessType" name="businessType" class="form-input" required aria-required="true">
-                  <option value="" selected disabled>Select your business type…</option>
-                  <option>Medspa / aesthetic spa</option>
-                  <option>Cosmetic &amp; plastic surgery clinic</option>
-                  <option>Cosmetic &amp; implant dentistry</option>
-                  <option>Aesthetic / cosmetic dermatology clinic</option>
-                  <option>Other clinic or service business</option>
-                </select>
               </div>
             </div>
-          </div>
+          </details>
 
-          <!-- Your goals -->
-          <div>
-            <h3 style="font-size:1.1rem;margin:0 0 16px;color:var(--fg)">Your goals</h3>
-            <div style="display:grid;gap:20px">
+          <!-- Goals (optional) -->
+          <details style="border:1px solid var(--line);border-radius:12px;padding:20px;background:rgba(255,255,255,.02)">
+            <summary style="cursor:pointer;font-size:1.1rem;font-weight:600;color:var(--fg);margin-bottom:0;user-select:none">Goals (optional)</summary>
+            <div style="display:grid;gap:20px;margin-top:20px">
               <div class="form-field">
-                <label for="goal" class="form-label">Primary goal <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
-                <select id="goal" name="goal" class="form-input" required aria-required="true">
-                  <option value="" selected disabled>What matters most?</option>
+                <label for="goal" class="form-label">Primary goal <span style="color:var(--brand-muted);font-weight:400">(optional)</span></label>
+                <select id="goal" name="goal" class="form-input">
+                  <option value="" selected>What matters most?</option>
                   <option>Get more bookings online</option>
                   <option>Attract higher-value patients</option>
                   <option>Look more professional</option>
@@ -240,7 +250,13 @@
                   <input id="newClients" name="newClients" type="text" class="form-input" placeholder="Ballpark is fine">
                 </div>
               </div>
+            </div>
+          </details>
 
+          <!-- Budget & timing (optional) -->
+          <details style="border:1px solid var(--line);border-radius:12px;padding:20px;background:rgba(255,255,255,.02)">
+            <summary style="cursor:pointer;font-size:1.1rem;font-weight:600;color:var(--fg);margin-bottom:0;user-select:none">Budget & timing (optional)</summary>
+            <div style="display:grid;gap:20px;margin-top:20px">
               <div class="form-field">
                 <label for="budget" class="form-label">Budget comfort zone <span style="color:var(--brand-muted);font-weight:400">(optional)</span></label>
                 <select id="budget" name="budget" class="form-input">
@@ -253,12 +269,12 @@
                 </select>
               </div>
             </div>
-          </div>
+          </details>
 
-          <!-- Booking setup -->
-          <div>
-            <h3 style="font-size:1.1rem;margin:0 0 16px;color:var(--fg)">Booking setup</h3>
-            <div style="display:grid;gap:20px">
+          <!-- Booking setup (optional) -->
+          <details style="border:1px solid var(--line);border-radius:12px;padding:20px;background:rgba(255,255,255,.02)">
+            <summary style="cursor:pointer;font-size:1.1rem;font-weight:600;color:var(--fg);margin-bottom:0;user-select:none">Booking setup (optional)</summary>
+            <div style="display:grid;gap:20px;margin-top:20px">
               <div class="form-field">
                 <label for="bookingSystem" class="form-label">Booking or scheduling system <span style="color:var(--brand-muted);font-weight:400">(optional)</span></label>
                 <select id="bookingSystem" name="bookingSystem" class="form-input">
@@ -272,7 +288,7 @@
 
               <fieldset class="form-field" style="border:none;padding:0">
                 <legend class="form-label">Do you also want the Clinic Booking Blueprint & Site Audit? <span style="color:var(--brand-muted);font-weight:400">(optional)</span></legend>
-                <p class="small" style="color:var(--brand-text);margin:4px 0 8px">The Blueprint is an optional paid add-on: a flat $1,000. If you start a full rebuild within 90 days, we credit 100% of that fee toward your project.</p>
+                <p class="small" style="color:var(--brand-muted);margin:4px 0 8px;font-style:italic">Blueprint is credited in full toward a rebuild if you move forward within 90 days.</p>
                 <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px">
                   <label class="radio-label">
                     <input type="radio" name="start_type" value="full_rebuild">
@@ -280,7 +296,7 @@
                   </label>
                   <label class="radio-label">
                     <input type="radio" name="start_type" value="blueprint_first">
-                    <span>Yes – add the Clinic Booking Blueprint & Site Audit ($1,000, credited in full toward a rebuild started within 90 days).</span>
+                    <span>Yes – add the Clinic Booking Blueprint & Site Audit ($1,000).</span>
                   </label>
                 </div>
                 <p class="small" style="color:var(--brand-muted);margin-top:12px;font-style:italic">
@@ -293,7 +309,7 @@
                 <textarea id="notes" name="notes" rows="4" class="form-input" placeholder="Anything else we should know about your clinic, services, or goals?"></textarea>
               </div>
             </div>
-          </div>
+          </details>
 
         </div>
 
