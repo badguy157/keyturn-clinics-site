@@ -20,6 +20,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  
+  <!-- Preload hero image for better LCP -->
+  <link rel="preload" as="image" href="/assets/img/optimized/aurora-hero-1024.webp" 
+        imagesrcset="/assets/img/optimized/aurora-hero-480.webp 480w, /assets/img/optimized/aurora-hero-768.webp 768w, /assets/img/optimized/aurora-hero-1024.webp 1024w, /assets/img/optimized/aurora-hero-1440.webp 1440w" 
+        imagesizes="(max-width: 768px) 90vw, 520px">
+  
   <script src="/assets/pricing-config.js"></script>
   <script src="/public/site.js" defer></script>
   <script src="/public/accordion.js" defer></script>
@@ -138,7 +144,27 @@
         <div class="hero-visual-card">
           <!-- Demo clinic screenshot -->
           <div class="hero-preview-container">
-            <img class="hero-preview-img" src="/assets/demos/aurora-hero.png" alt="Demo clinic website preview" loading="eager">
+            <picture>
+              <source type="image/avif" 
+                      srcset="/assets/img/optimized/aurora-hero-480.avif 480w, 
+                              /assets/img/optimized/aurora-hero-768.avif 768w, 
+                              /assets/img/optimized/aurora-hero-1024.avif 1024w, 
+                              /assets/img/optimized/aurora-hero-1440.avif 1440w" 
+                      sizes="(max-width: 768px) 90vw, 520px">
+              <source type="image/webp" 
+                      srcset="/assets/img/optimized/aurora-hero-480.webp 480w, 
+                              /assets/img/optimized/aurora-hero-768.webp 768w, 
+                              /assets/img/optimized/aurora-hero-1024.webp 1024w, 
+                              /assets/img/optimized/aurora-hero-1440.webp 1440w" 
+                      sizes="(max-width: 768px) 90vw, 520px">
+              <img class="hero-preview-img" 
+                   src="/assets/img/optimized/aurora-hero-1024.webp" 
+                   alt="Demo clinic website preview" 
+                   width="2538" 
+                   height="1281" 
+                   decoding="async" 
+                   fetchpriority="high">
+            </picture>
           </div>
 
           <!-- Caption above badges -->
@@ -330,7 +356,27 @@
                   <span></span><span></span><span></span>
                 </div>
               </div>
-              <img class="zoomable" src="/screenshot.png" alt="After rebuild screenshot of The Anchor Hotel website homepage" width="1200" height="800" loading="lazy" decoding="async">
+              <picture>
+                <source type="image/avif" 
+                        srcset="/assets/img/optimized/screenshot-480.avif 480w, 
+                                /assets/img/optimized/screenshot-768.avif 768w, 
+                                /assets/img/optimized/screenshot-1024.avif 1024w, 
+                                /assets/img/optimized/screenshot-1440.avif 1440w" 
+                        sizes="(max-width: 768px) 95vw, 1200px">
+                <source type="image/webp" 
+                        srcset="/assets/img/optimized/screenshot-480.webp 480w, 
+                                /assets/img/optimized/screenshot-768.webp 768w, 
+                                /assets/img/optimized/screenshot-1024.webp 1024w, 
+                                /assets/img/optimized/screenshot-1440.webp 1440w" 
+                        sizes="(max-width: 768px) 95vw, 1200px">
+                <img class="zoomable" 
+                     src="/assets/img/optimized/screenshot-1024.webp" 
+                     alt="After rebuild screenshot of The Anchor Hotel website homepage" 
+                     width="1897" 
+                     height="901" 
+                     loading="lazy" 
+                     decoding="async">
+              </picture>
             </div>
           </div>
         </div>
@@ -410,21 +456,81 @@
       <div class="demo-cards-grid">
         <!-- Card 1: Dermatology -->
         <a href="https://cosmetic-demo.keyturn.studio" target="_blank" rel="noopener noreferrer" class="demo-card">
-          <img src="/images/demo-dermatology.png" alt="Dermatology clinic website demo homepage" class="demo-card-image">
+          <picture>
+            <source type="image/avif" 
+                    srcset="/assets/img/optimized/demo-dermatology-480.avif 480w, 
+                            /assets/img/optimized/demo-dermatology-768.avif 768w, 
+                            /assets/img/optimized/demo-dermatology-1024.avif 1024w, 
+                            /assets/img/optimized/demo-dermatology-1440.avif 1440w" 
+                    sizes="(max-width: 768px) 90vw, 400px">
+            <source type="image/webp" 
+                    srcset="/assets/img/optimized/demo-dermatology-480.webp 480w, 
+                            /assets/img/optimized/demo-dermatology-768.webp 768w, 
+                            /assets/img/optimized/demo-dermatology-1024.webp 1024w, 
+                            /assets/img/optimized/demo-dermatology-1440.webp 1440w" 
+                    sizes="(max-width: 768px) 90vw, 400px">
+            <img src="/assets/img/optimized/demo-dermatology-768.webp" 
+                 alt="Dermatology clinic website demo homepage" 
+                 class="demo-card-image" 
+                 width="2538" 
+                 height="1281" 
+                 loading="lazy" 
+                 decoding="async">
+          </picture>
           <span class="demo-card-title">Dermatology demo</span>
           <p class="demo-card-text">Calm layout for cosmetic and aesthetic clinics.</p>
         </a>
         
         <!-- Card 2: Cosmetic Dental -->
         <a href="https://cosmetic-dental-demo.keyturn.studio" target="_blank" rel="noopener noreferrer" class="demo-card">
-          <img src="/images/demo-dental.png" alt="Cosmetic dental clinic website demo homepage" class="demo-card-image">
+          <picture>
+            <source type="image/avif" 
+                    srcset="/assets/img/optimized/demo-dental-480.avif 480w, 
+                            /assets/img/optimized/demo-dental-768.avif 768w, 
+                            /assets/img/optimized/demo-dental-1024.avif 1024w, 
+                            /assets/img/optimized/demo-dental-1440.avif 1440w" 
+                    sizes="(max-width: 768px) 90vw, 400px">
+            <source type="image/webp" 
+                    srcset="/assets/img/optimized/demo-dental-480.webp 480w, 
+                            /assets/img/optimized/demo-dental-768.webp 768w, 
+                            /assets/img/optimized/demo-dental-1024.webp 1024w, 
+                            /assets/img/optimized/demo-dental-1440.webp 1440w" 
+                    sizes="(max-width: 768px) 90vw, 400px">
+            <img src="/assets/img/optimized/demo-dental-768.webp" 
+                 alt="Cosmetic dental clinic website demo homepage" 
+                 class="demo-card-image" 
+                 width="2538" 
+                 height="1277" 
+                 loading="lazy" 
+                 decoding="async">
+          </picture>
           <span class="demo-card-title">Cosmetic dental demo</span>
           <p class="demo-card-text">Focus on implants and cosmetic treatments.</p>
         </a>
         
         <!-- Card 3: Medspa -->
         <a href="https://medspa-demo.keyturn.studio" target="_blank" rel="noopener noreferrer" class="demo-card">
-          <img src="/images/demo-medspa.png" alt="Medspa clinic website demo homepage" class="demo-card-image">
+          <picture>
+            <source type="image/avif" 
+                    srcset="/assets/img/optimized/demo-medspa-480.avif 480w, 
+                            /assets/img/optimized/demo-medspa-768.avif 768w, 
+                            /assets/img/optimized/demo-medspa-1024.avif 1024w, 
+                            /assets/img/optimized/demo-medspa-1440.avif 1440w" 
+                    sizes="(max-width: 768px) 90vw, 400px">
+            <source type="image/webp" 
+                    srcset="/assets/img/optimized/demo-medspa-480.webp 480w, 
+                            /assets/img/optimized/demo-medspa-768.webp 768w, 
+                            /assets/img/optimized/demo-medspa-1024.webp 1024w, 
+                            /assets/img/optimized/demo-medspa-1440.webp 1440w" 
+                    sizes="(max-width: 768px) 90vw, 400px">
+            <img src="/assets/img/optimized/demo-medspa-768.webp" 
+                 alt="Medspa clinic website demo homepage" 
+                 class="demo-card-image" 
+                 width="2540" 
+                 height="1280" 
+                 loading="lazy" 
+                 decoding="async">
+          </picture>
           <span class="demo-card-title">Medspa demo</span>
           <p class="demo-card-text">Clear treatment sections and easy booking buttons.</p>
         </a>
@@ -441,7 +547,25 @@
   <section class="work-with-section container section fade-in-section">
     <div class="work-with-card">
       <div class="work-with-image">
-        <img src="/images/vinnie.jpg" alt="Vinnie Bruce, founder of Keyturn Studio" class="avatar-enhanced">
+        <picture>
+          <source type="image/avif" 
+                  srcset="/assets/img/optimized/vinnie-480.avif 480w, 
+                          /assets/img/optimized/vinnie-768.avif 768w, 
+                          /assets/img/optimized/vinnie-1024.avif 1024w" 
+                  sizes="(max-width: 768px) 200px, 300px">
+          <source type="image/webp" 
+                  srcset="/assets/img/optimized/vinnie-480.webp 480w, 
+                          /assets/img/optimized/vinnie-768.webp 768w, 
+                          /assets/img/optimized/vinnie-1024.webp 1024w" 
+                  sizes="(max-width: 768px) 200px, 300px">
+          <img src="/assets/img/optimized/vinnie-768.webp" 
+               alt="Vinnie Bruce, founder of Keyturn Studio" 
+               class="avatar-enhanced" 
+               width="1024" 
+               height="921" 
+               loading="lazy" 
+               decoding="async">
+        </picture>
       </div>
       <div class="work-with-text">
         <h2>Who you'll work with</h2>

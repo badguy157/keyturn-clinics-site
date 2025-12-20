@@ -1,8 +1,13 @@
 {
   "scripts": {
-    "start": "servor --reload"
+    "start": "servor --reload",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "build": "npm run optimize:images"
   },
   "dependencies": {
     "servor": "^4.0.2"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
   }
 }
