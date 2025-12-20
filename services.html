@@ -73,14 +73,14 @@
         <div style="font-size:2rem;margin-bottom:8px">1</div>
         <h3 style="font-size:1.25rem;margin:0 0 8px;color:var(--fg)">Free Scan (60 sec)</h3>
         <p style="color:var(--brand-muted);font-size:0.95rem;margin:0 0 16px">See the leaks</p>
-        <a class="btn btn-primary" href="https://scan.keyturn.studio/" target="_blank" rel="noopener" style="font-size:0.9rem;padding:10px 20px">Run free scan</a>
+        <a class="btn btn-primary" href="#" data-kt-link="quick-scan" target="_blank" rel="noopener" style="font-size:0.9rem;padding:10px 20px">Run free scan</a>
       </div>
       
       <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:24px;text-align:center">
         <div style="font-size:2rem;margin-bottom:8px">2</div>
         <h3 style="font-size:1.25rem;margin:0 0 8px;color:var(--fg)">Blueprint</h3>
         <p style="color:var(--brand-muted);font-size:0.95rem;margin:0 0 16px">Get the plan + wireframe</p>
-        <a class="btn btn-primary" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=services_steps" style="font-size:0.9rem;padding:10px 20px">Start Blueprint</a>
+        <a class="btn btn-primary" href="#" data-kt-link="blueprint" style="font-size:0.9rem;padding:10px 20px">Start Blueprint</a>
       </div>
       
       <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:24px;text-align:center">
@@ -132,8 +132,8 @@
         If you haven't, start with the free scan first (60 seconds).
       </p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;justify-content:center">
-        <a class="btn btn-primary" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run free scan</a>
-        <a class="btn btn-outline" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=services_cta">Start the Blueprint</a>
+        <a class="btn btn-primary" href="#" data-kt-link="quick-scan" target="_blank" rel="noopener">Run free scan</a>
+        <a class="btn btn-outline" href="#" data-kt-link="blueprint">Start the Blueprint</a>
       </div>
       <p style="font-size:0.85rem;color:var(--brand-muted);margin-bottom:24px;font-style:italic">
         The scan is automated and meant to flag friction points. The Blueprint is where we confirm priorities and map the exact fixes.
@@ -175,7 +175,7 @@
           <li>Clear booking buttons throughout.</li>
           <li>30-day launch warranty included.</li>
         </ul>
-        <a class="btn btn-outline pricing-card-cta" href="/quote.html">Get a quote</a>
+        <a class="btn btn-outline pricing-card-cta" href="#" data-kt-link="quote">Get a quote</a>
       </article>
 
       <article class="pricing-card pricing-card-featured">
@@ -191,7 +191,7 @@
           <li>Better tracking to see which pages convert.</li>
           <li>Includes 1 month of Care Plan after launch.</li>
         </ul>
-        <a class="btn btn-primary pricing-card-cta" href="/quote.html">Get a quote</a>
+        <a class="btn btn-primary pricing-card-cta" href="#" data-kt-link="quote">Get a quote</a>
       </article>
 
       <article class="pricing-card">
@@ -206,7 +206,7 @@
           <li>Detailed writing for complex treatments.</li>
           <li>Includes 2 months of Care Plan after launch.</li>
         </ul>
-        <a class="btn btn-outline pricing-card-cta" href="/quote.html">Get a quote</a>
+        <a class="btn btn-outline pricing-card-cta" href="#" data-kt-link="quote">Get a quote</a>
       </article>
     </div>
     
@@ -342,7 +342,7 @@
       <h2>Ready for a clear, no-pressure quote?</h2>
       <p>We'll take a quick look at your current site and booking setup, then send one short email with our recommended package and price. A quote is always free, and you can ask about the Clinic Booking Blueprint & Site Audit if you'd like a deeper audit.</p>
       <div class="services-cta-buttons">
-        <a class="btn btn-primary" href="/quote.html" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'services-cta'})">Get a quote</a>
+        <a class="btn btn-primary" href="#" data-kt-link="quote" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'services-cta'})">Get a quote</a>
       </div>
       <p class="services-cta-secondary-link">
         <a href="https://calendly.com/vinnie-keyturn/intro?utm_source=services" target="_blank" rel="noopener">Book a 15-min Fit Check</a>
@@ -371,7 +371,7 @@
         <ul>
           <li><a href="/tools/roi.html">Payback Calculator</a></li>
           <li><a href="/tools/checklist.html">Clinic Website Checklist</a></li>
-          <li><a href="/quote.html">Get a Quote</a></li>
+          <li><a href="#" data-kt-link="quote">Get a Quote</a></li>
           <li><a href="/onboarding.html">Onboarding</a></li>
           <li><a href="/referrals.html">Referral Thank-You</a></li>
         </ul>
@@ -405,5 +405,6 @@
 </footer>
 
 <script src="/public/offers.js"></script>
+<script src="/public/cta-links.js"></script>
 </body>
 </html>
