@@ -172,35 +172,54 @@
 <section class="container section fade-in-section">
   <h2 class="section-eyebrow" style="text-align:center;margin-bottom:32px">Start here</h2>
   <div class="start-here-grid">
-    <!-- Card A: Free Patient-Flow Scan -->
+    <!-- Card 1: Free Quick Scan -->
     <div class="start-here-card">
-      <div class="start-here-step-badge">Step 1</div>
-      <h3 class="start-here-card-title">Free Patient-Flow Scan (60 seconds)</h3>
+      <h3 class="start-here-card-title">Free Quick Scan</h3>
+      <div class="start-here-price">$0</div>
+      <div class="start-here-time">60 seconds</div>
       <ul class="start-here-bullets">
         <li>Instant score</li>
-        <li>Biggest leaks</li>
+        <li>Top leaks</li>
         <li>Quick wins</li>
       </ul>
       <div class="start-here-cta">
-        <a class="btn btn-primary" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run free scan</a>
+        <a class="btn btn-primary js-quick-scan-btn" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run free scan</a>
       </div>
-      <p class="start-here-note">No email needed.</p>
     </div>
 
-    <!-- Card B: Clinic Booking Blueprint -->
+    <!-- Card 2: Deep Scan Report -->
     <div class="start-here-card">
-      <div class="start-here-step-badge">Step 2</div>
-      <h3 class="start-here-card-title">Clinic Booking Blueprint ($1,000, credited)</h3>
+      <h3 class="start-here-card-title">Deep Scan Report</h3>
+      <div class="start-here-price">$297</div>
+      <div class="start-here-time">5–7 min</div>
       <ul class="start-here-bullets">
-        <li>Top fixes (what to change first)</li>
-        <li>Page map (what pages you need)</li>
-        <li>Simple wireframe (rough layout)</li>
-        <li>Tracking plan (so you can measure results)</li>
+        <li>Executive summary</li>
+        <li>Screenshots</li>
+        <li>Page-by-page issues</li>
+        <li>Journey map</li>
+        <li>Quick wins</li>
+        <li>Category scores + rating</li>
       </ul>
       <div class="start-here-cta">
-        <a class="btn btn-primary" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=home_card">Start the Blueprint</a>
+        <a class="btn btn-primary js-deep-scan-btn" href="https://scan.keyturn.studio/?mode=deep" target="_blank" rel="noopener">Unlock Deep Scan</a>
       </div>
-      <p class="start-here-note">If we rebuild your site within 90 days, we credit the $1,000.</p>
+      <p class="start-here-note">Upgrade to the Blueprint within 14 days and we credit your $297.</p>
+    </div>
+
+    <!-- Card 3: Clinic Booking Blueprint -->
+    <div class="start-here-card">
+      <h3 class="start-here-card-title">Clinic Booking Blueprint</h3>
+      <div class="start-here-price">$1,000</div>
+      <div class="start-here-price-note">credited if you hire us</div>
+      <ul class="start-here-bullets">
+        <li>Human plan</li>
+        <li>Priorities</li>
+        <li>Sequencing</li>
+        <li>What to ignore (and why)</li>
+      </ul>
+      <div class="start-here-cta">
+        <a class="btn btn-primary js-blueprint-btn" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=home_card">Start the Blueprint</a>
+      </div>
     </div>
   </div>
 </section>
@@ -684,6 +703,23 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu and year are handled by site.js
+
+    // ===== Set offer links from KEYTURN_OFFERS =====
+    if (window.KEYTURN_OFFERS) {
+      const quickScanBtn = document.querySelector('.js-quick-scan-btn');
+      const deepScanBtn = document.querySelector('.js-deep-scan-btn');
+      const blueprintBtn = document.querySelector('.js-blueprint-btn');
+
+      if (quickScanBtn && window.KEYTURN_OFFERS.quickScanUrl) {
+        quickScanBtn.href = window.KEYTURN_OFFERS.quickScanUrl;
+      }
+      if (deepScanBtn && window.KEYTURN_OFFERS.deepScanUrl) {
+        deepScanBtn.href = window.KEYTURN_OFFERS.deepScanUrl;
+      }
+      if (blueprintBtn && window.KEYTURN_OFFERS.blueprintUrl) {
+        blueprintBtn.href = window.KEYTURN_OFFERS.blueprintUrl;
+      }
+    }
 
     // ===== Show sticky CTA only on homepage =====
     const stickyCTAWrapper = document.getElementById('sticky-cta-wrapper');
