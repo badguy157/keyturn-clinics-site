@@ -178,7 +178,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       if (window.KeyturnOffers) {
-        const { OFFERS, renderOfferCard } = window.KeyturnOffers;
+        const { OFFERS, renderOfferCard, quickScanUrl, blueprintUrl } = window.KeyturnOffers;
         const container = document.getElementById('start-here-offers-grid');
         
         if (container) {
@@ -186,14 +186,14 @@
           const quickScanHTML = renderOfferCard(OFFERS.QUICK_SCAN, {
             primaryCta: {
               ...OFFERS.QUICK_SCAN.primaryCta,
-              href: 'https://scan.keyturn.studio/'
+              href: quickScanUrl()
             }
           });
           
           const blueprintHTML = renderOfferCard(OFFERS.BLUEPRINT, {
             primaryCta: {
               ...OFFERS.BLUEPRINT.primaryCta,
-              href: '/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=home_card'
+              href: blueprintUrl('home_card')
             }
           });
           

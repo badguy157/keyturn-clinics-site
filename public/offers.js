@@ -17,7 +17,6 @@
       eyebrow: 'Step 1',
       price: 0,
       priceText: 'Free',
-      time: '60 seconds',
       timeText: '60 seconds',
       bullets: [
         'Instant score',
@@ -37,7 +36,6 @@
       eyebrow: 'Comprehensive Analysis',
       price: 297,
       priceText: '$297',
-      time: '5–7 min',
       timeText: '5–7 min',
       bullets: [
         'Executive summary',
@@ -60,7 +58,6 @@
       eyebrow: 'Add-on',
       price: 200,
       priceText: '+$200',
-      time: '10–15 min',
       timeText: '10–15 min video',
       description: '10–15 min Loom walkthrough or short live Q&A',
       bullets: [
@@ -81,7 +78,6 @@
       eyebrow: 'Step 2',
       price: 1000,
       priceText: '$1,000',
-      time: null,
       timeText: null,
       note: 'credited if you hire us',
       bullets: [
