@@ -710,13 +710,13 @@
       const deepScanBtn = document.querySelector('.js-deep-scan-btn');
       const blueprintBtn = document.querySelector('.js-blueprint-btn');
 
-      if (quickScanBtn) {
+      if (quickScanBtn && window.KEYTURN_OFFERS.quickScanUrl) {
         quickScanBtn.href = window.KEYTURN_OFFERS.quickScanUrl;
       }
-      if (deepScanBtn) {
+      if (deepScanBtn && window.KEYTURN_OFFERS.deepScanUrl) {
         deepScanBtn.href = window.KEYTURN_OFFERS.deepScanUrl;
       }
-      if (blueprintBtn) {
+      if (blueprintBtn && window.KEYTURN_OFFERS.blueprintUrl) {
         blueprintBtn.href = window.KEYTURN_OFFERS.blueprintUrl;
       }
     }
