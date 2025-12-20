@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="/public/offers.js" defer></script>
   <script src="/public/site.js" defer></script>
   <script src="/public/accordion.js" defer></script>
   <script src="/public/fade-in.js" defer></script>
@@ -171,38 +172,36 @@
 <!-- ===== Start Here Section ===== -->
 <section class="container section fade-in-section">
   <h2 class="section-eyebrow" style="text-align:center;margin-bottom:32px">Start here</h2>
-  <div class="start-here-grid">
-    <!-- Card A: Free Patient-Flow Scan -->
-    <div class="start-here-card">
-      <div class="start-here-step-badge">Step 1</div>
-      <h3 class="start-here-card-title">Free Patient-Flow Scan (60 seconds)</h3>
-      <ul class="start-here-bullets">
-        <li>Instant score</li>
-        <li>Biggest leaks</li>
-        <li>Quick wins</li>
-      </ul>
-      <div class="start-here-cta">
-        <a class="btn btn-primary" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run free scan</a>
-      </div>
-      <p class="start-here-note">No email needed.</p>
-    </div>
-
-    <!-- Card B: Clinic Booking Blueprint -->
-    <div class="start-here-card">
-      <div class="start-here-step-badge">Step 2</div>
-      <h3 class="start-here-card-title">Clinic Booking Blueprint ($1,000, credited)</h3>
-      <ul class="start-here-bullets">
-        <li>Top fixes (what to change first)</li>
-        <li>Page map (what pages you need)</li>
-        <li>Simple wireframe (rough layout)</li>
-        <li>Tracking plan (so you can measure results)</li>
-      </ul>
-      <div class="start-here-cta">
-        <a class="btn btn-primary" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=home_card">Start the Blueprint</a>
-      </div>
-      <p class="start-here-note">If we rebuild your site within 90 days, we credit the $1,000.</p>
-    </div>
+  <div class="start-here-grid" id="start-here-offers-grid">
+    <!-- Offer cards will be rendered here by offers.js -->
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.KeyturnOffers) {
+        const { OFFERS, renderOfferCard, quickScanUrl, blueprintUrl } = window.KeyturnOffers;
+        const container = document.getElementById('start-here-offers-grid');
+        
+        if (container) {
+          // Render Quick Scan and Blueprint cards
+          const quickScanHTML = renderOfferCard(OFFERS.QUICK_SCAN, {
+            primaryCta: {
+              ...OFFERS.QUICK_SCAN.primaryCta,
+              href: quickScanUrl()
+            }
+          });
+          
+          const blueprintHTML = renderOfferCard(OFFERS.BLUEPRINT, {
+            primaryCta: {
+              ...OFFERS.BLUEPRINT.primaryCta,
+              href: blueprintUrl('home_card')
+            }
+          });
+          
+          container.innerHTML = quickScanHTML + '\n    ' + blueprintHTML;
+        }
+      }
+    });
+  </script>
 </section>
 
 <!-- ===== Who we help / Is this you? ===== -->

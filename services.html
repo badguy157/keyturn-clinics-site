@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="/public/offers.js" defer></script>
   <script src="/public/site.js" defer></script>
   <script src="/public/fade-in.js" defer></script>
 </head>
@@ -132,8 +133,19 @@
         If you haven't, start with the free scan first (60 seconds).
       </p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;justify-content:center">
-        <a class="btn btn-primary" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run free scan</a>
-        <a class="btn btn-outline" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=services_cta">Start the Blueprint</a>
+        <a class="btn btn-primary" id="services-scan-btn" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run free scan</a>
+        <a class="btn btn-outline" id="services-blueprint-btn" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=services_cta">Start the Blueprint</a>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            if (window.KeyturnOffers) {
+              const { quickScanUrl, blueprintUrl } = window.KeyturnOffers;
+              const scanBtn = document.getElementById('services-scan-btn');
+              const blueprintBtn = document.getElementById('services-blueprint-btn');
+              if (scanBtn) scanBtn.href = quickScanUrl();
+              if (blueprintBtn) blueprintBtn.href = blueprintUrl('services_cta');
+            }
+          });
+        </script>
       </div>
       <p style="font-size:0.85rem;color:var(--brand-muted);margin-bottom:24px;font-style:italic">
         The scan is automated and meant to flag friction points. The Blueprint is where we confirm priorities and map the exact fixes.
