@@ -102,6 +102,16 @@
 </section>
 
 <main id="main" class="container section">
+  <!-- Intent mode toggle -->
+  <div class="intent-toggle">
+    <button type="button" id="toggle-quote" class="intent-toggle-btn is-active">
+      Get a rebuild quote
+    </button>
+    <button type="button" id="toggle-blueprint" class="intent-toggle-btn">
+      Start with the Blueprint
+    </button>
+  </div>
+
   <section class="card premium-form-card" id="blueprint" style="max-width:720px;margin-left:auto;margin-right:auto;padding:40px 32px;background:var(--brand-soft);border:1px solid rgba(255,255,255,.04)">
     
     <div style="background:rgba(90,162,255,.06);border:1px solid rgba(90,162,255,.2);border-radius:12px;padding:24px;margin-bottom:32px">
@@ -265,6 +275,9 @@
                     <span>Yes – add the Clinic Booking Blueprint & Site Audit ($1,000, credited in full toward a rebuild started within 90 days).</span>
                   </label>
                 </div>
+                <p class="small" style="color:var(--brand-muted);margin-top:12px;font-style:italic">
+                  Already bought a Deep Scan? Upgrade within 14 days and we credit $297.
+                </p>
               </fieldset>
 
               <div class="form-field">
@@ -524,6 +537,7 @@
   </script>
   
 <script src="/public/offers.js"></script>
+<script src="/assets/js/quote-intent.js"></script>
 <script src="/public/cta-links.js"></script>
 </body>
 </html>
