@@ -13,7 +13,7 @@
   const quoteUrl = "/quote.html?intent=quote";
   const blueprintUrl = "/quote.html?intent=blueprint";
 
-  // Pricing constants
+  // Pricing constants (all prices in USD)
   const deepScanPrice = 297;
   const deepScanWalkthroughAddon = 200;
   const blueprintPrice = 1000;
@@ -35,5 +35,6 @@
   };
 
   // Also expose individual constants for backward compatibility
+  // This allows both window.KEYTURN_OFFERS.propertyName and window.propertyName syntax
   Object.assign(window, window.KEYTURN_OFFERS);
 })();
