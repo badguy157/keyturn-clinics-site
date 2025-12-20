@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="/assets/pricing-config.js"></script>
   <script src="/public/site.js" defer></script>
   <script src="/public/accordion.js" defer></script>
   <script src="/public/fade-in.js" defer></script>
@@ -199,7 +200,7 @@
     <!-- Card 2: Deep Scan Report -->
     <div class="start-here-card">
       <h3 class="start-here-card-title">Deep Scan Report</h3>
-      <div class="start-here-price">$297</div>
+      <div class="start-here-price" data-price="deepScan">$297</div>
       <div class="start-here-time">5–7 min</div>
       <ul class="start-here-bullets">
         <li>Executive summary (what to fix first)</li>
@@ -210,14 +211,14 @@
       <div class="start-here-cta">
         <a class="btn btn-primary js-deep-scan-btn" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
       </div>
-      <p class="start-here-note">Unlock Deep Scan ($297) inside your report.</p>
-      <p class="start-here-note">Upgrade to the Blueprint within 14 days and we credit your $297.</p>
+      <p class="start-here-note">Unlock Deep Scan (<span data-price="deepScan">$297</span>) inside your report.</p>
+      <p class="start-here-note">Upgrade to the Blueprint within 14 days and we credit your <span data-price="deepScan">$297</span>.</p>
     </div>
 
     <!-- Card 3: Clinic Booking Blueprint -->
     <div class="start-here-card">
       <h3 class="start-here-card-title">Clinic Booking Blueprint</h3>
-      <div class="start-here-price">$1,000</div>
+      <div class="start-here-price" data-price="blueprint">$1,000</div>
       <div class="start-here-price-note">credited if you hire us</div>
       <ul class="start-here-bullets">
         <li>Human plan</li>
@@ -969,5 +970,26 @@
 
 <script src="/public/offers.js"></script>
 <script src="/public/cta-links.js"></script>
+<script>
+  // Populate pricing from shared config
+  (function() {
+    'use strict';
+    const pricing = window.KEYTURN_PRICING;
+    if (!pricing) return;
+    
+    document.querySelectorAll('[data-price]').forEach(function(el) {
+      const priceType = el.dataset.price;
+      let newText = '';
+      
+      if (priceType === 'deepScan') {
+        newText = pricing.formatPrice(pricing.deepScan);
+      } else if (priceType === 'blueprint') {
+        newText = pricing.formatPrice(pricing.blueprint);
+      }
+      
+      if (newText) el.textContent = newText;
+    });
+  })();
+</script>
 </body>
 </html>

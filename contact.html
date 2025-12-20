@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/pricing-config.js"></script>
   <script src="/public/site.js" defer></script>
   <script src="/public/accordion.js" defer></script>
   <script src="/public/fade-in.js" defer></script>
@@ -248,7 +249,7 @@
       </button>
       <div class="faq-answer" hidden>
         <div class="faq-answer-inner">
-          <p>Yes. Start with the $1,000 Clinic Booking Blueprint. You get a priority fix list, page map, and tracking plan. If you hire us for a rebuild within 90 days, we credit the full $1,000. It's a risk-free way to see exactly what needs fixing before you commit to a full project.</p>
+          <p>Yes. Start with the <span data-price="blueprint">$1,000</span> Clinic Booking Blueprint. You get a priority fix list, page map, and tracking plan. If you hire us for a rebuild within 90 days, we credit the full <span data-price="blueprint">$1,000</span>. It's a risk-free way to see exactly what needs fixing before you commit to a full project.</p>
         </div>
       </div>
     </div>
@@ -261,8 +262,8 @@
       <div class="faq-answer" id="faq-contact-4" hidden>
         <div class="faq-answer-inner">
           <p><strong>Quick Scan (free):</strong> Fast surface scan with category scores + overall rating, screenshots, and quick wins.</p>
-          <p><strong>Deep Scan ($297):</strong> Full breakdown: executive summary (what to fix first), a journey map (entry → booking), and page-by-page analysis with specific fixes. Includes scores, screenshots, and quick wins.</p>
-          <p><strong>Blueprint ($1,000, credited if you hire us):</strong> Human plan and sequencing: what to do first, what to ignore, and what we'll build.</p>
+          <p><strong>Deep Scan (<span data-price="deepScan">$297</span>):</strong> Full breakdown: executive summary (what to fix first), a journey map (entry → booking), and page-by-page analysis with specific fixes. Includes scores, screenshots, and quick wins.</p>
+          <p><strong>Blueprint (<span data-price="blueprint">$1,000</span>, credited if you hire us):</strong> Human plan and sequencing: what to do first, what to ignore, and what we'll build.</p>
         </div>
       </div>
     </div>
@@ -320,5 +321,26 @@
 
 <script src="/public/offers.js"></script>
 <script src="/public/cta-links.js"></script>
+<script>
+  // Populate pricing from shared config
+  (function() {
+    'use strict';
+    const pricing = window.KEYTURN_PRICING;
+    if (!pricing) return;
+    
+    document.querySelectorAll('[data-price]').forEach(function(el) {
+      const priceType = el.dataset.price;
+      let newText = '';
+      
+      if (priceType === 'deepScan') {
+        newText = pricing.formatPrice(pricing.deepScan);
+      } else if (priceType === 'blueprint') {
+        newText = pricing.formatPrice(pricing.blueprint);
+      }
+      
+      if (newText) el.textContent = newText;
+    });
+  })();
+</script>
 </body>
 </html>
