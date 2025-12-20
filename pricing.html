@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/public/offers.js" defer></script>
   <script src="/public/site.js" defer></script>
   <script src="/public/fade-in.js" defer></script>
 
@@ -140,9 +141,20 @@
           <p class="pricing-blueprint-text"><strong>Blueprint: $1,000 flat fee.</strong> Start a rebuild within 90 days and we credit 100% toward the project.</p>
         </div>
         <div class="pricing-blueprint-right">
-          <a class="btn btn-ghost" href="https://scan.keyturn.studio/" target="_blank" rel="noopener" style="margin-bottom:8px">Run free scan</a>
-          <a class="btn btn-primary" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=pricing_blueprint" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-blueprint'})">Start Blueprint</a>
+          <a class="btn btn-ghost" id="pricing-blueprint-scan-btn" href="https://scan.keyturn.studio/" target="_blank" rel="noopener" style="margin-bottom:8px">Run free scan</a>
+          <a class="btn btn-primary" id="pricing-blueprint-blueprint-btn" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=pricing_blueprint" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'pricing-blueprint'})">Start Blueprint</a>
           <a class="pricing-blueprint-link" href="/quote.html">Or get a full project quote →</a>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              if (window.KeyturnOffers) {
+                const { quickScanUrl, blueprintUrl } = window.KeyturnOffers;
+                const scanBtn = document.getElementById('pricing-blueprint-scan-btn');
+                const blueprintBtn = document.getElementById('pricing-blueprint-blueprint-btn');
+                if (scanBtn) scanBtn.href = quickScanUrl();
+                if (blueprintBtn) blueprintBtn.href = blueprintUrl('pricing_blueprint');
+              }
+            });
+          </script>
         </div>
       </div>
     </div>
@@ -151,10 +163,21 @@
     <div class="pricing-decision-callout">
       <h3 class="pricing-decision-title">Not sure which package fits? Start here.</h3>
       <div class="pricing-decision-buttons">
-        <a class="btn btn-ghost" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run the free scan (60 seconds)</a>
-        <a class="btn btn-primary" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=pricing_decision">Start the Blueprint ($1,000, credited)</a>
+        <a class="btn btn-ghost" id="pricing-decision-scan-btn" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run the free scan (60 seconds)</a>
+        <a class="btn btn-primary" id="pricing-decision-blueprint-btn" href="/quote.html?intent=blueprint&utm_campaign=blueprint&utm_medium=cta&utm_source=pricing_decision">Start the Blueprint ($1,000, credited)</a>
       </div>
       <p class="pricing-decision-note">Most clinics run the scan first, then use the Blueprint to lock the plan before a 3–5 week rebuild.</p>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          if (window.KeyturnOffers) {
+            const { quickScanUrl, blueprintUrl } = window.KeyturnOffers;
+            const scanBtn = document.getElementById('pricing-decision-scan-btn');
+            const blueprintBtn = document.getElementById('pricing-decision-blueprint-btn');
+            if (scanBtn) scanBtn.href = quickScanUrl();
+            if (blueprintBtn) blueprintBtn.href = blueprintUrl('pricing_decision');
+          }
+        });
+      </script>
     </div>
     
     <div class="pricing-cards-grid">
