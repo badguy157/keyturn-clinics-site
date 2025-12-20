@@ -4872,6 +4872,32 @@ img {
   padding-top: 18px;
 }
 
+/* Deep Scan card CTA overrides - prevent button stretching */
+.step-card--deep .step-card__cta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.step-card--deep .btn {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 12px 16px !important;
+  line-height: 1.1 !important;
+  display: inline-flex !important;
+  width: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.step-card--deep .step-card__cta-note {
+  font-size: 12px;
+  opacity: 0.8;
+  max-width: 220px;
+  margin: 0;
+  text-align: center;
+}
+
 /* Services Section Headings */
 .services-section-heading {
   text-align: center;
