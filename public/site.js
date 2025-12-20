@@ -43,16 +43,15 @@
         <li><a href="/proof.html"${isActive('/proof') ? ' aria-current="page"' : ''}>Proof</a></li>
         <li><a href="/pricing.html"${isActive('/pricing') ? ' aria-current="page"' : ''}>Pricing</a></li>
         <li><a href="/how-it-works.html"${isActive('/how-it-works') ? ' aria-current="page"' : ''}>How it works</a></li>
-        <li><a href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Free Scan</a></li>
+        <li><a href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''}>Get a quote</a></li>
         <li><a href="/blog.html"${isActive('/blog') ? ' aria-current="page"' : ''}>Blog</a></li>
         <li><a href="/contact.html"${isActive('/contact') ? ' aria-current="page"' : ''}>Contact</a></li>
       </ul>
       <div class="nav-ctas">
-        <a class="btn btn-primary" href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''} onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'nav'})">Get a quote</a>
-        <a class="btn btn-ghost"
-   href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
+        <a href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
    target="_blank" rel="noopener"
    aria-label="Book 15-minute Fit Check on Calendly">Book 15-min Fit Check</a>
+        <a class="btn btn-primary" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
       </div>
     </nav>
 
@@ -68,13 +67,12 @@
     <a href="/proof.html">Proof</a>
     <a href="/pricing.html">Pricing</a>
     <a href="/how-it-works.html">How it works</a>
-    <a href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Free Scan</a>
+    <a href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''}>Get a quote</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a class="btn btn-primary w-full" href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''} onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'mobile-nav'})">Get a quote</a>
-    <a class="btn btn-ghost w-full"
-   href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
+    <a href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
    target="_blank" rel="noopener">Book 15-min Fit Check</a>
+    <a class="btn btn-primary w-full" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
   </nav>
 </header>
     `.trim();

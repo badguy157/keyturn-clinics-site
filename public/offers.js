@@ -2,12 +2,12 @@
 (function() {
   'use strict';
 
-  // Base URL for the scan tool
+  // Base URL for the scan tool (canonical)
   const SCAN_URL_BASE = "https://scan.keyturn.studio";
 
-  // Scan URLs with mode parameters
-  const quickScanUrl = SCAN_URL_BASE + "/?mode=quick";
-  const deepScanUrl = SCAN_URL_BASE + "/?mode=deep";
+  // Primary scan URL (canonical - no mode parameter)
+  const quickScanUrl = SCAN_URL_BASE + "/";
+  const deepScanUrl = SCAN_URL_BASE + "/";
 
   // Quote URLs with intent parameters
   const quoteUrl = "/quote.html?intent=quote";
