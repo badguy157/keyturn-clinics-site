@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/pricing-config.js"></script>
   <script src="/public/site.js" defer></script>
 </head>
 <body>
@@ -41,7 +42,7 @@
     <div class="card premium-form-card" style="max-width:720px;margin-left:auto;margin-right:auto;padding:40px 32px">
       <h2 style="margin-top:0;margin-bottom:12px">Payback calculator</h2>
       <p class="small" style="margin-bottom:12px">See about how many months it might take for a new website to cover its own cost.</p>
-      <p class="small" style="margin-bottom:28px">For the "Project package" field, you can use our typical project sizes: Core (~$7,500), Patient-Flow Pro (~$12,000), or Premier ($18k to $25k+). This tool is a rough guide to sense how fast a new website could pay for itself.</p>
+      <p class="small" style="margin-bottom:28px">For the "Project package" field, select from our three tiers: Core, Pro, or Premier. This tool is a rough guide to sense how fast a new website could pay for itself.</p>
 
       <form id="roiForm" class="audit-form">
         <div class="form-row">
@@ -79,9 +80,7 @@
             <label for="projectPackage">Project package <span style="color:#ff6b6b" aria-hidden="true">*</span></label>
             <select id="projectPackage" class="audit-form-select" required aria-required="true">
               <option value="">Select a package</option>
-              <option value="Core" data-cost="7500">Core: $9,000</option>
-              <option value="Pro" data-cost="12000">Pro: $15,000</option>
-              <option value="Premier" data-cost="18000">Premier: $25,000</option>
+              <!-- Options populated dynamically from pricing-config.js -->
             </select>
           </div>
         </div>
@@ -159,7 +158,7 @@
         <li><strong>6–12 months:</strong> Healthy. A rebuild can make sense if you want growth.</li>
         <li><strong>12+ months:</strong> Slow. It may still be worth it for brand and trust, but we should talk through your numbers.</li>
       </ul>
-      <p style="margin-top:16px;margin-bottom:0;color:var(--muted);font-size:0.9rem"><strong>Note:</strong> For Premier projects we often go higher than this, but we use $18k as the default here to keep the math simple.</p>
+      <p style="margin-top:16px;margin-bottom:0;color:var(--muted);font-size:0.9rem"><strong>Note:</strong> For Premier projects we use the minimum package price in the calculation. Actual Premier pricing varies based on scope.</p>
       <p style="margin-top:16px;margin-bottom:0;color:var(--muted-2);line-height:1.8">If you'd like us to run these numbers with real data from your clinic and map out a concrete plan, start with the Clinic Booking Blueprint & Site Audit. We'll credit the Blueprint fee toward any rebuild you start within 90 days.</p>
     </div>
 
@@ -226,6 +225,38 @@
 
 <script>
   // Mobile menu and year are handled by site.js
+
+  // Initialize package options from pricing config
+  (function initPackageOptions() {
+    const pricing = window.KEYTURN_PRICING;
+    if (!pricing) {
+      console.error('Pricing config not loaded');
+      return;
+    }
+    
+    const packageSelect = document.getElementById('projectPackage');
+    
+    // Core package
+    const coreOption = document.createElement('option');
+    coreOption.value = 'Core';
+    coreOption.dataset.cost = pricing.rebuild.core;
+    coreOption.textContent = 'Core: ' + pricing.formatPrice(pricing.rebuild.core);
+    packageSelect.appendChild(coreOption);
+    
+    // Pro package
+    const proOption = document.createElement('option');
+    proOption.value = 'Pro';
+    proOption.dataset.cost = pricing.rebuild.pro;
+    proOption.textContent = 'Pro: ' + pricing.formatPrice(pricing.rebuild.pro);
+    packageSelect.appendChild(proOption);
+    
+    // Premier package
+    const premierOption = document.createElement('option');
+    premierOption.value = 'Premier';
+    premierOption.dataset.cost = pricing.rebuild.premierMin;
+    premierOption.textContent = 'Premier: ' + pricing.formatPremierRange();
+    packageSelect.appendChild(premierOption);
+  })();
 
   // Payback Calculator
   function money(x){ 

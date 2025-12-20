@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/pricing-config.js"></script>
   <script src="/public/site.js" defer></script>
   <script src="/public/fade-in.js" defer></script>
 
@@ -112,7 +113,7 @@
         <!-- Deep Scan Report -->
         <div class="pricing-scan-card">
           <h4 class="pricing-scan-card-name">Deep Scan Report</h4>
-          <div class="pricing-scan-card-price">$297</div>
+          <div class="pricing-scan-card-price" data-price="deepScan">$297</div>
           <div class="pricing-scan-card-time">5–7 min</div>
           <ul style="list-style:disc;padding-left:20px;margin:12px 0;text-align:left">
             <li>Executive summary (what to fix first)</li>
@@ -121,15 +122,15 @@
           </ul>
           <p style="font-size:0.85rem;color:var(--brand-muted);margin:8px 0">Includes scores, screenshots, and quick wins.</p>
           <p class="pricing-scan-card-addon">Add a 10–15 min walkthrough: +$200</p>
-          <p class="pricing-scan-card-credit">Upgrade to the Blueprint within 14 days and we credit your $297.</p>
+          <p class="pricing-scan-card-credit">Upgrade to the Blueprint within 14 days and we credit your <span data-price="deepScan">$297</span>.</p>
           <a class="btn btn-primary" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
-          <p class="pricing-scan-card-credit">Unlock Deep Scan ($297) inside your report.</p>
+          <p class="pricing-scan-card-credit">Unlock Deep Scan (<span data-price="deepScan">$297</span>) inside your report.</p>
         </div>
         
         <!-- Clinic Booking Blueprint -->
         <div class="pricing-scan-card">
           <h4 class="pricing-scan-card-name">Clinic Booking Blueprint</h4>
-          <div class="pricing-scan-card-price">$1,000</div>
+          <div class="pricing-scan-card-price" data-price="blueprint">$1,000</div>
           <div class="pricing-scan-card-time">credited if you hire us</div>
           <a class="btn btn-primary" href="/quote.html">Request proposal</a>
           <p class="pricing-scan-card-credit">Human plan + build sequencing.</p>
@@ -144,17 +145,17 @@
       <div class="pricing-quick-view-grid">
         <div class="pricing-quick-view-item">
           <h4>Core</h4>
-          <div class="price">$9,000</div>
+          <div class="price" data-price="core">$9,000</div>
           <p>Clean, modern site for single-location clinics. Main pages rebuilt for mobile with clear booking buttons.</p>
         </div>
         <div class="pricing-quick-view-item">
           <h4>Pro</h4>
-          <div class="price">$15,000</div>
+          <div class="price" data-price="pro">$15,000</div>
           <p>Full patient-flow system for growth-minded clinics. Campaign-ready pages focused on high-value treatments.</p>
         </div>
         <div class="pricing-quick-view-item">
           <h4>Premier</h4>
-          <div class="price">$25k – $32k</div>
+          <div class="price" data-price="premierRange">$25k – $32k</div>
           <p>Custom solution for multi-location or complex clinics with deeper strategy and launch support.</p>
         </div>
       </div>
@@ -165,7 +166,7 @@
       <p>Payments are spread across 3-5 milestones.</p>
       <p>Most sites go live in 3 to 5 weeks.</p>
       <p>Need a different schedule? Just ask.</p>
-      <p style="margin-top:16px">All rebuilds start with the Clinic Booking Blueprint ($1,000). If we rebuild within 90 days, we credit it toward your package.</p>
+      <p style="margin-top:16px">All rebuilds start with the Clinic Booking Blueprint (<span data-price="blueprint">$1,000</span>). If we rebuild within 90 days, we credit it toward your package.</p>
     </div>
     
     <!-- Blueprint Panel -->
@@ -180,7 +181,7 @@
             <li>Step 2: Blueprint (plan + wireframe + tracking)</li>
             <li>Step 3: Rebuild (3–5 weeks) when ready</li>
           </ul>
-          <p class="pricing-blueprint-text"><strong>Blueprint: $1,000 flat fee.</strong> Start a rebuild within 90 days and we credit 100% toward the project.</p>
+          <p class="pricing-blueprint-text"><strong>Blueprint: <span data-price="blueprint">$1,000</span> flat fee.</strong> Start a rebuild within 90 days and we credit 100% toward the project.</p>
         </div>
         <div class="pricing-blueprint-right">
           <a class="btn btn-ghost" href="https://scan.keyturn.studio/" target="_blank" rel="noopener" style="margin-bottom:8px">Run free scan</a>
@@ -205,7 +206,7 @@
       <article class="pricing-card">
         <div class="pricing-card-header">
           <h3 class="pricing-card-name">Core Website Makeover</h3>
-          <div class="pricing-card-price">$9,000</div>
+          <div class="pricing-card-price" data-price="core">$9,000</div>
         </div>
         <p class="pricing-card-value-line"><strong>Often pays for itself with 2-3 extra patients per month over a year.</strong></p>
         <p class="services-package-best-for">For single-location clinics that mostly need their site modernized and tuned for bookings, without deep growth build-out.</p>
@@ -224,7 +225,7 @@
         <div class="pricing-badge">Most popular</div>
         <div class="pricing-card-header">
           <h3 class="pricing-card-name">Patient-Flow Pro Rebuild</h3>
-          <div class="pricing-card-price">$15,000</div>
+          <div class="pricing-card-price" data-price="pro">$15,000</div>
         </div>
         <p class="services-package-best-for">For growth-minded clinics that want a full patient-flow system, tracking, and campaign-ready pages.</p>
         <p class="pricing-card-value-line">Designed so one extra high-value patient each week pays for it in under a year.</p>
@@ -242,7 +243,7 @@
       <article class="pricing-card">
         <div class="pricing-card-header">
           <h3 class="pricing-card-name">Premier Website Makeover</h3>
-          <div class="pricing-card-price">$25,000 to $32,000</div>
+          <div class="pricing-card-price" data-price="premierRange">$25,000 to $32,000</div>
         </div>
         <p class="services-package-best-for">For multi-location or complex clinics that need heavy customization, multi-location flows, and launch support.</p>
         <p class="pricing-card-value-line"><strong>When a handful of extra high-value cases a month are worth six figures, Premier pays for itself quickly.</strong></p>
@@ -353,7 +354,7 @@
         </div>
         <div class="pricing-budget-option">
           <h4 class="pricing-budget-heading">Blueprint-only option</h4>
-          <p class="pricing-budget-desc">$1,000 Clinic Booking Blueprint & Site Audit. A paid full audit, and we'll credit 100% if you start a rebuild within 90 days.</p>
+          <p class="pricing-budget-desc"><span data-price="blueprint">$1,000</span> Clinic Booking Blueprint & Site Audit. A paid full audit, and we'll credit 100% if you start a rebuild within 90 days.</p>
         </div>
       </div>
     </div>
@@ -365,7 +366,7 @@
     
     <div class="pricing-tiers-grid">
       <div class="pricing-tier-card">
-        <h4 class="pricing-tier-name">Core: $9k</h4>
+        <h4 class="pricing-tier-name">Core: <span data-price="coreShort">$9k</span></h4>
         <p class="pricing-tier-desc">Single-location clinics that need a clean, modern site.</p>
         <ul style="margin:8px 0 0;padding-left:16px;font-size:0.9rem;color:var(--brand-text)">
           <li>Main pages rebuilt for mobile.</li>
@@ -374,7 +375,7 @@
         </ul>
       </div>
       <div class="pricing-tier-card">
-        <h4 class="pricing-tier-name">Pro: $15k</h4>
+        <h4 class="pricing-tier-name">Pro: <span data-price="proShort">$15k</span></h4>
         <p class="pricing-tier-desc">Growth-mode clinics focused on high-value treatments.</p>
         <ul style="margin:8px 0 0;padding-left:16px;font-size:0.9rem;color:var(--brand-text)">
           <li>One clear booking path.</li>
@@ -383,7 +384,7 @@
         </ul>
       </div>
       <div class="pricing-tier-card">
-        <h4 class="pricing-tier-name">Premier: $25k to $32k</h4>
+        <h4 class="pricing-tier-name">Premier: <span data-price="premierRangeShort">$25k to $32k</span></h4>
         <p class="pricing-tier-desc">Multi-location or complex clinics.</p>
         <ul style="margin:8px 0 0;padding-left:16px;font-size:0.9rem;color:var(--brand-text)">
           <li>Deeper strategy and planning.</li>
@@ -501,5 +502,55 @@
 
 <script src="/public/offers.js"></script>
 <script src="/public/cta-links.js"></script>
+<script>
+  // Populate pricing from shared config
+  (function() {
+    'use strict';
+    
+    const pricing = window.KEYTURN_PRICING;
+    if (!pricing) {
+      console.error('Pricing config not loaded');
+      return;
+    }
+    
+    // Update all elements with data-price attributes
+    document.querySelectorAll('[data-price]').forEach(function(el) {
+      const priceType = el.dataset.price;
+      let newText = '';
+      
+      switch(priceType) {
+        case 'deepScan':
+          newText = pricing.formatPrice(pricing.deepScan);
+          break;
+        case 'blueprint':
+          newText = pricing.formatPrice(pricing.blueprint);
+          break;
+        case 'core':
+          newText = pricing.formatPrice(pricing.rebuild.core);
+          break;
+        case 'pro':
+          newText = pricing.formatPrice(pricing.rebuild.pro);
+          break;
+        case 'premierRange':
+          newText = pricing.formatPremierRange();
+          break;
+        case 'coreShort':
+          newText = pricing.formatPriceShort(pricing.rebuild.core);
+          break;
+        case 'proShort':
+          newText = pricing.formatPriceShort(pricing.rebuild.pro);
+          break;
+        case 'premierRangeShort':
+          newText = pricing.formatPremierRangeShort();
+          break;
+        default:
+          console.warn('Unknown price type:', priceType);
+          return;
+      }
+      
+      el.textContent = newText;
+    });
+  })();
+</script>
 </body>
 </html>
