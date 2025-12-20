@@ -63,8 +63,7 @@ async function getFileSize(path) {
  * Optimize a single image file
  */
 async function optimizeImage(inputPath) {
-  const ext = extname(inputPath);
-  const baseName = basename(inputPath, ext);
+  const baseName = basename(inputPath, extname(inputPath));
   
   console.log(`\nProcessing: ${inputPath}`);
   
