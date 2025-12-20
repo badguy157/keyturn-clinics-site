@@ -4860,6 +4860,18 @@ img {
   }
 }
 
+/* How to Start Section - Step Cards */
+.how-to-start .step-card__content {
+  flex: 1;
+}
+
+.how-to-start .step-card__actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 18px;
+}
+
 /* Services Section Headings */
 .services-section-heading {
   text-align: center;
