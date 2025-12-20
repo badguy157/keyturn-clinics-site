@@ -23,25 +23,17 @@
 
   // Expose constants to global scope
   window.KEYTURN_OFFERS = {
-    SCAN_URL_BASE: SCAN_URL_BASE,
-    quickScanUrl: quickScanUrl,
-    deepScanUrl: deepScanUrl,
-    quoteUrl: quoteUrl,
-    blueprintUrl: blueprintUrl,
-    deepScanPrice: deepScanPrice,
-    deepScanWalkthroughAddon: deepScanWalkthroughAddon,
-    blueprintPrice: blueprintPrice,
-    deepScanCreditNote: deepScanCreditNote
+    SCAN_URL_BASE,
+    quickScanUrl,
+    deepScanUrl,
+    quoteUrl,
+    blueprintUrl,
+    deepScanPrice,
+    deepScanWalkthroughAddon,
+    blueprintPrice,
+    deepScanCreditNote
   };
 
   // Also expose individual constants for backward compatibility
-  window.SCAN_URL_BASE = SCAN_URL_BASE;
-  window.quickScanUrl = quickScanUrl;
-  window.deepScanUrl = deepScanUrl;
-  window.quoteUrl = quoteUrl;
-  window.blueprintUrl = blueprintUrl;
-  window.deepScanPrice = deepScanPrice;
-  window.deepScanWalkthroughAddon = deepScanWalkthroughAddon;
-  window.blueprintPrice = blueprintPrice;
-  window.deepScanCreditNote = deepScanCreditNote;
+  Object.assign(window, window.KEYTURN_OFFERS);
 })();
