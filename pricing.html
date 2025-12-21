@@ -17,9 +17,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  <script src="/assets/pricing-config.js"></script>
-  <script src="/public/site.js" defer></script>
-  <script src="/public/fade-in.js" defer></script>
 
   <!-- Product Schema for Pricing -->
   <script type="application/ld+json">
@@ -500,56 +497,73 @@
   </div>
 </footer>
 
-<script src="/public/offers.js"></script>
-<script src="/public/cta-links.js"></script>
-<script>
+<!-- Scripts moved to bottom for better performance -->
+<script src="/public/offers.js" defer></script>
+<script src="/public/cta-links.js" defer></script>
+<script src="/assets/pricing-config.js" defer></script>
+<script src="/public/site.js" defer></script>
+<script src="/public/fade-in.js" defer></script>
+
+<!-- Lazy load analytics on idle -->
+<script src="/assets/js/analytics-loader.js" defer></script>
+
+<script defer>
   // Populate pricing from shared config
   (function() {
     'use strict';
     
-    const pricing = window.KEYTURN_PRICING;
-    if (!pricing) {
-      console.error('Pricing config not loaded');
-      return;
-    }
-    
-    // Update all elements with data-price attributes
-    document.querySelectorAll('[data-price]').forEach(function(el) {
-      const priceType = el.dataset.price;
-      let newText = '';
-      
-      switch(priceType) {
-        case 'deepScan':
-          newText = pricing.formatPrice(pricing.deepScan);
-          break;
-        case 'blueprint':
-          newText = pricing.formatPrice(pricing.blueprint);
-          break;
-        case 'core':
-          newText = pricing.formatPrice(pricing.rebuild.core);
-          break;
-        case 'pro':
-          newText = pricing.formatPrice(pricing.rebuild.pro);
-          break;
-        case 'premierRange':
-          newText = pricing.formatPremierRange();
-          break;
-        case 'coreShort':
-          newText = pricing.formatPriceShort(pricing.rebuild.core);
-          break;
-        case 'proShort':
-          newText = pricing.formatPriceShort(pricing.rebuild.pro);
-          break;
-        case 'premierRangeShort':
-          newText = pricing.formatPremierRangeShort();
-          break;
-        default:
-          console.warn('Unknown price type:', priceType);
-          return;
+    function populatePricing() {
+      const pricing = window.KEYTURN_PRICING;
+      if (!pricing) {
+        // Retry after a short delay if config not loaded yet
+        setTimeout(populatePricing, 100);
+        return;
       }
       
-      el.textContent = newText;
-    });
+      // Update all elements with data-price attributes
+      document.querySelectorAll('[data-price]').forEach(function(el) {
+        const priceType = el.dataset.price;
+        let newText = '';
+        
+        switch(priceType) {
+          case 'deepScan':
+            newText = pricing.formatPrice(pricing.deepScan);
+            break;
+          case 'blueprint':
+            newText = pricing.formatPrice(pricing.blueprint);
+            break;
+          case 'core':
+            newText = pricing.formatPrice(pricing.rebuild.core);
+            break;
+          case 'pro':
+            newText = pricing.formatPrice(pricing.rebuild.pro);
+            break;
+          case 'premierRange':
+            newText = pricing.formatPremierRange();
+            break;
+          case 'coreShort':
+            newText = pricing.formatPriceShort(pricing.rebuild.core);
+            break;
+          case 'proShort':
+            newText = pricing.formatPriceShort(pricing.rebuild.pro);
+            break;
+          case 'premierRangeShort':
+            newText = pricing.formatPremierRangeShort();
+            break;
+          default:
+            console.warn('Unknown price type:', priceType);
+            return;
+        }
+        
+        el.textContent = newText;
+      });
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', populatePricing);
+    } else {
+      populatePricing();
+    }
   })();
 </script>
 </body>

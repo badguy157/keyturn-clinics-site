@@ -25,11 +25,6 @@
   <link rel="preload" as="image" href="/assets/img/optimized/aurora-hero-1024.webp" 
         imagesrcset="/assets/img/optimized/aurora-hero-480.webp 480w, /assets/img/optimized/aurora-hero-768.webp 768w, /assets/img/optimized/aurora-hero-1024.webp 1024w, /assets/img/optimized/aurora-hero-1440.webp 1440w" 
         imagesizes="(max-width: 768px) 90vw, 520px">
-  
-  <script src="/assets/pricing-config.js"></script>
-  <script src="/public/site.js" defer></script>
-  <script src="/public/accordion.js" defer></script>
-  <script src="/public/fade-in.js" defer></script>
 
   <!-- Organization Schema -->
   <script type="application/ld+json">
@@ -1072,27 +1067,49 @@
   <div class="lb-cap small" id="lbCap"></div>
 </div>
 
-<script src="/public/offers.js"></script>
-<script src="/public/cta-links.js"></script>
-<script>
+<!-- Scripts moved to bottom for better performance -->
+<script src="/assets/pricing-config.js" defer></script>
+<script src="/public/site.js" defer></script>
+<script src="/public/accordion.js" defer></script>
+<script src="/public/fade-in.js" defer></script>
+<script src="/public/offers.js" defer></script>
+<script src="/public/cta-links.js" defer></script>
+
+<!-- Lazy load analytics on idle -->
+<script src="/assets/js/analytics-loader.js" defer></script>
+
+<script defer>
   // Populate pricing from shared config
   (function() {
     'use strict';
-    const pricing = window.KEYTURN_PRICING;
-    if (!pricing) return;
     
-    document.querySelectorAll('[data-price]').forEach(function(el) {
-      const priceType = el.dataset.price;
-      let newText = '';
-      
-      if (priceType === 'deepScan') {
-        newText = pricing.formatPrice(pricing.deepScan);
-      } else if (priceType === 'blueprint') {
-        newText = pricing.formatPrice(pricing.blueprint);
+    function populatePricing() {
+      const pricing = window.KEYTURN_PRICING;
+      if (!pricing) {
+        // Retry after a short delay if config not loaded yet
+        setTimeout(populatePricing, 100);
+        return;
       }
       
-      if (newText) el.textContent = newText;
-    });
+      document.querySelectorAll('[data-price]').forEach(function(el) {
+        const priceType = el.dataset.price;
+        let newText = '';
+        
+        if (priceType === 'deepScan') {
+          newText = pricing.formatPrice(pricing.deepScan);
+        } else if (priceType === 'blueprint') {
+          newText = pricing.formatPrice(pricing.blueprint);
+        }
+        
+        if (newText) el.textContent = newText;
+      });
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', populatePricing);
+    } else {
+      populatePricing();
+    }
   })();
 </script>
 </body>

@@ -207,7 +207,10 @@ form.addEventListener('submit', async (e)=>{
   }
 });
 </script>
-<script src="/public/offers.js"></script>
-<script src="/public/cta-links.js"></script>
+<script src="/public/offers.js" defer></script>
+<script src="/public/cta-links.js" defer></script>
+
+<!-- Lazy load analytics on idle -->
+<script src="/assets/js/analytics-loader.js" defer></script>
 </body>
 </html>

@@ -17,7 +17,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  <script src="/public/site.js" defer></script>
 </head>
 <body>
 
@@ -147,8 +146,12 @@
     <p class="footer-meta">Operated by Keyturn Studio LLC</p>
   </div>
 </footer>
+<!-- Scripts moved to bottom for better performance -->
+<script src="/public/site.js" defer></script>
+<script src="/public/offers.js" defer></script>
+<script src="/public/cta-links.js" defer></script>
 
-<script src="/public/offers.js"></script>
-<script src="/public/cta-links.js"></script>
+<!-- Lazy load analytics on idle -->
+<script src="/assets/js/analytics-loader.js" defer></script>
 </body>
 </html>

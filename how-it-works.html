@@ -17,8 +17,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  <script src="/assets/pricing-config.js"></script>
-  <script src="/public/site.js" defer></script>
 </head>
 <body>
 
@@ -267,27 +265,47 @@ Then we walk through it together on a short call and lock in the plan. If you al
   </div>
 </footer>
 
-<script src="/public/offers.js"></script>
-<script src="/public/cta-links.js"></script>
-<script>
+<!-- Scripts moved to bottom for better performance -->
+<script src="/assets/pricing-config.js" defer></script>
+<script src="/public/site.js" defer></script>
+<script src="/public/offers.js" defer></script>
+<script src="/public/cta-links.js" defer></script>
+
+<!-- Lazy load analytics on idle -->
+<script src="/assets/js/analytics-loader.js" defer></script>
+
+<script defer>
   // Populate pricing from shared config
   (function() {
     'use strict';
-    const pricing = window.KEYTURN_PRICING;
-    if (!pricing) return;
     
-    document.querySelectorAll('[data-price]').forEach(function(el) {
-      const priceType = el.dataset.price;
-      let newText = '';
-      
-      if (priceType === 'deepScan') {
-        newText = pricing.formatPrice(pricing.deepScan);
-      } else if (priceType === 'blueprint') {
-        newText = pricing.formatPrice(pricing.blueprint);
+    function populatePricing() {
+      const pricing = window.KEYTURN_PRICING;
+      if (!pricing) {
+        // Retry after a short delay if config not loaded yet
+        setTimeout(populatePricing, 100);
+        return;
       }
       
-      if (newText) el.textContent = newText;
-    });
+      document.querySelectorAll('[data-price]').forEach(function(el) {
+        const priceType = el.dataset.price;
+        let newText = '';
+        
+        if (priceType === 'deepScan') {
+          newText = pricing.formatPrice(pricing.deepScan);
+        } else if (priceType === 'blueprint') {
+          newText = pricing.formatPrice(pricing.blueprint);
+        }
+        
+        if (newText) el.textContent = newText;
+      });
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', populatePricing);
+    } else {
+      populatePricing();
+    }
   })();
 </script>
 </body>
