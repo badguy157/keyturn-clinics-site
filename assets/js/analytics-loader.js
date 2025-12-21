@@ -41,8 +41,6 @@
       gtag('config', GA_MEASUREMENT_ID, {
         'send_page_view': true
       });
-      
-      console.log('Analytics loaded on idle');
     };
     
     script.onerror = function() {
@@ -74,4 +72,3 @@
     scheduleAnalyticsLoad();
   }
 })();
-
