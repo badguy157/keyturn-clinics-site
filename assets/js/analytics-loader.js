@@ -2,6 +2,12 @@
  * Analytics Lazy Loader
  * Loads analytics scripts after the page has finished initial paint
  * Uses requestIdleCallback with setTimeout fallback for older browsers
+ * 
+ * SETUP INSTRUCTIONS:
+ * 1. Replace 'G-XXXXXXXXXX' below with actual GA4 measurement ID
+ * 2. Add these preconnect hints to <head> for better performance:
+ *    <link rel="preconnect" href="https://www.googletagmanager.com">
+ *    <link rel="preconnect" href="https://www.google-analytics.com">
  */
 (function() {
   'use strict';
@@ -68,3 +74,4 @@
     scheduleAnalyticsLoad();
   }
 })();
+
