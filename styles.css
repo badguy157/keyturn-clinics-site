@@ -5014,8 +5014,8 @@ img {
   width: fit-content;
 }
 
-/* Hide badge when Free Scan option is not selected */
-.path-option[aria-selected="false"] .path-option-badge {
+/* Hide badge when option is not selected (clearer logic) */
+.path-option:not([aria-selected="true"]) .path-option-badge {
   display: none;
 }
 
