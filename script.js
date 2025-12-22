@@ -19,7 +19,6 @@ console.log('Hello!');
     const pathTitle = document.getElementById('pathTitle');
     const pathBullets = document.getElementById('pathBullets');
     const pathCta = document.getElementById('pathCta');
-    const pathHint = document.getElementById('pathHint');
 
     if (pathOptions.length === 0 || !pathTitle || !pathBullets || !pathCta) {
       // Path chooser not on this page
