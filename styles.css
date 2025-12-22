@@ -2033,6 +2033,53 @@ img {
   }
 }
 
+/* New Mobile Sticky CTA (replaces old sticky-cta) */
+.mobile-sticky-cta {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  background: rgba(10, 16, 28, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: slideInUp 0.5s ease-out 0.5s both;
+}
+
+.mobile-sticky-primary {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.mobile-sticky-secondary {
+  white-space: nowrap;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+/* Hide sticky CTA on desktop */
+@media (min-width: 901px) {
+  .mobile-sticky-cta {
+    display: none !important;
+  }
+}
+
+/* Add bottom padding on mobile to prevent content being hidden behind sticky bar */
+@media (max-width: 900px) {
+  body {
+    padding-bottom: 84px;
+  }
+}
+
 /* Header animation */
 .site-header {
   animation: slideInDown 0.5s ease-out;

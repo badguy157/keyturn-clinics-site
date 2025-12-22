@@ -887,24 +887,9 @@
   </div>
 </footer>
 
-<!-- Sticky mobile CTA (homepage only, centered at bottom on mobile) -->
-<div id="sticky-cta-wrapper" class="fixed inset-x-0 bottom-4 flex justify-center md:hidden z-50" style="display:none; position:fixed; left:0; right:0; bottom:1rem; justify-content:center; z-index:1001;">
-  <a href="/quote.html" class="sticky-cta" aria-label="Get a quote" onclick="window.safeEvent && window.safeEvent('quote_request_click', {location: 'sticky'})" style="display:inline-flex;">Get a quote</a>
-</div>
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu and year are handled by site.js
-
-    // ===== Show sticky CTA only on homepage =====
-    const stickyCTAWrapper = document.getElementById('sticky-cta-wrapper');
-    if (stickyCTAWrapper) {
-      const currentPath = window.location.pathname;
-      // Show only on homepage (/, /index.html, or empty)
-      if (currentPath === '/' || currentPath === '/index.html' || currentPath === '') {
-        stickyCTAWrapper.style.display = 'flex';
-      }
-    }
 
     // ===== Pricing toggle (works for cards that have data-upfront / data-monthly) =====
     const payToggle = document.getElementById('payToggle');
