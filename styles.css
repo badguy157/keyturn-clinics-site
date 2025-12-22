@@ -5252,7 +5252,7 @@ details[open] .accordion-panel {
   font-weight: 600;
   font-size: 12px;
   line-height: 1;
-  letter-spacing: 0;         /* critical: prevents weird overlap */
+  letter-spacing: 0;         /* Ensures consistent character spacing and prevents text rendering collisions */
   white-space: nowrap;
   background: rgba(96, 165, 250, 0.14);
   border: 1px solid rgba(96, 165, 250, 0.28);
