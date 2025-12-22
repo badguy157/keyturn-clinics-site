@@ -5014,6 +5014,7 @@ img {
   width: fit-content;
 }
 
+/* Hide badge when Free Scan option is not selected */
 .path-option[aria-selected="false"] .path-option-badge {
   display: none;
 }

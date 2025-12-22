@@ -58,8 +58,6 @@ console.log('Hello!');
       });
     }
 
-    // Set default selection to Free Scan (first option)
-    // This is already set in HTML, but we ensure it's active
-    switchPath('scan');
+    // Default selection is already set in HTML (Free Scan option has aria-selected="true")
   }
 })();
