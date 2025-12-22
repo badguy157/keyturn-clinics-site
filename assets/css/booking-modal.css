@@ -386,3 +386,32 @@ html.kt-modal-open { color-scheme: dark; }
   color: #111827 !important;
   background: #fff !important;
 }
+
+/* --- Booking modal select readability (native dropdown) --- */
+
+/* Closed state stays dark */
+#booking-modal select {
+  color: #e5e7eb;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+/* When the dropdown is opened, the select is focused/active.
+   Force readable colors while open. */
+#booking-modal select:focus,
+#booking-modal select:active {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+/* Some browsers respect option styling; apply anyway */
+#booking-modal select:focus option,
+#booking-modal select:active option {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+/* Disabled placeholder should remain muted */
+#booking-modal select option:disabled {
+  color: #6b7280 !important;
+}
