@@ -113,7 +113,7 @@
 <!-- Booking Modal -->
 <script src="/assets/js/booking.js" defer></script>
 <!-- Booking Modal -->
-<div id="booking-modal-overlay" class="booking-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+<div id="booking-modal-overlay" class="booking-modal-overlay" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
   <div id="booking-modal" class="booking-modal">
     <div class="booking-modal-header">
       <h2 id="booking-modal-title" class="booking-modal-title">Request a Booking</h2>
@@ -154,7 +154,7 @@
               Treatment Interest<span class="required">*</span>
             </label>
             <select id="booking-treatment" class="booking-form-select">
-              <option value="">Select a treatment</option>
+              <option value="" selected disabled>Select a treatment</option>
               <option value="General Inquiry">General Inquiry</option>
               <option value="Website Consultation">Website Consultation</option>
               <option value="Patient Flow Scan">Patient Flow Scan</option>
@@ -170,7 +170,7 @@
               Preferred Time Window<span class="required">*</span>
             </label>
             <select id="booking-time-window" class="booking-form-select">
-              <option value="">Select your preference</option>
+              <option value="" selected disabled>Select your preference</option>
               <option value="Morning (9AM - 12PM)">Morning (9AM - 12PM)</option>
               <option value="Afternoon (12PM - 5PM)">Afternoon (12PM - 5PM)</option>
               <option value="Evening (5PM - 8PM)">Evening (5PM - 8PM)</option>

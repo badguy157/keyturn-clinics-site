@@ -6,6 +6,9 @@
 (function() {
   'use strict';
 
+  // Calendly URL for optional scheduling fallback
+  const CALENDLY_URL = 'https://calendly.com/vinnie-keyturn/intro?utm_source=site';
+
   // State
   let currentStep = 1;
   let formData = {
@@ -92,6 +95,14 @@
       confirmBtn.addEventListener('click', handleSubmit);
     }
 
+    // Schedule now button (Calendly fallback)
+    const scheduleBtn = document.getElementById('booking-schedule-now');
+    if (scheduleBtn && CALENDLY_URL) {
+      scheduleBtn.addEventListener('click', function() {
+        window.open(CALENDLY_URL, '_blank', 'noopener');
+      });
+    }
+
     // Input change handlers to clear errors
     const inputs = modal.querySelectorAll('.booking-form-input, .booking-form-select');
     inputs.forEach(function(input) {
@@ -136,6 +147,7 @@
     // Show modal
     overlay.classList.add('active');
     document.body.classList.add('booking-modal-open');
+    document.documentElement.classList.add('kt-modal-open');
 
     // Show step 1
     showStep(1);
@@ -156,6 +168,7 @@
   function closeModal() {
     overlay.classList.remove('active');
     document.body.classList.remove('booking-modal-open');
+    document.documentElement.classList.remove('kt-modal-open');
 
     // Restore focus
     if (lastFocusedElement) {
@@ -223,13 +236,17 @@
   function handleSubmit() {
     // Create submission payload
     const submission = {
-      timestamp: new Date().toISOString(),
+      created_at: new Date().toISOString(),
+      timestamp: new Date().toISOString(), // TODO: Remove in future version (deprecated in favor of created_at)
+      page_url: window.location.href,
+      source: formData.source,
+      interest: formData.treatment,
+      user_agent: navigator.userAgent,
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
       treatment: formData.treatment,
-      timeWindow: formData.timeWindow,
-      source: formData.source
+      timeWindow: formData.timeWindow
     };
 
     // Save to localStorage

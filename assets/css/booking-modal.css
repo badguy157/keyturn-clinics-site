@@ -164,6 +164,13 @@
   padding-right: 2.5rem;
 }
 
+/* Enhanced select styling for better readability */
+#booking-modal select {
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
 /* Error States */
 .booking-form-error {
   display: none;
@@ -334,4 +341,48 @@
 /* Prevent body scroll when modal is open */
 body.booking-modal-open {
   overflow: hidden;
+}
+
+/* Select Dropdown Contrast Fixes */
+#booking-modal select,
+.booking-modal select {
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Placeholder styling for required selects */
+#booking-modal select:required:invalid,
+.booking-modal select:required:invalid {
+  color: #9ca3af;
+}
+
+#booking-modal select:required:valid,
+.booking-modal select:required:valid {
+  color: #e5e7eb;
+}
+
+/* Focus state for better visibility */
+#booking-modal select:focus,
+.booking-modal select:focus {
+  outline: none;
+  border-color: var(--accent, #5aa2ff);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Force native dropdown menus to render dark while modal is open */
+html.kt-modal-open { color-scheme: dark; }
+
+#booking-modal select { color-scheme: dark; }
+
+/* Ensure the select control itself stays readable */
+#booking-modal select {
+  color: #e5e7eb;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+/* Force readable dropdown options when select is focused */
+#booking-modal select:focus option {
+  color: #111827 !important;
+  background: #fff !important;
 }
