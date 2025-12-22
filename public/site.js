@@ -48,9 +48,7 @@
         <li><a href="/contact.html"${isActive('/contact') ? ' aria-current="page"' : ''}>Contact</a></li>
       </ul>
       <div class="nav-ctas">
-        <a href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
-   target="_blank" rel="noopener"
-   aria-label="Book 15-minute Fit Check on Calendly">Book 15-min Fit Check</a>
+        <a href="#" data-booking-open="true" data-booking-source="navbar" aria-label="Book 15-minute Fit Check">Book 15-min Fit Check</a>
         <a class="btn btn-primary" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
       </div>
     </nav>
@@ -70,8 +68,7 @@
     <a href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''}>Get a quote</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
-    <a href="https://calendly.com/vinnie-keyturn/intro?utm_source=site"
-   target="_blank" rel="noopener">Book 15-min Fit Check</a>
+    <a href="#" data-booking-open="true" data-booking-source="navbar-mobile">Book 15-min Fit Check</a>
     <a class="btn btn-primary w-full" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
   </nav>
 </header>
