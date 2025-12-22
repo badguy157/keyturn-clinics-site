@@ -4763,6 +4763,125 @@ img {
   padding-bottom: var(--section-y);
 }
 
+/* ===== New Pricing Sections Styles ===== */
+
+/* Scan Details Section */
+.pricing-scan-details {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+/* Rebuild Details Section */
+.pricing-rebuild-details {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+/* Expectations Grid */
+.pricing-expectations-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .pricing-expectations-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+.pricing-expectation-card {
+  background: var(--brand-surface);
+  border: 1px solid rgba(255,255,255,.04);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.pricing-expectation-card:hover {
+  border-color: rgba(90, 162, 255, 0.3);
+}
+
+.pricing-expectation-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 12px;
+}
+
+/* What Happens Next Section */
+.pricing-next-steps {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.pricing-steps-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .pricing-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pricing-steps-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pricing-step {
+  background: var(--brand-surface);
+  border: 1px solid rgba(255,255,255,.04);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-align: center;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pricing-step:hover {
+  border-color: rgba(90, 162, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.pricing-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--brand-primary), rgba(90, 162, 255, 0.8));
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.pricing-step-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 8px;
+}
+
+.pricing-step-desc {
+  font-size: 0.9rem;
+  color: var(--brand-text);
+  line-height: 1.6;
+}
+
+/* Scroll margin for anchor jumps (to account for sticky header) */
+#scan-details,
+#rebuild-details {
+  scroll-margin-top: 100px;
+}
+
 /* ===== Services Page Premium Styles ===== */
 
 /* Services Hero Section */
