@@ -85,7 +85,6 @@
         interest: trigger.getAttribute('data-booking-interest') || ''
       });
     });
-  }
 
     // Form navigation
     const nextBtn = document.getElementById('booking-next-btn');
@@ -113,15 +112,17 @@
     }
 
     // Input change handlers to clear errors
-    const inputs = modal.querySelectorAll('.booking-form-input, .booking-form-select');
-    inputs.forEach(function(input) {
-      input.addEventListener('input', function() {
-        clearFieldError(input);
+    if (modal) {
+      const inputs = modal.querySelectorAll('.booking-form-input, .booking-form-select');
+      inputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+          clearFieldError(input);
+        });
+        input.addEventListener('change', function() {
+          clearFieldError(input);
+        });
       });
-      input.addEventListener('change', function() {
-        clearFieldError(input);
-      });
-    });
+    }
   }
 
   // Open modal
