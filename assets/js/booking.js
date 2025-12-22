@@ -68,7 +68,16 @@
     });
 
     // Data attribute triggers
+    attachBookingTriggers();
+  }
+
+  // Attach booking triggers (can be called multiple times for dynamic content)
+  function attachBookingTriggers() {
     document.querySelectorAll('[data-booking-open="true"]').forEach(function(el) {
+      // Skip if already has listener
+      if (el.hasAttribute('data-booking-listener')) return;
+      el.setAttribute('data-booking-listener', 'true');
+      
       el.addEventListener('click', function(e) {
         // Always prevent default for booking triggers
         e.preventDefault();
@@ -77,6 +86,10 @@
         openBookingModal({ interest: interest, source: source });
       });
     });
+  }
+
+  // Expose global function for re-attaching listeners
+  window.attachBookingListeners = attachBookingTriggers;
 
     // Form navigation
     const nextBtn = document.getElementById('booking-next-btn');

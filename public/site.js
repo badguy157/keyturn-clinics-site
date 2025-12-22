@@ -252,6 +252,81 @@
     });
   }
 
+  // ===== Inject Mobile Sticky CTA =====
+  function injectMobileStickyCA() {
+    const stickyHTML = `
+<div class="mobile-sticky-cta" data-sticky-cta hidden>
+  <a class="btn btn-primary mobile-sticky-primary"
+     href="#"
+     data-booking-open="true"
+     data-booking-source="sticky"
+     data-booking-interest="">
+     Book 15-min Fit Check
+  </a>
+
+  <a class="mobile-sticky-secondary text-link-primary"
+     href="https://scan.keyturn.studio/"
+     target="_blank" rel="noopener">
+     Run Free Scan
+  </a>
+</div>
+    `.trim();
+
+    // Insert before closing body tag
+    if (document.body) {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = stickyHTML;
+      document.body.appendChild(tempDiv.firstChild);
+    }
+  }
+
+  // ===== Configure Sticky CTA based on page =====
+  function configureStickyCTA() {
+    const stickyBar = document.querySelector('[data-sticky-cta]');
+    if (!stickyBar) return;
+
+    const primaryBtn = stickyBar.querySelector('.mobile-sticky-primary');
+    const secondaryLink = stickyBar.querySelector('.mobile-sticky-secondary');
+    
+    if (!primaryBtn || !secondaryLink) return;
+
+    // Determine current page type
+    const pathname = window.location.pathname;
+    const isBlogPage = pathname.includes('/blog') || pathname.endsWith('blog.html');
+    const isProofPage = pathname.includes('/proof') || pathname.endsWith('proof.html');
+    const isSpecialPage = isBlogPage || isProofPage;
+
+    if (isSpecialPage) {
+      // Blog/Proof: primary = Free Scan, secondary = Fit Check
+      primaryBtn.textContent = 'Run Free Scan';
+      primaryBtn.href = 'https://scan.keyturn.studio/';
+      primaryBtn.setAttribute('target', '_blank');
+      primaryBtn.setAttribute('rel', 'noopener');
+      primaryBtn.removeAttribute('data-booking-open');
+      primaryBtn.removeAttribute('data-booking-source');
+      primaryBtn.removeAttribute('data-booking-interest');
+
+      secondaryLink.textContent = 'Book 15-min Fit Check';
+      secondaryLink.href = '#';
+      secondaryLink.setAttribute('data-booking-open', 'true');
+      secondaryLink.setAttribute('data-booking-source', 'sticky');
+      secondaryLink.setAttribute('data-booking-interest', '');
+      secondaryLink.removeAttribute('target');
+      secondaryLink.removeAttribute('rel');
+    }
+    // Default case is already set in the HTML:
+    // primary = Book Fit Check (with booking modal)
+    // secondary = Run Free Scan (external link)
+
+    // Show the sticky bar
+    stickyBar.removeAttribute('hidden');
+
+    // Re-attach booking modal listeners if needed (for dynamic content)
+    if (window.attachBookingListeners && typeof window.attachBookingListeners === 'function') {
+      window.attachBookingListeners();
+    }
+  }
+
   // ===== Initialize on DOMContentLoaded =====
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
@@ -262,6 +337,9 @@
       normalizeCalendlyLinks();
       initScrollReveal();
       initParallax();
+      injectMobileStickyCA();
+      // Small delay to ensure booking.js has loaded
+      setTimeout(configureStickyCTA, 100);
     });
   } else {
     injectHeader();
@@ -271,5 +349,8 @@
     normalizeCalendlyLinks();
     initScrollReveal();
     initParallax();
+    injectMobileStickyCA();
+    // Small delay to ensure booking.js has loaded
+    setTimeout(configureStickyCTA, 100);
   }
 })();
