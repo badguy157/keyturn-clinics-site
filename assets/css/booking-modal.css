@@ -391,3 +391,16 @@ body.booking-modal-open {
   background: rgba(255, 255, 255, 0.12);
 }
 
+
+/* Force readable dropdown options in the modal */
+#booking-modal select { color-scheme: light; }
+
+#booking-modal select option {
+  color: #111827 !important;        /* dark text */
+  background: #ffffff !important;   /* white background */
+}
+
+#booking-modal select option:disabled,
+#booking-modal select option[value=""] {
+  color: #6b7280 !important;        /* muted placeholder */
+}
