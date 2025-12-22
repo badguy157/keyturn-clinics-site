@@ -81,7 +81,7 @@
       }
 
       openBookingModal({
-        source: trigger.getAttribute('data-booking-source') || 'cta',
+        source: trigger.getAttribute('data-booking-source') || '',
         interest: trigger.getAttribute('data-booking-interest') || ''
       });
     });
