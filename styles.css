@@ -5132,9 +5132,9 @@ details[open] .accordion-panel {
   -webkit-appearance: none;
   appearance: none;
   
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.92);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.92);
   
   padding: 12px 12px;
   position: relative;
@@ -5147,13 +5147,13 @@ details[open] .accordion-panel {
 }
 
 .path-option:hover {
-  border-color: rgba(255,255,255,0.18);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 .path-option[aria-selected="true"],
 .path-option.is-active {
-  background: rgba(90,160,255,0.14);
-  border-color: rgba(90,160,255,0.45);
+  background: rgba(90, 160, 255, 0.14);
+  border-color: rgba(90, 160, 255, 0.45);
 }
 
 .path-option:focus-visible {
@@ -5167,7 +5167,7 @@ details[open] .accordion-panel {
   font-weight: 600;
   font-size: 14px;
   line-height: 1.2;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .path-option .opt-meta {
@@ -5176,7 +5176,7 @@ details[open] .accordion-panel {
   font-size: 12px;
   opacity: 0.85;
   line-height: 1.25;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .path-option .opt-badge {
@@ -5186,9 +5186,9 @@ details[open] .accordion-panel {
   font-size: 11px;
   padding: 4px 8px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.92);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 /* Legacy class names (for backwards compatibility) */
