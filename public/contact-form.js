@@ -43,11 +43,22 @@
           });
           
           // Focus first input after scroll completes
-          setTimeout(() => {
-            if (firstInput) {
-              firstInput.focus();
+          // Use requestAnimationFrame to ensure DOM has updated after scroll starts
+          const focusAfterScroll = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (Math.abs(scrollTop - offsetPosition) < 5) {
+              // Scroll completed or close enough
+              if (firstInput) {
+                firstInput.focus();
+              }
+            } else {
+              // Check again on next frame
+              requestAnimationFrame(focusAfterScroll);
             }
-          }, 500); // Delay to allow smooth scroll to complete
+          };
+          
+          // Start checking after a brief delay to let smooth scroll begin
+          setTimeout(() => requestAnimationFrame(focusAfterScroll), 100);
         }
       });
     });
