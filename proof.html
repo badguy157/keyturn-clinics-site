@@ -152,6 +152,87 @@
       padding-top: 12px;
       border-top: 1px solid rgba(255,255,255,.06);
     }
+
+    /* Instant proof stack styles */
+    .instant-proof-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 40px;
+      max-width: 1180px;
+      margin-inline: auto;
+    }
+    @media (min-width: 768px) {
+      .instant-proof-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+    }
+    .instant-proof-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      height: 100%;
+    }
+    .instant-proof-card h3 {
+      margin: 0 0 16px 0;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+    .instant-proof-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .instant-proof-card ul li {
+      padding-left: 28px;
+      position: relative;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--brand-text);
+    }
+    .instant-proof-card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--brand-accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* Micro-FAQ accordion styles */
+    .micro-faq-section {
+      margin-top: 32px;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+    .micro-faq-section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      color: var(--fg);
+      text-align: center;
+    }
+    .micro-faq-accordion {
+      display: grid;
+      gap: 10px;
+    }
+    
+    /* Demo badge styles */
+    .demo-badge {
+      display: inline-block;
+      background: rgba(255, 165, 0, 0.15);
+      color: #ffa500;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 165, 0, 0.3);
+    }
   </style>
 </head>
 <body>
@@ -174,6 +255,9 @@
         </div>
         <p class="hero-cta-microcopy">
           Ready to fix bookings? Book a 15-min Fit Check. Not ready to talk yet? Run the Free Scan.
+        </p>
+        <p style="color:var(--brand-muted);font-size:0.875rem;margin-top:12px;text-align:left;font-style:italic">
+          15 min. No prep. If we're not a fit, we'll tell you.
         </p>
       </div>
       
@@ -211,16 +295,89 @@
   </div>
 </section>
 
+<!-- Instant proof stack -->
+<section class="container section" style="padding-top:60px;padding-bottom:60px">
+  <h2 style="text-align:center;margin-bottom:40px">Instant proof: what you'll see</h2>
+  
+  <div class="instant-proof-grid">
+    <!-- Card A: Process proof -->
+    <div class="instant-proof-card">
+      <h3>Process proof (what you'll see)</h3>
+      <ul>
+        <li>Patient-Flow Score + top leaks</li>
+        <li>Screenshot evidence</li>
+        <li>Clear priority fix list</li>
+      </ul>
+    </div>
+    
+    <!-- Card B: Demo mockups -->
+    <div class="instant-proof-card">
+      <h3>Demo mockups (fictional clinics)</h3>
+      <ul>
+        <li>Built to show booking-focused layouts</li>
+        <li>Not client work (clearly labeled)</li>
+        <li>Shows how we structure pages for consults</li>
+      </ul>
+    </div>
+    
+    <!-- Card C: Real work -->
+    <div class="instant-proof-card">
+      <h3>Real work (outside clinics)</h3>
+      <ul>
+        <li>Anchor Hotel case study exists below</li>
+        <li>Focus: direct bookings + conversion flow</li>
+        <li>Same conversion principles</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Micro-FAQ accordion -->
+  <div class="micro-faq-section">
+    <h3>Quick answers</h3>
+    <div class="micro-faq-accordion">
+      <details class="accordion-item">
+        <summary>Is this a sales call?</summary>
+        <div class="accordion-panel">
+          <p style="margin:0;color:var(--brand-text);line-height:1.6">No. It's a 15-minute Fit Check to see if your booking flow has leaks we can fix. If we're not the right fit, we'll tell you honestly.</p>
+        </div>
+      </details>
+      
+      <details class="accordion-item">
+        <summary>What happens on the Fit Check?</summary>
+        <div class="accordion-panel">
+          <p style="margin:0;color:var(--brand-text);line-height:1.6">We'll look at your current site together, spot the top 2-3 booking leaks, and discuss whether a rebuild makes sense for your practice.</p>
+        </div>
+      </details>
+      
+      <details class="accordion-item">
+        <summary>What do I need to bring?</summary>
+        <div class="accordion-panel">
+          <p style="margin:0;color:var(--brand-text);line-height:1.6">Nothing. Just your website URL. We'll walk through it together and answer your questions.</p>
+        </div>
+      </details>
+      
+      <details class="accordion-item">
+        <summary>What if I'm not ready to rebuild?</summary>
+        <div class="accordion-panel">
+          <p style="margin:0;color:var(--brand-text);line-height:1.6">That's fine. Run the Free Scan first to see your leaks, or book the Fit Check when you're ready. No pressure either way.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <main id="main">
   <!-- Demo homepage mockups (fictional clinics) -->
   <section class="container section" style="padding-top:80px;padding-bottom:100px">
     <h2 style="text-align:center;margin-bottom:12px">Demo homepage mockups (fictional clinics)</h2>
+    <p style="text-align:center;color:var(--brand-muted);font-size:0.9rem;margin-bottom:16px;font-weight:600">These are demo builds to show layout + booking flow (not client work).</p>
     <p style="text-align:center;color:var(--brand-text);margin-bottom:16px;max-width:680px;margin-left:auto;margin-right:auto">Concept examples to show deliverables and conversion-focused layout changes.</p>
     <p style="text-align:center;color:var(--brand-muted);font-size:0.9rem;margin-bottom:60px;max-width:700px;margin-left:auto;margin-right:auto;font-style:italic">Shown: homepage mockups. Full rebuild includes booking path, key pages, trust blocks, and mobile polish.</p>
 
     
     <!-- Dermatology Clinic - Seattle -->
     <div class="card" style="max-width:900px;margin:0 auto 60px auto;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:40px">
+      <div class="demo-badge">Demo / Fictional</div>
       <h3 style="margin-top:0;color:var(--accent);font-size:1.5rem;display:flex;align-items:center;gap:12px">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
           <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="var(--accent)"/>
@@ -278,6 +435,7 @@
     
     <!-- Cosmetic Surgery Clinic - New York -->
     <div class="card" style="max-width:900px;margin:0 auto 60px auto;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:40px">
+      <div class="demo-badge">Demo / Fictional</div>
       <h3 style="margin-top:0;color:var(--accent);font-size:1.5rem;display:flex;align-items:center;gap:12px">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
           <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="var(--accent)"/>
@@ -335,6 +493,7 @@
     
     <!-- Medspa Clinic - Los Angeles -->
     <div class="card" style="max-width:900px;margin:0 auto 60px auto;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:40px">
+      <div class="demo-badge">Demo / Fictional</div>
       <h3 style="margin-top:0;color:var(--accent);font-size:1.5rem;display:flex;align-items:center;gap:12px">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
           <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="var(--accent)"/>
@@ -438,7 +597,8 @@
 
   <!-- Past work outside clinics -->
   <section class="container section" style="padding-top:80px;padding-bottom:100px;background:rgba(255,255,255,.01)">
-    <h2 style="text-align:center;margin-bottom:60px">Past work outside clinics</h2>
+    <h2 style="text-align:center;margin-bottom:12px">Past work outside clinics</h2>
+    <p style="text-align:center;color:var(--brand-muted);font-size:0.9rem;margin-bottom:60px;font-weight:600">Non-clinic case study (real project)</p>
     
     <!-- Case Study Introduction: The Anchor Hotel -->
     <div class="card" style="max-width:900px;margin:0 auto 40px auto;box-shadow:0 4px 12px rgba(0,0,0,0.1)">
