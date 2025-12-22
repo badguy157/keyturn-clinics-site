@@ -235,7 +235,7 @@
     // Create submission payload
     const submission = {
       created_at: new Date().toISOString(),
-      timestamp: new Date().toISOString(), // Keep for backwards compatibility
+      timestamp: new Date().toISOString(), // TODO: Remove in future version (deprecated in favor of created_at)
       page_url: window.location.href,
       source: formData.source,
       interest: formData.treatment,
