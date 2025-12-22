@@ -5226,16 +5226,52 @@ details[open] .accordion-panel {
   color: rgba(255, 255, 255, 0.92);
 }
 
+
 .path-option .opt-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   font-size: 11px;
   padding: 4px 8px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.10);
   color: rgba(255, 255, 255, 0.92);
+}
+
+/* Path card badges container */
+.path-card-badges {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.path-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0;         /* Ensures consistent character spacing and prevents text rendering collisions */
+  white-space: nowrap;
+  background: rgba(96, 165, 250, 0.14);
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  color: rgba(235, 245, 255, 0.92);
+}
+
+.path-kicker {
+  text-align: center;
+  margin: 0 0 6px 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--brand-muted);
+}
+
+.path-title {
+  margin-top: 0;
 }
 
 /* Legacy class names (for backwards compatibility) */
