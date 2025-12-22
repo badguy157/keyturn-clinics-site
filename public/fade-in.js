@@ -16,6 +16,11 @@
     
     if (!els.length) return;
 
+    // Configuration constants
+    const VIEWPORT_MULTIPLIER_IMMEDIATE = 1.2; // Show elements within 120% of viewport height
+    const VIEWPORT_MULTIPLIER_FALLBACK = 1.4;  // Fallback: show elements within 140% of viewport height
+    const SAFETY_TIMEOUT_MS = 300;             // Safety timeout in milliseconds
+
     // Helper to show an element
     const show = function(el) {
       el.classList.add('is-visible');
@@ -51,19 +56,19 @@
     // Immediate pass: show elements already in/near viewport
     els.forEach(function(el) {
       const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight * 1.2) {
+      if (r.top < window.innerHeight * VIEWPORT_MULTIPLIER_IMMEDIATE) {
         show(el);
       }
     });
 
-    // Safety fallback: force-visible any sections above the fold after 300ms
+    // Safety fallback: force-visible any sections above the fold after timeout
     setTimeout(function() {
       els.forEach(function(el) {
         const r = el.getBoundingClientRect();
-        if (r.top < window.innerHeight * 1.4) {
+        if (r.top < window.innerHeight * VIEWPORT_MULTIPLIER_FALLBACK) {
           show(el);
         }
       });
-    }, 300);
+    }, SAFETY_TIMEOUT_MS);
   });
 })();
