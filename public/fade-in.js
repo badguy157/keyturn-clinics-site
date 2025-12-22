@@ -1,80 +1,69 @@
 /**
- * FadeInSection - Subtle scroll-in animations for sections
+ * FadeInSection - Progressive enhancement for scroll-in animations
  * Uses IntersectionObserver for performant, viewport-based animations
+ * Falls back gracefully when JS is disabled
  */
 
 (function() {
   'use strict';
 
-  // CSS for fade-in animation
-  const styleId = 'fade-in-styles';
-  if (!document.getElementById(styleId)) {
-    const style = document.createElement('style');
-    style.id = styleId;
-    style.textContent = `
-      .fade-in-section {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      }
-
-      .fade-in-section.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Reduce motion for users who prefer it */
-      @media (prefers-reduced-motion: reduce) {
-        .fade-in-section {
-          opacity: 1;
-          transform: none;
-          transition: none;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  function initFadeInSections() {
-    const sections = document.querySelectorAll('.fade-in-section');
+  // Initialize on DOMContentLoaded (don't wait for window.onload)
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add 'js' class to <html> to enable CSS animations
+    document.documentElement.classList.add('js');
     
-    if (!sections.length) return;
+    const els = document.querySelectorAll('.fade-in-section');
+    
+    if (!els.length) return;
+
+    // Helper to show an element
+    const show = function(el) {
+      el.classList.add('is-visible');
+    };
 
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (prefersReducedMotion) {
       // Immediately show all sections without animation
-      sections.forEach(section => section.classList.add('is-visible'));
+      els.forEach(show);
       return;
     }
 
-    // IntersectionObserver configuration
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px 0px -50px 0px', // Trigger slightly before entering viewport
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Add visible class with a slight stagger if multiple sections
-          entry.target.classList.add('is-visible');
+    // Create IntersectionObserver with larger rootMargin for earlier trigger
+    const io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          show(e.target);
           // Stop observing after animation triggers
-          observer.unobserve(entry.target);
+          io.unobserve(e.target);
         }
       });
-    }, observerOptions);
+    }, {
+      rootMargin: '150px 0px'
+    });
 
     // Observe all sections
-    sections.forEach(section => observer.observe(section));
-  }
+    els.forEach(function(el) {
+      io.observe(el);
+    });
 
-  // Initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFadeInSections);
-  } else {
-    initFadeInSections();
-  }
+    // Immediate pass: show elements already in/near viewport
+    els.forEach(function(el) {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 1.2) {
+        show(el);
+      }
+    });
+
+    // Safety fallback: force-visible any sections above the fold after 300ms
+    setTimeout(function() {
+      els.forEach(function(el) {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 1.4) {
+          show(el);
+        }
+      });
+    }, 300);
+  });
 })();

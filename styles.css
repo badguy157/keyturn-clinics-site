@@ -7546,3 +7546,37 @@ details[open] .accordion-panel {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ===============================
+   Fade-in Section Progressive Enhancement
+   =============================== */
+
+/* Default state: always visible (no JS fallback) */
+.fade-in-section {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+/* Only when JS is enabled, start hidden */
+html.js .fade-in-section {
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: visible;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Visible state after JS triggers animation */
+html.js .fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html.js .fade-in-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
