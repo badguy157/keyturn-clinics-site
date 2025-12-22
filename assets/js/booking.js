@@ -67,29 +67,25 @@
       }
     });
 
-    // Data attribute triggers
-    attachBookingTriggers();
-  }
+    // Delegated click listener for booking triggers (handles dynamic content)
+    document.addEventListener('click', function(e) {
+      const trigger = e.target.closest('[data-booking-open]');
+      if (!trigger) return;
 
-  // Attach booking triggers (can be called multiple times for dynamic content)
-  function attachBookingTriggers() {
-    document.querySelectorAll('[data-booking-open="true"]').forEach(function(el) {
-      // Skip if already has listener
-      if (el.hasAttribute('data-booking-listener')) return;
-      el.setAttribute('data-booking-listener', 'true');
-      
-      el.addEventListener('click', function(e) {
-        // Always prevent default for booking triggers
+      // Ignore if explicitly disabled
+      if (trigger.getAttribute('data-booking-open') === 'false') return;
+
+      // Prevent anchor navigation
+      if (trigger.tagName === 'A') {
         e.preventDefault();
-        const interest = el.getAttribute('data-booking-interest') || '';
-        const source = el.getAttribute('data-booking-source') || '';
-        openBookingModal({ interest: interest, source: source });
+      }
+
+      openBookingModal({
+        source: trigger.getAttribute('data-booking-source') || 'cta',
+        interest: trigger.getAttribute('data-booking-interest') || ''
       });
     });
   }
-
-  // Expose global function for re-attaching listeners
-  window.attachBookingListeners = attachBookingTriggers;
 
     // Form navigation
     const nextBtn = document.getElementById('booking-next-btn');
@@ -132,6 +128,12 @@
   function openBookingModal(opts) {
     opts = opts || {};
     
+    // Guard: if modal doesn't exist on this page, warn and return
+    if (!overlay || !modal) {
+      console.warn('Booking modal not found on this page. Skipping modal open.');
+      return;
+    }
+    
     // Store last focused element
     lastFocusedElement = document.activeElement;
 
@@ -157,7 +159,9 @@
       }
     }
 
-    // Show modal
+    // Show modal - remove hidden attribute and update aria
+    overlay.removeAttribute('hidden');
+    overlay.setAttribute('aria-hidden', 'false');
     overlay.classList.add('active');
     document.body.classList.add('booking-modal-open');
     document.documentElement.classList.add('kt-modal-open');
@@ -179,7 +183,11 @@
 
   // Close modal
   function closeModal() {
+    if (!overlay) return;
+    
     overlay.classList.remove('active');
+    overlay.setAttribute('hidden', '');
+    overlay.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('booking-modal-open');
     document.documentElement.classList.remove('kt-modal-open');
 
