@@ -21,6 +21,11 @@
     const ctaElements = document.querySelectorAll('[data-kt-link]');
     
     ctaElements.forEach(element => {
+      // Skip elements with data-booking-open attribute (booking CTAs)
+      if (element.hasAttribute('data-booking-open')) {
+        return;
+      }
+      
       const linkType = element.getAttribute('data-kt-link');
       const offerKey = linkMap[linkType];
       
