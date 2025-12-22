@@ -2256,6 +2256,35 @@ img {
   }
 }
 
+/* ===== Accordion Item Styles (for pricing page) ===== */
+.accordion-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.accordion-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-panel {
+  margin-top: 10px;
+}
+
+/* Ensure accordion content is visible when open */
+details[open] .accordion-panel {
+  display: block;
+}
+
 /* ===== Newsletter Inline Form ===== */
 .inline-form {
   display: flex;
