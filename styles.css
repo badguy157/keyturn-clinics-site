@@ -1051,9 +1051,140 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 .specialists .spec-name{font-weight:700}
 .specialists .spec-meta{font-size:.95rem;color:var(--brand-muted)}
 
+/* CTA reassurance - small muted line under hero CTAs */
+.cta-reassurance{
+  margin-top:12px;
+  font-size:0.8125rem;
+  color:var(--brand-muted);
+  line-height:1.5;
+  text-align:center;
+}
+@media (min-width:640px){
+  .cta-reassurance{
+    font-size:0.875rem;
+  }
+}
+
+/* Proof stack - grid container for proof cards */
+.proof-stack{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+  margin-top:24px;
+}
+@media (min-width:768px){
+  .proof-stack{
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+}
+
+/* Legacy proof-grid for backward compatibility */
 .proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:24px}
-.proof-card{background:var(--brand-surface);border:1px solid rgba(255,255,255,.04);border-radius:var(--radius);padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+
+/* Proof card - dark surface card matching existing cards */
+.proof-card{
+  background:var(--brand-surface);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--radius);
+  padding:24px;
+  box-shadow:0 4px 12px rgba(0,0,0,.2), 0 1px 3px rgba(0,0,0,.15);
+  position:relative;
+  transition:transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+}
+.proof-card:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  border-color:rgba(255,255,255,.18);
+}
+/* Subtle inner glow for premium feel */
+.proof-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:var(--radius);
+  padding:1px;
+  background:linear-gradient(135deg, rgba(255,255,255,.06) 0%, transparent 50%);
+  pointer-events:none;
+}
+/* Mask for edge-only glow effect */
+@supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
+  .proof-card::before{
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite:exclude;
+  }
+}
+@media (min-width:640px){
+  .proof-card{
+    padding:28px;
+  }
+}
+
+/* Proof card spacing for h3 + p + ul structure */
+.proof-card h3{
+  margin:0 0 12px 0;
+  font-size:1.125rem;
+  font-weight:600;
+  color:var(--brand-accent);
+  line-height:1.3;
+}
+.proof-card h3 + p{
+  margin:0 0 16px 0;
+  color:var(--brand-text);
+  font-size:0.95rem;
+  line-height:1.6;
+}
+.proof-card h3 + p + ul,
+.proof-card p + ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.proof-card ul li{
+  position:relative;
+  padding-left:28px;
+  margin-bottom:10px;
+  font-size:0.95rem;
+  line-height:1.5;
+  color:var(--brand-text);
+}
+.proof-card ul li:last-child{
+  margin-bottom:0;
+}
+.proof-card ul li::before{
+  content:"•";
+  position:absolute;
+  left:0;
+  color:var(--brand-accent);
+  font-weight:700;
+  font-size:1.2rem;
+}
 .proof-card h5{margin:.25rem 0 .5rem;font-size:1rem;font-weight:600}
+
+/* Badge demo - small pill badge for "Demo / Fictional" labels */
+.badge-demo{
+  display:inline-block;
+  background:rgba(255,165,0,0.15);
+  color:#ffa500;
+  font-weight:600;
+  font-size:0.75rem;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  padding:6px 14px;
+  border-radius:999px;
+  margin-bottom:12px;
+  border:1px solid rgba(255,165,0,0.3);
+  line-height:1;
+}
+/* Ensure badge is readable on dark background */
+@media (prefers-color-scheme: dark){
+  .badge-demo{
+    background:rgba(255,165,0,0.2);
+    border-color:rgba(255,165,0,0.4);
+  }
+}
 
 .metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:24px}
 .metric-card{background:var(--brand-surface);border:1px solid rgba(255,255,255,.04);border-radius:var(--radius);padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
