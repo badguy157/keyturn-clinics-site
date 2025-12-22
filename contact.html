@@ -115,38 +115,45 @@
     <p style="text-align: center; color: var(--brand-muted); margin-bottom: 32px;">Tell me about your clinic and what you want to improve.</p>
 
     <form id="contactForm" class="premium-form" novalidate>
-      <!-- Honeypot field -->
-      <input type="text" name="company" id="company" autocomplete="off" tabindex="-1" aria-hidden="true" style="position: absolute; left: -9999px;">
+      <!-- Honeypot field (legacy "company" - kept as spam trap) -->
+      <input type="text" name="honeypot_company" id="honeypot_company" autocomplete="off" tabindex="-1" aria-hidden="true" style="position: absolute; left: -9999px;">
+      
+      <!-- Hidden field for backward compatibility - mirrors clinicName value -->
+      <input type="hidden" name="company" id="company">
 
-      <!-- Clinic name -->
+      <!-- Clinic / Practice name -->
       <div class="form-field">
-        <label for="clinicName" class="form-label">Clinic name <span style="color: #ff6b6b;" aria-hidden="true">*</span></label>
-        <input id="clinicName" name="clinicName" type="text" class="form-input" placeholder="Your clinic or practice name" required aria-required="true">
+        <label for="clinicName" class="form-label">Clinic / Practice name <span style="color: #ff6b6b;" aria-hidden="true">*</span></label>
+        <input id="clinicName" name="clinicName" type="text" class="form-input" placeholder="Your clinic or practice name" required aria-required="true" autocomplete="organization" autocapitalize="words" spellcheck="false" enterkeyhint="next">
+        <div id="clinicName-error" class="form-field-error" aria-live="polite"></div>
       </div>
 
       <!-- Website URL -->
       <div class="form-field">
         <label for="websiteUrl" class="form-label">Website URL <span style="color: #ff6b6b;" aria-hidden="true">*</span></label>
-        <input id="websiteUrl" name="websiteUrl" type="url" class="form-input" placeholder="https://yourclinic.com" required aria-required="true">
+        <input id="websiteUrl" name="websiteUrl" type="url" class="form-input" placeholder="https://yourclinic.com" required aria-required="true" inputmode="url" autocomplete="url" enterkeyhint="next">
+        <div id="websiteUrl-error" class="form-field-error" aria-live="polite"></div>
       </div>
 
       <!-- Two-column grid for name and email -->
       <div class="grid two" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px;">
         <div class="form-field">
           <label for="contactName" class="form-label">Your name <span style="color: #ff6b6b;" aria-hidden="true">*</span></label>
-          <input id="contactName" name="contactName" type="text" class="form-input" required aria-required="true">
+          <input id="contactName" name="contactName" type="text" class="form-input" required aria-required="true" autocomplete="name" autocapitalize="words" enterkeyhint="next">
+          <div id="contactName-error" class="form-field-error" aria-live="polite"></div>
         </div>
 
         <div class="form-field">
           <label for="email" class="form-label">Email <span style="color: #ff6b6b;" aria-hidden="true">*</span></label>
-          <input id="email" name="email" type="email" class="form-input" required aria-required="true">
+          <input id="email" name="email" type="email" class="form-input" required aria-required="true" inputmode="email" autocomplete="email" enterkeyhint="next">
+          <div id="email-error" class="form-field-error" aria-live="polite"></div>
         </div>
       </div>
 
       <!-- Phone (optional) -->
       <div class="form-field">
         <label for="phone" class="form-label">Phone <span style="color: var(--brand-muted); font-weight: 400;">(optional)</span></label>
-        <input id="phone" name="phone" type="tel" class="form-input" inputmode="tel">
+        <input id="phone" name="phone" type="tel" class="form-input" inputmode="tel" autocomplete="tel" enterkeyhint="next">
       </div>
 
       <!-- Preferred contact method -->
@@ -158,6 +165,7 @@
           <option value="Call">Call</option>
           <option value="Text">Text</option>
         </select>
+        <div id="contactMethod-error" class="form-field-error" aria-live="polite"></div>
       </div>
 
       <!-- What do you want to improve? -->
@@ -171,12 +179,13 @@
           <option value="Better service pages">Better service pages</option>
           <option value="Not sure">Not sure yet</option>
         </select>
+        <div id="improvement-error" class="form-field-error" aria-live="polite"></div>
       </div>
 
       <!-- Message (optional) -->
       <div class="form-field">
         <label for="message" class="form-label">Message <span style="color: var(--brand-muted); font-weight: 400;">(optional)</span></label>
-        <textarea id="message" name="message" class="form-input" rows="4" placeholder="Any additional details..."></textarea>
+        <textarea id="message" name="message" class="form-input" rows="4" placeholder="Any additional details..." enterkeyhint="done"></textarea>
       </div>
 
       <!-- Submit button -->

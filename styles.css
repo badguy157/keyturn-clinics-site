@@ -7672,3 +7672,16 @@ html.js .fade-in-section.is-visible {
     transition: none;
   }
 }
+
+/* Inline field error messages for contact form */
+.form-field-error {
+  font-size: 0.85rem;
+  color: #ff6b6b;
+  min-height: 1.2em;
+  display: none;
+  margin-top: -4px;
+}
+
+.premium-form.show-errors .form-field-error {
+  display: block;
+}

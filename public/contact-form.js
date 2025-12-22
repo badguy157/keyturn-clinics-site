@@ -23,6 +23,46 @@
 
     if (!form) return;
 
+    // Handle "Send a quick request" button - scroll to form and focus first input
+    const quickRequestLinks = document.querySelectorAll('a[href="#contact-form"]');
+    quickRequestLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const formSection = document.getElementById('contact-form');
+        const firstInput = document.getElementById('clinicName');
+        
+        if (formSection) {
+          // Smooth scroll to form
+          const headerHeight = document.querySelector('.site-header')?.offsetHeight || 72;
+          const elementPosition = formSection.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerHeight - 20;
+          
+          window.scrollTo({ 
+            top: offsetPosition, 
+            behavior: 'smooth' 
+          });
+          
+          // Focus first input after scroll completes
+          // Use requestAnimationFrame to ensure DOM has updated after scroll starts
+          const focusAfterScroll = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (Math.abs(scrollTop - offsetPosition) < 5) {
+              // Scroll completed or close enough
+              if (firstInput) {
+                firstInput.focus();
+              }
+            } else {
+              // Check again on next frame
+              requestAnimationFrame(focusAfterScroll);
+            }
+          };
+          
+          // Start checking after a brief delay to let smooth scroll begin
+          setTimeout(() => requestAnimationFrame(focusAfterScroll), 100);
+        }
+      });
+    });
+
     // Form submission handler
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -31,9 +71,22 @@
       form.classList.remove('show-errors');
       successMsg.style.display = 'none';
       errorMsg.style.display = 'none';
+      
+      // Clear all inline error messages
+      const errorDivs = form.querySelectorAll('.form-field-error');
+      errorDivs.forEach(div => {
+        div.textContent = '';
+      });
+
+      // Mirror clinic name to hidden company field for backward compatibility
+      const clinicNameInput = document.getElementById('clinicName');
+      const companyHidden = document.getElementById('company');
+      if (clinicNameInput && companyHidden) {
+        companyHidden.value = clinicNameInput.value;
+      }
 
       // Check honeypot
-      const honeypot = document.getElementById('company');
+      const honeypot = document.getElementById('honeypot_company');
       if (honeypot && honeypot.value) {
         // Honeypot was filled - likely spam
         console.warn('Honeypot triggered');
@@ -44,6 +97,10 @@
       // Validate form
       if (!form.checkValidity()) {
         form.classList.add('show-errors');
+        
+        // Show inline error messages
+        showInlineErrors();
+        
         // Find first invalid field and focus it
         const firstInvalid = form.querySelector(':invalid');
         if (firstInvalid) {
@@ -61,7 +118,7 @@
       const formData = new FormData(form);
       const data = {};
       formData.forEach((value, key) => {
-        if (key !== 'company') { // Exclude honeypot
+        if (key !== 'honeypot_company') { // Exclude honeypot
           data[key] = value;
         }
       });
@@ -100,9 +157,35 @@
         if (form.classList.contains('show-errors') && this.checkValidity()) {
           // Remove visual error state for this field when it becomes valid
           this.classList.remove('invalid');
+          // Clear inline error message
+          const errorDiv = document.getElementById(this.id + '-error');
+          if (errorDiv) {
+            errorDiv.textContent = '';
+          }
         }
       });
     });
+
+    function showInlineErrors() {
+      const fieldMessages = {
+        'clinicName': 'Please enter your clinic or practice name',
+        'websiteUrl': 'Please enter a valid website URL',
+        'contactName': 'Please enter your name',
+        'email': 'Please enter a valid email address',
+        'contactMethod': 'Please select your preferred contact method',
+        'improvement': 'Please select what you want to improve'
+      };
+
+      const inputs = form.querySelectorAll('input, select, textarea');
+      inputs.forEach(input => {
+        if (!input.checkValidity() && input.id && fieldMessages[input.id]) {
+          const errorDiv = document.getElementById(input.id + '-error');
+          if (errorDiv) {
+            errorDiv.textContent = fieldMessages[input.id];
+          }
+        }
+      });
+    }
 
     function showSuccess() {
       successMsg.style.display = 'block';
