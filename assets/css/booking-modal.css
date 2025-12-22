@@ -2,6 +2,15 @@
    Booking Modal Styles
    =============================== */
 
+/* Modal Color Scheme */
+#booking-modal {
+  color-scheme: dark;
+}
+
+#booking-modal select {
+  color-scheme: dark;
+}
+
 /* Modal Overlay */
 .booking-modal-overlay {
   display: none;
@@ -162,6 +171,19 @@
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
+}
+
+/* Enhanced select styling for better readability */
+#booking-modal select {
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Dropdown option styling */
+#booking-modal select option {
+  color: #e5e7eb;
+  background: #0b1220;
 }
 
 /* Error States */
