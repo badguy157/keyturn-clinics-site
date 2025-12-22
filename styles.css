@@ -4932,6 +4932,214 @@ img {
   }
 }
 
+/* ===== Path Chooser Module ===== */
+.path-chooser {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.path-chooser-header {
+  margin-bottom: 24px;
+}
+
+.path-chooser-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.path-chooser-subtitle {
+  color: var(--brand-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Path Options - Segmented Control Style */
+.path-chooser-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.path-option {
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: inherit;
+  font-family: inherit;
+  width: 100%;
+}
+
+.path-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.path-option[aria-selected="true"] {
+  background: rgba(90, 162, 255, 0.1);
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 1px rgba(90, 162, 255, 0.2);
+}
+
+.path-option:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+.path-option-badge {
+  display: inline-block;
+  background: var(--brand-primary);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  width: fit-content;
+}
+
+/* Hide badge when option is not selected (clearer logic) */
+.path-option:not([aria-selected="true"]) .path-option-badge {
+  display: none;
+}
+
+.path-option-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.path-option-micro {
+  font-size: 0.85rem;
+  color: var(--brand-muted);
+  display: block;
+  line-height: 1.4;
+}
+
+/* Detail Panel */
+.path-chooser-detail {
+  position: relative;
+}
+
+.path-detail {
+  display: none;
+}
+
+.path-detail.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.path-detail-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 0 0 16px 0;
+}
+
+.path-detail-best-for {
+  color: var(--brand-text);
+  font-size: 0.95rem;
+  margin: 0 0 8px 0;
+}
+
+.path-detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.path-detail-list li {
+  color: var(--brand-text);
+  font-size: 0.95rem;
+  padding-left: 24px;
+  margin-bottom: 8px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.path-detail-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+.path-detail-cta {
+  margin-bottom: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+.path-detail-secondary {
+  text-align: center;
+  margin: 0;
+}
+
+.path-detail-secondary a {
+  color: var(--brand-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.path-detail-secondary a:hover {
+  color: var(--brand-primary);
+  text-decoration: underline;
+}
+
+/* Tablet/Desktop: Horizontal Layout */
+@media (min-width: 640px) {
+  .path-chooser {
+    padding: 32px;
+  }
+
+  .path-chooser-options {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .path-option {
+    flex: 1;
+    min-height: 120px;
+    justify-content: flex-start;
+  }
+
+  .path-detail-cta {
+    width: auto;
+    min-width: 200px;
+  }
+}
+
 /* How to Start Section - Step Cards */
 .how-to-start .step-card__content {
   flex: 1;
