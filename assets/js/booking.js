@@ -147,6 +147,7 @@
     // Show modal
     overlay.classList.add('active');
     document.body.classList.add('booking-modal-open');
+    document.documentElement.classList.add('kt-modal-open');
 
     // Show step 1
     showStep(1);
@@ -167,6 +168,7 @@
   function closeModal() {
     overlay.classList.remove('active');
     document.body.classList.remove('booking-modal-open');
+    document.documentElement.classList.remove('kt-modal-open');
 
     // Restore focus
     if (lastFocusedElement) {
