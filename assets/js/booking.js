@@ -67,6 +67,7 @@
     // Data attribute triggers
     document.querySelectorAll('[data-booking-open="true"]').forEach(function(el) {
       el.addEventListener('click', function(e) {
+        // Always prevent default for booking triggers
         e.preventDefault();
         const interest = el.getAttribute('data-booking-interest') || '';
         const source = el.getAttribute('data-booking-source') || '';

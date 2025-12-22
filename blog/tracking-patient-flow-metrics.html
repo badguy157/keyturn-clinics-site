@@ -124,7 +124,7 @@
           <li><a href="/privacy.html">Privacy Policy</a></li>
           <li><a href="/terms.html">Terms of Use</a></li>
           <li><a href="/contact.html">Contact</a></li>
-          <li><a href="https://calendly.com/vinnie-keyturn/intro?utm_source=site" target="_blank" rel="noopener">Book 15-min Fit Check <span aria-label="Opens in new tab">↗</span></a></li>
+          <li><a href="#" data-booking-open="true" data-booking-source="blog" data-booking-interest="">Book 15-min Fit Check <span aria-label="Opens in new tab">↗</span></a></li>
         </ul>
       </div>
       
@@ -132,7 +132,7 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:hello@keyturn.studio">hello@keyturn.studio</a></li>
-          <li><a href="https://calendly.com/vinnie-keyturn/intro?utm_source=site" target="_blank" rel="noopener">Book 15-min Fit Check</a></li>
+          <li><a href="#" data-booking-open="true" data-booking-source="blog" data-booking-interest="">Book 15-min Fit Check</a></li>
           <li><span style="font-size: 0.875rem; color: var(--muted-2);">Response within 1 business day</span></li>
         </ul>
       </div>
@@ -147,5 +147,133 @@
 
 <script src="/public/offers.js?v=1.0.0"></script>
 <script src="/public/cta-links.js?v=1.0.0"></script>
+<!-- Booking Modal -->
+<script src="/assets/js/booking.js" defer></script>
+<!-- Booking Modal -->
+<div id="booking-modal-overlay" class="booking-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+  <div id="booking-modal" class="booking-modal">
+    <div class="booking-modal-header">
+      <h2 id="booking-modal-title" class="booking-modal-title">Request a Booking</h2>
+      <p class="booking-modal-subtitle">We'll reach out within 24 hours to confirm your appointment</p>
+      <button class="booking-modal-close" aria-label="Close modal">&times;</button>
+      <div class="booking-step-indicator">
+        <span class="booking-step-dot active"></span>
+        <span class="booking-step-dot"></span>
+      </div>
+    </div>
+
+    <div class="booking-modal-body">
+      <!-- Step 1: Contact & Preferences -->
+      <div id="booking-step-1" class="booking-step active">
+        <form id="booking-form-step-1">
+          <div class="booking-form-group">
+            <label for="booking-name" class="booking-form-label">
+              Name<span class="required">*</span>
+            </label>
+            <input type="text" id="booking-name" class="booking-form-input" placeholder="Your full name" autocomplete="name">
+            <div id="booking-name-error" class="booking-form-error"></div>
+          </div>
+
+          <div class="booking-form-group">
+            <label for="booking-email" class="booking-form-label">Email</label>
+            <input type="email" id="booking-email" class="booking-form-input" placeholder="your.email@example.com" autocomplete="email">
+            <div id="booking-email-error" class="booking-form-error"></div>
+          </div>
+
+          <div class="booking-form-group">
+            <label for="booking-phone" class="booking-form-label">Phone</label>
+            <input type="tel" id="booking-phone" class="booking-form-input" placeholder="(555) 123-4567" autocomplete="tel">
+            <div id="booking-phone-error" class="booking-form-error"></div>
+          </div>
+
+          <div class="booking-form-group">
+            <label for="booking-treatment" class="booking-form-label">
+              Treatment Interest<span class="required">*</span>
+            </label>
+            <select id="booking-treatment" class="booking-form-select">
+              <option value="">Select a treatment</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Website Consultation">Website Consultation</option>
+              <option value="Patient Flow Scan">Patient Flow Scan</option>
+              <option value="Core Makeover">Core Makeover</option>
+              <option value="Pro Package">Pro Package</option>
+              <option value="Premier Package">Premier Package</option>
+            </select>
+            <div id="booking-treatment-error" class="booking-form-error"></div>
+          </div>
+
+          <div class="booking-form-group">
+            <label for="booking-time-window" class="booking-form-label">
+              Preferred Time Window<span class="required">*</span>
+            </label>
+            <select id="booking-time-window" class="booking-form-select">
+              <option value="">Select your preference</option>
+              <option value="Morning (9AM - 12PM)">Morning (9AM - 12PM)</option>
+              <option value="Afternoon (12PM - 5PM)">Afternoon (12PM - 5PM)</option>
+              <option value="Evening (5PM - 8PM)">Evening (5PM - 8PM)</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+            <div id="booking-time-window-error" class="booking-form-error"></div>
+          </div>
+
+          <div class="booking-modal-footer">
+            <button type="button" id="booking-next-btn" class="booking-btn booking-btn-primary">
+              Continue
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Step 2: Review & Confirm -->
+      <div id="booking-step-2" class="booking-step">
+        <div class="booking-summary">
+          <h3 class="booking-summary-title">Review Your Request</h3>
+          <div class="booking-summary-item">
+            <span class="booking-summary-label">Name</span>
+            <span id="summary-name" class="booking-summary-value"></span>
+          </div>
+          <div class="booking-summary-item">
+            <span class="booking-summary-label">Email</span>
+            <span id="summary-email" class="booking-summary-value"></span>
+          </div>
+          <div class="booking-summary-item">
+            <span class="booking-summary-label">Phone</span>
+            <span id="summary-phone" class="booking-summary-value"></span>
+          </div>
+          <div class="booking-summary-item">
+            <span class="booking-summary-label">Treatment</span>
+            <span id="summary-treatment" class="booking-summary-value"></span>
+          </div>
+          <div class="booking-summary-item">
+            <span class="booking-summary-label">Preferred Time</span>
+            <span id="summary-time-window" class="booking-summary-value"></span>
+          </div>
+        </div>
+
+        <div class="booking-modal-footer">
+          <button type="button" id="booking-back-btn" class="booking-btn booking-btn-secondary">
+            Back
+          </button>
+          <button type="button" id="booking-confirm-btn" class="booking-btn booking-btn-primary">
+            Submit Request
+          </button>
+        </div>
+      </div>
+
+      <!-- Thank You State -->
+      <div id="booking-thank-you" class="booking-thank-you">
+        <div class="booking-thank-you-icon">✓</div>
+        <h3 class="booking-thank-you-title">Thank You!</h3>
+        <p class="booking-thank-you-message">
+          Your booking request has been received. We'll reach out within 24 hours to confirm your appointment.
+        </p>
+        <button type="button" class="booking-btn booking-btn-primary" onclick="document.querySelector('.booking-modal-close').click()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
