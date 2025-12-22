@@ -5116,7 +5116,8 @@ img {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-.path-option[aria-selected="true"] {
+.path-option[aria-selected="true"],
+.path-option.is-active {
   background: rgba(90, 162, 255, 0.1);
   border-color: var(--brand-primary);
   box-shadow: 0 0 0 1px rgba(90, 162, 255, 0.2);
@@ -5142,7 +5143,7 @@ img {
 }
 
 /* Hide badge when option is not selected (clearer logic) */
-.path-option:not([aria-selected="true"]) .path-option-badge {
+.path-option:not([aria-selected="true"]):not(.is-active) .path-option-badge {
   display: none;
 }
 
@@ -5167,10 +5168,6 @@ img {
 }
 
 .path-detail {
-  display: none;
-}
-
-.path-detail.active {
   display: block;
   animation: fadeIn 0.3s ease;
 }

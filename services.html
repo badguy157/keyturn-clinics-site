@@ -45,12 +45,13 @@
           <div class="path-chooser-options" role="tablist">
             <button 
               type="button" 
-              class="path-option" 
+              class="path-option is-active" 
               role="tab"
               aria-selected="true"
-              aria-controls="path-detail-scan"
+              aria-pressed="true"
+              aria-controls="path-detail"
               id="option-scan"
-              data-path="scan">
+              data-key="scan">
               <span class="path-option-badge">Recommended</span>
               <span class="path-option-label">Start with the Free Scan</span>
               <span class="path-option-micro">60 seconds • quick wins • no calls</span>
@@ -61,9 +62,10 @@
               class="path-option" 
               role="tab"
               aria-selected="false"
-              aria-controls="path-detail-blueprint"
+              aria-pressed="false"
+              aria-controls="path-detail"
               id="option-blueprint"
-              data-path="blueprint">
+              data-key="blueprint">
               <span class="path-option-label">Get the $1,000 Booking Blueprint</span>
               <span class="path-option-micro">Plan + priorities + ROI • credited if you hire us</span>
             </button>
@@ -73,9 +75,10 @@
               class="path-option" 
               role="tab"
               aria-selected="false"
-              aria-controls="path-detail-quote"
+              aria-pressed="false"
+              aria-controls="path-detail"
               id="option-quote"
-              data-path="quote">
+              data-key="quote">
               <span class="path-option-label">Get a rebuild quote</span>
               <span class="path-option-micro">Done-for-you rebuild • 3–5 weeks</span>
             </button>
@@ -83,65 +86,17 @@
 
           <!-- Detail panel that updates based on selection -->
           <div class="path-chooser-detail">
-            <!-- Free Scan Detail -->
-            <div class="path-detail active" id="path-detail-scan" role="tabpanel" aria-labelledby="option-scan">
-              <h3 class="path-detail-title">Free Quick Scan</h3>
+            <div class="path-detail" id="path-detail" role="tabpanel">
+              <h3 class="path-detail-title" id="pathTitle"></h3>
               <p class="path-detail-best-for"><strong>Best for:</strong></p>
-              <ul class="path-detail-list">
-                <li>You want to see what's leaking bookings (no commitment)</li>
-                <li>You're not ready to talk to anyone yet</li>
-                <li>You need quick wins you can fix yourself</li>
-              </ul>
+              <ul class="path-detail-list" id="pathBullets"></ul>
               <a 
                 class="btn btn-primary path-detail-cta" 
-                href="https://scan.keyturn.studio/" 
-                target="_blank" 
-                rel="noopener">
-                Run Free Scan
+                id="pathCta"
+                href="#">
               </a>
-              <p class="path-detail-secondary">
-                <a href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Not sure? Start with the Free Scan.</a>
-              </p>
-            </div>
-
-            <!-- Blueprint Detail -->
-            <div class="path-detail" id="path-detail-blueprint" role="tabpanel" aria-labelledby="option-blueprint">
-              <h3 class="path-detail-title">$1,000 Booking Blueprint</h3>
-              <p class="path-detail-best-for"><strong>Best for:</strong></p>
-              <ul class="path-detail-list">
-                <li>You ran the free scan and want the full picture</li>
-                <li>You need a clear roadmap with priorities and ROI</li>
-                <li>You want to see exactly what a rebuild would include</li>
-              </ul>
-              <a 
-                class="btn btn-primary path-detail-cta" 
-                href="#" 
-                data-booking-open="true" 
-                data-booking-source="services" 
-                data-booking-interest="Clinic Booking Blueprint">
-                Start the Blueprint
-              </a>
-              <p class="path-detail-secondary">
-                <a href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Not sure? Start with the Free Scan.</a>
-              </p>
-            </div>
-
-            <!-- Quote Detail -->
-            <div class="path-detail" id="path-detail-quote" role="tabpanel" aria-labelledby="option-quote">
-              <h3 class="path-detail-title">Get a Rebuild Quote</h3>
-              <p class="path-detail-best-for"><strong>Best for:</strong></p>
-              <ul class="path-detail-list">
-                <li>You're ready to commit to a full website rebuild</li>
-                <li>You want a no-pressure quote and package recommendation</li>
-                <li>You need to see pricing before moving forward</li>
-              </ul>
-              <a 
-                class="btn btn-primary path-detail-cta" 
-                href="/quote.html">
-                Get a Quote
-              </a>
-              <p class="path-detail-secondary">
-                <a href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Not sure? Start with the Free Scan.</a>
+              <p class="path-detail-secondary" id="pathHintContainer">
+                <a id="pathHint" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Not sure? Start with the Free Scan.</a>
               </p>
             </div>
           </div>
