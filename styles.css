@@ -5116,40 +5116,44 @@ details[open] .accordion-panel {
 }
 
 /* Path Options - Segmented Control Style */
-.path-chooser-options {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.path-chooser-options,
+.path-options {
+  display: grid;
+  gap: 10px;
   margin-bottom: 24px;
 }
 
 .path-option {
-  background: rgba(255, 255, 255, 0.04);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 16px;
+  width: 100%;
   text-align: left;
+  border-radius: 12px;
+  
+  /* critical: prevent default mobile button rendering */
+  -webkit-appearance: none;
+  appearance: none;
+  
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.92);
+  
+  padding: 12px 12px;
+  position: relative;
   cursor: pointer;
   transition: all 0.2s ease;
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  color: inherit;
   font-family: inherit;
-  width: 100%;
 }
 
 .path-option:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255,255,255,0.18);
 }
 
 .path-option[aria-selected="true"],
 .path-option.is-active {
-  background: rgba(90, 162, 255, 0.1);
-  border-color: var(--brand-primary);
-  box-shadow: 0 0 0 1px rgba(90, 162, 255, 0.2);
+  background: rgba(90,160,255,0.14);
+  border-color: rgba(90,160,255,0.45);
 }
 
 .path-option:focus-visible {
@@ -5157,6 +5161,37 @@ details[open] .accordion-panel {
   outline-offset: 2px;
 }
 
+/* New class names for title and meta */
+.path-option .opt-title {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  color: rgba(255,255,255,0.92);
+}
+
+.path-option .opt-meta {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.85;
+  line-height: 1.25;
+  color: rgba(255,255,255,0.92);
+}
+
+.path-option .opt-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.92);
+}
+
+/* Legacy class names (for backwards compatibility) */
 .path-option-badge {
   display: inline-block;
   background: var(--brand-primary);
@@ -5270,19 +5305,39 @@ details[open] .accordion-panel {
   text-decoration: underline;
 }
 
+/* Mobile-specific tightening */
+@media (max-width: 768px) {
+  .path-chooser-options,
+  .path-options {
+    gap: 8px;
+  }
+  
+  .path-option {
+    padding: 12px;
+  }
+  
+  .path-option .opt-title {
+    font-size: 14px;
+  }
+  
+  .path-option .opt-meta {
+    font-size: 12px;
+  }
+}
+
 /* Tablet/Desktop: Horizontal Layout */
 @media (min-width: 640px) {
   .path-chooser {
     padding: 32px;
   }
 
-  .path-chooser-options {
-    flex-direction: row;
+  .path-chooser-options,
+  .path-options {
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
 
   .path-option {
-    flex: 1;
     min-height: 120px;
     justify-content: flex-start;
   }
