@@ -53,6 +53,7 @@
         <li><a href="/contact.html"${isActive('/contact') ? ' aria-current="page"' : ''}>Contact</a></li>
       </ul>
       <div class="nav-ctas">
+        <a class="nav-tel" href="tel:+12025961574" aria-label="Call Keyturn Studio">Call</a>
         <a class="btn btn-primary" href="#" data-booking-open="true" data-booking-source="navbar" aria-label="Book 15-minute Fit Check">Book 15-min Fit Check</a>
         <a class="btn btn-ghost" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
       </div>
@@ -73,6 +74,7 @@
     <a href="/quote.html"${isActive('/quote') ? ' aria-current="page"' : ''}>Get a quote</a>
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
+    <a class="mobile-menu-tel" href="tel:+12025961574">Call (202) 596-1574</a>
     <a class="btn btn-primary w-full" href="#" data-booking-open="true" data-booking-source="navbar-mobile">Book 15-min Fit Check</a>
     <a class="btn btn-ghost w-full" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
   </nav>
