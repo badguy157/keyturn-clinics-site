@@ -7776,3 +7776,59 @@ html.js .fade-in-section.is-visible {
     width: 100%;
   }
 }
+
+/* ===============================
+   Quote Page - Optional Details Toggle
+   =============================== */
+
+/* Toggle button for showing/hiding optional form sections */
+.optional-details-toggle {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--brand-muted);
+  padding: 10px 20px;
+  border-radius: var(--r-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+  font-family: var(--font);
+}
+
+.optional-details-toggle:hover {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.2);
+  color: var(--fg);
+}
+
+.optional-details-toggle:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Container for optional details - smooth expand/collapse */
+.optional-details-container {
+  display: grid;
+  gap: 28px;
+  overflow: hidden;
+}
+
+.optional-details-container[hidden] {
+  display: none;
+}
+
+/* Ensure smooth appearance when toggled */
+.optional-details-container:not([hidden]) {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
