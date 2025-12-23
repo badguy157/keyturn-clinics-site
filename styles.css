@@ -7832,3 +7832,111 @@ html.js .fade-in-section.is-visible {
     transform: translateY(0);
   }
 }
+
+/* ===== Referral Intro Section ===== */
+.referral-intro {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.referral-intro .card {
+  background: var(--brand-surface);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.referral-intro-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--brand-text);
+}
+
+.referral-intro-helper {
+  color: var(--brand-muted);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.referral-intro-form {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.referral-intro-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.referral-intro-form label {
+  font-size: 0.95rem;
+  color: var(--brand-text);
+  font-weight: 500;
+}
+
+.referral-intro-form label .required-mark {
+  color: var(--brand-primary);
+  margin-left: 0.25rem;
+}
+
+.referral-intro-form input,
+.referral-intro-form textarea {
+  background: #0b1326;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.referral-intro-form input:focus,
+.referral-intro-form textarea:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(90, 162, 255, 0.15);
+}
+
+.referral-intro-form textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+  font-family: var(--font);
+}
+
+.referral-intro-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .referral-intro-buttons {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+.referral-intro-buttons .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+.referral-intro-note {
+  padding: 1rem;
+  background: rgba(90, 162, 255, 0.08);
+  border: 1px solid rgba(90, 162, 255, 0.2);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: var(--brand-muted);
+  line-height: 1.6;
+}
+
+.referral-intro-note strong {
+  color: var(--brand-text);
+}

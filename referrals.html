@@ -22,15 +22,114 @@
 </head>
 <body>
 
+<!-- Custom header for referrals page only -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-bar">
+    <a class="brand" href="/" aria-label="Keyturn Studio home">
+      <img src="/public/logo.svg?v=2" alt="Keyturn Studio" width="180" height="56" decoding="async">
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="nav-desktop" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/proof.html">Proof</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/how-it-works.html">How it works</a></li>
+        <li><a href="/quote.html">Get a quote</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a class="btn btn-primary" href="#referral-intro" aria-label="Send referral intro">Send referral intro</a>
+        <a class="btn btn-ghost" href="#" data-booking-open="true" data-booking-source="referrals">Book 15-min Fit Check</a>
+      </div>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button class="menu-toggle" aria-controls="mobileMenu" aria-expanded="false" data-menu-toggle>
+      <span class="sr-only">Toggle menu</span>☰
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <nav id="mobileMenu" class="mobile-drawer" hidden aria-label="Mobile">
+    <a href="/services.html">Services</a>
+    <a href="/proof.html">Proof</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/quote.html">Get a quote</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/contact.html">Contact</a>
+    <a class="btn btn-primary w-full" href="#referral-intro">Send referral intro</a>
+    <a class="btn btn-ghost w-full" href="#" data-booking-open="true" data-booking-source="referrals">Book 15-min Fit Check</a>
+  </nav>
+</header>
+
 <!-- ===== Hero ===== -->
 <section class="hero">
   <div class="container">
     <h1 class="hero-title">Referral Thank-You for Clinics</h1>
     <p class="hero-lede">Most of our work comes from word of mouth. If you like working with us and know another clinic that needs a better website, this page explains how we say thank you for the introduction.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#referral-intro">Send referral intro</a>
+      <a class="btn btn-ghost" href="#" data-booking-open="true" data-booking-source="referrals">Book 15-min Fit Check</a>
+    </div>
   </div>
 </section>
 
 <main id="main">
+
+  <!-- ===== Referral Intro Generator ===== -->
+  <section id="referral-intro" class="referral-intro container section">
+    <div class="card">
+      <h2 class="referral-intro-title">Send a referral intro in 30 seconds</h2>
+      <p class="referral-intro-helper">Fill in the details below, and we'll generate an intro email you can copy or send directly.</p>
+      
+      <form id="referral-intro-form" class="referral-intro-form">
+        <div class="referral-intro-form-group">
+          <label for="your_name">Your Name<span class="required-mark">*</span></label>
+          <input type="text" id="your_name" name="your_name" required placeholder="Jane Smith">
+        </div>
+
+        <div class="referral-intro-form-group">
+          <label for="referred_clinic">Referred Clinic Name<span class="required-mark">*</span></label>
+          <input type="text" id="referred_clinic" name="referred_clinic" required placeholder="Aesthetic Wellness Clinic">
+        </div>
+
+        <div class="referral-intro-form-group">
+          <label for="referred_website">Referred Clinic Website</label>
+          <input type="url" id="referred_website" name="referred_website" placeholder="https://example.com">
+        </div>
+
+        <div class="referral-intro-form-group">
+          <label for="contact_name">Contact Name at Clinic</label>
+          <input type="text" id="contact_name" name="contact_name" placeholder="Dr. John Doe">
+        </div>
+
+        <div class="referral-intro-form-group">
+          <label for="contact_email">Contact Email</label>
+          <input type="email" id="contact_email" name="contact_email" placeholder="contact@example.com">
+        </div>
+
+        <div class="referral-intro-form-group">
+          <label for="note">Additional Notes</label>
+          <textarea id="note" name="note" placeholder="Any additional context about the clinic or why they'd be a good fit..."></textarea>
+        </div>
+      </form>
+
+      <div class="referral-intro-buttons">
+        <button type="button" id="copy-intro-btn" class="btn btn-primary">Copy intro email</button>
+        <button type="button" id="email-intro-btn" class="btn btn-ghost">Email Keyturn</button>
+      </div>
+
+      <div class="referral-intro-note">
+        <strong>Thank-you:</strong> For each successful referral, choose $500 cash or $750 in Keyturn credit. Keyturn will confirm when your referral signs and pays their initial deposit.
+      </div>
+    </div>
+  </section>
 
   <!-- ===== Who this is for ===== -->
   <section class="container section">
@@ -96,7 +195,7 @@
   <section class="container section" style="padding-top:32px;padding-bottom:64px">
     <div class="card" style="text-align:center;max-width:700px;margin:0 auto;padding:32px 24px">
       <p style="margin:0;font-size:1.05rem;color:var(--brand-text);line-height:1.6">
-        Have a clinic in mind? Email <a href="mailto:hello@keyturn.studio" style="color:var(--accent);text-decoration:underline">hello@keyturn.studio</a> and we'll send you a short intro email you can forward.
+        Have a clinic in mind? <a href="#referral-intro" style="color:var(--accent);text-decoration:underline">Use our referral intro generator</a> to send an introduction in 30 seconds.
       </p>
     </div>
   </section>
@@ -128,7 +227,7 @@
           <li><a href="/privacy.html">Privacy Policy</a></li>
           <li><a href="/terms.html">Terms of Use</a></li>
           <li><a href="/contact.html">Contact</a></li>
-          <li><a href="#" data-booking-open="true" data-booking-source="other" data-booking-interest="">Book a 15-min Fit Check</a></li>
+          <li><a href="#" data-booking-open="true" data-booking-source="referrals" data-booking-interest="">Book a 15-min Fit Check</a></li>
         </ul>
       </div>
       
@@ -136,7 +235,7 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:hello@keyturn.studio">hello@keyturn.studio</a></li>
-          <li><a href="#" data-booking-open="true" data-booking-source="other" data-booking-interest="">Book 15-min Fit Check</a></li>
+          <li><a href="#" data-booking-open="true" data-booking-source="referrals" data-booking-interest="">Book 15-min Fit Check</a></li>
           <li><span style="font-size: 0.875rem; color: var(--muted-2);">Response within 1 business day</span></li>
         </ul>
       </div>
@@ -152,6 +251,7 @@
 <script src="/public/site.js?v=1.0.0" defer></script>
 <script src="/public/offers.js?v=1.0.0" defer></script>
 <script src="/public/cta-links.js?v=1.0.0" defer></script>
+<script src="/public/referrals.js?v=1.0.0" defer></script>
 
 <!-- Lazy load analytics on idle -->
 <script src="/assets/js/analytics-loader.js?v=1.0.0" defer></script>
