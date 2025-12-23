@@ -189,6 +189,38 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 .nav-list a:hover{color:var(--fg)}
 .nav-ctas{display:flex;gap:10px;align-items:center}
 
+/* Tel link in header - tertiary style */
+.nav-tel{
+  font-size:0.85rem;
+  color:var(--brand-muted);
+  text-decoration:none;
+  padding:6px 12px;
+  border:1px solid rgba(166,179,207,.3);
+  border-radius:20px;
+  white-space:nowrap;
+  transition:all 0.2s ease;
+}
+.nav-tel:hover{
+  color:var(--brand-text);
+  border-color:rgba(166,179,207,.5);
+  background:rgba(255,255,255,.02);
+}
+
+/* Mobile menu tel link */
+.mobile-menu-tel{
+  color:var(--brand-muted) !important;
+  font-size:0.9rem !important;
+  text-align:center;
+  border-top:1px solid var(--line);
+  padding-top:12px !important;
+  margin-top:4px;
+}
+
+/* Hide nav-tel on smaller screens (show in mobile menu instead) */
+@media (max-width:1023px){
+  .nav-tel{display:none}
+}
+
 /* Services dropdown */
 .nav-dropdown{position:relative}
 .nav-dropdown-toggle{
@@ -222,6 +254,9 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
   padding:var(--space-3) var(--container-x) var(--space-4);
   border-bottom:1px solid var(--line);
   background:var(--bg);
+  max-height:100dvh;
+  overflow-y:auto;
+  padding-bottom:calc(24px + env(safe-area-inset-bottom));
 }
 .mobile-drawer > a:not(.btn){
   color:var(--brand-text);
@@ -230,6 +265,12 @@ h2{font-size:clamp(1.75rem,4vw,2.25rem);font-weight:600;text-align:left;margin:0
 
 /* Respect [hidden] for JS toggle */
 .mobile-drawer[hidden]{display:none !important}
+
+/* Hide sticky CTA bar when mobile nav is open */
+body.nav-open .mobile-sticky-cta,
+body.nav-open [data-sticky-cta] {
+  display:none !important;
+}
 
 /* ---- Buttons ---- */
 .btn{
@@ -1319,6 +1360,14 @@ form.show-errors :where(input,select,textarea):invalid{
 
 .footer-column a:hover {
   color: var(--brand-primary);
+}
+
+/* Footer tel link - inherits footer link style but ensures clickability */
+.footer-tel{
+  font-weight:500;
+}
+.footer-tel:hover{
+  text-decoration:underline;
 }
 
 .footer-bottom {
