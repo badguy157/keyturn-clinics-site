@@ -5248,7 +5248,8 @@ details[open] .accordion-panel {
   transition: all 0.2s ease;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: flex-start;
+  gap: 8px;
   font-family: inherit;
 }
 
@@ -5278,11 +5279,10 @@ details[open] .accordion-panel {
 
 .path-option .opt-meta {
   display: block;
-  margin-top: 4px;
-  font-size: 12px;
-  opacity: 0.85;
-  line-height: 1.25;
-  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--brand-muted);
 }
 
 
@@ -5298,18 +5298,17 @@ details[open] .accordion-panel {
 /* Path card badges container */
 .path-card-badges {
   display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
 }
 
 .path-badge {
   display: inline-flex;
   align-items: center;
-  padding: 6px 10px;
+  align-self: flex-start;
+  padding: 4px 10px;
   border-radius: 999px;
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1;
   letter-spacing: 0;         /* Ensures consistent character spacing and prevents text rendering collisions */
   white-space: nowrap;
@@ -5319,18 +5318,22 @@ details[open] .accordion-panel {
 }
 
 .path-kicker {
-  text-align: center;
-  margin: 0 0 6px 0;
+  margin: 0;
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1.2;
-  letter-spacing: 0;
+  font-weight: 500;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
   color: var(--brand-muted);
 }
 
 .path-title {
-  margin-top: 0;
+  margin: 0;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  line-height: 1.1;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 /* Legacy class names (for backwards compatibility) */
