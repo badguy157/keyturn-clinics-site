@@ -274,7 +274,7 @@
       page_url: window.location.href,
       source: formData.source,
       interest: formData.treatment,
-      user_agent: navigator.userAgent,
+      userAgent: navigator.userAgent,
       name: formData.name,
       email: formData.email,
       phone: formData.phone,

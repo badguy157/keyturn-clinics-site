@@ -22,8 +22,6 @@ export default async function handler(req, res) {
     const phone = (data.phone || "").trim();
     const treatment = (data.treatment || "").trim();
     const timeWindow = (data.timeWindow || data.preferredWindow || "").trim();
-    
-    const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
     // Validate: name AND (email OR phone) AND treatment AND timeWindow
     const missingName = !name;
