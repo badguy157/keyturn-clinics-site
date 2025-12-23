@@ -7685,3 +7685,94 @@ html.js .fade-in-section.is-visible {
 .premium-form.show-errors .form-field-error {
   display: block;
 }
+
+/* ===============================
+   Checklist Scoring Widget Styles
+   =============================== */
+
+.checklist-form {
+  display: grid;
+  gap: 10px;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.check-group {
+  margin-top: 18px;
+}
+
+.check-group-title {
+  font-weight: 600;
+  margin: 12px 0 8px;
+  color: var(--fg);
+  font-size: 1.125rem;
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+.check-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid rgba(255, 255, 255, .06);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.check-item:hover {
+  background: rgba(255, 255, 255, .05);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.check-item input {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+.check-item span {
+  color: var(--brand-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.results-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.results-cta-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* Ensure mobile tap targets are comfortable */
+@media (max-width: 640px) {
+  .check-item {
+    padding: 14px 16px;
+  }
+  
+  .check-item input {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .results-cta-row {
+    flex-direction: column;
+  }
+  
+  .results-cta-row .btn {
+    width: 100%;
+  }
+}
