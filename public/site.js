@@ -21,6 +21,11 @@
 
   // ===== Header Injection =====
   function injectHeader() {
+    // Skip injection if header already exists (e.g., custom headers on specific pages)
+    if (document.querySelector('.site-header')) {
+      return;
+    }
+    
     const currentPath = window.location.pathname.replace(/\/$/, '') || '/index';
     const isActive = (path) => {
       const normalized = path.replace(/\/$/, '');
