@@ -101,6 +101,7 @@
         drawer.hidden = true;
         toggle.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('no-scroll');
+        document.body.classList.remove('nav-open');
       };
 
       toggle.addEventListener('click', () => {
@@ -108,6 +109,7 @@
         toggle.setAttribute('aria-expanded', String(!open));
         drawer.hidden = open;
         document.body.classList.toggle('no-scroll', !open);
+        document.body.classList.toggle('nav-open', !open);
       });
 
       drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
