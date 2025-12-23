@@ -135,13 +135,16 @@ export default async function handler(req, res) {
     ` : null;
 
     // Send internal email (required for contact submission to succeed)
-    let internalSent = false;
-    let confirmSent = false;
+    let result = null;
     
     try {
-      // Try sending via Resend first, then SendGrid
-      const result = await sendViaResend(FROM, TO, subject, htmlAdmin, email, htmlClient, BIZ_REPLY_TO) ||
-                     await sendViaSendGrid(FROM, TO, subject, htmlAdmin, email, htmlClient, BIZ_REPLY_TO);
+      // Try sending via Resend first
+      result = await sendViaResend(FROM, TO, subject, htmlAdmin, email, htmlClient, BIZ_REPLY_TO);
+      
+      // If Resend not configured, try SendGrid
+      if (!result) {
+        result = await sendViaSendGrid(FROM, TO, subject, htmlAdmin, email, htmlClient, BIZ_REPLY_TO);
+      }
       
       if (!result) {
         // No provider configured - this is a critical error
@@ -152,8 +155,14 @@ export default async function handler(req, res) {
         });
       }
       
-      internalSent = result.internalSent;
-      confirmSent = result.confirmSent;
+      if (!result.internalSent) {
+        // Internal email failed - this is critical
+        console.error('[contact] Internal email failed');
+        return res.status(500).json({ 
+          ok: false, 
+          error: 'Failed to send notification email' 
+        });
+      }
       
     } catch (e) {
       console.error('[contact] Email send error:', e);
@@ -167,7 +176,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ 
       ok: true,
-      confirm_ok: confirmSent
+      confirm_ok: result.confirmSent
     });
   } catch (e) {
     console.error('[contact] Server error:', e);
@@ -337,5 +346,7 @@ async function sendViaSendGrid(from, to, subject, htmlAdmin, clientEmail, htmlCl
 }
 
 function extractEmail(v) {
-  return String(v || '').replace(/^.*<|>$/g, '') || v;
+  const str = String(v || '');
+  const extracted = str.replace(/^.*<|>$/g, '');
+  return extracted || str;
 }
