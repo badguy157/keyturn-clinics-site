@@ -285,8 +285,8 @@
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
     };
 
-    // Console log for debugging
-    console.log('Booking submission:', submission);
+    // Debug logging
+    console.log('BOOKING SUBMIT', submission);
 
     try {
       // Send to backend API
@@ -299,6 +299,9 @@
       });
 
       const data = await response.json();
+      
+      // Debug logging
+      console.log('BOOKING RESP', response.status, data);
 
       // Check if backend confirms success
       if (response.ok && data.ok === true) {
