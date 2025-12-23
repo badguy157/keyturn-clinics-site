@@ -554,7 +554,7 @@
       const email = (payload.email || "").trim();
       
       payload.clinic_name = clinicName;
-      payload.website_url = websiteUrl.startsWith("http") ? websiteUrl : ("https://" + websiteUrl);
+      payload.website_url = websiteUrl && !websiteUrl.startsWith("http") ? ("https://" + websiteUrl) : websiteUrl;
       payload.contact_name = contactName;
       payload.email = email;
       
