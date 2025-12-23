@@ -9,14 +9,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Configuration
-const WIDTHS = [480, 768, 1024, 1440];
+// Widths chosen for common device breakpoints:
+// 480px - Mobile portrait, 768px - Tablet/mobile landscape, 
+// 1200px - Desktop/laptop, 1600px - Large desktop
+const WIDTHS = [480, 768, 1200, 1600];
 const AVIF_QUALITY = 50;
 const WEBP_QUALITY = 75;
 const INPUT_DIRS = [
-  join(__dirname, '../assets/demos'),
+  join(__dirname, '../public'),
+  join(__dirname, '../assets'),
   join(__dirname, '../images'),
 ];
-const OUTPUT_DIR = join(__dirname, '../assets/img/optimized');
+const OUTPUT_DIR = join(__dirname, '../public/optimized');
 
 // Track statistics
 let stats = {
@@ -28,6 +32,7 @@ let stats = {
 
 /**
  * Get all image files from a directory (recursive)
+ * Note: Automatically skips the 'optimized' directory to prevent processing loops
  */
 async function getImageFiles(dir) {
   const files = [];
@@ -35,9 +40,21 @@ async function getImageFiles(dir) {
     const entries = await readdir(dir, { withFileTypes: true });
     for (const entry of entries) {
       const fullPath = join(dir, entry.name);
+      
+      // Skip optimized directory to prevent processing loops, plus node_modules and .git
+      if (entry.isDirectory() && (entry.name === 'optimized' || entry.name === 'node_modules' || entry.name === '.git')) {
+        continue;
+      }
+      
       if (entry.isDirectory()) {
         files.push(...(await getImageFiles(fullPath)));
       } else if (/\.(png|jpg|jpeg)$/i.test(entry.name)) {
+        // Skip favicon files and other small icons
+        if (entry.name.startsWith('favicon') || 
+            entry.name.startsWith('android-chrome') || 
+            entry.name.startsWith('apple-touch-icon')) {
+          continue;
+        }
         files.push(fullPath);
       }
     }
