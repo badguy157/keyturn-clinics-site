@@ -8079,3 +8079,48 @@ html.js .fade-in-section.is-visible {
 .referral-intro-note strong {
   color: var(--brand-text);
 }
+
+/* ===============================
+   Offer Card Details Block
+   =============================== */
+.offerCardInner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.offerDetails {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.offerDetails h4 {
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .85;
+  margin: 0 0 8px;
+}
+
+.offerDetails ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.offerDetails li {
+  margin: 6px 0;
+  opacity: .9;
+}
+
+.offerFineprint {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: .75;
+  line-height: 1.45;
+}
+
+.offerCtaRow {
+  margin-top: auto;
+  padding-top: 14px;
+}
