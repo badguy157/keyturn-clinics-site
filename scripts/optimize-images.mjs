@@ -9,6 +9,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Configuration
+// Widths chosen for common device breakpoints:
+// 480px - Mobile portrait, 768px - Tablet/mobile landscape, 
+// 1200px - Desktop/laptop, 1600px - Large desktop
 const WIDTHS = [480, 768, 1200, 1600];
 const AVIF_QUALITY = 50;
 const WEBP_QUALITY = 75;
@@ -29,6 +32,7 @@ let stats = {
 
 /**
  * Get all image files from a directory (recursive)
+ * Note: Automatically skips the 'optimized' directory to prevent processing loops
  */
 async function getImageFiles(dir) {
   const files = [];
@@ -37,7 +41,7 @@ async function getImageFiles(dir) {
     for (const entry of entries) {
       const fullPath = join(dir, entry.name);
       
-      // Skip optimized directory and node_modules
+      // Skip optimized directory to prevent processing loops, plus node_modules and .git
       if (entry.isDirectory() && (entry.name === 'optimized' || entry.name === 'node_modules' || entry.name === '.git')) {
         continue;
       }
