@@ -17,16 +17,16 @@ export default async function handler(req, res) {
   try {
     const data = getJsonBody(req);
 
-    // Parse with multiple field name variations
-    const clinic = (data.company || data.clinic_name || data.propertyName || data.property_name || "").trim();
+    // Honeypot — bots bail out silently (using raw 'company' field when it's the honeypot)
+    if (data.company && !data.clinic_name && !data.propertyName && !data.property_name) {
+      return res.status(200).json({ ok: true, emailSent: false });
+    }
+
+    // Parse with multiple field name variations (excluding honeypot 'company')
+    const clinic = (data.clinic_name || data.propertyName || data.property_name || "").trim();
     const website = (data.websiteUrl || data.website_url || "").trim();
     const email = (data.email || "").trim();
     const contact = (data.contactName || data.contact_name || "").trim();
-
-    // Honeypot — bots bail out silently (using raw 'company' field when it's the honeypot)
-    if (data.company && !data.clinic_name && !data.propertyName) {
-      return res.status(200).json({ ok: true, emailSent: false });
-    }
 
     const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
