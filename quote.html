@@ -333,6 +333,17 @@
           <p class="small" style="text-align:center;margin-top:14px;color:var(--brand-text)">
             No pressure. No mailing lists. Just one clear quote.
           </p>
+          
+          <!-- What happens next info card -->
+          <div style="margin-top:20px;padding:16px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02)">
+            <h4 style="margin:0 0 12px;font-size:0.95rem;font-weight:600;color:var(--brand-text)">What happens next</h4>
+            <ul style="margin:0;padding-left:20px;line-height:1.7;font-size:0.95rem;color:var(--brand-muted)">
+              <li>You'll get a confirmation email right away.</li>
+              <li>We reply within 1 business day with your recommended package + price.</li>
+              <li>If it's urgent: call/text 202-596-1574.</li>
+            </ul>
+          </div>
+          
           <p id="qsMsg" class="small" aria-live="polite" style="margin-top:12px;text-align:center;min-height:20px"></p>
         </div>
       </form>
@@ -580,8 +591,19 @@
         window.safeEvent('quote_request_submit', { page_path: location.pathname });
   
         qsForm.innerHTML = `
-          <h3>Thanks! We’ve got your request.</h3>
-          <p>We’ll email your 1-page quote within 1 business day.</p>
+          <h3>Thanks! We've got your request.</h3>
+          <p>We'll email your 1-page quote within 1 business day.</p>
+          
+          <div style="margin-top:20px;padding:16px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02)">
+            <h4 style="margin:0 0 12px;font-size:0.95rem;font-weight:600;color:var(--brand-text)">What happens next</h4>
+            <ul style="margin:0;padding-left:20px;line-height:1.7;font-size:0.95rem;color:var(--brand-muted)">
+              <li>You'll get a confirmation email right away.</li>
+              <li>We reply within 1 business day with your recommended package + price.</li>
+              <li>If it's urgent: call/text 202-596-1574.</li>
+            </ul>
+            <p style="margin:12px 0 0;font-size:0.875rem;color:var(--brand-muted);font-style:italic">Check spam/promotions if you don't see it.</p>
+          </div>
+          
           <div class="hero-ctas" style="margin-top:20px">
             <a class="btn btn-primary" href="/">Back to home</a>
             <a class="btn btn-ghost" href="#" data-booking-open="true" data-booking-source="quote" data-booking-interest="">Book 15-min Fit Check</a>
