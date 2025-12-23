@@ -255,7 +255,18 @@
   }
 
   // Handle final submission
-  function handleSubmit() {
+  async function handleSubmit() {
+    const confirmBtn = document.getElementById('booking-confirm-btn');
+    
+    // Disable button to prevent double submission
+    if (confirmBtn) {
+      confirmBtn.disabled = true;
+      confirmBtn.textContent = 'Sending...';
+    }
+
+    // Clear any previous errors
+    clearSubmitError();
+
     // Create submission payload
     const submission = {
       created_at: new Date().toISOString(),
@@ -263,28 +274,79 @@
       page_url: window.location.href,
       source: formData.source,
       interest: formData.treatment,
-      user_agent: navigator.userAgent,
+      userAgent: navigator.userAgent,
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
       treatment: formData.treatment,
-      timeWindow: formData.timeWindow
+      timeWindow: formData.timeWindow,
+      pagePath: window.location.pathname,
+      referrer: document.referrer,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
     };
 
-    // Save to localStorage
-    saveToLocalStorage(submission);
+    // Debug logging
+    console.log('BOOKING SUBMIT', submission);
 
-    // Console log for debugging
-    console.log('Booking submission:', submission);
+    try {
+      // Send to backend API
+      const response = await fetch('/api/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(submission)
+      });
 
-    // Show thank you state
-    step2.classList.remove('active');
-    thankYou.classList.add('active');
+      const data = await response.json();
+      
+      // Debug logging
+      console.log('BOOKING RESP', response.status, data);
 
-    // Auto close after 5 seconds
-    setTimeout(function() {
-      closeModal();
-    }, 5000);
+      // Check if backend confirms success
+      if (response.ok && data.ok === true) {
+        // Save to localStorage
+        saveToLocalStorage(submission);
+
+        // Show thank you state
+        step2.classList.remove('active');
+        thankYou.classList.add('active');
+
+        // Auto close after 5 seconds
+        setTimeout(function() {
+          closeModal();
+        }, 5000);
+      } else {
+        // Backend returned an error
+        const errorMessage = data.error || 'Unable to submit booking request. Please try again.';
+        console.error('Booking submission failed:', {
+          status: response.status,
+          data: data
+        });
+        
+        showSubmitError(errorMessage);
+        
+        // Re-enable button
+        if (confirmBtn) {
+          confirmBtn.disabled = false;
+          confirmBtn.textContent = 'Confirm Booking';
+        }
+      }
+    } catch (error) {
+      // Network or other error
+      console.error('Booking submission error:', {
+        error: error.message,
+        stack: error.stack
+      });
+      
+      showSubmitError('Network error. Please check your connection and try again.');
+      
+      // Re-enable button
+      if (confirmBtn) {
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = 'Confirm Booking';
+      }
+    }
   }
 
   // Validate step 1
@@ -369,6 +431,23 @@
     errorMessages.forEach(function(error) {
       error.classList.remove('active');
     });
+  }
+
+  // Show submit error message
+  function showSubmitError(message) {
+    const submitError = document.getElementById('booking-submit-error');
+    if (submitError) {
+      submitError.textContent = message;
+      submitError.classList.add('active');
+    }
+  }
+
+  // Clear submit error message
+  function clearSubmitError() {
+    const submitError = document.getElementById('booking-submit-error');
+    if (submitError) {
+      submitError.classList.remove('active');
+    }
   }
 
   // Email validation
