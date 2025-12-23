@@ -140,18 +140,11 @@ export default async function handler(req, res) {
     } catch (e) {
       console.error('[booking] Email send error:', e);
       
-      // Check if it's a confirmation email failure (internal succeeded)
-      if (e.message && e.message.includes('client')) {
-        console.error('[booking] Confirmation email failed but internal succeeded');
-        confirmSent = false;
-        // Continue - internal email succeeded
-      } else {
-        // Internal email failed - this is critical
-        return res.status(500).json({ 
-          ok: false, 
-          error: 'Failed to send notification email' 
-        });
-      }
+      // All email errors are critical for booking
+      return res.status(500).json({ 
+        ok: false, 
+        error: 'Failed to send notification email' 
+      });
     }
 
     return res.status(200).json({ 
