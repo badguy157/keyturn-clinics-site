@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Visual Upgrade Demo | Keyturn Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Demo showcasing premium visual upgrades: stock images, SVG icons, hero videos, and Lottie animations">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  
+  <style>
+    /* Demo-specific styles */
+    .demo-section {
+      padding: 60px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .demo-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .demo-title {
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      color: white;
+      margin-bottom: 12px;
+    }
+    
+    .demo-subtitle {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .code-block {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+      overflow-x: auto;
+    }
+    
+    .code-block code {
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.875rem;
+      color: #5AA2FF;
+      line-height: 1.6;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+    }
+    
+    .icon-check {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      color: #D4AF37;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    .icon-showcase {
+      text-align: center;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    .icon-showcase:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-2px);
+    }
+    
+    .icon-showcase svg {
+      width: 48px;
+      height: 48px;
+      color: #D4AF37;
+      margin-bottom: 12px;
+    }
+    
+    .icon-label {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .placeholder-image {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #1B263B 0%, #0D1B2A 100%);
+      border: 2px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .placeholder-image svg {
+      width: 64px;
+      height: 64px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .animation-showcase {
+      text-align: center;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+    }
+    
+    .note-box {
+      background: rgba(90, 162, 255, 0.1);
+      border-left: 4px solid #5AA2FF;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+    
+    .note-box p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation (Simple) -->
+<header style="padding: 20px 0; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.1);">
+  <div class="container" style="text-align: center;">
+    <h1 style="margin: 0; font-size: 1.5rem; color: white;">Visual Upgrade Demo</h1>
+    <p style="margin: 8px 0 0 0; color: rgba(255,255,255,0.7);">Premium Assets Integration Examples</p>
+  </div>
+</header>
+
+<!-- Section 1: Hero with Background Image Example -->
+<section class="demo-section">
+  <div class="container">
+    <div class="demo-header">
+      <h2 class="demo-title">1. Hero Background Images</h2>
+      <p class="demo-subtitle">High-resolution stock images from Unsplash/Pexels create premium hero sections</p>
+    </div>
+    
+    <div class="placeholder-image">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+      </svg>
+      <div>
+        <strong>Placeholder: luxury-medspa-01.jpg</strong>
+        <p style="margin: 8px 0 0 0; font-size: 0.875rem;">Upload your image to: /images/case-studies/</p>
+      </div>
+    </div>
+    
+    <div class="note-box">
+      <p><strong>💡 Usage:</strong> Set as background-image in CSS for hero sections. See VISUAL-INTEGRATION-GUIDE.md for complete code.</p>
+    </div>
+    
+    <div class="code-block">
+      <code>
+.hero-with-image {<br>
+&nbsp;&nbsp;background-image: url('/images/case-studies/luxury-medspa-01.jpg');<br>
+&nbsp;&nbsp;background-size: cover;<br>
+&nbsp;&nbsp;background-position: center;<br>
+}
+      </code>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: SVG Icons -->
+<section class="demo-section">
+  <div class="container">
+    <div class="demo-header">
+      <h2 class="demo-title">2. SVG Icon Sets</h2>
+      <p class="demo-subtitle">Premium icons from Heroicons, Lucide, and Phosphor</p>
+    </div>
+    
+    <!-- Icon Examples (Using Heroicons inline) -->
+    <div class="icon-grid">
+      <div class="icon-showcase">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+        </svg>
+        <div class="icon-label">Check Circle</div>
+      </div>
+      
+      <div class="icon-showcase">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+        </svg>
+        <div class="icon-label">Star Solid</div>
+      </div>
+      
+      <div class="icon-showcase">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" />
+        </svg>
+        <div class="icon-label">Bolt</div>
+      </div>
+      
+      <div class="icon-showcase">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 00-.584.859 6.753 6.753 0 006.138 5.6 6.73 6.73 0 002.743 1.346A6.707 6.707 0 019.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 00-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 00.75-.75 2.25 2.25 0 00-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 01-1.112-3.173 6.73 6.73 0 002.743-1.347 6.753 6.753 0 006.139-5.6.75.75 0 00-.585-.858 47.077 47.077 0 00-3.07-.543V2.62a.75.75 0 00-.658-.744 49.22 49.22 0 00-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 00-.657.744zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 013.16 5.337a45.6 45.6 0 012.006-.343v.256zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 01-2.863 3.207 6.72 6.72 0 00.857-3.294z" clip-rule="evenodd" />
+        </svg>
+        <div class="icon-label">Trophy</div>
+      </div>
+    </div>
+    
+    <!-- Feature List Example -->
+    <div style="margin-top: 48px;">
+      <h3 style="color: white; margin-bottom: 20px;">Example: Feature List with Icons</h3>
+      <ul class="feature-list">
+        <li class="feature-item">
+          <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+          </svg>
+          <span>Audit your current site for increasing flow</span>
+        </li>
+        <li class="feature-item">
+          <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+          </svg>
+          <span>Simple fixes for links and direct bookings</span>
+        </li>
+        <li class="feature-item">
+          <svg class="icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+          </svg>
+          <span>Clear next steps for Core, Pro, or Premier rebuild</span>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="note-box">
+      <p><strong>💡 Source:</strong> Download free SVG icons from <a href="https://heroicons.com/" style="color: #5AA2FF;">Heroicons.com</a>, <a href="https://lucide.dev/" style="color: #5AA2FF;">Lucide.dev</a>, or <a href="https://phosphoricons.com/" style="color: #5AA2FF;">PhosphorIcons.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Video Background -->
+<section class="demo-section">
+  <div class="container">
+    <div class="demo-header">
+      <h2 class="demo-title">3. Hero Video Background</h2>
+      <p class="demo-subtitle">Looping background videos from Pexels for dynamic hero sections</p>
+    </div>
+    
+    <div class="placeholder-image">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+      </svg>
+      <div>
+        <strong>Placeholder: hero-background.mp4</strong>
+        <p style="margin: 8px 0 0 0; font-size: 0.875rem;">Upload your video to: /videos/</p>
+      </div>
+    </div>
+    
+    <div class="note-box">
+      <p><strong>💡 Recommendation:</strong> Search Pexels for "abstract medical dark" or "dark blue flowing particles" - Download 10-20 second clips, compress to under 5MB</p>
+    </div>
+    
+    <div class="code-block">
+      <code>
+&lt;video class="hero-video-bg" autoplay muted loop playsinline&gt;<br>
+&nbsp;&nbsp;&lt;source src="/videos/hero-background.mp4" type="video/mp4"&gt;<br>
+&lt;/video&gt;
+      </code>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Lottie Animations -->
+<section class="demo-section">
+  <div class="container">
+    <div class="demo-header">
+      <h2 class="demo-title">4. Lottie Animations</h2>
+      <p class="demo-subtitle">Lightweight, scalable animations from LottieFiles</p>
+    </div>
+    
+    <div class="animation-showcase">
+      <p style="color: rgba(255,255,255,0.7); margin-bottom: 24px;">Placeholder - Upload Lottie JSON to /animations/lottie/</p>
+      
+      <!-- Placeholder animation representation -->
+      <div style="width: 200px; height: 200px; margin: 0 auto; border: 2px dashed rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 64px; height: 64px; color: rgba(255,255,255,0.3);">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+        </svg>
+      </div>
+      
+      <p style="margin-top: 24px; color: rgba(255,255,255,0.6); font-size: 0.875rem;">
+        Example animation would appear here
+      </p>
+    </div>
+    
+    <div class="note-box">
+      <p><strong>💡 Usage:</strong> Search <a href="https://lottiefiles.com/" style="color: #5AA2FF;">LottieFiles.com</a> for "minimal flow animation", "checkmark success", or "calendar booking" - Download JSON files</p>
+    </div>
+    
+    <div class="code-block">
+      <code>
+&lt;lottie-player<br>
+&nbsp;&nbsp;src="/animations/lottie/process-flow.json"<br>
+&nbsp;&nbsp;background="transparent"<br>
+&nbsp;&nbsp;speed="1"<br>
+&nbsp;&nbsp;style="width: 300px; height: 300px;"<br>
+&nbsp;&nbsp;loop<br>
+&nbsp;&nbsp;autoplay&gt;<br>
+&lt;/lottie-player&gt;
+      </code>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: Quick Links -->
+<section class="demo-section" style="border-bottom: none;">
+  <div class="container">
+    <div class="demo-header">
+      <h2 class="demo-title">📚 Documentation & Resources</h2>
+      <p class="demo-subtitle">Everything you need to implement these upgrades</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px;">
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 24px;">
+        <h3 style="color: #D4AF37; margin: 0 0 12px 0; font-size: 1.25rem;">Resources</h3>
+        <p style="color: rgba(255,255,255,0.8); margin: 0 0 16px 0; line-height: 1.6;">Stock images, icons, videos, and animation sources</p>
+        <a href="/VISUAL-UPGRADE-RESOURCES.md" style="color: #5AA2FF; text-decoration: none;">View Resource Guide →</a>
+      </div>
+      
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 24px;">
+        <h3 style="color: #D4AF37; margin: 0 0 12px 0; font-size: 1.25rem;">Integration</h3>
+        <p style="color: rgba(255,255,255,0.8); margin: 0 0 16px 0; line-height: 1.6;">HTML/CSS code snippets for all asset types</p>
+        <a href="/VISUAL-INTEGRATION-GUIDE.md" style="color: #5AA2FF; text-decoration: none;">View Integration Guide →</a>
+      </div>
+      
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 24px;">
+        <h3 style="color: #D4AF37; margin: 0 0 12px 0; font-size: 1.25rem;">AI Prompts</h3>
+        <p style="color: rgba(255,255,255,0.8); margin: 0 0 16px 0; line-height: 1.6;">Generate custom images with Midjourney/DALL-E</p>
+        <a href="/AI-IMAGE-PROMPTS.md" style="color: #5AA2FF; text-decoration: none;">View AI Prompts →</a>
+      </div>
+      
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 24px;">
+        <h3 style="color: #D4AF37; margin: 0 0 12px 0; font-size: 1.25rem;">Deployment</h3>
+        <p style="color: rgba(255,255,255,0.8); margin: 0 0 16px 0; line-height: 1.6;">Step-by-step GitHub upload and integration</p>
+        <a href="/VISUAL-UPGRADE-DEPLOYMENT.md" style="color: #5AA2FF; text-decoration: none;">View Deployment Guide →</a>
+      </div>
+    </div>
+    
+    <div style="margin-top: 48px; text-align: center; padding: 32px; background: rgba(90,162,255,0.1); border: 1px solid #5AA2FF; border-radius: 12px;">
+      <h3 style="color: white; margin: 0 0 16px 0;">🎯 Start Here</h3>
+      <p style="color: rgba(255,255,255,0.9); margin: 0 0 24px 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Begin with the Master Index for a complete overview and workflow guide
+      </p>
+      <a href="/VISUAL-UPGRADE-MASTER-INDEX.md" class="btn btn-primary">View Master Index</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="padding: 40px 0; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px;">
+  <div class="container" style="text-align: center;">
+    <p style="color: rgba(255,255,255,0.6); margin: 0;">Visual Upgrade Demo | Keyturn Studio</p>
+    <p style="color: rgba(255,255,255,0.5); margin: 8px 0 0 0; font-size: 0.875rem;">Follow the guides to implement premium visuals on your clinic website</p>
+  </div>
+</footer>
+
+</body>
+</html>
