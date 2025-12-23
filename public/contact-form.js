@@ -221,21 +221,13 @@
 
     /**
      * Submit form data to backend
-     * For static site deployment, this creates a mailto link as fallback
-     * In production, replace with actual API endpoint
+     * Uses the /api/contact endpoint for proper email handling
      */
     async function submitForm(data) {
-      // Since this is a static site, we'll use a simple approach:
-      // 1. Log to console (for development)
-      // 2. Use FormSubmit.co or similar service (free, no backend needed)
-      // 3. Or create a mailto link as ultimate fallback
-
       console.log('Form submission data:', data);
 
-      // Option 1: Use FormSubmit.co (replace YOUR_EMAIL with actual email)
-      // This is a free service that sends form data via email
       try {
-        const response = await fetch('https://formsubmit.co/ajax/hello@keyturn.studio', {
+        const response = await fetch('/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -243,38 +235,32 @@
           },
           body: JSON.stringify({
             ...data,
-            _subject: `Contact Form: ${data.clinicName}`,
-            _template: 'table',
-            _captcha: 'false'
+            // Add metadata for tracking
+            pagePath: window.location.pathname,
+            referrer: document.referrer,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            userAgent: navigator.userAgent
           })
         });
 
-        if (response.ok) {
-          return { success: true };
-        } else {
-          throw new Error('Form submission failed');
+        const result = await response.json();
+
+        if (!response.ok || !result.ok) {
+          return { 
+            success: false, 
+            message: result.error || 'Something went wrong. Please try emailing hello@keyturn.studio directly.' 
+          };
         }
+
+        // Success - internal email sent
+        // Note: result.confirm_ok indicates if confirmation email was sent
+        // We don't show an error if confirmation fails (per spec)
+        return { success: true };
       } catch (error) {
-        console.error('FormSubmit error:', error);
-        
-        // Fallback: create mailto link
-        const subject = encodeURIComponent(`Contact Form: ${data.clinicName}`);
-        const body = encodeURIComponent(
-          `Clinic Name: ${data.clinicName}\n` +
-          `Website: ${data.websiteUrl}\n` +
-          `Contact Name: ${data.contactName}\n` +
-          `Email: ${data.email}\n` +
-          `Phone: ${data.phone || 'Not provided'}\n` +
-          `Preferred Contact: ${data.contactMethod}\n` +
-          `Want to Improve: ${data.improvement}\n` +
-          `Message: ${data.message || 'No additional message'}\n`
-        );
-        
-        // Return success since we're using mailto as fallback
-        // In a real implementation, you would return failure here
+        console.error('Form submission error:', error);
         return { 
           success: false, 
-          message: 'Unable to send automatically. Please email hello@keyturn.studio directly or click the email button above.' 
+          message: 'Something went wrong. Please try emailing hello@keyturn.studio directly.' 
         };
       }
     }
