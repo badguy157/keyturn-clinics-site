@@ -62,11 +62,15 @@ export default async function handler(req, res) {
       process.env.RESEND_FROM ||
       process.env.QS_FROM_EMAIL ||
       'Keyturn Studio <hello@updates.keyturn.studio>';
+    const BIZ_REPLY_TO =
+      process.env.QS_REPLY_TO ||
+      process.env.REPLY_TO ||
+      'hello@keyturn.studio';
 
     // Admin notification email
-    const subject = `Booking request: ${name} - ${treatment}`;
+    const subject = `Fit Check booking request: ${name} - ${treatment}`;
     const htmlAdmin = `
-      <h2>New Booking Request</h2>
+      <h2>New Fit Check Booking Request</h2>
       <table cellpadding="6" cellspacing="0" style="font-family:Inter,Arial,sans-serif">
         ${row('Name', name)}
         ${row('Email', email)}
@@ -81,14 +85,47 @@ export default async function handler(req, res) {
       </p>
     `;
 
-    // Send email (required for booking to succeed)
-    let emailSent = false;
+    // Client confirmation email (if email provided)
+    const htmlClient = email ? `
+      <div style="background:#0a1220;padding:24px 12px;">
+        <table role="presentation" width="100%" style="max-width:640px;margin:0 auto;">
+          <tr><td>
+            <div style="background:#ffffff;border:1px solid #e5eaf2;border-radius:16px;padding:24px">
+              <h1 style="margin:0 0 12px;font:700 20px Inter,Arial,sans-serif;color:#0b1220">
+                Fit Check request received
+              </h1>
+              <p style="margin:0 0 12px;font:14px/1.6 Inter,Arial,sans-serif;color:#0b1220">
+                Hi ${escapeHtml(name)}, we've received your Fit Check booking request and will reach out <b>within 1 business day</b> to confirm your appointment.
+              </p>
+              <p style="margin:12px 0;font:14px/1.6 Inter,Arial,sans-serif;color:#0b1220">
+                <b>Your request:</b><br>
+                Treatment interest: ${escapeHtml(treatment)}<br>
+                Preferred time: ${escapeHtml(timeWindow)}
+              </p>
+              <p style="margin:12px 0 0;font:14px/1.6 Inter,Arial,sans-serif;color:#0b1220">
+                If you need to change anything, just reply to this email.
+              </p>
+              <p style="margin:16px 0 0;font:14px/1.6 Inter,Arial,sans-serif;color:#0b1220">Keyturn Studio</p>
+            </div>
+          </td></tr>
+          <tr><td style="text-align:center;color:#cdd6ea;font:12px Inter,Arial,sans-serif;padding-top:12px">
+            © ${new Date().getFullYear()} Keyturn Studio
+          </td></tr>
+        </table>
+      </div>
+    ` : null;
+
+    // Send internal email (required for booking to succeed)
+    let internalSent = false;
+    let confirmSent = false;
+    
     try {
-      emailSent =
-        (await sendViaResend(FROM, TO, subject, htmlAdmin, email)) ||
-        (await sendViaSendGrid(FROM, TO, subject, htmlAdmin, email));
+      // Send internal notification
+      internalSent =
+        (await sendViaResend(FROM, TO, subject, htmlAdmin, email, htmlClient, BIZ_REPLY_TO)) ||
+        (await sendViaSendGrid(FROM, TO, subject, htmlAdmin, email, htmlClient, BIZ_REPLY_TO));
       
-      if (!emailSent) {
+      if (!internalSent) {
         // No provider configured
         console.error('[booking] Email provider not configured');
         return res.status(500).json({ 
@@ -96,15 +133,31 @@ export default async function handler(req, res) {
           error: 'Email provider not configured' 
         });
       }
+      
+      // Both emails sent successfully by the provider
+      confirmSent = !!email;
+      
     } catch (e) {
       console.error('[booking] Email send error:', e);
-      return res.status(500).json({ 
-        ok: false, 
-        error: 'Failed to send notification email' 
-      });
+      
+      // Check if it's a confirmation email failure (internal succeeded)
+      if (e.message && e.message.includes('client')) {
+        console.error('[booking] Confirmation email failed but internal succeeded');
+        confirmSent = false;
+        // Continue - internal email succeeded
+      } else {
+        // Internal email failed - this is critical
+        return res.status(500).json({ 
+          ok: false, 
+          error: 'Failed to send notification email' 
+        });
+      }
     }
 
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ 
+      ok: true,
+      confirmOk: confirmSent
+    });
   } catch (e) {
     console.error('[booking] Server error:', e);
     return res.status(500).json({ ok: false, error: 'Server error' });
@@ -141,7 +194,7 @@ function escapeHtml(s) {
 }
 
 /* -------- Email providers ---------- */
-async function sendViaResend(from, to, subject, htmlAdmin, clientEmail) {
+async function sendViaResend(from, to, subject, htmlAdmin, clientEmail, htmlClient, bizReplyTo) {
   const key = process.env.RESEND_API_KEY;
   if (!key) return false;
 
@@ -162,14 +215,37 @@ async function sendViaResend(from, to, subject, htmlAdmin, clientEmail) {
   });
   if (!r1.ok) {
     const errorText = await r1.text();
-    console.error('[booking] Resend error:', errorText);
-    throw new Error(`Resend error: ${errorText}`);
+    console.error('[booking] Resend admin error:', errorText);
+    throw new Error(`Resend admin error: ${errorText}`);
+  }
+
+  // Client confirmation (if email and htmlClient provided)
+  if (clientEmail && htmlClient) {
+    const r2 = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${key}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from,
+        to: [clientEmail],
+        subject: 'Fit Check request received (Keyturn Studio)',
+        html: htmlClient,
+        reply_to: bizReplyTo
+      })
+    });
+    if (!r2.ok) {
+      const errorText = await r2.text();
+      console.error('[booking] Resend client error:', errorText);
+      throw new Error(`Resend client error: ${errorText}`);
+    }
   }
 
   return true;
 }
 
-async function sendViaSendGrid(from, to, subject, htmlAdmin, clientEmail) {
+async function sendViaSendGrid(from, to, subject, htmlAdmin, clientEmail, htmlClient, bizReplyTo) {
   const key = process.env.SENDGRID_API_KEY;
   if (!key) return false;
 
@@ -189,8 +265,35 @@ async function sendViaSendGrid(from, to, subject, htmlAdmin, clientEmail) {
   });
   if (r1.status >= 400) {
     const errorText = await r1.text();
-    console.error('[booking] SendGrid error:', errorText);
-    throw new Error(`SendGrid error: ${errorText}`);
+    console.error('[booking] SendGrid admin error:', errorText);
+    throw new Error(`SendGrid admin error: ${errorText}`);
+  }
+
+  // Client confirmation (if email and htmlClient provided)
+  if (clientEmail && htmlClient) {
+    const r2 = await fetch('https://api.sendgrid.com/v3/mail/send', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${key}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        personalizations: [
+          {
+            to: [{ email: clientEmail }],
+            subject: 'Fit Check request received (Keyturn Studio)'
+          }
+        ],
+        from: { email: extractEmail(from) },
+        reply_to: { email: bizReplyTo },
+        content: [{ type: 'text/html', value: htmlClient }]
+      })
+    });
+    if (r2.status >= 400) {
+      const errorText = await r2.text();
+      console.error('[booking] SendGrid client error:', errorText);
+      throw new Error(`SendGrid client error: ${errorText}`);
+    }
   }
 
   return true;
