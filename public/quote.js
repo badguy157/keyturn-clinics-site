@@ -30,9 +30,10 @@
         toggleBtn.textContent = 'Hide details';
         
         // Smooth scroll to the toggle button so user sees the expanded content
+        // Delay aligned with CSS animation duration (300ms)
         setTimeout(function() {
           toggleBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
+        }, 300);
       }
     });
   }
