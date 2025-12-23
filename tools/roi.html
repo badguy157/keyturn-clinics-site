@@ -28,6 +28,12 @@
     <h1 class="hero-title">See how fast a new website could pay for itself</h1>
     <p class="hero-lede">For clinics and medspas. Enter a few numbers and see how fast a new site might pay for itself.<br>This is a rough guide, not a promise; it helps you sense the upside.</p>
     <p class="small" style="color:var(--brand-muted);margin-top:12px">In about 2 minutes you will see a rough payback time in months, based on your own numbers.</p>
+    
+    <!-- Hero CTAs -->
+    <div class="hero-ctas" style="margin-top:24px">
+      <a href="#roi-calculator" class="btn btn-primary">Start calculator</a>
+      <a href="https://scan.keyturn.studio/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Run Free Scan</a>
+    </div>
   </div>
 </section>
 
@@ -40,7 +46,7 @@
     </div>
 
     <!-- Calculator Card -->
-    <div class="card premium-form-card" style="max-width:720px;margin-left:auto;margin-right:auto;padding:40px 32px">
+    <div id="roi-calculator" class="card premium-form-card" style="max-width:720px;margin-left:auto;margin-right:auto;padding:40px 32px">
       <h2 style="margin-top:0;margin-bottom:12px">Payback calculator</h2>
       <p class="small" style="margin-bottom:12px">See about how many months it might take for a new website to cover its own cost.</p>
       <p class="small" style="margin-bottom:28px">For the "Project package" field, select from our three tiers: Core, Pro, or Premier. This tool is a rough guide to sense how fast a new website could pay for itself.</p>
@@ -98,6 +104,9 @@
         <p style="margin:0 0 12px;font-size:1.5rem;font-weight:700;color:var(--fg)"><span id="payback">-</span></p>
         <p id="explanation" class="small" style="margin:0;color:var(--muted-2)"></p>
         
+        <!-- Based on your inputs summary -->
+        <p id="inputsSummary" class="small" style="margin:12px 0 0;padding:12px;background:rgba(255,255,255,.04);border-radius:8px;color:var(--muted-2);line-height:1.6"></p>
+        
         <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(90,162,255,.15)">
           <div class="metric-card" style="padding:16px">
             <h5 style="margin:0 0 4px;font-size:0.85rem">Extra monthly revenue</h5>
@@ -119,20 +128,14 @@
 
       <!-- Next Step CTA Card -->
       <div id="nextStepCard" role="region" aria-labelledby="nextStepTitle" style="display:none;margin-top:20px;padding:28px 24px;background:var(--card);border:1px solid var(--line);border-radius:12px">
-        <h3 id="nextStepTitle" style="margin:0 0 16px;font-size:1.25rem;color:var(--fg)">Want a clinic-specific Payback Snapshot + build plan?</h3>
-        <p style="margin:0 0 16px;color:var(--muted-2);line-height:1.7">We'll analyze your actual site and create a custom plan that includes:</p>
-        <ul style="margin:0 0 24px;padding-left:20px;line-height:1.8;color:var(--muted-2)">
-          <li>Priority fixes ranked by impact</li>
-          <li>Page map showing what to keep, cut, or add</li>
-          <li>Wireframe of your new patient flow</li>
-          <li>Tracking plan (GA4 events & conversions)</li>
-          <li>1-page snapshot you can share with your team</li>
-        </ul>
+        <h3 id="nextStepTitle" style="margin:0 0 12px;font-size:1.25rem;color:var(--fg)">Next step</h3>
+        <p style="margin:0 0 20px;color:var(--muted-2);line-height:1.7">Ready to turn this estimate into a real plan?</p>
         <div style="display:flex;flex-direction:column;gap:12px">
           <a href="#" 
+             id="bookingCta"
              data-booking-open="true"
-             data-booking-source="roi-calculator"
-             data-booking-interest="Clinic Booking Blueprint"
+             data-booking-source="roi"
+             data-booking-interest=""
              class="btn btn-primary" 
              style="text-align:center">
             Book 15-min Fit Check
@@ -145,6 +148,17 @@
             Run Free Scan
           </a>
         </div>
+        
+        <!-- Trust/Assumptions Section -->
+        <details style="margin-top:24px;padding:16px;background:rgba(255,255,255,.03);border-radius:8px">
+          <summary style="cursor:pointer;font-weight:600;color:var(--muted-2);font-size:0.9rem;margin-bottom:8px">About this estimate</summary>
+          <ul style="margin:12px 0 0;padding-left:20px;font-size:0.875rem;line-height:1.7;color:var(--muted)">
+            <li>This is a rough estimate, not a guarantee</li>
+            <li>Uses conservative inputs (extra patients/month)</li>
+            <li>Only counts incremental patients attributed to the website (not referrals, retention, or ads)</li>
+            <li>Real-world results vary by offer, traffic quality, and booking flow</li>
+          </ul>
+        </details>
       </div>
     </div>
 
@@ -326,6 +340,16 @@
       explanation = `If your numbers are close, the project could cover its cost in under a year.`;
     }
     document.getElementById('explanation').textContent = explanation;
+
+    // Create "based on your inputs" summary
+    const inputsSummary = `Based on your inputs: ${businessType}, avg value ${money(avgValue)}, +${extraPerMonth} extra patients/mo, package ${packageName}.`;
+    document.getElementById('inputsSummary').textContent = inputsSummary;
+
+    // Update booking CTA with package interest
+    const bookingCta = document.getElementById('bookingCta');
+    if (bookingCta) {
+      bookingCta.setAttribute('data-booking-interest', packageName + ' Package');
+    }
 
     // Show results
     document.getElementById('out').style.display = 'block';
