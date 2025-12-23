@@ -15,15 +15,38 @@ export default async function handler(req, res) {
   }
 
   try {
-    const body = getJsonBody(req);
+    const data = getJsonBody(req);
 
+    // Honeypot — bots bail out silently (using raw 'company' field when it's the honeypot)
+    if (data.company && !data.clinic_name && !data.propertyName && !data.property_name) {
+      return res.status(200).json({ ok: true, emailSent: false });
+    }
+
+    // Parse with multiple field name variations (excluding honeypot 'company')
+    const clinic = (data.clinic_name || data.propertyName || data.property_name || "").trim();
+    const website = (data.websiteUrl || data.website_url || "").trim();
+    const email = (data.email || "").trim();
+    const contact = (data.contactName || data.contact_name || "").trim();
+
+    const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+    // ✅ Only require clinic, website, and valid email
+    const missingBasics = !clinic || !website || !isEmail(email);
+
+    if (missingBasics) {
+      return res.status(400).json({
+        ok: false,
+        error: 'Missing clinic name, website URL, or a valid email.'
+      });
+    }
+
+    // Set contact to "Not provided" if blank
+    const contactName = contact || "Not provided";
+
+    // Extract other fields from data for backward compatibility
     const {
-      propertyName = '',
-      websiteUrl = '',
       location = '',
-      contactName = '',
       role = '',
-      email = '',
       phone = '',
       businessType = '',
       bookingSystem = '',
@@ -34,8 +57,7 @@ export default async function handler(req, res) {
       budget = '',
       assetsLink = '',
       notes = '',
-      start_type = '',          // ✅ radio field
-      company = '',
+      start_type = '',
       pagePath = '',
       utm_source = '',
       utm_medium = '',
@@ -43,31 +65,14 @@ export default async function handler(req, res) {
       timezone = '',
       userAgent = '',
       referrer = ''
-    } = body || {};
+    } = data || {};
 
-    console.log('[quickstart] Incoming body:', body);
+    // Canonical fields for storage/email
+    const propertyName = clinic;
+    const websiteUrl = website;
 
-    // Honeypot — bots bail out silently
-    if (company) {
-      return res.status(200).json({ ok: true, emailSent: false });
-    }
-
-    const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-
-    // ✅ Only the absolute basics are required server-side
-    const missingBasics =
-      !propertyName ||
-      !websiteUrl ||
-      !contactName ||
-      !isEmail(email);
-
-    if (missingBasics) {
-      return res.status(400).json({
-        ok: false,
-        error:
-          'Missing clinic name, website URL, contact name, or a valid email.'
-      });
-    }
+    console.log('[quickstart] Incoming body:', data);
+    console.log('[quickstart] Normalized:', { propertyName, websiteUrl, contactName, email });
 
     const startLabel =
       start_type === 'full_rebuild'
