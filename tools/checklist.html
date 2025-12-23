@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css?v=1.0.0">
   <script src="/public/site.js?v=1.0.0" defer></script>
+  <script src="/assets/js/checklist-score.js" defer></script>
 </head>
 <body>
 
@@ -44,52 +45,120 @@
     <!-- Checklist Card -->
     <div class="card premium-form-card" style="max-width:720px;margin-left:auto;margin-right:auto;padding:40px 32px">
       
-      <!-- Hero Section -->
-      <h2 style="margin-top:0;margin-bottom:16px;font-size:1.25rem;color:var(--fg)">Hero & First Impression</h2>
-      <ol style="margin:0 0 28px;padding-left:24px;line-height:1.8;color:var(--muted-2)">
-        <li>Clear, patient-friendly headline that says who you help and what you do</li>
-        <li>Visible "Book a visit" or "Request a consult" buttons on both desktop and mobile</li>
-        <li>High-quality photo or visual that conveys professionalism and trust</li>
-      </ol>
+      <form id="checklistForm" class="checklist-form">
+        <!-- Hero & First Impression Section -->
+        <div class="check-group">
+          <h3 class="check-group-title">Hero & First Impression</h3>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="1">
+            <span>Clear, patient-friendly headline that says who you help and what you do</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="2">
+            <span>Visible "Book a visit" or "Request a consult" buttons on both desktop and mobile</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="3">
+            <span>High-quality photo or visual that conveys professionalism and trust</span>
+          </label>
+        </div>
 
-      <!-- Treatments Section -->
-      <h2 style="margin-bottom:16px;font-size:1.25rem;color:var(--fg)">Treatments & Services</h2>
-      <ol start="4" style="margin:0 0 28px;padding-left:24px;line-height:1.8;color:var(--muted-2)">
-        <li>Dedicated pages for your highest-value treatments</li>
-        <li>Clear descriptions that explain benefits, not just procedures</li>
-        <li>Pricing indicators or starting costs where appropriate</li>
-      </ol>
+        <!-- Treatments & Services Section -->
+        <div class="check-group">
+          <h3 class="check-group-title">Treatments & Services</h3>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="4">
+            <span>Dedicated pages for your highest-value treatments</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="5">
+            <span>Clear descriptions that explain benefits, not just procedures</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="6">
+            <span>Pricing indicators or starting costs where appropriate</span>
+          </label>
+        </div>
 
-      <!-- Booking Section -->
-      <h2 style="margin-bottom:16px;font-size:1.25rem;color:var(--fg)">Booking & Conversion</h2>
-      <ol start="7" style="margin:0 0 28px;padding-left:24px;line-height:1.8;color:var(--muted-2)">
-        <li>Easy-to-find booking link or button on every page</li>
-        <li>Working contact form that sends emails reliably</li>
-        <li>Clear next steps after someone fills out a form or makes a request</li>
-      </ol>
+        <!-- Booking & Conversion Section -->
+        <div class="check-group">
+          <h3 class="check-group-title">Booking & Conversion</h3>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="7">
+            <span>Easy-to-find booking link or button on every page</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="8">
+            <span>Working contact form that sends emails reliably</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="9">
+            <span>Clear next steps after someone fills out a form or makes a request</span>
+          </label>
+        </div>
 
-      <!-- Trust Section -->
-      <h2 style="margin-bottom:16px;font-size:1.25rem;color:var(--fg)">Trust & Credibility</h2>
-      <ol start="10" style="margin:0 0 28px;padding-left:24px;line-height:1.8;color:var(--muted-2)">
-        <li>Patient testimonials or reviews visible on the homepage or key pages</li>
-        <li>Before/after photos (where appropriate and compliant)</li>
-        <li>Provider credentials, certifications, or about section</li>
-      </ol>
+        <!-- Trust & Credibility Section -->
+        <div class="check-group">
+          <h3 class="check-group-title">Trust & Credibility</h3>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="10">
+            <span>Patient testimonials or reviews visible on the homepage or key pages</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="11">
+            <span>Before/after photos (where appropriate and compliant)</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="12">
+            <span>Provider credentials, certifications, or about section</span>
+          </label>
+        </div>
 
-      <!-- Mobile Section -->
-      <h2 style="margin-bottom:16px;font-size:1.25rem;color:var(--fg)">Mobile Experience</h2>
-      <ol start="13" style="margin:0 0 28px;padding-left:24px;line-height:1.8;color:var(--muted-2)">
-        <li>Website loads quickly and looks good on mobile devices</li>
-        <li>Tap-to-call button clearly visible on mobile</li>
-        <li>Forms are easy to fill out on a phone screen</li>
-      </ol>
+        <!-- Mobile Experience Section -->
+        <div class="check-group">
+          <h3 class="check-group-title">Mobile Experience</h3>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="13">
+            <span>Website loads quickly and looks good on mobile devices</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="14">
+            <span>Tap-to-call button clearly visible on mobile</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check-item="15">
+            <span>Forms are easy to fill out on a phone screen</span>
+          </label>
+        </div>
+      </form>
+    </div>
 
-      <!-- What your score means -->
-      <h2 style="margin-top:32px;margin-bottom:16px;font-size:1.125rem;color:var(--fg)">What your score means</h2>
-      <div style="margin:0;line-height:1.8;color:var(--muted-2)">
-        <p style="margin:0 0 12px"><strong style="color:var(--fg)">0–7 points:</strong> Your site is leaking bookings. A rebuild or big refresh will help a lot.</p>
-        <p style="margin:0 0 12px"><strong style="color:var(--fg)">8–12 points:</strong> You are doing some things right, but there is room to grow bookings.</p>
-        <p style="margin:0"><strong style="color:var(--fg)">13–15 points:</strong> You are in good shape. Small tweaks and better traffic can go far.</p>
+    <!-- Results Card -->
+    <div class="card" style="max-width:720px;margin:24px auto 0;padding:32px;text-align:center">
+      <div class="results-row" style="justify-content:center;margin-bottom:16px">
+        <h2 style="margin:0;font-size:2rem">Your score:</h2>
+        <div style="display:flex;align-items:baseline;gap:4px">
+          <span id="scoreValue" style="font-size:2rem;font-weight:700;color:var(--brand-primary)">0</span>
+          <span style="font-size:1.5rem;color:var(--muted)">/15</span>
+        </div>
+      </div>
+      
+      <div id="scoreBandTitle" style="font-size:1.25rem;font-weight:600;color:var(--fg);margin-bottom:8px"></div>
+      <p id="scoreBandBody" style="color:var(--muted-2);margin-bottom:24px"></p>
+      
+      <div class="results-cta-row">
+        <a id="recommendedCta" class="btn btn-primary" href="#">Get Started</a>
+        <a class="btn btn-ghost" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
+      </div>
+      
+      <button id="resetBtn" type="button" style="background:none;border:none;color:var(--muted);font-size:0.875rem;cursor:pointer;margin-top:16px;text-decoration:underline">Reset checklist</button>
+      
+      <!-- Email Capture -->
+      <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--line);max-width:500px;margin-left:auto;margin-right:auto">
+        <input type="email" id="resultsEmail" placeholder="Email to send results (optional)" style="width:100%;padding:12px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px;color:var(--fg);font-size:0.95rem;margin-bottom:12px">
+        <button id="sendResultsBtn" class="btn btn-ghost w-full" type="button">Send my results</button>
+        <p style="font-size:0.875rem;color:var(--muted);margin-top:8px;margin-bottom:0">We'll reply with the best next step.</p>
+        <p id="emailStatusMessage" style="font-size:0.875rem;color:var(--brand-primary);margin-top:8px;display:none"></p>
       </div>
     </div>
 
