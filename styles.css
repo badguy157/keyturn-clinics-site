@@ -1419,7 +1419,9 @@ form.show-errors :where(input,select,textarea):invalid{
 
 /* Ensure footer links never show button styling (no white background/pill) */
 .site-footer .footer-column a,
-.site-footer .footer-column a.footer-link {
+.site-footer .footer-column a.footer-link,
+.site-footer a.footer-link,
+.site-footer a.js-book-modal {
   background: none !important;
   border: none !important;
   padding: 0 !important;
@@ -1428,7 +1430,9 @@ form.show-errors :where(input,select,textarea):invalid{
   min-height: auto !important;
 }
 
-.site-footer .footer-column a:hover {
+.site-footer .footer-column a:hover,
+.site-footer a.footer-link:hover,
+.site-footer a.js-book-modal:hover {
   text-decoration: underline;
   transform: none !important;
 }
