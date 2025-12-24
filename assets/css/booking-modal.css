@@ -139,6 +139,7 @@
 .booking-form-input,
 .booking-form-select {
   width: 100%;
+  min-height: 44px; /* Minimum touch target height for accessibility */
   padding: 0.75rem 1rem;
   background: var(--card, rgba(255, 255, 255, 0.08));
   border: 1px solid var(--line, rgba(255, 255, 255, 0.1));
@@ -264,6 +265,7 @@
 
 /* Buttons */
 .booking-btn {
+  min-height: 44px; /* Minimum touch target height for accessibility */
   padding: 0.75rem 1.5rem;
   border-radius: var(--r-sm, 12px);
   font-size: 1rem;
@@ -306,19 +308,26 @@
   .booking-modal-overlay {
     padding: 0.5rem;
     align-items: flex-start;
-    padding-top: 2rem;
+    padding-top: 1rem; /* Reduced to better fit in viewport */
   }
 
   .booking-modal {
     max-width: 100%;
+    max-height: calc(100vh - 2rem); /* Ensure modal fits in viewport with margin */
+    display: flex;
+    flex-direction: column;
   }
 
   .booking-modal-header {
     padding: 1.5rem 1.5rem 1rem;
+    flex-shrink: 0; /* Prevent header from shrinking */
   }
 
   .booking-modal-body {
     padding: 1.5rem;
+    overflow-y: auto; /* Enable scrolling in modal body */
+    flex: 1; /* Allow body to grow and scroll */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
 
   .booking-modal-title {
@@ -331,6 +340,7 @@
 
   .booking-modal-footer {
     flex-direction: column-reverse;
+    gap: 0.75rem; /* Tighter spacing for mobile */
   }
 
   .booking-btn {
