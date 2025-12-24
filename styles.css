@@ -412,6 +412,36 @@ button.book-intro:hover {
   }
 }
 
+/* Hero proof strip */
+.hero-proof-strip {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 16px;
+}
+
+@media (min-width: 640px) {
+  .hero-proof-strip {
+    margin-top: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+.hero-proof-item {
+  font-size: 0.75rem;
+  color: var(--brand-muted);
+  line-height: 1.5;
+  opacity: 0.9;
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .hero-proof-item {
+    font-size: 0.8125rem;
+  }
+}
+
 /* ---- Hero ---- PREMIUM LAYOUT: 80-100vh responsive */
 .hero{
   padding-top:1.5rem; /* Further reduced for mobile to show CTA + proof above fold */
