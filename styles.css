@@ -1388,16 +1388,19 @@ form.show-errors :where(input,select,textarea):invalid{
 }
 
 /* Ensure footer links never show button styling (no white background/pill) */
-.footer-column a {
+.site-footer .footer-column a,
+.site-footer .footer-column a.footer-link {
   background: none !important;
   border: none !important;
   padding: 0 !important;
   box-shadow: none !important;
   border-radius: 0 !important;
+  min-height: auto !important;
 }
 
-.footer-column a:hover {
+.site-footer .footer-column a:hover {
   text-decoration: underline;
+  transform: none !important;
 }
 
 .footer-bottom {
