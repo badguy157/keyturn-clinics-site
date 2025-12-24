@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sample Report: Patient-Flow Analysis | Keyturn Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="See what a Keyturn patient-flow report looks like. View sample score, leaks, and quick wins for a clinic website.">
+  <!-- Core favicon for browsers and Google Search -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+
+  <!-- High-res PNG for modern browsers -->
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+
+  <!-- Apple touch icon for iOS home screen -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=1.0.0">
+  <link rel="stylesheet" href="/assets/css/booking-modal.css">
+
+  <script src="/public/site.js?v=1.0.0" defer></script>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Keyturn Studio",
+    "url": "https://www.keyturn.studio",
+    "logo": "https://www.keyturn.studio/public/logo.svg",
+    "description": "Website makeovers for clinics and medical practices",
+    "sameAs": []
+  }
+  </script>
+
+  <style>
+    .report-score {
+      background: linear-gradient(135deg, rgba(90,162,255,.12) 0%, rgba(90,162,255,.05) 100%);
+      border: 2px solid rgba(90,162,255,.3);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .score-number {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--brand-text);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .score-label {
+      font-size: 1.125rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .leak-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .leak-item h4 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: var(--heading);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .leak-badge {
+      display: inline-block;
+      background: rgba(255, 107, 107, 0.15);
+      color: #ff6b6b;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .leak-impact {
+      color: var(--brand-text);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+    .quick-win-item {
+      background: linear-gradient(135deg, rgba(76, 217, 100, 0.08) 0%, rgba(76, 217, 100, 0.02) 100%);
+      border: 2px solid rgba(76, 217, 100, 0.2);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .quick-win-item h4 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: var(--heading);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .win-badge {
+      display: inline-block;
+      background: rgba(76, 217, 100, 0.2);
+      color: #2d9f4d;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .evidence-box {
+      background: rgba(0,0,0,0.8);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 16px;
+      margin-top: 12px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #f5f5f5;
+    }
+    .disclaimer {
+      background: rgba(255, 193, 7, 0.1);
+      border-left: 4px solid rgba(255, 193, 7, 0.6);
+      padding: 16px 20px;
+      margin: 32px 0;
+      border-radius: 4px;
+    }
+    .disclaimer p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Page hero ===== -->
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title">Sample <span class="accent">Patient-Flow Report</span></h1>
+    <p class="hero-lede">This is what your clinic's website report looks like. See your score, top leaks, and quick wins to boost bookings.</p>
+  </div>
+</section>
+
+<main id="main" class="container section">
+  
+  <div class="disclaimer">
+    <p><strong>Example Report:</strong> This is a fictional sample showing what you'll receive. Real reports are personalized based on your clinic's website analysis.</p>
+  </div>
+
+  <!-- Patient-Flow Score -->
+  <section class="report-score">
+    <div class="score-number">62/100</div>
+    <div class="score-label">Patient-Flow Score</div>
+    <p style="margin-top:16px;margin-bottom:0;max-width:600px;margin-left:auto;margin-right:auto;color:var(--brand-text)">
+      Your website is losing potential patients at key decision points. Quick fixes below can improve conversion by 30-40%.
+    </p>
+  </section>
+
+  <!-- Top Leaks Section -->
+  <section style="margin-bottom:48px">
+    <h2 style="margin-bottom:24px">Top 3 Patient Leaks</h2>
+    <p style="margin-bottom:32px;color:var(--brand-text)">These are the biggest obstacles preventing visitors from booking consultations.</p>
+
+    <div class="leak-item">
+      <h4>
+        <span class="leak-badge">High Impact</span>
+        Booking button buried in navigation
+      </h4>
+      <p class="leak-impact"><strong>Impact:</strong> ~35% of mobile visitors never find your booking link</p>
+      <p>Your primary CTA is hidden in a dropdown menu. Visitors want to book immediately but can't find the button.</p>
+      <div class="evidence-box">
+        📱 Screenshot: Navigation menu on mobile (booking buried under "Contact")
+        <br>🔍 Heatmap shows 72% of users never open this menu
+      </div>
+    </div>
+
+    <div class="leak-item">
+      <h4>
+        <span class="leak-badge">High Impact</span>
+        No clear service pricing visible
+      </h4>
+      <p class="leak-impact"><strong>Impact:</strong> ~28% abandon before requesting consultation</p>
+      <p>Visitors scroll looking for ballpark pricing. When they don't find it, many assume you're too expensive and leave.</p>
+      <div class="evidence-box">
+        📊 Analytics: Average session only 42 seconds
+        <br>❌ Exit rate: 68% on services page
+      </div>
+    </div>
+
+    <div class="leak-item">
+      <h4>
+        <span class="leak-badge">Medium Impact</span>
+        Slow page load on treatment pages
+      </h4>
+      <p class="leak-impact"><strong>Impact:</strong> ~15% bounce before page fully loads</p>
+      <p>Large unoptimized images are causing 5-7 second load times. Mobile users on slower connections are bouncing.</p>
+      <div class="evidence-box">
+        ⏱️ Current load time: 6.8 seconds
+        <br>📉 Google PageSpeed: 34/100 (mobile)
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Wins Section -->
+  <section style="margin-bottom:48px">
+    <h2 style="margin-bottom:24px">Quick Wins (Easy Fixes)</h2>
+    <p style="margin-bottom:32px;color:var(--brand-text)">These changes can be implemented quickly and will have immediate impact on conversions.</p>
+
+    <div class="quick-win-item">
+      <h4>
+        <span class="win-badge">2 hrs</span>
+        Add sticky "Book Consultation" button
+      </h4>
+      <p>Place a fixed booking button in the bottom-right corner on mobile. Expected lift: +25% mobile conversions.</p>
+    </div>
+
+    <div class="quick-win-item">
+      <h4>
+        <span class="win-badge">1 hr</span>
+        Add "Starting at $X" to service cards
+      </h4>
+      <p>Show starting prices on your homepage service grid. Reduces mystery and qualifies leads better. Expected: +18% consultation requests.</p>
+    </div>
+
+    <div class="quick-win-item">
+      <h4>
+        <span class="win-badge">3 hrs</span>
+        Compress and optimize images
+      </h4>
+      <p>Convert images to WebP format and add responsive sizing. Will cut load time by 60%. Expected: -12% bounce rate.</p>
+    </div>
+
+    <div class="quick-win-item">
+      <h4>
+        <span class="win-badge">1 hr</span>
+        Add before/after gallery to homepage
+      </h4>
+      <p>Showcase 3-4 treatment results above the fold. Social proof drives trust. Expected: +22% time on site.</p>
+    </div>
+  </section>
+
+  <!-- Next Steps -->
+  <section class="card" style="background:linear-gradient(135deg, rgba(90,162,255,.08) 0%, rgba(90,162,255,.02) 100%);border:2px solid rgba(90,162,255,.2);text-align:center">
+    <h2 style="margin-top:0">Get your real report</h2>
+    <p style="margin-bottom:32px;color:var(--brand-text);line-height:1.7">
+      Run a free scan of your clinic's website to get your personalized Patient-Flow Score, leaks, and quick wins.
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
+      <button type="button" class="btn btn-ghost" data-booking-open="true" data-booking-source="sample-report" data-booking-interest="" aria-haspopup="dialog" aria-controls="booking-modal" aria-expanded="false">Book 15-min Fit Check</button>
+    </div>
+    <p class="tiny" style="margin-top:16px">
+      No PHI required. We review public pages only. Screenshots are used for your report and not shared.
+    </p>
+  </section>
+
+</main>
+
+<!-- Booking Modal -->
+<div id="booking-modal-overlay" class="booking-modal-overlay" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+  <div id="booking-modal" class="booking-modal">
+    <div class="booking-modal-header">
+      <h2 id="booking-modal-title" class="booking-modal-title">Request a Booking</h2>
+      <p class="booking-modal-subtitle">We'll reach out within 24 hours to confirm your appointment</p>
+      <button class="booking-modal-close" aria-label="Close modal">&times;</button>
+      <div class="booking-step-indicator">
+        <span class="booking-step-dot active"></span>
+        <span class="booking-step-dot"></span>
+      </div>
+    </div>
+
+    <div class="booking-modal-body">
+      <!-- Step 1: Contact & Preferences -->
+      <div id="booking-step-1" class="booking-step active">
+        <form id="booking-form-step-1">
+          <div class="booking-form-group">
+            <label for="booking-name" class="booking-form-label">
+              Name<span class="required">*</span>
+            </label>
+            <input type="text" id="booking-name" class="booking-form-input" placeholder="Your full name" autocomplete="name">
+            <div id="booking-name-error" class="booking-form-error"></div>
+          </div>
+
+          <div class="booking-form-group">
+            <label for="booking-email" class="booking-form-label">Email</label>
+            <input type="email" id="booking-email" class="booking-form-input" placeholder="your.email@example.com" autocomplete="email">
+            <div id="booking-email-error" class="booking-form-error"></div>
+          </div>
+
+          <div class="booking-form-group">
+            <label for="booking-phone" class="booking-form-label">Phone</label>
+            <input type="tel" id="booking-phone" class="booking-form-input" placeholder="(555) 123-4567" autocomplete="tel">
+            <div id="booking-phone-error" class="booking-form-error"></div>
+          </div>
+
+          <div class="booking-form-group">
+            <label for="booking-treatment" class="booking-form-label">
+              Treatment Interest<span class="required">*</span>
+            </label>
+            <select id="booking-treatment" class="booking-form-select">
+              <option value="" selected disabled>Select a treatment</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Website Consultation">Website Consultation</option>
+              <option value="Patient Flow Scan">Patient Flow Scan</option>
+              <option value="Core Makeover">Core Makeover</option>
+              <option value="Pro Package">Pro Package</option>
+              <option value="Premier Package">Premier Package</option>
+            </select>
+            <div id="booking-treatment-error" class="booking-form-error"></div>
+          </div>
+
+          <div class="booking-form-group">
+            <label for="booking-time-window" class="booking-form-label">
+              Preferred Time Window<span class="required">*</span>
+            </label>
+            <select id="booking-time-window" class="booking-form-select">
+              <option value="" selected disabled>Select your preference</option>
+              <option value="Morning (9AM - 12PM)">Morning (9AM - 12PM)</option>
+              <option value="Afternoon (12PM - 5PM)">Afternoon (12PM - 5PM)</option>
+              <option value="Evening (5PM - 8PM)">Evening (5PM - 8PM)</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+            <div id="booking-time-window-error" class="booking-form-error"></div>
+          </div>
+
+          <div class="booking-modal-footer">
+            <button type="button" id="booking-next-btn" class="booking-btn booking-btn-primary">
+              Continue
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Step 2: Review & Confirm -->
+      <div id="booking-step-2" class="booking-step">
+        <div class="booking-summary">
+          <h3 class="booking-summary-title">Review Your Request</h3>
+          <div class="booking-summary-item">
+            <span class="booking-summary-label">Name</span>
+            <span id="summary-name" class="booking-summary-value"></span>
+          </div>
+          <div class="booking-summary-item">
+            <span class="booking-summary-label">Email</span>
+            <span id="summary-email" class="booking-summary-value"></span>
+          </div>
+          <div class="booking-summary-item">
+            <span class="booking-summary-label">Phone</span>
+            <span id="summary-phone" class="booking-summary-value"></span>
+          </div>
+          <div class="booking-summary-item">
+            <span class="booking-summary-label">Treatment</span>
+            <span id="summary-treatment" class="booking-summary-value"></span>
+          </div>
+          <div class="booking-summary-item">
+            <span class="booking-summary-label">Preferred Time</span>
+            <span id="summary-time-window" class="booking-summary-value"></span>
+          </div>
+        </div>
+
+        <!-- Submit error message -->
+        <div id="booking-submit-error" class="booking-form-error" style="margin-top: 16px;"></div>
+
+        <div class="booking-modal-footer">
+          <button type="button" id="booking-back-btn" class="booking-btn booking-btn-secondary">
+            Back
+          </button>
+          <button type="button" id="booking-confirm-btn" class="booking-btn booking-btn-primary">
+            Submit Request
+          </button>
+        </div>
+      </div>
+
+      <!-- Thank You State -->
+      <div id="booking-thank-you" class="booking-thank-you">
+        <div class="booking-thank-you-icon">✓</div>
+        <h3 class="booking-thank-you-title">Thank You!</h3>
+        <p class="booking-thank-you-message">
+          Your booking request has been received. We'll reach out within 24 hours to confirm your appointment.
+        </p>
+        <button type="button" class="booking-btn booking-btn-primary" onclick="document.querySelector('.booking-modal-close').click()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
