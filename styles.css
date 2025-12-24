@@ -451,7 +451,7 @@ button.book-intro:hover {
   background: rgba(255, 255, 255, 0.03);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 @media (min-width: 768px) {
@@ -460,24 +460,21 @@ button.book-intro:hover {
     padding: 20px 24px;
     flex-direction: row;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 20px 24px;
+    gap: 32px;
   }
 }
 
 .proof-testimonials {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   flex: 1;
   min-width: 0;
 }
 
 @media (min-width: 768px) {
   .proof-testimonials {
-    flex-direction: row;
-    gap: 16px;
-    flex: 2;
+    gap: 14px;
   }
 }
 
@@ -494,7 +491,7 @@ button.book-intro:hover {
 @media (min-width: 768px) {
   .proof-testimonial {
     font-size: 0.8125rem;
-    flex: 1;
+    line-height: 1.5;
   }
 }
 
@@ -515,6 +512,20 @@ button.book-intro:hover {
   }
 }
 
+.proof-outcome {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .proof-outcome {
+    align-items: center;
+    flex-shrink: 0;
+  }
+}
+
 .proof-outcome-chip {
   font-size: 0.75rem;
   color: var(--brand-accent);
@@ -524,38 +535,13 @@ button.book-intro:hover {
   background: rgba(90, 162, 255, 0.08);
   white-space: nowrap;
   font-weight: 600;
-  align-self: flex-start;
 }
 
 @media (min-width: 768px) {
   .proof-outcome-chip {
     font-size: 0.8125rem;
     padding: 8px 14px;
-    align-self: center;
   }
-}
-
-.proof-link {
-  font-size: 0.75rem;
-  color: var(--brand-accent);
-  text-decoration: none;
-  font-weight: 500;
-  white-space: nowrap;
-  transition: opacity 0.15s ease;
-  align-self: flex-start;
-}
-
-@media (min-width: 768px) {
-  .proof-link {
-    font-size: 0.8125rem;
-    align-self: center;
-  }
-}
-
-.proof-link:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 /* ---- Hero ---- PREMIUM LAYOUT: 80-100vh responsive */
