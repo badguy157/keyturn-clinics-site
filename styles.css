@@ -290,6 +290,20 @@ body.nav-open [data-sticky-cta] {
 .text-link-primary:hover{text-decoration:underline}
 .w-full{width:100%}
 
+/* Button reset for text-link style buttons */
+button.book-intro {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: #93c5fd;
+  text-decoration: none;
+}
+button.book-intro:hover {
+  text-decoration: underline;
+}
+
 /* Ensure contrast for primary inside mobile drawer */
 .mobile-drawer .btn-primary{color:#ffffff !important}
 .mobile-drawer .btn-ghost{color:var(--fg)}
