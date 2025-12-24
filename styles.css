@@ -62,7 +62,7 @@
 
   /* layout paddings */
   --container-x:20px;      /* horizontal page gutters */
-  --section-y:80px;        /* top/bottom spacing per section - PREMIUM LAYOUT: 80-100px responsive */
+  --section-y:48px;        /* Reduced for mobile: was 80px, now 48px for tighter spacing */
   --hero-y:56px;
   --hero-y-bottom:28px;
   --header-h:56px;         /* Shorter on mobile - py-3 equivalent */
@@ -277,6 +277,7 @@ body.nav-open [data-sticky-cta] {
   display:inline-flex;align-items:center;justify-content:center;
   gap:8px;font-weight:600;white-space:nowrap;text-decoration:none;
   border-radius:12px;border:1px solid var(--line);
+  min-height:44px; /* Minimum touch target height for accessibility */
   padding:13px 20px;font-size:0.95rem;
   transition:transform 0.15s ease-out,box-shadow 0.15s ease-out,filter 0.15s ease-out,background 0.15s ease-out,border-color 0.15s ease-out;
 }
@@ -413,9 +414,9 @@ button.book-intro:hover {
 
 /* ---- Hero ---- PREMIUM LAYOUT: 80-100vh responsive */
 .hero{
-  padding-top:2.5rem; /* Reduced for mobile to show more content above fold */
-  padding-bottom:4rem;
-  min-height:80vh !important;  /* PREMIUM: mobile 80vh */
+  padding-top:1.5rem; /* Further reduced for mobile to show CTA + proof above fold */
+  padding-bottom:2rem; /* Reduced bottom padding on mobile */
+  min-height:auto !important;  /* Remove min-height on mobile for better fold optimization */
   display:flex;
   align-items:center;
 }
@@ -481,7 +482,7 @@ button.book-intro:hover {
   font-size:1.875rem; /* text-3xl mobile base */
   line-height:1.15; /* leading-tight */
   letter-spacing:-0.025em; /* tracking-tight */
-  margin:0 0 16px;
+  margin:0 0 12px; /* Reduced bottom margin for mobile */
   font-weight:700;
   font-family:var(--font-heading);
 }
@@ -510,7 +511,7 @@ button.book-intro:hover {
 
 /* Hero left section vertical spacing */
 .hero-left > * + * {
-  margin-top:1rem; /* space-y-4 mobile */
+  margin-top:0.75rem; /* Reduced spacing on mobile for tighter layout */
 }
 @media (min-width:768px){
   .hero-left > * + * {
@@ -560,7 +561,7 @@ button.book-intro:hover {
   background:rgba(30,41,59,0.4);
   border:1px solid rgba(255,255,255,.06);
   border-radius:1rem; /* rounded-2xl */
-  padding:24px;
+  padding:16px; /* Reduced from 24px for mobile */
   box-shadow:0 8px 32px rgba(0,0,0,.2);
 }
 @media (min-width:768px){
@@ -571,21 +572,21 @@ button.book-intro:hover {
 
 /* Hero badges - compact pill badges below mockup */
 .hero-badges{
-  margin-top:16px;
+  margin-top:12px; /* Reduced from 16px for mobile */
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   align-items:center;
-  gap:10px;
+  gap:8px; /* Reduced from 10px for mobile */
 }
 .hero-badge{
   display:inline-flex;
   align-items:center;
-  padding:8px 14px;
+  padding:6px 12px; /* Slightly reduced padding */
   border-radius:999px;
   background:rgba(15,23,42,0.5);
   border:1px solid rgba(255,255,255,.12);
-  font-size:13px;
+  font-size:12px; /* Slightly reduced from 13px */
   font-weight:600;
   color:var(--brand-accent);
   white-space:nowrap;
@@ -652,7 +653,7 @@ button.book-intro:hover {
   max-width:28rem; /* max-w-md mobile */
   margin-left:auto;
   margin-right:auto;
-  margin-top:2rem; /* mt-8 mobile */
+  margin-top:1.25rem; /* Reduced from 2rem to mt-5 for tighter spacing on mobile */
 }
 @media (min-width:1024px){
   .hero-right{
@@ -7447,8 +7448,8 @@ details[open] .accordion-panel {
 
 /* ===== Home Proof Preview Section (KT-12) ===== */
 .home-proof-preview {
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding-top: 40px; /* Reduced from 56px for mobile */
+  padding-bottom: 40px; /* Reduced from 56px for mobile */
 }
 
 .home-proof-title {
@@ -7531,7 +7532,7 @@ details[open] .accordion-panel {
 
 @media (max-width: 640px) {
   .home-proof-grid { grid-template-columns: 1fr; }
-  .home-proof-preview { padding-top: 44px; padding-bottom: 44px; }
+  .home-proof-preview { padding-top: 36px; padding-bottom: 36px; } /* Further reduced for mobile */
 }
 
 /* ===== Start Here Section ===== */
