@@ -54,7 +54,7 @@
       </ul>
       <div class="nav-ctas">
         <a class="nav-tel" href="tel:+12025961574" aria-label="Call Keyturn Studio">Call</a>
-        <a class="btn btn-primary" href="#" data-booking-open="true" data-booking-source="navbar" aria-label="Book 15-minute Fit Check">Book 15-min Fit Check</a>
+        <button type="button" class="btn btn-primary" data-booking-open="true" data-booking-source="navbar" aria-haspopup="dialog" aria-controls="booking-modal" aria-expanded="false" aria-label="Book 15-minute Fit Check">Book 15-min Fit Check</button>
         <a class="btn btn-ghost" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
       </div>
     </nav>
@@ -75,7 +75,7 @@
     <a href="/blog.html">Blog</a>
     <a href="/contact.html">Contact</a>
     <a class="mobile-menu-tel" href="tel:+12025961574">Call (202) 596-1574</a>
-    <a class="btn btn-primary w-full" href="#" data-booking-open="true" data-booking-source="navbar-mobile">Book 15-min Fit Check</a>
+    <button type="button" class="btn btn-primary w-full" data-booking-open="true" data-booking-source="navbar-mobile" aria-haspopup="dialog" aria-controls="booking-modal" aria-expanded="false">Book 15-min Fit Check</button>
     <a class="btn btn-ghost w-full" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
   </nav>
 </header>
@@ -265,13 +265,16 @@
   function injectMobileStickyCA() {
     const stickyHTML = `
 <div class="mobile-sticky-cta" data-sticky-cta hidden>
-  <a class="btn btn-primary mobile-sticky-primary"
-     href="#"
+  <button type="button"
+     class="btn btn-primary mobile-sticky-primary"
      data-booking-open="true"
      data-booking-source="sticky"
-     data-booking-interest="">
+     data-booking-interest=""
+     aria-haspopup="dialog"
+     aria-controls="booking-modal"
+     aria-expanded="false">
      Book 15-min Fit Check
-  </a>
+  </button>
 
   <a class="mobile-sticky-secondary text-link-primary"
      href="https://scan.keyturn.studio/"
@@ -306,22 +309,29 @@
     const isSpecialPage = isBlogPage || isProofPage;
 
     if (isSpecialPage) {
-      // Blog/Proof: primary = Free Scan, secondary = Fit Check
-      primaryBtn.textContent = 'Run Free Scan';
-      primaryBtn.href = 'https://scan.keyturn.studio/';
-      primaryBtn.setAttribute('target', '_blank');
-      primaryBtn.setAttribute('rel', 'noopener');
-      primaryBtn.removeAttribute('data-booking-open');
-      primaryBtn.removeAttribute('data-booking-source');
-      primaryBtn.removeAttribute('data-booking-interest');
+      // Blog/Proof: primary = Free Scan (convert button to anchor), secondary = Fit Check (convert anchor to button)
+      
+      // Convert primary button to anchor for external link
+      const newPrimaryLink = document.createElement('a');
+      newPrimaryLink.className = primaryBtn.className;
+      newPrimaryLink.textContent = 'Run Free Scan';
+      newPrimaryLink.href = 'https://scan.keyturn.studio/';
+      newPrimaryLink.setAttribute('target', '_blank');
+      newPrimaryLink.setAttribute('rel', 'noopener');
+      primaryBtn.parentNode.replaceChild(newPrimaryLink, primaryBtn);
 
-      secondaryLink.textContent = 'Book 15-min Fit Check';
-      secondaryLink.href = '#';
-      secondaryLink.setAttribute('data-booking-open', 'true');
-      secondaryLink.setAttribute('data-booking-source', 'sticky');
-      secondaryLink.setAttribute('data-booking-interest', '');
-      secondaryLink.removeAttribute('target');
-      secondaryLink.removeAttribute('rel');
+      // Convert secondary link to button for modal
+      const newSecondaryBtn = document.createElement('button');
+      newSecondaryBtn.type = 'button';
+      newSecondaryBtn.className = secondaryLink.className;
+      newSecondaryBtn.textContent = 'Book 15-min Fit Check';
+      newSecondaryBtn.setAttribute('data-booking-open', 'true');
+      newSecondaryBtn.setAttribute('data-booking-source', 'sticky');
+      newSecondaryBtn.setAttribute('data-booking-interest', '');
+      newSecondaryBtn.setAttribute('aria-haspopup', 'dialog');
+      newSecondaryBtn.setAttribute('aria-controls', 'booking-modal');
+      newSecondaryBtn.setAttribute('aria-expanded', 'false');
+      secondaryLink.parentNode.replaceChild(newSecondaryBtn, secondaryLink);
     }
     // Default case is already set in the HTML:
     // primary = Book Fit Check (with booking modal)

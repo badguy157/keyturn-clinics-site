@@ -290,6 +290,20 @@ body.nav-open [data-sticky-cta] {
 .text-link-primary:hover{text-decoration:underline}
 .w-full{width:100%}
 
+/* Button reset for text-link style buttons */
+button.book-intro {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: #93c5fd;
+  text-decoration: none;
+}
+button.book-intro:hover {
+  text-decoration: underline;
+}
+
 /* Ensure contrast for primary inside mobile drawer */
 .mobile-drawer .btn-primary{color:#ffffff !important}
 .mobile-drawer .btn-ghost{color:var(--fg)}
@@ -301,7 +315,8 @@ body.nav-open [data-sticky-cta] {
   gap:0.75rem; /* gap-3 mobile */
   margin-top:0;
 }
-.hero-ctas a.btn{
+.hero-ctas a.btn,
+.hero-ctas button.btn{
   width:100%; /* w-full mobile */
   justify-content:center;
   text-align:center;
@@ -316,7 +331,8 @@ body.nav-open [data-sticky-cta] {
     flex-direction:row; /* sm:flex-row */
     gap:1rem; /* sm:gap-4 */
   }
-  .hero-ctas a.btn{
+  .hero-ctas a.btn,
+  .hero-ctas button.btn{
     width:auto; /* sm:w-auto */
     font-size:1rem; /* sm:text-base */
   }
