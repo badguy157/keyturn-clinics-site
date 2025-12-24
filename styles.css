@@ -301,7 +301,8 @@ body.nav-open [data-sticky-cta] {
   gap:0.75rem; /* gap-3 mobile */
   margin-top:0;
 }
-.hero-ctas a.btn{
+.hero-ctas a.btn,
+.hero-ctas button.btn{
   width:100%; /* w-full mobile */
   justify-content:center;
   text-align:center;
@@ -316,7 +317,8 @@ body.nav-open [data-sticky-cta] {
     flex-direction:row; /* sm:flex-row */
     gap:1rem; /* sm:gap-4 */
   }
-  .hero-ctas a.btn{
+  .hero-ctas a.btn,
+  .hero-ctas button.btn{
     width:auto; /* sm:w-auto */
     font-size:1rem; /* sm:text-base */
   }

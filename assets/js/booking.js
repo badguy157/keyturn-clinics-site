@@ -26,6 +26,7 @@
   let stepDots;
   let focusableElements;
   let lastFocusedElement;
+  let lastTriggerElement;
 
   // Initialize on DOM ready
   function init() {
@@ -75,10 +76,11 @@
       // Ignore if explicitly disabled
       if (trigger.getAttribute('data-booking-open') === 'false') return;
 
-      // Prevent anchor navigation
-      if (trigger.tagName === 'A') {
-        e.preventDefault();
-      }
+      // Prevent default for both anchors and buttons
+      e.preventDefault();
+
+      // Store the trigger element for aria-expanded management
+      lastTriggerElement = trigger;
 
       openBookingModal({
         source: trigger.getAttribute('data-booking-source') || '',
@@ -167,6 +169,11 @@
     document.body.classList.add('booking-modal-open');
     document.documentElement.classList.add('kt-modal-open');
 
+    // Update aria-expanded on trigger
+    if (lastTriggerElement && lastTriggerElement.hasAttribute('aria-expanded')) {
+      lastTriggerElement.setAttribute('aria-expanded', 'true');
+    }
+
     // Show step 1
     showStep(1);
 
@@ -191,6 +198,11 @@
     overlay.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('booking-modal-open');
     document.documentElement.classList.remove('kt-modal-open');
+
+    // Reset aria-expanded on last trigger
+    if (lastTriggerElement && lastTriggerElement.hasAttribute('aria-expanded')) {
+      lastTriggerElement.setAttribute('aria-expanded', 'false');
+    }
 
     // Restore focus
     if (lastFocusedElement) {
