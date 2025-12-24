@@ -1387,6 +1387,19 @@ form.show-errors :where(input,select,textarea):invalid{
   text-decoration:underline;
 }
 
+/* Ensure footer links never show button styling (no white background/pill) */
+.footer-column a {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
 .footer-bottom {
   padding-top: 24px;
   padding-bottom: 32px;
