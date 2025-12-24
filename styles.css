@@ -442,6 +442,108 @@ button.book-intro:hover {
   }
 }
 
+/* Hero Proof Cluster - compact proof near primary CTA */
+.hero-proof-cluster {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .hero-proof-cluster {
+    margin-top: 24px;
+    padding: 20px 24px;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+.proof-testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .proof-testimonials {
+    gap: 14px;
+  }
+}
+
+.proof-testimonial {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--brand-text);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (min-width: 768px) {
+  .proof-testimonial {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+}
+
+.proof-quote {
+  font-style: italic;
+  opacity: 0.95;
+}
+
+.proof-attribution {
+  font-size: 0.7rem;
+  color: var(--brand-muted);
+  opacity: 0.85;
+}
+
+@media (min-width: 768px) {
+  .proof-attribution {
+    font-size: 0.75rem;
+  }
+}
+
+.proof-outcome {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .proof-outcome {
+    align-items: center;
+    flex-shrink: 0;
+  }
+}
+
+.proof-outcome-chip {
+  font-size: 0.75rem;
+  color: var(--brand-accent);
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(90, 162, 255, 0.08);
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .proof-outcome-chip {
+    font-size: 0.8125rem;
+    padding: 8px 14px;
+  }
+}
+
 /* ---- Hero ---- PREMIUM LAYOUT: 80-100vh responsive */
 .hero{
   padding-top:1.5rem; /* Further reduced for mobile to show CTA + proof above fold */
