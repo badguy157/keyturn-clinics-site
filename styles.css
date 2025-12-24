@@ -8192,6 +8192,11 @@ html.js .fade-in-section.is-visible {
 }
 
 /* ===== After you book section ===== */
+.after-you-book-section {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
 .after-you-book-wrapper {
   max-width: 640px;
   margin: 0 auto;
@@ -8224,8 +8229,8 @@ html.js .fade-in-section.is-visible {
   top: 0;
   width: 28px;
   height: 28px;
-  background: rgba(90,162,255,.15);
-  border: 1px solid rgba(90,162,255,.3);
+  background: rgba(90, 162, 255, 0.15);
+  border: 1px solid rgba(90, 162, 255, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
