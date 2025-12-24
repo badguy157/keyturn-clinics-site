@@ -8190,3 +8190,69 @@ html.js .fade-in-section.is-visible {
   margin-top: auto;
   padding-top: 14px;
 }
+
+/* ===== After you book section ===== */
+.after-you-book-section {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+.after-you-book-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.after-you-book-list {
+  list-style: none;
+  counter-reset: step-counter;
+  margin: 24px 0 20px;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  text-align: left;
+}
+
+.after-you-book-list li {
+  counter-increment: step-counter;
+  position: relative;
+  padding-left: 40px;
+  color: var(--brand-text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.after-you-book-list li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  background: rgba(90, 162, 255, 0.15);
+  border: 1px solid rgba(90, 162, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--brand-accent);
+}
+
+.after-you-book-reassurance {
+  font-size: 0.9rem;
+  color: var(--brand-muted);
+  font-style: italic;
+  margin: 20px 0 0;
+}
+
+@media (min-width: 768px) {
+  .after-you-book-list {
+    gap: 20px;
+  }
+  
+  .after-you-book-list li {
+    font-size: 1rem;
+  }
+}
