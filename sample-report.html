@@ -207,6 +207,53 @@
       color: var(--text);
       line-height: 1.6;
     }
+    .evidence-sources-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 24px;
+    }
+    .evidence-sources-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--heading);
+      margin: 0 0 16px 0;
+    }
+    .evidence-sources-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    @media (max-width: 600px) {
+      .evidence-sources-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    .evidence-source-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .evidence-source-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .evidence-reference {
+      font-size: 0.85rem;
+      color: var(--brand-text);
+      font-style: italic;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
     .disclaimer {
       background: rgba(255, 193, 7, 0.1);
       border-left: 4px solid rgba(255, 193, 7, 0.6);
@@ -263,6 +310,29 @@
         <p style="margin-bottom:0;color:var(--brand-text);font-size:0.9rem"><strong>Privacy note:</strong> We review public pages only. No logins. No PHI.</p>
       </div>
     </div>
+    
+    <!-- Evidence Sources Card -->
+    <div class="evidence-sources-card">
+      <h3 class="evidence-sources-title">How we know</h3>
+      <ul class="evidence-sources-list">
+        <li class="evidence-source-item">
+          <span class="evidence-source-icon">📸</span>
+          <span>Screenshots (desktop/mobile)</span>
+        </li>
+        <li class="evidence-source-item">
+          <span class="evidence-source-icon">⚡</span>
+          <span>Performance metrics (LCP/CLS)</span>
+        </li>
+        <li class="evidence-source-item">
+          <span class="evidence-source-icon">🎯</span>
+          <span>Booking path checks (CTA visibility)</span>
+        </li>
+        <li class="evidence-source-item">
+          <span class="evidence-source-icon">✓</span>
+          <span>Trust signals (reviews/credentials)</span>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <!-- Top Leaks Section -->
@@ -284,6 +354,7 @@
           <div class="metric-badge">📱 Mobile nav CTA hidden at 89% scroll depth</div>
         </div>
       </div>
+      <div class="evidence-reference">📸 Based on: Screenshots + 🎯 Booking path checks</div>
     </div>
 
     <div class="leak-item">
@@ -300,6 +371,7 @@
           <div class="metric-badge">⏱️ Avg session time: 42 seconds (68% exit rate)</div>
         </div>
       </div>
+      <div class="evidence-reference">📸 Based on: Screenshots + ⚡ Performance metrics</div>
     </div>
 
     <div class="leak-item">
@@ -316,6 +388,7 @@
           <div class="metric-badge">🚀 LCP: 6.8 seconds (target: &lt;2.5s)</div>
         </div>
       </div>
+      <div class="evidence-reference">⚡ Based on: Performance metrics (LCP/CLS)</div>
     </div>
   </section>
 
