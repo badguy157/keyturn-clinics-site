@@ -7934,17 +7934,32 @@ details[open] .accordion-panel {
 }
 
 /* ===== Start Here Section ===== */
+
+/* Container for section with max-width and tighter spacing */
+.start-here-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Helper text under heading */
+.start-here-helper {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--brand-muted);
+  margin: 0 0 28px;
+  line-height: 1.6;
+}
+
 .start-here-grid {
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 @media (min-width:768px){
   .start-here-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 28px;
   }
 }
@@ -7959,21 +7974,38 @@ details[open] .accordion-panel {
   position: relative;
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.start-here-step-badge {
-  display: inline-block;
-  padding: 6px 14px;
-  background: rgba(90,162,255,.15);
-  border: 1px solid rgba(90,162,255,.3);
+/* Primary card (Fit Check) with enhanced visual hierarchy */
+.start-here-card--primary {
+  background: rgba(90,162,255,.08);
+  border: 2px solid rgba(90,162,255,.35);
+  box-shadow: 0 12px 32px rgba(90,162,255,.15), 0 4px 16px rgba(0,0,0,.25);
+}
+
+.start-here-card--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(90,162,255,.2), 0 8px 24px rgba(0,0,0,.3);
+  border-color: rgba(90,162,255,.45);
+}
+
+/* Recommended badge */
+.recommended-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 16px;
+  background: var(--brand-primary);
+  color: #ffffff;
   border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--brand-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0 auto 20px;
-  width: fit-content;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 12px rgba(90,162,255,.3);
+  z-index: 10;
 }
 
 .start-here-card-title {
@@ -8006,6 +8038,13 @@ details[open] .accordion-panel {
   font-style: italic;
 }
 
+.start-here-subtext {
+  font-size: 0.95rem;
+  color: var(--brand-text);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
 .start-here-time {
   font-size: 0.9375rem;
   color: var(--brand-muted);
@@ -8013,10 +8052,17 @@ details[open] .accordion-panel {
   font-weight: 500;
 }
 
+/* Card body - grows to fill space */
+.start-here-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .start-here-bullets {
   list-style: none;
   padding: 0;
-  margin: 0 0 28px;
+  margin: 0 0 auto;
   text-align: left;
   max-width: 400px;
   margin-left: auto;
@@ -8045,13 +8091,20 @@ details[open] .accordion-panel {
   font-size: 1.125rem;
 }
 
-.start-here-cta {
-  margin-top: auto;
-  margin-bottom: 16px;
+/* Card CTA - pinned to bottom with consistent alignment */
+.start-here-card .card-cta {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.start-here-cta .btn {
+.start-here-card .card-cta .btn {
   width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .start-here-note {
@@ -8060,6 +8113,35 @@ details[open] .accordion-panel {
   color: var(--brand-muted);
   font-style: italic;
   line-height: 1.5;
+  text-align: center;
+}
+
+/* Footer for Deep Scan upsell - muted and secondary */
+.start-here-footer {
+  text-align: center;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.start-here-footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--brand-muted);
+  line-height: 1.6;
+}
+
+.start-here-footer a {
+  color: var(--brand-accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.start-here-footer a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* Section eyebrow for consistency */
