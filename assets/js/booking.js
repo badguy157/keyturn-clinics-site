@@ -470,8 +470,8 @@
   // Populate summary in step 2
   function populateSummary() {
     document.getElementById('summary-name').textContent = formData.name;
-    document.getElementById('summary-email').textContent = formData.email || '—';
-    document.getElementById('summary-phone').textContent = formData.phone || '—';
+    document.getElementById('summary-email').textContent = formData.email || 'N/A';
+    document.getElementById('summary-phone').textContent = formData.phone || 'N/A';
     document.getElementById('summary-treatment').textContent = formData.treatment;
     document.getElementById('summary-time-window').textContent = formData.timeWindow;
   }
