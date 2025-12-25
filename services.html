@@ -33,77 +33,11 @@
         <p class="services-hero-intro">
           We work with medspas, cosmetic surgery clinics, aesthetic dental practices, and dermatology clinics. If you help people look and feel their best, we help you get more of the right patients.
         </p>
-      </div>
-      <div class="services-hero-right">
-        <!-- Path Chooser Module -->
-        <div class="path-chooser">
-          <div class="path-chooser-header">
-            <h2 class="path-chooser-title">Which path should I choose?</h2>
-            <p class="path-chooser-subtitle">Pick where you're at. We'll point you to the best next step.</p>
-          </div>
-
-          <!-- Three selectable options -->
-          <div class="path-options" role="tablist">
-            <button 
-              type="button" 
-              class="path-option is-active" 
-              role="tab"
-              aria-selected="true"
-              aria-pressed="true"
-              aria-controls="path-detail"
-              id="option-scan"
-              data-key="scan">
-              <div class="path-card-badges">
-                <span class="path-badge">Recommended</span>
-              </div>
-              <p class="path-kicker">Start here</p>
-              <h3 class="path-title opt-title">Free Scan</h3>
-              <p class="opt-meta">60 seconds • quick wins • no calls</p>
-            </button>
-
-            <button 
-              type="button" 
-              class="path-option" 
-              role="tab"
-              aria-selected="false"
-              aria-pressed="false"
-              aria-controls="path-detail"
-              id="option-blueprint"
-              data-key="blueprint">
-              <span class="opt-title">Get the $1,000 Booking Blueprint</span>
-              <span class="opt-meta">Plan + priorities + ROI • credited if you hire us</span>
-            </button>
-
-            <button 
-              type="button" 
-              class="path-option" 
-              role="tab"
-              aria-selected="false"
-              aria-pressed="false"
-              aria-controls="path-detail"
-              id="option-quote"
-              data-key="quote">
-              <span class="opt-title">Get a rebuild quote</span>
-              <span class="opt-meta">Done-for-you rebuild • 3–5 weeks</span>
-            </button>
-          </div>
-
-          <!-- Detail panel that updates based on selection -->
-          <div class="path-chooser-detail">
-            <div class="path-detail" id="path-detail" role="tabpanel">
-              <h3 class="path-detail-title" id="pathTitle"></h3>
-              <p class="path-detail-best-for"><strong>Best for:</strong></p>
-              <ul class="path-detail-list" id="pathBullets"></ul>
-              <a 
-                class="btn btn-primary path-detail-cta" 
-                id="pathCta"
-                href="#">
-              </a>
-              <p class="path-detail-secondary" id="pathHintContainer">
-                <a id="pathHint" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Not sure? Start with the Free Scan.</a>
-              </p>
-            </div>
-          </div>
+        
+        <!-- Simplified decision point with TWO actions -->
+        <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+          <button type="button" class="btn btn-primary" data-booking-open="true" data-booking-source="services-hero" data-booking-interest="" aria-haspopup="dialog" aria-controls="booking-modal" aria-expanded="false">Book 15-min Fit Check</button>
+          <a href="https://scan.keyturn.studio/" target="_blank" rel="noopener" style="color:var(--brand);text-decoration:underline">Run Free Scan</a>
         </div>
       </div>
     </div>
@@ -111,7 +45,7 @@
 
   <!-- ===== How to Start Section ===== -->
   <section class="how-to-start container section fade-in-section" style="padding-top:32px;padding-bottom:32px">
-    <h2 class="section-eyebrow">How to start</h2>
+    <h2 class="section-eyebrow">Start here</h2>
     <div class="how-to-start-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:32px;align-items:stretch">
       <div class="step-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:24px;text-align:center;display:flex;flex-direction:column;height:100%">
         <div class="step-card__content offerCardInner">
@@ -140,43 +74,9 @@
         </div>
       </div>
       
-      <div class="step-card step-card--deep" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:24px;text-align:center;display:flex;flex-direction:column;height:100%">
-        <div class="step-card__content offerCardInner" style="flex:1">
-          <div style="font-size:2rem;margin-bottom:8px">2</div>
-          <h3 style="font-size:1.25rem;margin:0 0 8px;color:var(--fg)">Deep Scan Report (<span data-price="deepScan">$297</span>)</h3>
-          <p style="color:var(--brand-muted);font-size:0.85rem;margin:0 0 8px">5–7 min to complete</p>
-          <ul style="list-style:disc;padding-left:20px;margin:12px 0;text-align:left;font-size:0.9rem">
-            <li>Executive summary (what to fix first)</li>
-            <li>Journey map (entry → booking)</li>
-            <li>Page-by-page analysis (specific fixes per page)</li>
-          </ul>
-          <p style="color:var(--brand-muted);font-size:0.85rem;margin:0 0 16px">Includes scores, screenshots, and quick wins.</p>
-          
-          <div class="offerDetails">
-            <h4>What you get</h4>
-            <ul>
-              <li>Executive summary + priority fixes</li>
-              <li>Journey map (where patients drop off)</li>
-              <li>Page-by-page findings with screenshots</li>
-            </ul>
-            <h4 style="margin-top:12px;">Not included / best fit</h4>
-            <ul>
-              <li>No rebuild or implementation</li>
-              <li>No ongoing marketing/ads/SEO</li>
-            </ul>
-            <div class="offerFineprint">Best if you want clarity before spending on a rebuild.</div>
-          </div>
-          
-          <div class="offerCtaRow">
-            <a class="btn btn-ghost" href="https://scan.keyturn.studio/" target="_blank" rel="noopener" style="font-size:0.9rem;padding:10px 20px">Run Free Scan</a>
-            <p class="step-card__cta-note" style="color:var(--brand-muted);font-size:0.75rem;margin-top:8px">Unlock Deep Scan option inside your scan report</p>
-          </div>
-        </div>
-      </div>
-      
       <div class="step-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:24px;text-align:center;display:flex;flex-direction:column;height:100%">
         <div class="step-card__content offerCardInner">
-          <div style="font-size:2rem;margin-bottom:8px">3</div>
+          <div style="font-size:2rem;margin-bottom:8px">2</div>
           <h3 style="font-size:1.25rem;margin:0 0 8px;color:var(--fg)">Blueprint (<span data-price="blueprint">$1,000</span>, credited)</h3>
           <p style="color:var(--brand-muted);font-size:0.95rem;margin:0 0 16px">Get the plan + wireframe</p>
           
@@ -203,7 +103,7 @@
       
       <div class="step-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:24px;text-align:center;display:flex;flex-direction:column;height:100%">
         <div class="step-card__content offerCardInner">
-          <div style="font-size:2rem;margin-bottom:8px">4</div>
+          <div style="font-size:2rem;margin-bottom:8px">3</div>
           <h3 style="font-size:1.25rem;margin:0 0 8px;color:var(--fg)">Rebuild (3–5 weeks)</h3>
           <p style="color:var(--brand-muted);font-size:0.95rem;margin:0 0 16px">Launch the new site</p>
           
@@ -228,6 +128,11 @@
         </div>
       </div>
     </div>
+    
+    <!-- Deep Scan upsell link -->
+    <p style="margin-top:24px;text-align:center;font-size:0.95rem">
+      <a href="https://scan.keyturn.studio/" target="_blank" rel="noopener" style="color:var(--brand);text-decoration:underline">Want a full page-by-page teardown? Unlock Deep Scan in your report.</a>
+    </p>
   </section>
 
   <!-- ===== Core Services Section ===== -->
@@ -259,46 +164,6 @@
         <p style="margin-top:12px">You'll get a one-page photo guide with simple tips, good vs bad examples, and a short shot list. If you want, we can also help you brief a local photographer.</p>
         <p style="margin-top:12px">Care keeps things steady and easy to manage. Growth adds monthly tests and new landing pages to support the treatments you want to grow.</p>
       </article>
-    </div>
-  </section>
-
-  <!-- ===== Start Here: Blueprint Section ===== -->
-  <section class="container section fade-in-section" style="padding-top:32px;padding-bottom:32px">
-    <div class="services-hero-card" style="max-width:none">
-      <h2 class="services-hero-card-title">Start here: Clinic Booking Blueprint &amp; Site Audit</h2>
-      <p style="color:var(--brand-text);font-size:1.05rem;margin-bottom:16px">
-        Already ran the free scan? The Blueprint is the next step.<br>
-        If you haven't, start with the free scan first (60 seconds).
-      </p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;justify-content:center">
-        <button type="button" class="btn btn-primary" data-booking-open="true" data-booking-source="services" data-booking-interest="Clinic Booking Blueprint" aria-haspopup="dialog" aria-controls="booking-modal" aria-expanded="false">Book 15-min Fit Check</button>
-        <a class="btn btn-ghost" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
-      </div>
-      <p class="hero-cta-microcopy" style="text-align:center;margin-bottom:24px">
-        Ready to fix bookings? Book 15-min Fit Check. Not ready to talk yet? Run the Free Scan.
-      </p>
-      <p class="tiny" style="margin-top: 8px; text-align: center;">
-        No PHI required. We review public pages only. Screenshots are used for your report and not shared.
-      </p>
-      <p style="font-size:0.85rem;color:var(--brand-muted);margin-bottom:24px;font-style:italic">
-        The scan is automated and meant to flag friction points. The Blueprint is where we confirm priorities and map the exact fixes.
-      </p>
-      <p style="color:var(--brand-text);font-size:1.05rem;margin-bottom:16px">
-        A deep dive into your current bookings, with a complete plan of your site's potential. You get a full audit showing exactly where visitors drop off, a detailed breakdown of what's leaking bookings, and a clear fix-it plan that shows how much faster a better site could pay for itself.
-      </p>
-      <p style="font-size:0.95rem;color:var(--brand-text);margin-bottom:16px">
-        <strong>Blueprint deliverables:</strong>
-      </p>
-      <ul class="services-hero-card-list" style="margin-bottom:24px">
-        <li>Full site audit showing where visitors drop off</li>
-        <li>Detailed breakdown of what's leaking bookings</li>
-        <li>Clear fix-it plan with prioritized actions</li>
-        <li>1-page Payback Snapshot (conservative scenarios)</li>
-        <li>Wireframe showing recommended page structure</li>
-      </ul>
-      <p style="font-size:0.95rem;color:var(--brand-text);margin-bottom:0">
-        <em>If you start a Core, Pro, or Premier rebuild within 90 days, we credit the full fee toward your project.</em>
-      </p>
     </div>
   </section>
 
