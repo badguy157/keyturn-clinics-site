@@ -1057,6 +1057,7 @@ button.book-intro:hover {
   border:1px solid rgba(255,255,255,.18);
   box-shadow:0 20px 50px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.08) inset;
   background:linear-gradient(145deg, rgba(30,41,59,.9) 0%, rgba(15,23,42,.95) 100%);
+  aspect-ratio: 2538 / 1281; /* Reserve space based on image dimensions to prevent layout shift */
 }
 
 /* Hero preview image styling */
@@ -3553,6 +3554,7 @@ details[open] .accordion-panel {
 
 .work-with-image {
   flex-shrink: 0;
+  aspect-ratio: 1024 / 921; /* Reserve space to prevent layout shift */
 }
 
 .avatar-enhanced {
@@ -7701,6 +7703,7 @@ details[open] .accordion-panel {
   margin-bottom: 16px;
   display: block;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  aspect-ratio: 2538 / 1281; /* Reserve space to prevent layout shift */
 }
 
 .demo-card-title {
