@@ -332,46 +332,56 @@
 
 <!-- ===== Start Here Section ===== -->
 <section class="container section fade-in-section">
-  <h2 class="section-eyebrow" style="text-align:center;margin-bottom:32px">Start here</h2>
-  <div class="start-here-grid">
-    <!-- Card 1: Free Quick Scan -->
-    <div class="start-here-card">
-      <h3 class="start-here-card-title">Free Quick Scan <span style="font-size:0.85em;color:var(--brand-muted)">(quick surface scan)</span></h3>
-      <div class="start-here-price">$0</div>
-      <div class="start-here-time">60 seconds</div>
-      <ul class="start-here-bullets">
-        <li>Instant score</li>
-        <li>Top leaks</li>
-        <li>Quick wins</li>
-      </ul>
-      <div class="start-here-cta">
-        <a class="btn btn-ghost" href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Run Free Scan</a>
+  <div class="start-here-container">
+    <h2 class="section-eyebrow" style="text-align:center;margin-bottom:12px">START HERE</h2>
+    <p class="start-here-helper">Pick your starting point. Most clinics start with the Fit Check.</p>
+    
+    <div class="start-here-grid">
+      <!-- Card 1: Clinic Booking Blueprint -->
+      <div class="start-here-card" id="blueprint-section">
+        <div class="card-body">
+          <h3 class="start-here-card-title">Clinic Booking Blueprint</h3>
+          <div class="start-here-price" data-price="blueprint">$1,000</div>
+          <div class="start-here-price-note">credited if you hire us</div>
+          <ul class="start-here-bullets">
+            <li>Full patient-flow analysis</li>
+            <li>Priority fixes ranked by impact</li>
+            <li>Clear sequencing plan</li>
+            <li>What to ignore (and why)</li>
+          </ul>
+        </div>
+        <div class="card-cta">
+          <button type="button" class="btn btn-ghost" data-booking-open="true" data-booking-source="home" data-booking-interest="Clinic Booking Blueprint" aria-haspopup="dialog" aria-controls="booking-modal" aria-expanded="false">Get the Blueprint</button>
+          <p class="start-here-note">Deep analysis & roadmap for your clinic.</p>
+        </div>
       </div>
-      <p class="start-here-note">Surface scan. Top leaks in 60 seconds.</p>
-    </div>
 
-    <!-- Card 2: Clinic Booking Blueprint -->
-    <div class="start-here-card" id="blueprint-section">
-      <h3 class="start-here-card-title">Clinic Booking Blueprint</h3>
-      <div class="start-here-price" data-price="blueprint">$1,000</div>
-      <div class="start-here-price-note">credited if you hire us</div>
-      <ul class="start-here-bullets">
-        <li>Human plan</li>
-        <li>Priorities</li>
-        <li>Sequencing</li>
-        <li>What to ignore (and why)</li>
-      </ul>
-      <div class="start-here-cta">
-        <button type="button" class="btn btn-primary" data-booking-open="true" data-booking-source="home" data-booking-interest="Clinic Booking Blueprint" aria-haspopup="dialog" aria-controls="booking-modal" aria-expanded="false">Book 15-min Fit Check</button>
+      <!-- Card 2: 15-min Fit Check (RECOMMENDED) -->
+      <div class="start-here-card start-here-card--primary">
+        <div class="recommended-badge">RECOMMENDED</div>
+        <div class="card-body">
+          <h3 class="start-here-card-title">15-min Fit Check</h3>
+          <div class="start-here-price">$0</div>
+          <div class="start-here-subtext">Get 3 leaks + 3 fixes (live)</div>
+          <ul class="start-here-bullets">
+            <li>Review your site together on a quick call</li>
+            <li>Top 3 patient leaks identified</li>
+            <li>3 specific fixes you can apply now</li>
+            <li>Clear next steps (hire us or not)</li>
+          </ul>
+        </div>
+        <div class="card-cta">
+          <button type="button" class="btn btn-primary" data-booking-open="true" data-booking-source="home" data-booking-interest="" aria-haspopup="dialog" aria-controls="booking-modal" aria-expanded="false">Book 15-min Fit Check</button>
+          <p class="start-here-note">No pressure. Just honest feedback.</p>
+        </div>
       </div>
-      <p class="start-here-note">Request a proposal for your clinic.</p>
+    </div>
+    
+    <!-- Deep Scan upsell footer -->
+    <div class="start-here-footer">
+      <p>Want a full page-by-page teardown? <a href="https://scan.keyturn.studio/" target="_blank" rel="noopener">Unlock Deep Scan in your report</a>.</p>
     </div>
   </div>
-  
-  <!-- Deep Scan upsell text link -->
-  <p style="margin-top: 24px; text-align: center; font-size: 0.95rem; color: var(--brand-text);">
-    Want a full page-by-page teardown? <a href="https://scan.keyturn.studio/" target="_blank" rel="noopener" style="color: var(--brand-accent); text-decoration: underline; text-underline-offset: 3px;">Unlock Deep Scan in your report</a>.
-  </p>
 </section>
 
 <!-- ===== Who we help / Is this you? ===== -->
