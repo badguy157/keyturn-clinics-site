@@ -500,6 +500,11 @@ button.book-intro:hover {
   opacity: 0.95;
 }
 
+.proof-deliverable {
+  font-style: normal;
+  opacity: 0.95;
+}
+
 .proof-attribution {
   font-size: 0.7rem;
   color: var(--brand-muted);
