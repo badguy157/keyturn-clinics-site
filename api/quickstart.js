@@ -17,7 +17,7 @@ export default async function handler(req, res) {
   try {
     const data = getJsonBody(req);
 
-    // Honeypot — bots bail out silently (using raw 'company' field when it's the honeypot)
+    // Honeypot: bots bail out silently (using raw 'company' field when it's the honeypot)
     if (data.company && !data.clinic_name && !data.propertyName && !data.property_name) {
       return res.status(200).json({ ok: true, emailSent: false });
     }
@@ -158,7 +158,7 @@ export default async function handler(req, res) {
       </div>
     `;
 
-    // Send (soft-fail — never block the form)
+    // Send (soft-fail, never block the form)
     let emailSent = false;
     try {
       emailSent =
