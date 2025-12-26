@@ -17,8 +17,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css?v=1.0.0">
-  <link rel="stylesheet" href="/assets/css/booking-modal.css">
 
+  <style>
+    /* Onboarding-specific spacing reductions */
+    body .section {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    
+    @media (min-width: 768px) {
+      body .section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      body .section {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+    }
+
+    /* Client onboarding header label styling */
+    .nav-onboarding-label {
+      display: flex;
+      align-items: center;
+    }
+  </style>
 
   <!-- Organization Schema -->
   <script type="application/ld+json">
@@ -202,25 +228,18 @@
         <div class="small" style="margin-top:14px;color:var(--brand-text)">
           <strong>Tip:</strong> Want to avoid cookie pop-ups? Ask us about privacy-friendly analytics instead of Google Analytics.
         </div>
-      </div>
-    </article>
-  </section>
 
-  <!-- ===== How to share files and access securely ===== -->
-  <section class="container section">
-    <article class="card">
-      <h2 style="margin-top:0">How to share files and access securely</h2>
-      <p>Use shared folders like Google Drive or Dropbox for photos. Use password managers for logins. Never send passwords by email.</p>
-      
-      <ul style="margin-top:20px;line-height:1.8">
-        <li style="margin-bottom:12px"><strong>Brand assets (logo, photos)</strong> → upload to your shared folder.</li>
-        <li style="margin-bottom:12px"><strong>Website / domain access</strong> → invite our studio email as a user.</li>
-        <li style="margin-bottom:12px"><strong>Analytics / booking tools</strong> → we'll send step-by-step instructions.</li>
-      </ul>
-      
-      <p style="margin-top:20px;font-size:.95rem;color:var(--brand-text)">
-        For more detail, see our <a href="/secure.html" style="color:var(--accent);text-decoration:underline">Security page</a>.
-      </p>
+        <h4 style="margin-top:32px;font-size:1.1rem;color:var(--fg)">How to share files securely</h4>
+        <p style="margin-top:8px;margin-bottom:16px;font-size:.95rem;color:var(--brand-text)">Use shared folders like Google Drive or Dropbox for photos. Use password managers for logins. Never send passwords by email.</p>
+        <ul style="margin:16px 0;padding-left:1.2rem;line-height:1.7;list-style-position:inside">
+          <li style="margin-bottom:12px"><strong>Brand assets (logo, photos)</strong> → upload to your shared folder.</li>
+          <li style="margin-bottom:12px"><strong>Website / domain access</strong> → invite our studio email as a user.</li>
+          <li style="margin-bottom:12px"><strong>Analytics / booking tools</strong> → we'll send step-by-step instructions.</li>
+        </ul>
+        <p style="margin-top:16px;font-size:.95rem;color:var(--brand-text)">
+          For more detail, see our <a href="/secure.html" style="color:var(--accent);text-decoration:underline">Security page</a>.
+        </p>
+      </div>
     </article>
   </section>
 
@@ -233,22 +252,6 @@
         <li style="margin-bottom:12px">We usually reply to questions <strong>within 1 business day</strong> (often same-day).</li>
         <li style="margin-bottom:12px">We need from you: <strong>quick feedback on designs</strong> so we can keep moving.</li>
       </ul>
-    </article>
-  </section>
-
-  <!-- ===== Referral thank-you for clinics ===== -->
-  <section class="container section">
-    <article class="card">
-      <h2 style="margin-top:0">Referral thank-you for clinics</h2>
-      <p>If you like working with us and know another clinic that needs a better website, we have a simple referral thank-you.</p>
-      <ul style="margin-top:20px;line-height:1.8">
-        <li style="margin-bottom:12px">When you introduce another clinic that signs a Core, Pro, or Premier website project and pays the deposit, we count that as a successful referral.</li>
-        <li style="margin-bottom:12px">For each successful referral, you can choose $500 cash or $750 in Keyturn credit for future work (such as a Growth Sprint or extra pages).</li>
-      </ul>
-      <p style="margin-top:20px">This program is only for referrals to other clinics or service businesses, not patient referrals. For full details, see our Referral Thank-You page.</p>
-      <p style="margin-top:20px;font-size:.95rem;color:var(--brand-text)">
-        You can read the details anytime on our <a href="/referrals.html" style="color:var(--accent);text-decoration:underline">Referral Thank-You</a> page.
-      </p>
     </article>
   </section>
 
@@ -285,28 +288,6 @@
         <div class="faq-answer" id="faq-onboarding-3" hidden>
           <div class="faq-answer-inner">
             <p>Yes, within the included rounds of feedback. We expect some small text tweaks during the project. Bigger changes like adding new pages may affect the timeline and fee.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-onboarding-4">
-          What if we need to pause the project?
-        </button>
-        <div class="faq-answer" id="faq-onboarding-4" hidden>
-          <div class="faq-answer-inner">
-            <p>Just let us know. We can pause for up to 2 weeks. Longer pauses may need rescheduling.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-onboarding-5">
-          How do we ask for small fixes after launch?
-        </button>
-        <div class="faq-answer" id="faq-onboarding-5" hidden>
-          <div class="faq-answer-inner">
-            <p>Email us. Small text edits and photo swaps are included for 30 days after launch. We also fix any bugs during that period. After 30 days, ongoing changes need a Care or Growth plan.</p>
           </div>
         </div>
       </div>
@@ -356,7 +337,6 @@
         <ul>
           <li><a href="mailto:hello@keyturn.studio">hello@keyturn.studio</a></li>
           <li><a class="footer-tel" href="tel:+12025961574">Call or text: 202-596-1574</a></li>
-          <li><a href="#" class="footer-link js-book-modal" data-booking-open="true" data-booking-source="other" data-booking-interest="" aria-haspopup="dialog" aria-controls="booking-modal" aria-expanded="false">Book 15-min Fit Check</a></li>
           <li><span style="font-size: 0.875rem; color: var(--muted-2);">Response within 1 business day</span></li>
         </ul>
       </div>
@@ -371,139 +351,9 @@
 <!-- Scripts moved to bottom for better performance -->
 <script src="/public/site.js?v=1.0.0" defer></script>
 <script src="/public/accordion.js?v=1.0.0" defer></script>
-<script src="/public/offers.js?v=1.0.0" defer></script>
-<script src="/public/cta-links.js?v=1.0.0" defer></script>
 
 <!-- Lazy load analytics on idle -->
 <script src="/assets/js/analytics-loader.js?v=1.0.0" defer></script>
-<script src="/assets/js/booking.js" defer></script>
-
-
-<!-- Booking Modal -->
-<div id="booking-modal-overlay" class="booking-modal-overlay" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
-  <div id="booking-modal" class="booking-modal">
-    <div class="booking-modal-header">
-      <h2 id="booking-modal-title" class="booking-modal-title">Request a Booking</h2>
-      <p class="booking-modal-subtitle">We'll reach out within 24 hours to confirm your appointment</p>
-      <button class="booking-modal-close" aria-label="Close modal">&times;</button>
-      <div class="booking-step-indicator">
-        <span class="booking-step-dot active"></span>
-        <span class="booking-step-dot"></span>
-      </div>
-    </div>
-
-    <div class="booking-modal-body">
-      <!-- Step 1: Contact & Preferences -->
-      <div id="booking-step-1" class="booking-step active">
-        <form id="booking-form-step-1">
-          <div class="booking-form-group">
-            <label for="booking-name" class="booking-form-label">
-              Name<span class="required">*</span>
-            </label>
-            <input type="text" id="booking-name" class="booking-form-input" placeholder="Your full name" autocomplete="name">
-            <div id="booking-name-error" class="booking-form-error"></div>
-          </div>
-
-          <div class="booking-form-group">
-            <label for="booking-email" class="booking-form-label">Email</label>
-            <input type="email" id="booking-email" class="booking-form-input" placeholder="your.email@example.com" autocomplete="email">
-            <div id="booking-email-error" class="booking-form-error"></div>
-          </div>
-
-          <div class="booking-form-group">
-            <label for="booking-phone" class="booking-form-label">Phone</label>
-            <input type="tel" id="booking-phone" class="booking-form-input" placeholder="(555) 123-4567" autocomplete="tel">
-            <div id="booking-phone-error" class="booking-form-error"></div>
-          </div>
-
-          <div class="booking-form-group">
-            <label for="booking-treatment" class="booking-form-label">
-              Treatment Interest<span class="required">*</span>
-            </label>
-            <select id="booking-treatment" class="booking-form-select">
-              <option value="" selected disabled>Select a treatment</option>
-              <option value="General Inquiry">General Inquiry</option>
-              <option value="Website Consultation">Website Consultation</option>
-              <option value="Patient Flow Scan">Patient Flow Scan</option>
-              <option value="Core Makeover">Core Makeover</option>
-              <option value="Pro Package">Pro Package</option>
-              <option value="Premier Package">Premier Package</option>
-            </select>
-            <div id="booking-treatment-error" class="booking-form-error"></div>
-          </div>
-
-          <div class="booking-form-group">
-            <label for="booking-time-window" class="booking-form-label">
-              Preferred Time Window<span class="required">*</span>
-            </label>
-            <select id="booking-time-window" class="booking-form-select">
-              <option value="" selected disabled>Select your preference</option>
-              <option value="Morning (9AM - 12PM)">Morning (9AM - 12PM)</option>
-              <option value="Afternoon (12PM - 5PM)">Afternoon (12PM - 5PM)</option>
-              <option value="Evening (5PM - 8PM)">Evening (5PM - 8PM)</option>
-              <option value="Flexible">Flexible</option>
-            </select>
-            <div id="booking-time-window-error" class="booking-form-error"></div>
-          </div>
-
-          <div class="booking-modal-footer">
-            <button type="button" id="booking-next-btn" class="booking-btn booking-btn-primary">
-              Continue
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Step 2: Review & Confirm -->
-      <div id="booking-step-2" class="booking-step">
-        <div class="booking-summary">
-          <h3 class="booking-summary-title">Review Your Request</h3>
-          <div class="booking-summary-item">
-            <span class="booking-summary-label">Name</span>
-            <span id="summary-name" class="booking-summary-value"></span>
-          </div>
-          <div class="booking-summary-item">
-            <span class="booking-summary-label">Email</span>
-            <span id="summary-email" class="booking-summary-value"></span>
-          </div>
-          <div class="booking-summary-item">
-            <span class="booking-summary-label">Phone</span>
-            <span id="summary-phone" class="booking-summary-value"></span>
-          </div>
-          <div class="booking-summary-item">
-            <span class="booking-summary-label">Treatment</span>
-            <span id="summary-treatment" class="booking-summary-value"></span>
-          </div>
-          <div class="booking-summary-item">
-            <span class="booking-summary-label">Preferred Time</span>
-            <span id="summary-time-window" class="booking-summary-value"></span>
-          </div>
-        </div>
-
-        <div class="booking-modal-footer">
-          <button type="button" id="booking-back-btn" class="booking-btn booking-btn-secondary">
-            Back
-          </button>
-          <button type="button" id="booking-confirm-btn" class="booking-btn booking-btn-primary">
-            Submit Request
-          </button>
-        </div>
-      </div>
-
-      <!-- Thank You State -->
-      <div id="booking-thank-you" class="booking-thank-you">
-        <div class="booking-thank-you-icon">✓</div>
-        <h3 class="booking-thank-you-title">Thank You!</h3>
-        <p class="booking-thank-you-message">
-          Your booking request has been received. We'll reach out within 24 hours to confirm your appointment.
-        </p>
-        <button type="button" class="booking-btn booking-btn-primary" onclick="document.querySelector('.booking-modal-close').click()">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>

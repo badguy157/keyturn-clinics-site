@@ -32,6 +32,56 @@
       return currentPath === normalized || currentPath === normalized + '.html';
     };
 
+    // Check if this is the onboarding page
+    const isOnboardingPage = currentPath === '/onboarding' || currentPath === '/onboarding.html';
+
+    // Client-only header for onboarding page
+    if (isOnboardingPage) {
+      const onboardingHeaderHTML = `
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-bar">
+    <a class="brand" href="/" aria-label="Keyturn Studio home">
+      <img src="/public/logo.svg?v=2" alt="Keyturn Studio" width="180" height="56" decoding="async">
+    </a>
+
+    <!-- Desktop nav for onboarding -->
+    <nav class="nav-desktop" aria-label="Primary">
+      <div class="nav-onboarding-label" style="font-weight: 600; color: var(--fg);">Client Onboarding</div>
+      <div class="nav-ctas">
+        <a class="btn btn-ghost" href="/contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button class="menu-toggle" aria-controls="mobileMenu" aria-expanded="false" data-menu-toggle>
+      <span class="sr-only">Toggle menu</span>☰
+    </button>
+  </div>
+
+  <!-- Mobile drawer for onboarding -->
+  <nav id="mobileMenu" class="mobile-drawer" hidden aria-label="Mobile">
+    <div style="padding: 16px; font-weight: 600; color: var(--fg);">Client Onboarding</div>
+    <a href="/contact.html">Contact</a>
+    <a class="mobile-menu-tel" href="tel:+12025961574">Call (202) 596-1574</a>
+    <a href="mailto:hello@keyturn.studio">Email us</a>
+  </nav>
+</header>
+      `.trim();
+
+      // Insert at the beginning of body
+      if (document.body && document.body.firstChild) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = onboardingHeaderHTML;
+        while (tempDiv.firstChild) {
+          document.body.insertBefore(tempDiv.firstChild, document.body.firstChild);
+        }
+      }
+      return;
+    }
+
+    // Default header for all other pages
     const headerHTML = `
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -297,13 +347,21 @@
     const stickyBar = document.querySelector('[data-sticky-cta]');
     if (!stickyBar) return;
 
+    // Determine current page type
+    const pathname = window.location.pathname;
+    const isOnboardingPage = pathname.includes('/onboarding') || pathname.endsWith('onboarding.html');
+    
+    // Hide sticky CTA on onboarding page
+    if (isOnboardingPage) {
+      stickyBar.remove();
+      return;
+    }
+
     const primaryBtn = stickyBar.querySelector('.mobile-sticky-primary');
     const secondaryLink = stickyBar.querySelector('.mobile-sticky-secondary');
     
     if (!primaryBtn || !secondaryLink) return;
 
-    // Determine current page type
-    const pathname = window.location.pathname;
     const isBlogPage = pathname.includes('/blog') || pathname.endsWith('blog.html');
     const isProofPage = pathname.includes('/proof') || pathname.endsWith('proof.html');
     const isSpecialPage = isBlogPage || isProofPage;
